@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Stats")]
     [Header("Movement")]
     public Vector2 MovementDirection { get; set; }
     public int movementSpeed;
@@ -9,6 +10,8 @@ public class Player : MonoBehaviour
     public float fireDelay;
     public float FireDelayBuffer { get; set; }
     public bool IsFiring { get; set; }
+    public float BulletSpeed { get; private set; }
+    public float BulletDamage { get; private set; }
 
     [Header("Components")]
     [HideInInspector] public Rigidbody2D rb;
