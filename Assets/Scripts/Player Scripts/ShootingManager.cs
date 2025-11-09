@@ -41,7 +41,7 @@ public class ShootingManager : MonoBehaviour
         
 
         // Stuff
-        Debug.Log($"Fire!!");
+        Debug.Log($"Fire ! ! !");
         
         // Set fire delay
         p.FireDelayBuffer = p.fireDelay;
