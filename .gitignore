@@ -82,6 +82,8 @@ crashlytics-build.properties
 /.idea/shelf/*
 /.idea/dictionaries
 /.idea/httpRequests/
+# This line removes everything rider generates, may be important idk. I may be stupid
+.idea/*
 
 # Sensitive or high-churn files
 /.idea/**/dataSources/
