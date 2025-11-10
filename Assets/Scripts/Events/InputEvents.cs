@@ -15,4 +15,10 @@ public class InputEvents
     {
         OnFirePressed?.Invoke(isPressed);
     }
+
+    public event Action<Vector2> OnMouseMoved;
+    public void MouseMoved(Vector2 position)
+    {
+        OnMouseMoved?.Invoke(position);
+    }
 }

@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class MovementState : State
 {
-    protected override void OnEnter()
+    /* protected override void OnEnter()
     {
         GameEventManager.instance.inputEvents.OnFirePressed += FirePressed;
-    }
+    } */
 
     protected override void OnUpdate()
     {
@@ -17,7 +17,7 @@ public class MovementState : State
         if (p.MovementDirection.magnitude <= .2f) sc.ChangeState(sc.idleState);
     }
 
-    protected override void OnExit()
+    /* protected override void OnExit()
     {
         GameEventManager.instance.inputEvents.OnFirePressed -= FirePressed;
     }
@@ -25,5 +25,5 @@ public class MovementState : State
     private void FirePressed(float isPressed)
     {
         p.IsFiring = isPressed > .1f;
-    }
+    } */
 }

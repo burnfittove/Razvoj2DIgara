@@ -13,4 +13,9 @@ public class InputManager : MonoBehaviour
     {
         GameEventManager.instance.inputEvents.FirePressed(context.ReadValue<float>());
     }
+
+    public void MouseMoved(InputAction.CallbackContext context)
+    {
+        GameEventManager.instance.inputEvents.MouseMoved(context.ReadValue<Vector2>());
+    }
 }

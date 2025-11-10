@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    protected override void OnEnter()
+    /* protected override void OnEnter()
     {
         GameEventManager.instance.inputEvents.OnFirePressed += FirePressed;
-    }
+    } */
 
     protected override void OnUpdate()
     {
@@ -13,7 +13,7 @@ public class IdleState : State
         if (p.MovementDirection != Vector2.zero) sc.ChangeState(sc.movementState);
     }
 
-    protected override void OnExit()
+    /* protected override void OnExit()
     {
         GameEventManager.instance.inputEvents.OnFirePressed -= FirePressed;
     }
@@ -21,5 +21,5 @@ public class IdleState : State
     private void FirePressed(float isPressed)
     {
         p.IsFiring = isPressed > .1f;
-    }
+    } */
 }
