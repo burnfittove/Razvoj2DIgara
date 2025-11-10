@@ -51,6 +51,7 @@ public class ShootingManager : MonoBehaviour
 
         // Stuff
         Debug.Log($"Fire!!");
+        var bulletToInst = Instantiate(p.Bullet);
 
         // Set fire delay
         p.FireDelayBuffer = p.fireDelay;

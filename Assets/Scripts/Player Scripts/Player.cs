@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public bool IsFiring { get; set; }
     public float BulletSpeed { get; private set; }
     public float BulletDamage { get; private set; }
+    public GameObject Bullet;
 
     [Header("Components")]
     [HideInInspector] public Rigidbody2D rb;
