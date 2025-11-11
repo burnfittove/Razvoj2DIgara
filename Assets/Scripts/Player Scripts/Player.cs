@@ -10,8 +10,12 @@ public class Player : MonoBehaviour
     public float fireDelay;
     public float FireDelayBuffer { get; set; }
     public bool IsFiring { get; set; }
+    [SerializeField] private float bulletSpeed;
     public float BulletSpeed { get; private set; }
+    [SerializeField] private float bulletDamage;
     public float BulletDamage { get; private set; }
+    [SerializeField] private float bulletRange;
+    public float BulletRange { get; private set; }
     public GameObject Bullet;
 
     [Header("Components")]

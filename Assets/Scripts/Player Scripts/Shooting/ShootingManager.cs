@@ -1,32 +1,36 @@
-using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShootingManager : MonoBehaviour
 {
     private Player p;
-    private Vector2 position;
+    private IShooter shooter;
+    private AimCursorSetPosition aimCursor;
 
     void Awake()
     {
         p = GetComponentInParent<Player>();
+
+        shooter = GetComponentInParent<PlayerShooter>();
+        aimCursor = new AimCursorSetPosition(p, this);
     }
 
     void OnEnable()
     {
         GameEventManager.instance.inputEvents.OnFirePressed += FirePressed;
-        GameEventManager.instance.inputEvents.OnMouseMoved += MoveSpawner;
+        GameEventManager.instance.inputEvents.OnMouseMoved += aimCursor.MoveSpawner;
     }
 
     void OnDisable()
     {
         GameEventManager.instance.inputEvents.OnFirePressed -= FirePressed;
-        GameEventManager.instance.inputEvents.OnMouseMoved -= MoveSpawner;
+        GameEventManager.instance.inputEvents.OnMouseMoved -= aimCursor.MoveSpawner;
     }
 
     void Update()
     {
         // Fire if the player is pressing the Fire button
-        if (p.IsFiring) FireBullet();
+        if (p.IsFiring) shooter.Shoot(aimCursor.Position);
 
         // Constantly decrease fire buffer
         DecreaseFireBuffer();
@@ -34,8 +38,7 @@ public class ShootingManager : MonoBehaviour
 
     void LateUpdate()
     {
-        // Update the position
-        UpdatePosition();
+        aimCursor.UpdatePosition();
     }
 
     private void DecreaseFireBuffer()
@@ -43,32 +46,8 @@ public class ShootingManager : MonoBehaviour
         p.FireDelayBuffer -= Time.deltaTime;
     }
 
-    private void FireBullet()
-    {
-        // Exit if there is still fire delay
-        if (p.FireDelayBuffer > 0) return;
-        // Exit if the player is not in the movment or idle state
-
-        // Stuff
-        Debug.Log($"Fire!!");
-        var bulletToInst = Instantiate(p.Bullet);
-
-        // Set fire delay
-        p.FireDelayBuffer = p.fireDelay;
-    }
-
     private void FirePressed(float isPressed)
     {
         p.IsFiring = isPressed > .1f;
-    }
-
-    void MoveSpawner(Vector2 worldPosition)
-    {
-        position = Vector3.Normalize(Camera.main.ScreenToWorldPoint(worldPosition) - p.transform.position);
-    }
-
-    void UpdatePosition()
-    {
-        transform.position = position + (Vector2)p.transform.position;
     }
 }
