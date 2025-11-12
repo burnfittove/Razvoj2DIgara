@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+This script moves the position of the player's bullet spawner. This scripts instantiater, ShootingManager, later passes this position to the bullets it fires.
+*/
+
 public class AimCursorSetPosition
 {
     public AimCursorSetPosition(Player player, ShootingManager shootingManager)
@@ -7,17 +11,20 @@ public class AimCursorSetPosition
         p = player;
         sh = shootingManager;
     }
-    public Vector2 Position { get; private set; }
+    private Vector2 position;
+    public Vector2 Position
+    {
+        get => position.normalized; private
+    set
+        {
+            position = value;
+        }
+    }
     private Player p;
     private ShootingManager sh;
 
     public void MoveSpawner(Vector2 worldPosition)
     {
-        Position = Vector3.Normalize(Camera.main.ScreenToWorldPoint(worldPosition) - p.transform.position);
-    }
-
-    public void UpdatePosition()
-    {
-        sh.transform.position = Position + (Vector2)p.transform.position;
+        Position = Camera.main.ScreenToWorldPoint(worldPosition) - p.transform.position;
     }
 }

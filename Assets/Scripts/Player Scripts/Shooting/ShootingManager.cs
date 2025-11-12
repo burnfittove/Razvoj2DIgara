@@ -1,5 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
+
+/*
+This script combines the functions of PlayerShooter (which pools bullets) and AimCurosrSetPosition (which updates the position in which bullets should travel once fired). It assigns two functions to two GameEventManager events; its FirePressed and AimCursorSetPosition's MoveSpawner.
+*/
 
 public class ShootingManager : MonoBehaviour
 {
@@ -34,11 +37,6 @@ public class ShootingManager : MonoBehaviour
 
         // Constantly decrease fire buffer
         DecreaseFireBuffer();
-    }
-
-    void LateUpdate()
-    {
-        aimCursor.UpdatePosition();
     }
 
     private void DecreaseFireBuffer()

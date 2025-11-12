@@ -1,24 +1,33 @@
 using UnityEngine;
 
+/*
+This script pools bullets to avoid potenital performance dips due to instatiating during gameplay.
+*/
+
 public class PlayerShooter : MonoBehaviour, IShooter
 {
     private Player p;
+    private BulletPooling bp;
 
     void Awake()
     {
-        p = GetComponentInParent<Player>();
+        p = GetComponent<Player>();
+        bp = GetComponent<BulletPooling>();
     }
-    
+
     public void Shoot(Vector2 direction)
     {
         // Exit if there is still fire delay
         if (p.FireDelayBuffer > 0) return;
-        // Exit if the player is not in the movment or idle state
 
-        // Stuff
-        Debug.Log($"Fire!!");
-        var bulletToFire = Instantiate(p.Bullet, p.transform.position, Quaternion.identity);
-        bulletToFire.GetComponent<Bullet>().Initialize(direction, p.BulletSpeed, p.BulletDamage, p.BulletRange);
+        // Use the BulletPooling Script to Instantiate bullets
+        Bullet bullet = BulletPooling.SharedInstance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = transform.position;
+            bullet.Initialize(direction, p.bulletSpeed, p.bulletDamage, p.bulletLifetime);
+            bullet.gameObject.SetActive(true);
+        }
 
         // Set fire delay
         p.FireDelayBuffer = p.fireDelay;
