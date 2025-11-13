@@ -1,21 +1,25 @@
+using Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
-public class InputManager : MonoBehaviour
+namespace Managers
 {
-    public void MovePressed(InputAction.CallbackContext context)
+    [RequireComponent(typeof(PlayerInput))]
+    public class InputManager : MonoBehaviour
     {
-        GameEventManager.instance.inputEvents.MovePressed(context.ReadValue<Vector2>());
-    }
+        public void MovePressed(InputAction.CallbackContext context)
+        {
+            GameEventManager.Instance.inputEvents.MovePressed(context.ReadValue<Vector2>());
+        }
 
-    public void FirePressed(InputAction.CallbackContext context)
-    {
-        GameEventManager.instance.inputEvents.FirePressed(context.ReadValue<float>());
-    }
+        public void FirePressed(InputAction.CallbackContext context)
+        {
+            GameEventManager.Instance.inputEvents.FirePressed(context.ReadValue<float>());
+        }
 
-    public void MouseMoved(InputAction.CallbackContext context)
-    {
-        GameEventManager.instance.inputEvents.MouseMoved(context.ReadValue<Vector2>());
+        public void MouseMoved(InputAction.CallbackContext context)
+        {
+            GameEventManager.Instance.inputEvents.MouseMoved(context.ReadValue<Vector2>());
+        }
     }
 }

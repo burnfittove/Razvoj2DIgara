@@ -1,3 +1,4 @@
+using Events;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class CursorController : MonoBehaviour
 
     void OnEnable()
     {
-        GameEventManager.instance.inputEvents.OnMouseMoved += MoveCursor;
+        GameEventManager.Instance.inputEvents.OnMouseMoved += MoveCursor;
     }
 
     // Update is called once per frame
@@ -28,6 +29,6 @@ public class CursorController : MonoBehaviour
     
     void OnDisable()
     {
-        GameEventManager.instance.inputEvents.OnMouseMoved -= MoveCursor;
+        GameEventManager.Instance.inputEvents.OnMouseMoved -= MoveCursor;
     }
 }

@@ -1,20 +1,26 @@
 using UnityEngine;
 
-public class GameEventManager : MonoBehaviour
+namespace Events
 {
-    public static GameEventManager instance { get; private set; }
-
-    public InputEvents inputEvents;
-
-    void Awake()
+    public class GameEventManager : MonoBehaviour
     {
-        if (instance != null && instance != this)
-        {
-            Debug.LogError("Multiple instances of GameEventManager detected!");
-        }
-        instance = this;
+        // Singleton
+        public static GameEventManager Instance { get; private set; }
 
-        // Initialize events
-        inputEvents = new InputEvents();
+        public InputEvents inputEvents;
+        public StatUpdateEvents statUpdateEvents;
+
+        void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Debug.LogError("Multiple instances of GameEventManager detected!");
+            }
+            Instance = this;
+
+            // Initialize events
+            inputEvents = new InputEvents();
+            statUpdateEvents = new StatUpdateEvents();
+        }
     }
 }

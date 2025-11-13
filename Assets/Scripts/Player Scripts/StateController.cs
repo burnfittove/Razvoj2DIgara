@@ -1,3 +1,4 @@
+using Events;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -18,7 +19,7 @@ public class StateController : MonoBehaviour
     void Start()
     {
         ChangeState(idleState);
-        GameEventManager.instance.inputEvents.OnMovePressed += MovePressed;
+        GameEventManager.Instance.inputEvents.OnMovePressed += MovePressed;
     }
 
     // Update is called once per frame

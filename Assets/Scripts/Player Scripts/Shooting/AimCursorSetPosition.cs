@@ -14,12 +14,14 @@ public class AimCursorSetPosition
     private Vector2 position;
     public Vector2 Position
     {
-        get => position.normalized; private
+        get { return position.normalized; }
+        private
     set
         {
             position = value;
         }
     }
+
     private Player p;
     private ShootingManager sh;
 

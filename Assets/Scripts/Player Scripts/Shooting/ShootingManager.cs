@@ -1,3 +1,4 @@
+using Events;
 using UnityEngine;
 
 /*
@@ -20,14 +21,14 @@ public class ShootingManager : MonoBehaviour
 
     void OnEnable()
     {
-        GameEventManager.instance.inputEvents.OnFirePressed += FirePressed;
-        GameEventManager.instance.inputEvents.OnMouseMoved += aimCursor.MoveSpawner;
+        GameEventManager.Instance.inputEvents.OnFirePressed += FirePressed;
+        GameEventManager.Instance.inputEvents.OnMouseMoved += aimCursor.MoveSpawner;
     }
 
     void OnDisable()
     {
-        GameEventManager.instance.inputEvents.OnFirePressed -= FirePressed;
-        GameEventManager.instance.inputEvents.OnMouseMoved -= aimCursor.MoveSpawner;
+        GameEventManager.Instance.inputEvents.OnFirePressed -= FirePressed;
+        GameEventManager.Instance.inputEvents.OnMouseMoved -= aimCursor.MoveSpawner;
     }
 
     void Update()
