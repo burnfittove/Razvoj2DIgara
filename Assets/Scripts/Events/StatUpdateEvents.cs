@@ -4,18 +4,21 @@ namespace Events
 {
     public class StatUpdateEvents
     {
+        // Health update
         public event Action<float> OnHealthChange;
         public void HealthChange(float value)
         {
             OnHealthChange?.Invoke(value);
         }
     
+        // Damage update
         public event Action<float> OnDamageChange;
         public void DamageChange(float value)
         {
             OnDamageChange?.Invoke(value);
         }
         
+        // Damage multiplier update
         public event Action<float> OnDamageMultiplierChange;
 
         public void DamageMultiplierChange(float value)
@@ -23,6 +26,7 @@ namespace Events
             OnDamageMultiplierChange?.Invoke(value);
         }
         
+        // Fire delay update
         public event Action<float> OnFireDelayChange;
 
         public void FireDelayChange(float value)
@@ -30,6 +34,7 @@ namespace Events
             OnFireDelayChange?.Invoke(value);
         }
         
+        // Fire delay multiplier update
         public event Action<float> OnFireDelayMultiplierChange;
 
         public void FireDelayMultiplierChange(float value)
@@ -37,11 +42,19 @@ namespace Events
             OnFireDelayMultiplierChange?.Invoke(value);
         }
         
-        public event  Action<float> OnSpeedChange;
+        // Speed update
+        public event Action<int> OnSpeedChange;
 
-        public void SpeedChange(float value)
+        public void SpeedChange(int value)
         {
             OnSpeedChange?.Invoke(value);
+        }
+        
+        // Range (bullet lifetime) update
+        public event Action<float> OnLifetimeChange;
+        public void LifetimeChange(float value)
+        {
+            OnLifetimeChange?.Invoke(value);
         }
     }
 }

@@ -9,7 +9,7 @@ public class MagicOnion : Item
         if (other.tag == "Player")
         {
             UpdatePlayerFireRateMultiplier(itemInfo.fireRateMultiplierDelta);
-            UpdatePlayerDamageMulitplier(itemInfo.damageMultiplierDelta);
+            UpdatePlayerDamageMultiplier(itemInfo.damageMultiplierDelta);
             Destroy(gameObject);
         }
     }

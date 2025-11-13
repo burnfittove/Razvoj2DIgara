@@ -23,7 +23,7 @@ namespace Items
             GameEventManager.Instance.statUpdateEvents.DamageChange(newDamage);
         }
 
-        protected void UpdatePlayerDamageMulitplier(float newDamageMultiplier)
+        protected void UpdatePlayerDamageMultiplier(float newDamageMultiplier)
         {
             GameEventManager.Instance.statUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
         }
@@ -38,9 +38,14 @@ namespace Items
             GameEventManager.Instance.statUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
         }
 
-        protected void UpdatePlayerSpeed(float newSpeed)
+        protected void UpdatePlayerSpeed(int newSpeed)
         {
             GameEventManager.Instance.statUpdateEvents.SpeedChange(newSpeed);
+        }
+
+        protected void UpdatePlayerBulletLifetime(float newBulletLifetime)
+        {
+            GameEventManager.Instance.statUpdateEvents.LifetimeChange(newBulletLifetime);
         }
     }
 }

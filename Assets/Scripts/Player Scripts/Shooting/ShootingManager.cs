@@ -38,6 +38,14 @@ public class ShootingManager : MonoBehaviour
 
         // Constantly decrease fire buffer
         DecreaseFireBuffer();
+        
+        // Update the cursor position
+        UpdatePosition();
+    }
+
+    private void UpdatePosition()
+    {
+        transform.position = aimCursor.Position + (Vector2)p.transform.position;
     }
 
     private void DecreaseFireBuffer()
@@ -49,4 +57,6 @@ public class ShootingManager : MonoBehaviour
     {
         p.IsFiring = isPressed > .1f;
     }
+    
+    
 }

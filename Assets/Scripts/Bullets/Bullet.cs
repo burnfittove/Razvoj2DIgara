@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
 
     private void DecreaseLifetime()
     {
-        lifetime -= Time.deltaTime;
+        lifetime -= Time.deltaTime * 10;
 
         if (lifetime <= 0) gameObject.SetActive(false);
     }

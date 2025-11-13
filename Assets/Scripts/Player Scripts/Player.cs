@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
         GameEventManager.Instance.statUpdateEvents.OnDamageMultiplierChange += DamageMultiplierUpdate;
         GameEventManager.Instance.statUpdateEvents.OnFireDelayChange += FireDelayUpdate;
         GameEventManager.Instance.statUpdateEvents.OnFireDelayMultiplierChange += FireDelayMultiplierUpdate;
+        GameEventManager.Instance.statUpdateEvents.OnSpeedChange += SpeedUpdate;
+        GameEventManager.Instance.statUpdateEvents.OnLifetimeChange += LifetimeUpdate;
     }
 
     private void DamageUpdate(float value)
@@ -47,32 +49,44 @@ public class Player : MonoBehaviour
     private void DamageMultiplierUpdate(float value)
     {
         bulletDamageMultiplier += value;
-        if (bulletDamageMultiplier <= 0) fireDelayMultiplier = .2f;
-        ApplyDamageMultiplier(bulletDamage, bulletDamageMultiplier);
+        if (bulletDamageMultiplier <= .2f) bulletDamageMultiplier = .2f;
+        bulletDamage *= bulletDamageMultiplier;
     }
     
     // Apply the damage multiplier on the newly acquired damage
     private void ApplyDamageMultiplier(float dmg, float dmgMult)
     {
-        bulletDamage =  dmg * dmgMult;
+        bulletDamage += dmg * dmgMult;
     }
 
     private void FireDelayUpdate(float value)
     {
         ApplyDelayMultiplier(value, fireDelayMultiplier);
-        if (fireDelay <= 0) fireDelay = .2f;
+        if (fireDelay <= .2f) fireDelay = .2f;
         FireDelayBuffer = fireDelay;
     }
 
     private void FireDelayMultiplierUpdate(float value)
     {
         fireDelayMultiplier += value;
-        if (fireDelayMultiplier <= 0) fireDelayMultiplier = .2f;
-        ApplyDelayMultiplier(fireDelay, fireDelayMultiplier);
+        if (fireDelayMultiplier <= .2f) fireDelayMultiplier = .2f;
+        fireDelay *= fireDelayMultiplier;
     }
 
     private void ApplyDelayMultiplier(float dly, float dlyMult)
     {
-        fireDelay = dly * dlyMult;
+        fireDelay += dly * dlyMult;
+    }
+
+    private void SpeedUpdate(int value)
+    {
+        if (movementSpeed > 500) movementSpeed = 500;
+        else movementSpeed += value;
+    }
+
+    private void LifetimeUpdate(float value)
+    {
+        bulletLifetime += value;
+        if (bulletLifetime <= .2f) bulletLifetime = .2f;
     }
 }

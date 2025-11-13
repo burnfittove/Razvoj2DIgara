@@ -12,7 +12,7 @@ namespace Items
         public float damageDelta;
         public float damageMultiplierDelta;
         public float healthDelta;
-        public float speedDelta;
+        public int speedDelta;
         public float bulletLifetimeDelta;
         public float fireDelayDelta;
         public float fireRateMultiplierDelta;
