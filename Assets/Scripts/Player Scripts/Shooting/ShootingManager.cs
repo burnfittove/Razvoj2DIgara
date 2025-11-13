@@ -42,7 +42,7 @@ public class ShootingManager : MonoBehaviour
 
     private void DecreaseFireBuffer()
     {
-        p.FireDelayBuffer -= Time.deltaTime;
+        p.FireDelayBuffer -= Time.deltaTime * 10;
     }
 
     private void FirePressed(float isPressed)

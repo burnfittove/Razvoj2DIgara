@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
 
     private void Move()
     {
-        rb.MovePosition((Vector2)transform.position + moveDirection * Time.fixedDeltaTime * moveSpeed);
+        rb.MovePosition((Vector2)transform.position + moveDirection * (Time.fixedDeltaTime * moveSpeed));
     }
 
     private void DecreaseLifetime()

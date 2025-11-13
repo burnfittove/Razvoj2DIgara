@@ -16,11 +16,25 @@ namespace Events
             OnDamageChange?.Invoke(value);
         }
         
-        public event Action<float> OnFireRateChange;
+        public event Action<float> OnDamageMultiplierChange;
 
-        public void FireRateChange(float value)
+        public void DamageMultiplierChange(float value)
         {
-            OnFireRateChange?.Invoke(value);
+            OnDamageMultiplierChange?.Invoke(value);
+        }
+        
+        public event Action<float> OnFireDelayChange;
+
+        public void FireDelayChange(float value)
+        {
+            OnFireDelayChange?.Invoke(value);
+        }
+        
+        public event Action<float> OnFireDelayMultiplierChange;
+
+        public void FireDelayMultiplierChange(float value)
+        {
+            OnFireDelayMultiplierChange?.Invoke(value);
         }
         
         public event  Action<float> OnSpeedChange;

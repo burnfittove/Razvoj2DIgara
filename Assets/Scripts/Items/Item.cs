@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Items
 {
-    public partial class Item : MonoBehaviour
+    public class Item : MonoBehaviour
     {
-        private CircleCollider2D cc;
-        private ItemInformationSO itemInfo;
+        protected CircleCollider2D cc;
+        public ItemInformationSO itemInfo;
 
         private void Awake()
         {
@@ -23,22 +23,24 @@ namespace Items
             GameEventManager.Instance.statUpdateEvents.DamageChange(newDamage);
         }
 
+        protected void UpdatePlayerDamageMulitplier(float newDamageMultiplier)
+        {
+            GameEventManager.Instance.statUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
+        }
+
         protected void UpdatePlayerFireRate(float newFireRate)
         {
-            GameEventManager.Instance.statUpdateEvents.FireRateChange(newFireRate);
+            GameEventManager.Instance.statUpdateEvents.FireDelayChange(newFireRate);
+        }
+        
+        protected void UpdatePlayerFireRateMultiplier(float newFireRateMultiplier)
+        {
+            GameEventManager.Instance.statUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
         }
 
         protected void UpdatePlayerSpeed(float newSpeed)
         {
             GameEventManager.Instance.statUpdateEvents.SpeedChange(newSpeed);
-        }
-
-        protected void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                // Run methods based on whether the item changes a stat
-            }
         }
     }
 }

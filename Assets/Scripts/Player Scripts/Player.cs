@@ -11,10 +11,11 @@ public class Player : MonoBehaviour
     [Header("Shooting")]
     public float fireDelay;
     public float FireDelayBuffer { get; set; }
+    public float fireDelayMultiplier = 1;
     public bool IsFiring { get; set; }
     public float bulletSpeed;
     public float bulletDamage;
-    public float bulletDamageMultiplier;
+    public float bulletDamageMultiplier = 1;
     public float bulletLifetime;
 
     [Header("Components")]
@@ -28,21 +29,50 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        // Subsribe to stat change events
+        // Subscribe to stat change events
         GameEventManager.Instance.statUpdateEvents.OnDamageChange += DamageUpdate;
+        GameEventManager.Instance.statUpdateEvents.OnDamageMultiplierChange += DamageMultiplierUpdate;
+        GameEventManager.Instance.statUpdateEvents.OnFireDelayChange += FireDelayUpdate;
+        GameEventManager.Instance.statUpdateEvents.OnFireDelayMultiplierChange += FireDelayMultiplierUpdate;
     }
 
     private void DamageUpdate(float value)
     {
         // Update the damage
-        bulletDamage += ApplyDamageMultiplier( value, bulletDamageMultiplier);
+        ApplyDamageMultiplier( value, bulletDamageMultiplier);
+    }
+    
+    private void DamageMultiplierUpdate(float value)
+    {
+        bulletDamageMultiplier += value;
+        if (bulletDamageMultiplier <= 0) fireDelayMultiplier = .2f;
+        ApplyDamageMultiplier(bulletDamage, bulletDamageMultiplier);
     }
     
     // Apply the damage multiplier on the newly acquired damage
-    private float ApplyDamageMultiplier(float dmg, float dmgMult)
+    private void ApplyDamageMultiplier(float dmg, float dmgMult)
     {
-        return dmg * dmgMult;
+        bulletDamage =  dmg * dmgMult;
+    }
+
+    private void FireDelayUpdate(float value)
+    {
+        ApplyDelayMultiplier(value, fireDelayMultiplier);
+        if (fireDelay <= 0) fireDelay = .2f;
+        FireDelayBuffer = fireDelay;
+    }
+
+    private void FireDelayMultiplierUpdate(float value)
+    {
+        fireDelayMultiplier += value;
+        if (fireDelayMultiplier <= 0) fireDelayMultiplier = .2f;
+        ApplyDelayMultiplier(fireDelay, fireDelayMultiplier);
+    }
+
+    private void ApplyDelayMultiplier(float dly, float dlyMult)
+    {
+        fireDelay = dly * dlyMult;
     }
 }
