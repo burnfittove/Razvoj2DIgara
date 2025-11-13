@@ -15,5 +15,19 @@ namespace Events
         {
             OnDamageChange?.Invoke(value);
         }
+        
+        public event Action<float> OnFireRateChange;
+
+        public void FireRateChange(float value)
+        {
+            OnFireRateChange?.Invoke(value);
+        }
+        
+        public event  Action<float> OnSpeedChange;
+
+        public void SpeedChange(float value)
+        {
+            OnSpeedChange?.Invoke(value);
+        }
     }
 }
