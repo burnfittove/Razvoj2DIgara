@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [HideInInspector] public Rigidbody2D rb;
 
+    public float Velocity { get => rb.linearVelocity.magnitude; }
+
 
     void Awake()
     {

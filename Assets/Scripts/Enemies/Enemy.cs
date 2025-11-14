@@ -1,38 +1,38 @@
+using System;
 using UnityEngine;
 
 namespace Enemies
 {
     public abstract class Enemy: MonoBehaviour, IDamageable
     {
-        public float Health { get; private set; }
-        public float MaxHealth { get; private set; }
-        public float Damage { get; private set; }
-        public float Speed { get; private set; }
-        private Rigidbody2D rb;
-
-        private void Awake()
+        public EnemyInformationSO enemyInfo;
+        protected Rigidbody2D rb;
+        protected Player p;
+        
+        protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            p = FindFirstObjectByType<Player>();
         }
 
         public void TakeDamage(float damage)
         {
-            Health -= damage;
+            enemyInfo.health -= damage;
         }
 
-        private void OnDeath()
+        protected virtual void OnDeath()
         {
             Destroy(gameObject);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            Move(Vector2.right);
+            if (enemyInfo.health <= 0) OnDeath();
         }
 
-        private void Move(Vector2 direction)
+        protected virtual void Move(Vector2 direction)
         {
-            rb.linearVelocity = direction * (Speed * Time.fixedDeltaTime);
+            rb.linearVelocity = direction * (enemyInfo.speed * Time.fixedDeltaTime);
         }
     }
 }

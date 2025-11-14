@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -8,6 +9,7 @@ public class Bullet : MonoBehaviour
     protected float moveSpeed;
     protected float damage;
     protected float lifetime;
+    protected IDamageable damageable;
 
     void Awake()
     {

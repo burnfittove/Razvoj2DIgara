@@ -22,10 +22,10 @@ public class PlayerShooter : MonoBehaviour, IShooter
 
         // Use the BulletPooling Script to Instantiate bullets
         Bullet bullet = BulletPooling.SharedInstance.GetPooledObject();
-        if (bullet != null)
+        if (bullet is not null)
         {
             bullet.transform.position = transform.position;
-            bullet.Initialize(direction, p.bulletSpeed, p.bulletDamage, p.bulletLifetime);
+            bullet.Initialize(direction, p.bulletSpeed + p.Velocity, p.bulletDamage, p.bulletLifetime);
             bullet.gameObject.SetActive(true);
         }
 
