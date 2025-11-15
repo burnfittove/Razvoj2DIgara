@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     public Vector2 MovementDirection { get; set; }
     public int movementSpeed;
+    public int maxMovementSpeed;
     [Header("Shooting")]
     public float fireDelay;
     public float FireDelayBuffer { get; set; }
@@ -17,11 +18,13 @@ public class Player : MonoBehaviour
     public float bulletDamage;
     public float bulletDamageMultiplier = 1;
     public float bulletLifetime;
+    public float bulletLifetimeMultiplier = 1;
+    private const float MinVal = .2f;
+    private const float MinMult = .1f;
+    public Transform cursor;
 
     [Header("Components")]
     [HideInInspector] public Rigidbody2D rb;
-
-    public float Velocity { get => rb.linearVelocity.magnitude; }
 
 
     void Awake()
@@ -44,51 +47,75 @@ public class Player : MonoBehaviour
 
     private void DamageUpdate(float value)
     {
+        // Exit if the value is 0
+        if (value == 0) return;
         // Update the damage
-        ApplyDamageMultiplier( value, bulletDamageMultiplier);
+        UpdateStat(ref bulletDamage, value, bulletDamageMultiplier);
+        // Check for minVal
+        if (bulletDamage <= MinVal) bulletDamage = MinVal;
     }
     
     private void DamageMultiplierUpdate(float value)
     {
-        bulletDamageMultiplier += value;
-        if (bulletDamageMultiplier <= .2f) bulletDamageMultiplier = .2f;
-        bulletDamage *= bulletDamageMultiplier;
+        // Exit if the value is 0
+        if (value == 0) return;
+        // Multiply the current multiplier by the passes value
+        bulletDamageMultiplier *= value;
+        // Check if the multiplier is smaller than the minimum
+        if (bulletDamageMultiplier <= MinMult) bulletDamageMultiplier = MinMult;
+        // Apply the damage multiplier
+        ApplyMultiplier(ref bulletDamage, bulletDamageMultiplier);
     }
     
-    // Apply the damage multiplier on the newly acquired damage
-    private void ApplyDamageMultiplier(float dmg, float dmgMult)
+    // Apply a multiplier value and update the stat
+    private void ApplyMultiplier(ref float stat, float multiplier)
     {
-        bulletDamage += dmg * dmgMult;
+        stat *= multiplier;
+    }
+
+    private void UpdateStat(ref float stat, float value, float multiplier)
+    {
+        stat += value * multiplier;
     }
 
     private void FireDelayUpdate(float value)
     {
-        ApplyDelayMultiplier(value, fireDelayMultiplier);
-        if (fireDelay <= .2f) fireDelay = .2f;
-        FireDelayBuffer = fireDelay;
+        // Exit if the value is 0
+        if (value == 0) return;
+        // Update the fire delay
+        UpdateStat(ref fireDelay, value, fireDelayMultiplier);
+        // Check for minVal
+        if (fireDelay <= MinVal) fireDelay = MinVal;
     }
 
     private void FireDelayMultiplierUpdate(float value)
     {
-        fireDelayMultiplier += value;
-        if (fireDelayMultiplier <= .2f) fireDelayMultiplier = .2f;
-        fireDelay *= fireDelayMultiplier;
-    }
-
-    private void ApplyDelayMultiplier(float dly, float dlyMult)
-    {
-        fireDelay += dly * dlyMult;
+        // Exit if the value is 0
+        if (value == 0) return;
+        // Multiply the current multiplier by the passes value
+        fireDelayMultiplier *= value;
+        // Check if the multiplier is smaller than the minimum
+        if (fireDelayMultiplier <= MinMult) fireDelayMultiplier = MinMult;
+        // Apply the fire delay multiplier
+        ApplyMultiplier(ref fireDelay, fireDelayMultiplier);
     }
 
     private void SpeedUpdate(int value)
     {
-        if (movementSpeed > 500) movementSpeed = 500;
+        // Exit if the value is 0
+        if (value == 0) return;
+        // Check if speed is above maximum
+        if (movementSpeed + value > maxMovementSpeed) movementSpeed = maxMovementSpeed;
         else movementSpeed += value;
     }
 
     private void LifetimeUpdate(float value)
     {
-        bulletLifetime += value;
-        if (bulletLifetime <= .2f) bulletLifetime = .2f;
+        // Exit if the value is 0
+        if (value == 0) return;
+        // Increase the bullet lifetime
+        UpdateStat(ref bulletLifetime, value, bulletLifetimeMultiplier);
+        // Check for minVal
+        if (bulletLifetime <= MinVal) bulletLifetime = MinVal;
     }
 }

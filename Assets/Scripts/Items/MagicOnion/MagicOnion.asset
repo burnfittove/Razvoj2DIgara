@@ -17,9 +17,9 @@ MonoBehaviour:
   itemQuality: 2
   itemId: 2
   damageDelta: 0
-  damageMultiplierDelta: -0.8
+  damageMultiplierDelta: 0.3
   healthDelta: 0
   speedDelta: 0
-  bulletLifetimeDelta: 0
+  bulletLifetimeDelta: -2
   fireDelayDelta: 0
-  fireRateMultiplierDelta: -0.8
+  fireRateMultiplierDelta: 0.2

@@ -1,40 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPooling : MonoBehaviour
+namespace Player_Scripts.Shooting
 {
-    public static BulletPooling SharedInstance;
-    public List<Bullet> pooledObjects;
-    public GameObject objectToPool;
-    public int amountToPool;
-
-    void Awake()
+    public class BulletPooling : MonoBehaviour
     {
-        SharedInstance = this;
-    }
+        public static BulletPooling SharedInstance;
+        public List<Bullet> pooledObjects;
+        public GameObject objectToPool;
+        public int amountToPool;
 
-    void Start()
-    {
-        pooledObjects = new List<Bullet>();
-        GameObject tmp;
-        for (int i = 0; i < amountToPool; i++)
+        private void Awake()
         {
-            tmp = Instantiate(objectToPool);
-            tmp.SetActive(false);
-            pooledObjects.Add(tmp.GetComponent<Bullet>());
+            SharedInstance = this;
         }
-    }
 
-    // Return inactive Bullets
-    public Bullet GetPooledObject()
-    {
-        for (int i = 0; i < amountToPool; i++)
+        private void Start()
         {
-            if (!pooledObjects[i].gameObject.activeInHierarchy)
+            pooledObjects = new List<Bullet>();
+            for (var i = 0; i < amountToPool; i++)
             {
-                return pooledObjects[i];
+                var tmp = Instantiate(objectToPool);
+                tmp.SetActive(false);
+                pooledObjects.Add(tmp.GetComponent<Bullet>());
             }
         }
-        return null;
+
+        // Return inactive Bullets
+        public Bullet GetPooledObject()
+        {
+            for (var i = 0; i < amountToPool; i++)
+            {
+                if (!pooledObjects[i].gameObject.activeInHierarchy)
+                {
+                    return pooledObjects[i];
+                }
+            }
+            return null;
+        }
     }
 }

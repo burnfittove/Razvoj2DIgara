@@ -1,9 +1,10 @@
+using System;
 using Events;
 using UnityEngine;
 
 namespace Items
 {
-    public class Item : MonoBehaviour
+    public abstract class Item : MonoBehaviour
     {
         protected CircleCollider2D cc;
         public ItemInformationSO itemInfo;
@@ -12,40 +13,56 @@ namespace Items
         {
             cc = GetComponent<CircleCollider2D>();
         }
-    
-        protected void UpdatePlayerHealth(float newHealth)
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.tag != "Player") return;
+            UpdatePlayerHealth(itemInfo.healthDelta);
+            UpdatePlayerDamage(itemInfo.damageDelta);
+            UpdatePlayerDamageMultiplier(itemInfo.damageMultiplierDelta);
+            UpdatePlayerFireRate(itemInfo.fireDelayDelta);
+            UpdatePlayerFireRateMultiplier(itemInfo.fireRateMultiplierDelta);
+            UpdatePlayerSpeed(itemInfo.speedDelta);
+            UpdatePlayerBulletLifetime(itemInfo.bulletLifetimeDelta);
+            ItemEffect();
+            Destroy(gameObject);
+        }
+
+        private void UpdatePlayerHealth(float newHealth)
         {
             GameEventManager.Instance.statUpdateEvents.HealthChange(newHealth);
         }
 
-        protected void UpdatePlayerDamage(float newDamage)
+        private void UpdatePlayerDamage(float newDamage)
         {
             GameEventManager.Instance.statUpdateEvents.DamageChange(newDamage);
         }
 
-        protected void UpdatePlayerDamageMultiplier(float newDamageMultiplier)
+        private void UpdatePlayerDamageMultiplier(float newDamageMultiplier)
         {
             GameEventManager.Instance.statUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
         }
 
-        protected void UpdatePlayerFireRate(float newFireRate)
+        private void UpdatePlayerFireRate(float newFireRate)
         {
             GameEventManager.Instance.statUpdateEvents.FireDelayChange(newFireRate);
         }
-        
-        protected void UpdatePlayerFireRateMultiplier(float newFireRateMultiplier)
+
+        private void UpdatePlayerFireRateMultiplier(float newFireRateMultiplier)
         {
             GameEventManager.Instance.statUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
         }
 
-        protected void UpdatePlayerSpeed(int newSpeed)
+        private void UpdatePlayerSpeed(int newSpeed)
         {
             GameEventManager.Instance.statUpdateEvents.SpeedChange(newSpeed);
         }
 
-        protected void UpdatePlayerBulletLifetime(float newBulletLifetime)
+        private void UpdatePlayerBulletLifetime(float newBulletLifetime)
         {
             GameEventManager.Instance.statUpdateEvents.LifetimeChange(newBulletLifetime);
         }
+        
+        protected virtual void ItemEffect() {}
     }
 }

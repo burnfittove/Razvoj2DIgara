@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
+        // Initialize components
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -26,9 +27,9 @@ public class Bullet : MonoBehaviour
         Move();
     }
 
+    // When the bullet is enables, pass it some values
     public virtual void Initialize(Vector2 dir, float speed, float damage, float lifetime)
     {
-        dir.Normalize();
         moveDirection = dir;
         moveSpeed = speed;
         this.damage = damage;

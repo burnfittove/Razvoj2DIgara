@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BlackAmulet
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemName: Black Amulet
-  itemDescription: Your magic focuses
-  itemQuality: 2
+  itemDescription: Your magic tightens
+  itemQuality: 3
   itemId: 3
-  damageDelta: 1
+  damageDelta: 2
   damageMultiplierDelta: 0
   healthDelta: 0
   speedDelta: 0

@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public interface IShooter
+namespace Player_Scripts.Shooting
 {
-    public void Shoot(Vector2 direction);
+    public interface IShooter
+    {
+        public void Shoot(Vector2 direction);
+    }
 }

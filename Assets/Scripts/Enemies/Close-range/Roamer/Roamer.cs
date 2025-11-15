@@ -5,7 +5,7 @@ public class Roamer : Enemy
 {
     private void Update()
     {
-        Move(Vector2.left);
+        //Move(Vector2.left);
     }
 
     protected override void Move(Vector2 direction)

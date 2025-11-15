@@ -1,8 +1,9 @@
-using System;
+using Player_Scripts.Shooting;
 using UnityEngine;
 
 public class MovementState : State
 {
+
     protected override void OnUpdate()
     {
         // Move the rigidbody
