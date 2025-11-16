@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Enemies
 {
     
-    [CreateAssetMenu(menuName = "Enemy/EnemyInformationSO", fileName = "EnemyInformationSO", order = 0)]
+    [CreateAssetMenu(menuName = "ScriptableObjects/EnemyInformation", fileName = "EnemyInformationSO", order = 0)]
     public class EnemyInformationSO : ScriptableObject
     {
         public string enemyName;

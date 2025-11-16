@@ -2,7 +2,7 @@ using System;
 
 namespace Events
 {
-    public class StatUpdateEvents
+    public class AttributeUpdateEvents
     {
         // Health update
         public event Action<float> OnHealthChange;
@@ -43,18 +43,18 @@ namespace Events
         }
         
         // Speed update
-        public event Action<int> OnSpeedChange;
+        public event Action<float> OnSpeedChange;
 
-        public void SpeedChange(int value)
+        public void SpeedChange(float value)
         {
             OnSpeedChange?.Invoke(value);
         }
         
         // Range (bullet lifetime) update
-        public event Action<float> OnLifetimeChange;
-        public void LifetimeChange(float value)
+        public event Action<float> OnRangeChange;
+        public void RangeChange(float value)
         {
-            OnLifetimeChange?.Invoke(value);
+            OnRangeChange?.Invoke(value);
         }
     }
 }

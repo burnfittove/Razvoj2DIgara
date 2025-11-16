@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1535b927e0c64f3a813c3f9e454ab7b, type: 3}
-  m_Name: Miku Miku Beam
+  m_Name: HappiSocks
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
-  itemName: LEEK
-  itemDescription: 39 39 BEAM
-  itemQuality: 5
-  itemId: 4
+  itemName: Happi Socks
+  itemDescription: sosumi
+  itemQuality: 1
+  itemId: 0
   healthDelta: 0
-  speedDelta: 2
+  speedDelta: 1
   damageDelta: 0
   fireDelayDelta: 0
   rangeDelta: 0
-  shotSpeedDelta: 5
+  shotSpeedDelta: 0
   luckDelta: 0
   speedMultiplierDelta: 0
-  damageMultiplierDelta: 0.5
-  fireRateMultiplierDelta: 0.2
+  damageMultiplierDelta: 0
+  fireRateMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
   knockbackDelta: 0

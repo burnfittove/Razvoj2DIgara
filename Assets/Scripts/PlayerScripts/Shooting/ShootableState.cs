@@ -4,9 +4,7 @@ using UnityEngine;
 namespace PlayerScripts.Shooting
 {
     public abstract class ShootableState : State, IShooter
-    {
-        private Vector2 shootingDirection;
-
+    { 
         protected override void OnEnter()
         {
             GameEventManager.Instance.InputEvents.OnMouseMoved += GetDirection;
@@ -26,7 +24,7 @@ namespace PlayerScripts.Shooting
 
         protected override void OnUpdate()
         {
-            if (p.IsFiring) Shoot(shootingDirection);
+            if (p.IsFiring) Shoot(p.FireDirection);
         }
 
         public void Shoot(Vector2 direction)
@@ -39,17 +37,17 @@ namespace PlayerScripts.Shooting
             if (bullet is not null)
             {
                 bullet.transform.position = p.transform.position;
-                bullet.Initialize(direction, p.bulletSpeed, p.bulletDamage, p.bulletLifetime);
+                bullet.Initialize(direction, p.ShotSpeed.Value, p.Damage.Value, p.Range.Value);
                 bullet.gameObject.SetActive(true);
             }
 
             // Set fire delay
-            p.FireDelayBuffer = p.fireDelay;
+            p.FireDelayBuffer = p.FireDelay.Value;
         }
 
         public void GetDirection(Vector2 cursorWorldPosition)
         {
-            shootingDirection = (Camera.main.ScreenToWorldPoint(cursorWorldPosition) - p.transform.position).normalized;
+            p.FireDirection = (Camera.main.ScreenToWorldPoint(cursorWorldPosition) - p.transform.position).normalized;
         }
     }
 }

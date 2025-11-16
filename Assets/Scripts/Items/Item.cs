@@ -23,44 +23,44 @@ namespace Items
             UpdatePlayerFireRate(itemInfo.fireDelayDelta);
             UpdatePlayerFireRateMultiplier(itemInfo.fireRateMultiplierDelta);
             UpdatePlayerSpeed(itemInfo.speedDelta);
-            UpdatePlayerBulletLifetime(itemInfo.bulletLifetimeDelta);
+            UpdatePlayerBulletLifetime(itemInfo.rangeDelta);
             ItemEffect();
             Destroy(gameObject);
         }
 
         private void UpdatePlayerHealth(float newHealth)
         {
-            GameEventManager.Instance.StatUpdateEvents.HealthChange(newHealth);
+            GameEventManager.Instance.AttributeUpdateEvents.HealthChange(newHealth);
         }
 
         private void UpdatePlayerDamage(float newDamage)
         {
-            GameEventManager.Instance.StatUpdateEvents.DamageChange(newDamage);
+            GameEventManager.Instance.AttributeUpdateEvents.DamageChange(newDamage);
         }
 
         private void UpdatePlayerDamageMultiplier(float newDamageMultiplier)
         {
-            GameEventManager.Instance.StatUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
+            GameEventManager.Instance.AttributeUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
         }
 
         private void UpdatePlayerFireRate(float newFireRate)
         {
-            GameEventManager.Instance.StatUpdateEvents.FireDelayChange(newFireRate);
+            GameEventManager.Instance.AttributeUpdateEvents.FireDelayChange(newFireRate);
         }
 
         private void UpdatePlayerFireRateMultiplier(float newFireRateMultiplier)
         {
-            GameEventManager.Instance.StatUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
+            GameEventManager.Instance.AttributeUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
         }
 
-        private void UpdatePlayerSpeed(int newSpeed)
+        private void UpdatePlayerSpeed(float newSpeed)
         {
-            GameEventManager.Instance.StatUpdateEvents.SpeedChange(newSpeed);
+            GameEventManager.Instance.AttributeUpdateEvents.SpeedChange(newSpeed);
         }
 
         private void UpdatePlayerBulletLifetime(float newBulletLifetime)
         {
-            GameEventManager.Instance.StatUpdateEvents.LifetimeChange(newBulletLifetime);
+            GameEventManager.Instance.AttributeUpdateEvents.RangeChange(newBulletLifetime);
         }
         
         protected virtual void ItemEffect() {}

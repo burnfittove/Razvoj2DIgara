@@ -8,7 +8,7 @@ namespace Events
         public static GameEventManager Instance { get; private set; }
 
         public InputEvents InputEvents;
-        public StatUpdateEvents StatUpdateEvents;
+        public AttributeUpdateEvents AttributeUpdateEvents;
 
         private void Awake()
         {
@@ -20,7 +20,7 @@ namespace Events
 
             // Initialize events
             InputEvents = new InputEvents();
-            StatUpdateEvents = new StatUpdateEvents();
+            AttributeUpdateEvents = new AttributeUpdateEvents();
         }
     }
 }

@@ -2,19 +2,29 @@ using UnityEngine;
 
 namespace Items
 {
-    [CreateAssetMenu(menuName = "Items/ItemInformationSO", fileName = "ItemInformationSO", order = 0)]
+    [CreateAssetMenu(menuName = "ScriptableObjects/ItemInformation", fileName = "ItemInformationSO", order = 0)]
     public class ItemInformationSO : ScriptableObject
     {
+        [Header("Item Info")]
         public string itemName;
         public string itemDescription;
         public byte itemQuality;
         public byte itemId;
-        public float damageDelta;
-        public float damageMultiplierDelta;
+        [Header("Visible Attributes")]
         public float healthDelta;
-        public int speedDelta;
-        public float bulletLifetimeDelta;
+        public float speedDelta;
+        public float damageDelta;
         public float fireDelayDelta;
+        public float rangeDelta;
+        public float shotSpeedDelta;
+        public float luckDelta;
+        [Header("Hidden Attributes")]
+        public float speedMultiplierDelta;
+        public float damageMultiplierDelta;
         public float fireRateMultiplierDelta;
+        public float rangeMultiplierDelta;
+        public float luckMultiplierDelta;
+        public float knockbackDelta;
+        public float contactDamageDelta;
     }
 }

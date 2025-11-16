@@ -16,7 +16,7 @@ namespace PlayerScripts.States
 
         private void Move(Vector2 direction)
         {
-            p.rb.linearVelocity = direction * (p.movementSpeed * Time.fixedDeltaTime);
+            p.rb.MovePosition((Vector2)p.transform.position + direction * (p.Speed.Value * Time.fixedDeltaTime));
         }
     }
 }
