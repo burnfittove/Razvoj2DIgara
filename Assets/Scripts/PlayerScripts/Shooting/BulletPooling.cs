@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player_Scripts.Shooting
+namespace PlayerScripts.Shooting
 {
     public class BulletPooling : MonoBehaviour
     {

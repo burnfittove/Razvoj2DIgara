@@ -30,37 +30,37 @@ namespace Items
 
         private void UpdatePlayerHealth(float newHealth)
         {
-            GameEventManager.Instance.statUpdateEvents.HealthChange(newHealth);
+            GameEventManager.Instance.StatUpdateEvents.HealthChange(newHealth);
         }
 
         private void UpdatePlayerDamage(float newDamage)
         {
-            GameEventManager.Instance.statUpdateEvents.DamageChange(newDamage);
+            GameEventManager.Instance.StatUpdateEvents.DamageChange(newDamage);
         }
 
         private void UpdatePlayerDamageMultiplier(float newDamageMultiplier)
         {
-            GameEventManager.Instance.statUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
+            GameEventManager.Instance.StatUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
         }
 
         private void UpdatePlayerFireRate(float newFireRate)
         {
-            GameEventManager.Instance.statUpdateEvents.FireDelayChange(newFireRate);
+            GameEventManager.Instance.StatUpdateEvents.FireDelayChange(newFireRate);
         }
 
         private void UpdatePlayerFireRateMultiplier(float newFireRateMultiplier)
         {
-            GameEventManager.Instance.statUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
+            GameEventManager.Instance.StatUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
         }
 
         private void UpdatePlayerSpeed(int newSpeed)
         {
-            GameEventManager.Instance.statUpdateEvents.SpeedChange(newSpeed);
+            GameEventManager.Instance.StatUpdateEvents.SpeedChange(newSpeed);
         }
 
         private void UpdatePlayerBulletLifetime(float newBulletLifetime)
         {
-            GameEventManager.Instance.statUpdateEvents.LifetimeChange(newBulletLifetime);
+            GameEventManager.Instance.StatUpdateEvents.LifetimeChange(newBulletLifetime);
         }
         
         protected virtual void ItemEffect() {}

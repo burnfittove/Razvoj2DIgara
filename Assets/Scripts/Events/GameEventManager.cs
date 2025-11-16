@@ -7,10 +7,10 @@ namespace Events
         // Singleton
         public static GameEventManager Instance { get; private set; }
 
-        public InputEvents inputEvents;
-        public StatUpdateEvents statUpdateEvents;
+        public InputEvents InputEvents;
+        public StatUpdateEvents StatUpdateEvents;
 
-        void Awake()
+        private void Awake()
         {
             if (Instance != null && Instance != this)
             {
@@ -19,8 +19,8 @@ namespace Events
             Instance = this;
 
             // Initialize events
-            inputEvents = new InputEvents();
-            statUpdateEvents = new StatUpdateEvents();
+            InputEvents = new InputEvents();
+            StatUpdateEvents = new StatUpdateEvents();
         }
     }
 }
