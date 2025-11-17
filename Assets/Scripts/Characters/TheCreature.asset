@@ -31,5 +31,5 @@ MonoBehaviour:
   maxSpeed: 10
   maxHealth: 100
   minValue: 0.5
-  minMultiplier: 0.2
+  minMultiplier: 0.1
   maxMultiplier: 2

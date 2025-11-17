@@ -1,5 +1,6 @@
 using System;
 using PlayerScripts;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Enemies
@@ -8,12 +9,17 @@ namespace Enemies
     {
         public EnemyInformationSO enemyInfo;
         protected Rigidbody2D rb;
+        protected SpriteRenderer sr;
         protected Player p;
+        protected bool isInvisible;
         
         protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             p = FindFirstObjectByType<Player>();
+            sr = GetComponent<SpriteRenderer>();
+            
+            if (isInvisible) sr.enabled = false;
         }
 
         public void TakeDamage(float damage)
