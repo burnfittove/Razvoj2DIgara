@@ -1,11 +1,11 @@
+using Bullets;
 using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
-    
      private void SetScaleFromDamage(float damage)
      {
-         var scale = 0.0f;
+         float scale;
          if (damage <= 1) scale = damage / 2;
          else if (damage <= 10) scale = damage / 10;
          else scale = damage / 15;
@@ -20,5 +20,12 @@ public class PlayerBullet : Bullet
         this.damage = damage;
         this.lifetime = lifetime;
         SetScaleFromDamage(damage);
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag != "Enemy") return;
+        other.GetComponent<IDamageable>()?.TakeDamage(damage);
+        gameObject.SetActive(false);
     }
 }

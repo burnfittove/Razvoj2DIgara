@@ -4,29 +4,29 @@ using UnityEngine;
 
 namespace PlayerScripts
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IDamageable
     {
         [Header("Attributes")]
         [SerializeField] private PlayerInformationSO playerInformation;
 
         [Header("Visible Attributes")] 
-        public PlayerAttribute Health { get; private set; }
+        public Attribute Health { get; private set; }
 
-        public PlayerAttribute Speed { get; private set; }
+        public Attribute Speed { get; private set; }
 
-        public PlayerAttribute Damage { get; private set; }
+        public Attribute Damage { get; private set; }
 
-        public PlayerAttribute FireDelay { get; private set; }
+        public Attribute FireDelay { get; private set; }
 
-        public PlayerAttribute Range { get; private set; }
+        public Attribute Range { get; private set; }
 
-        public PlayerAttribute ShotSpeed { get; private set; }
+        public Attribute ShotSpeed { get; private set; }
 
-        public PlayerAttribute Luck { get; private set; }
+        public Attribute Luck { get; private set; }
 
         [Header("Hidden Attributes")]
-        public PlayerAttribute KnockbackStrength { get; private set; }
-        public PlayerAttribute ContactDamage { get; private set; }
+        public Attribute KnockbackStrength { get; private set; }
+        public Attribute ContactDamage { get; private set; }
         [Header("Constraints")]
         private float maxSpeed;
         private float maxHealth;
@@ -58,24 +58,24 @@ namespace PlayerScripts
             maxMultiplier = playerInformation.maxMultiplier;
             // ## Visible Attributes
             // ### Health
-            Health = new PlayerAttribute(playerInformation.health, 1, minMultiplier, maxMultiplier, 0, playerInformation.maxHealth);
+            Health = new Attribute(playerInformation.health, 1, minMultiplier, maxMultiplier, 0, playerInformation.maxHealth);
             // ### Speed
-            Speed = new PlayerAttribute(playerInformation.speed, playerInformation.speedMultiplier, minMultiplier, maxMultiplier, minValue, playerInformation.maxSpeed);
+            Speed = new Attribute(playerInformation.speed, playerInformation.speedMultiplier, minMultiplier, maxMultiplier, minValue, playerInformation.maxSpeed);
             // ### Damage
-            Damage = new PlayerAttribute(playerInformation.damage, playerInformation.damageMultiplier, minMultiplier, maxMultiplier, minValue, float.MaxValue);
+            Damage = new Attribute(playerInformation.damage, playerInformation.damageMultiplier, minMultiplier, maxMultiplier, minValue, float.MaxValue);
             // ### Fire Delay
-            FireDelay = new PlayerAttribute(playerInformation.fireDelay, playerInformation.fireDelayMultiplier,minMultiplier,  maxMultiplier, minValue, 100);
+            FireDelay = new Attribute(playerInformation.fireDelay, playerInformation.fireDelayMultiplier,minMultiplier,  maxMultiplier, minValue, 100);
             // ### Range
-            Range = new PlayerAttribute(playerInformation.range, playerInformation.rangeMultiplier, minMultiplier,  maxMultiplier, minValue, 10);
+            Range = new Attribute(playerInformation.range, playerInformation.rangeMultiplier, minMultiplier,  maxMultiplier, minValue, 10);
             // ### Shot speed
-            ShotSpeed = new PlayerAttribute(playerInformation.shotSpeed, 1, minMultiplier, maxMultiplier, minValue, 50);
+            ShotSpeed = new Attribute(playerInformation.shotSpeed, 1, minMultiplier, maxMultiplier, minValue, 50);
             // ### Luck
-            Luck = new PlayerAttribute(playerInformation.luck, playerInformation.luckMultiplier, minMultiplier,  maxMultiplier, minValue, 50);
+            Luck = new Attribute(playerInformation.luck, playerInformation.luckMultiplier, minMultiplier,  maxMultiplier, minValue, 50);
             // ## Hidden Attributes
             // ### Knockback strength
-            KnockbackStrength = new PlayerAttribute(playerInformation.knockbackStrength, 1, minMultiplier, maxMultiplier, minValue, 10);
+            KnockbackStrength = new Attribute(playerInformation.knockbackStrength, 1, minMultiplier, maxMultiplier, minValue, 10);
             // ### Contact damage
-            ContactDamage = new PlayerAttribute(playerInformation.contactDamage, 1, minMultiplier, maxMultiplier, minValue, float.MaxValue);
+            ContactDamage = new Attribute(playerInformation.contactDamage, 1, minMultiplier, maxMultiplier, minValue, float.MaxValue);
         }
 
         private void OnEnable()
@@ -96,7 +96,7 @@ namespace PlayerScripts
     
         private void UpdateDamageMultiplier(float value)
         {
-            Damage.UpdateValue(value);
+            Damage.UpdateMultiplier(value);
         }
 
         private void UpdateFireDelay(float value)
@@ -122,6 +122,11 @@ namespace PlayerScripts
         private void RangeUpdate(float value)
         {
             Range.UpdateValue(value);
+        }
+
+        public void TakeDamage(float damage)
+        {
+            Health.UpdateValue(-damage);
         }
     }
 }

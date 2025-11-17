@@ -3,13 +3,9 @@ using UnityEngine;
 
 public class Roamer : Enemy
 {
-    private void Update()
+    protected override void OnDeath()
     {
-        //Move(Vector2.left);
-    }
-
-    protected override void Move(Vector2 direction)
-    {
-        rb.linearVelocity = direction * (enemyInfo.speed * Time.fixedDeltaTime);
+        sr.color = new Color(sr.color.r - .1f, sr.color.g - .1f, sr.color.b - .1f);
+        cc.enabled = false;
     }
 }

@@ -1,6 +1,4 @@
-using System;
 using PlayerScripts;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Enemies
@@ -9,22 +7,32 @@ namespace Enemies
     {
         public EnemyInformationSO enemyInfo;
         protected Rigidbody2D rb;
+        protected Collider2D cc;
         protected SpriteRenderer sr;
         protected Player p;
         protected bool isInvisible;
+        protected Attribute Health;
+        protected Attribute Speed;
         
         protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             p = FindFirstObjectByType<Player>();
-            sr = GetComponent<SpriteRenderer>();
+            sr = GetComponentInChildren<SpriteRenderer>();
+            cc = GetComponent<Collider2D>();
+            
+            // # Attributes
+            // ## Health
+            Health = new Attribute(enemyInfo.health, 1, 1, 1, 0, enemyInfo.health);
+            // ## Speed
+            Speed = new Attribute(enemyInfo.speed, 1, 1, 1, 1, enemyInfo.speed);
             
             if (isInvisible) sr.enabled = false;
         }
 
         public void TakeDamage(float damage)
         {
-            enemyInfo.health -= damage;
+            Health.UpdateValue(-damage);
         }
 
         protected virtual void OnDeath()
@@ -34,12 +42,12 @@ namespace Enemies
 
         private void Update()
         {
-            if (enemyInfo.health <= 0) OnDeath();
+            if (Health.Value <= 0) OnDeath();
         }
 
         protected virtual void Move(Vector2 direction)
         {
-            rb.linearVelocity = direction * (enemyInfo.speed * Time.fixedDeltaTime);
+            rb.linearVelocity = direction * (Speed.Value * Time.fixedDeltaTime);
         }
     }
 }

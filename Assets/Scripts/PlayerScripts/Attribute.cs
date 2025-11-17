@@ -1,22 +1,25 @@
+using Unity.VisualScripting;
+
 namespace PlayerScripts
 {
-    public class PlayerAttribute
+    public class Attribute
     {
         private float value;
         public float Value { get; private set; }
         private float multiplier;
+        public float Multiplier { get;  private set; }
         private float trueValue;
         private readonly float minMultiplier;
         private readonly float maxMultiplier;
         private readonly float minValue;
         private readonly float maxValue;
 
-        public PlayerAttribute(float trueValue, float multiplier, float minMultiplier, float maxMultiplier,
+        public Attribute(float trueValue, float multiplier, float minMultiplier, float maxMultiplier,
             float minValue,
             float maxValue)
         {
             this.trueValue = trueValue;
-            this.multiplier = multiplier;
+            Multiplier = multiplier;
             this.minMultiplier = minMultiplier;
             this.maxMultiplier = maxMultiplier;
             this.minValue = minValue;
@@ -30,12 +33,12 @@ namespace PlayerScripts
             if (newMultiplierValue == 0) return;
         
             // Update the multiplier
-            if (multiplier < 1) multiplier *= newMultiplierValue < .5f ? 2 * newMultiplierValue : newMultiplierValue; // Not as punishing if the player collects two items that decrease the multiplier
-            else multiplier *= newMultiplierValue;
+            if (Multiplier < 1) Multiplier *= newMultiplierValue < .5f ? 2 * newMultiplierValue : newMultiplierValue; // Not as punishing if the player collects two items that decrease the multiplier
+            else Multiplier *= newMultiplierValue;
             // Set the multiplier to the minMultiplier value
-            if (multiplier <= minMultiplier) multiplier = minMultiplier;
+            if (Multiplier <= minMultiplier) Multiplier = minMultiplier;
             // Apply the multiplier
-            Value = trueValue * multiplier;
+            Value = trueValue * Multiplier;
         }
     
         public void UpdateValue(float newValue)
@@ -46,7 +49,7 @@ namespace PlayerScripts
             // Update the true attribute
             trueValue += newValue;
             // Recalculate the usable attribute
-            Value = trueValue * multiplier;
+            Value = trueValue * Multiplier;
         }
     }
 }

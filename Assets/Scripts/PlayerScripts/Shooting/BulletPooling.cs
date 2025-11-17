@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Bullets;
 using UnityEngine;
 
 namespace PlayerScripts.Shooting
