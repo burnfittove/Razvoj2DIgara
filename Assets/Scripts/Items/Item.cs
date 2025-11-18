@@ -17,7 +17,7 @@ namespace Items
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.tag != "Player") return;
-            UpdatePlayerHealth(itemInfo.healthDelta);
+            UpdatePlayerHealth(itemInfo.maxHealthDelta);
             UpdatePlayerDamage(itemInfo.damageDelta);
             UpdatePlayerDamageMultiplier(itemInfo.damageMultiplierDelta);
             UpdatePlayerFireRate(itemInfo.fireDelayDelta);

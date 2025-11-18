@@ -13,6 +13,7 @@ namespace Enemies
         public float damage;
         public float contactDamage;
         public float fireDelay;
-        public float bulletLifetime;
+        public float range;
+        public float shotSpeed;
     }
 }

@@ -11,7 +11,7 @@ namespace Items
         public byte itemQuality;
         public byte itemId;
         [Header("Visible Attributes")]
-        public float healthDelta;
+        public float maxHealthDelta;
         public float speedDelta;
         public float damageDelta;
         public float fireDelayDelta;
@@ -26,5 +26,6 @@ namespace Items
         public float luckMultiplierDelta;
         public float knockbackDelta;
         public float contactDamageDelta;
+        public bool healAcquiredHealth;
     }
 }

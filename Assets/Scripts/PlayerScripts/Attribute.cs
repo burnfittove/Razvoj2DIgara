@@ -9,10 +9,10 @@ namespace PlayerScripts
         private float multiplier;
         public float Multiplier { get;  private set; }
         private float trueValue;
-        private readonly float minMultiplier;
-        private readonly float maxMultiplier;
-        private readonly float minValue;
-        private readonly float maxValue;
+        private float minMultiplier;
+        private float maxMultiplier;
+        private float minValue;
+        private float maxValue;
 
         public Attribute(float trueValue, float multiplier, float minMultiplier, float maxMultiplier,
             float minValue,
@@ -50,6 +50,11 @@ namespace PlayerScripts
             trueValue += newValue;
             // Recalculate the usable attribute
             Value = trueValue * Multiplier;
+        }
+
+        public void ChangeConstantMaxValue(float newConstantMaxValue)
+        {
+            maxValue = newConstantMaxValue;
         }
     }
 }

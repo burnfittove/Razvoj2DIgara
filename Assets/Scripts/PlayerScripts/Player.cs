@@ -10,6 +10,7 @@ namespace PlayerScripts
         [SerializeField] private PlayerInformationSO playerInformation;
 
         [Header("Visible Attributes")] 
+        public Attribute MaxHealth { get; private set; }
         public Attribute Health { get; private set; }
 
         public Attribute Speed { get; private set; }
@@ -29,7 +30,6 @@ namespace PlayerScripts
         public Attribute ContactDamage { get; private set; }
         [Header("Constraints")]
         private float maxSpeed;
-        private float maxHealth;
         private float minValue;
         private float minMultiplier;
         private float maxMultiplier;
@@ -52,13 +52,13 @@ namespace PlayerScripts
             // # Initialize attributes
             // ## Constraints 
             maxSpeed = playerInformation.maxSpeed;
-            maxHealth = playerInformation.maxHealth;
             minValue = playerInformation.minValue;
             minMultiplier = playerInformation.minMultiplier;
             maxMultiplier = playerInformation.maxMultiplier;
             // ## Visible Attributes
             // ### Health
-            Health = new Attribute(playerInformation.health, 1, minMultiplier, maxMultiplier, 0, playerInformation.maxHealth);
+            MaxHealth = new Attribute(playerInformation.health, 1, minMultiplier, maxMultiplier, 0, playerInformation.maxHealth);
+            Health = new Attribute(playerInformation.health, 1, minMultiplier, maxMultiplier, 0, MaxHealth.Value);
             // ### Speed
             Speed = new Attribute(playerInformation.speed, playerInformation.speedMultiplier, minMultiplier, maxMultiplier, 3, playerInformation.maxSpeed);
             // ### Damage
@@ -80,50 +80,87 @@ namespace PlayerScripts
 
         private void OnEnable()
         {
-            // Subscribe to stat change events
-            GameEventManager.Instance.AttributeUpdateEvents.OnDamageMultiplierChange += UpdateDamageMultiplier;
-            GameEventManager.Instance.AttributeUpdateEvents.OnDamageChange += UpdateDamage;
-            GameEventManager.Instance.AttributeUpdateEvents.OnFireDelayMultiplierChange += UpdateFireDelayMultiplier;
-            GameEventManager.Instance.AttributeUpdateEvents.OnFireDelayChange += UpdateFireDelay;
+            // Subscribe to attribute change events
+            // Regular
+            GameEventManager.Instance.AttributeUpdateEvents.OnHealthChange += UpdateMaxHealth;
             GameEventManager.Instance.AttributeUpdateEvents.OnSpeedChange += UpdateSpeed;
-            GameEventManager.Instance.AttributeUpdateEvents.OnRangeChange += RangeUpdate;
+            GameEventManager.Instance.AttributeUpdateEvents.OnDamageChange += UpdateDamage;
+            GameEventManager.Instance.AttributeUpdateEvents.OnFireDelayChange += UpdateFireDelay;
+            GameEventManager.Instance.AttributeUpdateEvents.OnRangeChange += UpdateRange;
+            GameEventManager.Instance.AttributeUpdateEvents.OnShotSpeedChange += UpdateShotSpeed;
+            GameEventManager.Instance.AttributeUpdateEvents.OnLuckChange += UpdateLuck;
+            GameEventManager.Instance.AttributeUpdateEvents.OnKnockbackChange += UpdateKnockbackStrength;
+            GameEventManager.Instance.AttributeUpdateEvents.OnContactDamageChange += UpdateContactDamage;
+            // Multipliers
+            GameEventManager.Instance.AttributeUpdateEvents.OnSpeedMultiplierChange += UpdateSpeedMultiplier;
+            GameEventManager.Instance.AttributeUpdateEvents.OnDamageMultiplierChange += UpdateDamageMultiplier;
+            GameEventManager.Instance.AttributeUpdateEvents.OnFireDelayMultiplierChange += UpdateFireDelayMultiplier;
+            GameEventManager.Instance.AttributeUpdateEvents.OnRangeMultiplierChange += UpdateRangeMultiplier;
+            GameEventManager.Instance.AttributeUpdateEvents.OnLuckMultiplierChange += UpdateLuckMultiplier;
         }
 
-        private void UpdateDamage(float value)
+        // Attributes
+        private void UpdateMaxHealth(float value)
         {
-            Damage.UpdateValue(value);
+            MaxHealth.UpdateValue(value);
+            Health.ChangeConstantMaxValue(MaxHealth.Value);
+            Health.UpdateValue(value);
         }
-    
-        private void UpdateDamageMultiplier(float value)
-        {
-            Damage.UpdateMultiplier(value);
-        }
-
-        private void UpdateFireDelay(float value)
-        {
-            FireDelay.UpdateValue(value);
-        }
-
-        private void UpdateFireDelayMultiplier(float value)
-        {
-            FireDelay.UpdateMultiplier(value);
-        }
-
         private void UpdateSpeed(float value)
         {
             Speed.UpdateValue(value);
         }
-        
+        private void UpdateDamage(float value)
+        {
+            Damage.UpdateValue(value);
+        }
+        private void UpdateFireDelay(float value)
+        {
+            FireDelay.UpdateValue(value);
+        }
+        private void UpdateRange(float value)
+        {
+            Range.UpdateValue(value);
+        }
+        private void UpdateShotSpeed(float value)
+        {
+            ShotSpeed.UpdateValue(value);
+        }
+        private void UpdateLuck(float value)
+        {
+            Luck.UpdateValue(value);
+        }
+        private void UpdateKnockbackStrength(float value)
+        {
+            KnockbackStrength.UpdateValue(value);
+        }
+        private void UpdateContactDamage(float value)
+        {
+            ContactDamage.UpdateValue(value);
+        }
+    
+        // Multipliers
         private void UpdateSpeedMultiplier(float value)
         {
             Speed.UpdateMultiplier(value);
         }
-
-        private void RangeUpdate(float value)
+        private void UpdateDamageMultiplier(float value)
         {
-            Range.UpdateValue(value);
+            Damage.UpdateMultiplier(value);
         }
-
+        private void UpdateFireDelayMultiplier(float value)
+        {
+            FireDelay.UpdateMultiplier(value);
+        }
+        private void UpdateRangeMultiplier(float value)
+        {
+            Range.UpdateMultiplier(value);
+        }
+        private void UpdateLuckMultiplier(float value)
+        {
+            Luck.UpdateMultiplier(value);
+        }
+        
         public void TakeDamage(float damage)
         {
             Health.UpdateValue(-damage);
