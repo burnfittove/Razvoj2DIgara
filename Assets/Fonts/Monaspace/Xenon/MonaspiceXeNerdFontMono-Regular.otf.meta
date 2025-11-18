@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 41c4b7d16b9993f79a782498d3e2d30f
+guid: fa7960ab5acce3f429d95aef777bbf8f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Monaspace Xenon NF
+  - MonaspiceXe NFM
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

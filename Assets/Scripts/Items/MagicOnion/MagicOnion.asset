@@ -24,7 +24,7 @@ MonoBehaviour:
   shotSpeedDelta: 0
   luckDelta: 0
   speedMultiplierDelta: 0
-  damageMultiplierDelta: 0.4
+  damageMultiplierDelta: 0.2
   fireRateMultiplierDelta: 0.3
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0

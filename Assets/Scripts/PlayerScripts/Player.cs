@@ -60,7 +60,7 @@ namespace PlayerScripts
             // ### Health
             Health = new Attribute(playerInformation.health, 1, minMultiplier, maxMultiplier, 0, playerInformation.maxHealth);
             // ### Speed
-            Speed = new Attribute(playerInformation.speed, playerInformation.speedMultiplier, minMultiplier, maxMultiplier, minValue, playerInformation.maxSpeed);
+            Speed = new Attribute(playerInformation.speed, playerInformation.speedMultiplier, minMultiplier, maxMultiplier, 3, playerInformation.maxSpeed);
             // ### Damage
             Damage = new Attribute(playerInformation.damage, playerInformation.damageMultiplier, minMultiplier, maxMultiplier, minValue, float.MaxValue);
             // ### Fire Delay
