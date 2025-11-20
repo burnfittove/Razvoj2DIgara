@@ -9,6 +9,7 @@ namespace Events
 
         public InputEvents InputEvents;
         public AttributeUpdateEvents AttributeUpdateEvents;
+        public PassiveItemEvents PassiveItemEvents;
 
         private void Awake()
         {
@@ -21,6 +22,7 @@ namespace Events
             // Initialize events
             InputEvents = new InputEvents();
             AttributeUpdateEvents = new AttributeUpdateEvents();
+            PassiveItemEvents = new PassiveItemEvents();
         }
     }
 }

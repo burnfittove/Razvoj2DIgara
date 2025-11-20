@@ -1,10 +1,13 @@
 using Events;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace PlayerScripts.Shooting
 {
     public abstract class ShootableState : State, IShooter
     { 
+        private InputDevice inputDevice;
+        
         protected override void OnEnter()
         {
             GameEventManager.Instance.InputEvents.OnMouseMoved += GetDirection;

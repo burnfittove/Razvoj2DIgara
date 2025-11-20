@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items
 {
-    public abstract class Item : MonoBehaviour
+    public abstract class Item : MonoBehaviour, IItemEffect
     {
         protected CircleCollider2D cc;
         public ItemInformationSO itemInfo;
@@ -24,7 +24,7 @@ namespace Items
             UpdatePlayerFireRateMultiplier(itemInfo.fireRateMultiplierDelta);
             UpdatePlayerSpeed(itemInfo.speedDelta);
             UpdatePlayerBulletLifetime(itemInfo.rangeDelta);
-            ItemEffect();
+            OnItemPickup();
             Destroy(gameObject);
         }
 
@@ -62,7 +62,10 @@ namespace Items
         {
             GameEventManager.Instance.AttributeUpdateEvents.RangeChange(newBulletLifetime);
         }
-        
-        protected virtual void ItemEffect() {}
+
+        public virtual void OnItemPickup()
+        {
+            
+        }
     }
 }

@@ -1,9 +1,10 @@
-using System;
+using Events;
 using Items;
-using UnityEditor;
-using UnityEngine;
 
 public class MikuMikuBeam : Item
 {
-    
+    public override void OnItemPickup()
+    {
+        GameEventManager.Instance.PassiveItemEvents.PassiveItemAcquired(this);
+    }
 }
