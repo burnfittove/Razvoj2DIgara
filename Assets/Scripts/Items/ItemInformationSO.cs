@@ -6,6 +6,7 @@ namespace Items
     public class ItemInformationSO : ScriptableObject
     {
         [Header("Item Info")]
+        public Sprite itemSprite;
         public string itemName;
         public string itemDescription;
         public byte itemQuality;
@@ -21,7 +22,7 @@ namespace Items
         [Header("Hidden Attributes")]
         public float speedMultiplierDelta;
         public float damageMultiplierDelta;
-        public float fireRateMultiplierDelta;
+        public float fireDelayMultiplierDelta;
         public float rangeMultiplierDelta;
         public float luckMultiplierDelta;
         public float knockbackDelta;

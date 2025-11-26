@@ -189,7 +189,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 457473205}
+      addedObject: {fileID: 457473209}
   m_SourcePrefab: {fileID: 100100000, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
 --- !u!1 &65689659
 GameObject:
@@ -267,8 +267,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -458,10 +458,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 177770784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 631fd13df5d9f8fcfa7c0f3f0ea4ee69, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dbac9b0971341fbb957c26627a6a6bf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MikuMikuBeam
-  itemInfo: {fileID: 11400000, guid: 1f22ff17d9eca154ba51d459bb9e13b7, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItem
+  itemInformation: {fileID: 11400000, guid: 1f22ff17d9eca154ba51d459bb9e13b7, type: 2}
+  itemEffectPrefab: {fileID: 7364174038805297361, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
 --- !u!1 &267196423
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,14 +827,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 341454034}
+      addedObject: {fileID: 341454038}
   m_SourcePrefab: {fileID: 100100000, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
 --- !u!1 &341454033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
   m_PrefabInstance: {fileID: 341454032}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &341454034
+--- !u!114 &341454038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -842,16 +843,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 341454033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 792324c006a2a23a39a0e945b54d4be4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dbac9b0971341fbb957c26627a6a6bf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrowthHormones
-  itemInfo: {fileID: 11400000, guid: b146d31ab3ba80147bcb5a0f69ab3214, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItem
+  itemInformation: {fileID: 11400000, guid: b146d31ab3ba80147bcb5a0f69ab3214, type: 2}
+  itemEffectPrefab: {fileID: 303688705650862371, guid: 764167af6336572679724c4427eb6c68, type: 3}
 --- !u!1 &457473204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
   m_PrefabInstance: {fileID: 54290725}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &457473205
+--- !u!114 &457473209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -860,10 +862,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 457473204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccc4963ceb7134d80aace25653728bb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dbac9b0971341fbb957c26627a6a6bf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicOnion
-  itemInfo: {fileID: 11400000, guid: 71cca6fac772d4d3c921b3e73a82bc8b, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItem
+  itemInformation: {fileID: 11400000, guid: 71cca6fac772d4d3c921b3e73a82bc8b, type: 2}
+  itemEffectPrefab: {fileID: 217504099027201534, guid: 39a71f95c953e3a1ca88579d99e71a1a, type: 3}
 --- !u!1 &471577663
 GameObject:
   m_ObjectHideFlags: 0
@@ -5809,7 +5812,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
   m_PrefabInstance: {fileID: 2691411818220590438}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &675110800
+--- !u!114 &675110804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5818,10 +5821,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 675110795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd983f8601ca4760bd9d76fd1c1692d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dbac9b0971341fbb957c26627a6a6bf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuickCast
-  itemInfo: {fileID: 11400000, guid: 8e2e4a7cf69fb4b029fe31e1cdf28a65, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItem
+  itemInformation: {fileID: 11400000, guid: b146d31ab3ba80147bcb5a0f69ab3214, type: 2}
+  itemEffectPrefab: {fileID: 303688705650862371, guid: 764167af6336572679724c4427eb6c68, type: 3}
 --- !u!1 &827420727
 GameObject:
   m_ObjectHideFlags: 0
@@ -6195,14 +6199,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1100035074}
+      addedObject: {fileID: 1100035078}
   m_SourcePrefab: {fileID: 100100000, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
 --- !u!1 &1100035073 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
   m_PrefabInstance: {fileID: 1100035072}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1100035074
+--- !u!114 &1100035078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6211,10 +6215,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1100035073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4bf905434ee1feadbebc7fdb12824fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dbac9b0971341fbb957c26627a6a6bf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Items.HappiSocks.HappiSocks
-  itemInfo: {fileID: 11400000, guid: f3a86d8b6f36a63c6b00d6d0ee27b813, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItem
+  itemInformation: {fileID: 11400000, guid: f3a86d8b6f36a63c6b00d6d0ee27b813, type: 2}
+  itemEffectPrefab: {fileID: 2933303410528146087, guid: 0e1cc15b383a6f9dcaebc0dbf9a672ad, type: 3}
 --- !u!1 &1388820340
 GameObject:
   m_ObjectHideFlags: 0
@@ -6522,7 +6527,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
   m_PrefabInstance: {fileID: 1593652541}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1447729446
+--- !u!114 &1447729450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6531,10 +6536,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1447729445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b139e2d93dd09436291aa4d1f1ea3d7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dbac9b0971341fbb957c26627a6a6bf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BlackAmulet
-  itemInfo: {fileID: 11400000, guid: 92b8224e96e4b43d3b7c30dc4c015e95, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItem
+  itemInformation: {fileID: 11400000, guid: 92b8224e96e4b43d3b7c30dc4c015e95, type: 2}
+  itemEffectPrefab: {fileID: 462068663026024415, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
 --- !u!1 &1472151115
 GameObject:
   m_ObjectHideFlags: 0
@@ -6544,6 +6550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472151116}
+  - component: {fileID: 1472151117}
   m_Layer: 0
   m_Name: PassiveItems
   m_TagString: Untagged
@@ -6566,6 +6573,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 294942194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472151117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472151115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b347b1b92244d19c8198c934cee489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScripts.AcquirePassiveItemEffects
 --- !u!1 &1581402753
 GameObject:
   m_ObjectHideFlags: 0
@@ -6787,7 +6806,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1447729446}
+      addedObject: {fileID: 1447729450}
   m_SourcePrefab: {fileID: 100100000, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
 --- !u!1 &1651978350
 GameObject:
@@ -7173,7 +7192,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 675110800}
+      addedObject: {fileID: 675110804}
   m_SourcePrefab: {fileID: 100100000, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
 --- !u!1001 &9219678586315953342
 PrefabInstance:
@@ -7253,9 +7272,9 @@ SceneRoots:
   - {fileID: 2691411818220590438}
   - {fileID: 54290725}
   - {fileID: 1593652541}
-  - {fileID: 9219678586315953342}
   - {fileID: 831740287}
   - {fileID: 1100035072}
   - {fileID: 341454032}
+  - {fileID: 9219678586315953342}
   - {fileID: 65689663}
   - {fileID: 843433673}
