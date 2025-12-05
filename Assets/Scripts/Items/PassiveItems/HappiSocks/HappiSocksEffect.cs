@@ -1,11 +1,10 @@
-using System;
 using Items.ItemEffects;
 
-namespace Items.HappiSocks
+namespace Items.PassiveItems.HappiSocks
 {
     public class HappiSocksEffect : PassiveItemEffect
     {
-        private void Awake()
+        protected override void Awake()
         {
             ChangeSpeed(itemInformation.speedDelta);
         }

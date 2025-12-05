@@ -1,10 +1,10 @@
 using Items.ItemEffects;
 
-namespace Items.MikuMikuBeam
+namespace Items.PassiveItems.MikuMikuBeam
 {
     public class MikuMikuBeamEffect : PassiveItemEffect
     {
-        private void Awake()
+        protected override void Awake()
         {
             ChangeSpeed(itemInformation.speedDelta);
             ChangeShotSpeed(itemInformation.shotSpeedDelta);

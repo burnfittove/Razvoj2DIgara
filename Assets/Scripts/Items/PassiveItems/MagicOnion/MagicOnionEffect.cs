@@ -1,11 +1,10 @@
-using System;
 using Items.ItemEffects;
 
-namespace Items.MagicOnion
+namespace Items.PassiveItems.MagicOnion
 {
     public class MagicOnionEffect : PassiveItemEffect
     {
-        private void Awake()
+        protected override void Awake()
         {
             ChangeDamageMultiplier(itemInformation.damageMultiplierDelta);
             ChangeFireDelayMultiplier(itemInformation.fireDelayMultiplierDelta);

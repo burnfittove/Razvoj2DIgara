@@ -149,7 +149,7 @@
                     "name": "",
                     "id": "5feb631f-84c7-42ca-8bb2-4783c3cc6ca7",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
                     "action": "Fire",
@@ -162,7 +162,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false

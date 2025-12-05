@@ -1,10 +1,10 @@
 using Items.ItemEffects;
 
-namespace Items.BlackAmulet
+namespace Items.PassiveItems.BlackAmulet
 {
     public class BlackAmuletEffect : PassiveItemEffect
     {
-        private void Awake()
+        protected override void Awake()
         {
             ChangeDamage(itemInformation.damageDelta);
         }

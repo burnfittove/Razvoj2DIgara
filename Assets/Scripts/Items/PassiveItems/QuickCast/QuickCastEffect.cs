@@ -1,11 +1,10 @@
-using System;
 using Items.ItemEffects;
 
-namespace Items.QuickCast
+namespace Items.PassiveItems.QuickCast
 {
     public class QuickCastEffect : PassiveItemEffect
     {
-        private void Awake()
+        protected override void Awake()
         {
             ChangeFireDelay(itemInformation.fireDelayDelta);
         }

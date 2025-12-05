@@ -1,10 +1,10 @@
-using System;
 using Items.ItemEffects;
-namespace Items.GrowthHormones
+
+namespace Items.PassiveItems.GrowthHormones
 {
     public class GrowthHormonesEffect : PassiveItemEffect
     {
-        private void Awake()
+        protected override void Awake()
         {
             ChangeHealth(itemInformation.maxHealthDelta);
             ChangeSpeed(itemInformation.speedDelta);

@@ -1,5 +1,6 @@
 using System;
 using Events;
+using PlayerScripts;
 using UnityEngine;
 
 namespace Items.ItemEffects
@@ -8,6 +9,13 @@ namespace Items.ItemEffects
     {
         public ItemInformationSO itemInformation;
         public bool isPersistent = false;
+        protected Player Player;
+
+        // Get components
+        protected virtual void Awake()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        }
 
         private void Start()
         {
