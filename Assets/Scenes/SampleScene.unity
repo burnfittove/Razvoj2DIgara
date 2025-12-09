@@ -1147,7 +1147,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.35056958, g: 0.735849, b: 0.51340824, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6836,20 +6836,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 822318659159013489, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7563069610443583395, guid: dfa091d5a21e6aec4b400a01794e058a, type: 3}
-    - target: {fileID: 822318659159013489, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.2735849
       objectReference: {fileID: 0}
     - target: {fileID: 822318659159013489, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.22841758
       objectReference: {fileID: 0}
     - target: {fileID: 822318659159013489, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.25380084
       objectReference: {fileID: 0}
     - target: {fileID: 2145306188532793149, guid: 51421a57360274ca0bb50f6a4a0e16f9, type: 3}
       propertyPath: m_Name
@@ -7159,7 +7155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1921364620
 Transform:
   m_ObjectHideFlags: 0
@@ -7311,7 +7307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7376459245241949256, guid: b8ce595f5243b664588ec9f89a44e679, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.55
+      value: 8.54
       objectReference: {fileID: 0}
     - target: {fileID: 7376459245241949256, guid: b8ce595f5243b664588ec9f89a44e679, type: 3}
       propertyPath: m_LocalPosition.y
