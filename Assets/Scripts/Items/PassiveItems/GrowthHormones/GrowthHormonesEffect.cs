@@ -6,7 +6,7 @@ namespace Items.PassiveItems.GrowthHormones
     {
         protected override void Awake()
         {
-            ChangeHealth(itemInformation.maxHealthDelta);
+            ChangeMaxHealth(itemInformation.maxHealthDelta);
             ChangeSpeed(itemInformation.speedDelta);
             ChangeDamage(itemInformation.damageDelta);
         }

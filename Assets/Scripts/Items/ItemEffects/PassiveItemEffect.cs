@@ -23,6 +23,10 @@ namespace Items.ItemEffects
         }
         
         // Base attributes
+        protected void ChangeMaxHealth(float newMaxHealth)
+        {
+            GameEventManager.Instance.AttributeUpdateEvents.MaxHealthChange(newMaxHealth);
+        }
         protected void ChangeHealth(float newHealth)
         {
             GameEventManager.Instance.AttributeUpdateEvents.HealthChange(newHealth);

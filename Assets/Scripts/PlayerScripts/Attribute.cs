@@ -37,6 +37,8 @@ namespace PlayerScripts
             else Multiplier *= newMultiplierValue;
             // Set the multiplier to the minMultiplier value
             if (Multiplier <= minMultiplier) Multiplier = minMultiplier;
+            // Set the multiplier to the maxMultiplier value
+            if (Multiplier >= maxMultiplier) Multiplier = maxMultiplier;
             // Apply the multiplier
             Value = trueValue * Multiplier;
         }
@@ -48,6 +50,8 @@ namespace PlayerScripts
         
             // Update the true attribute
             trueValue += newValue;
+            if (trueValue < minValue) trueValue = minValue;
+            if (trueValue > maxValue) trueValue = maxValue;
             // Recalculate the usable attribute
             Value = trueValue * Multiplier;
         }

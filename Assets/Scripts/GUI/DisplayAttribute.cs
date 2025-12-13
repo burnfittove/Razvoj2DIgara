@@ -9,7 +9,7 @@ namespace GUI
     /// </summary>
     public class DisplayAttribute : MonoBehaviour
     {
-        private TMP_Text tmpText;
+        protected TMP_Text tmpText;
         protected Player player;
         public string label;
         protected float attributeValue;
@@ -26,8 +26,8 @@ namespace GUI
         {
             UpdateText(attributeValue, multiplierValue);
         }
-        
-        private void UpdateText(float attrVal, float multVal)
+
+        protected virtual void UpdateText(float attrVal, float multVal)
         {
             tmpText.text = $"{label}: {attrVal:0.00}{(displayMultiplier ? $"/x{multVal:0.00}" : "")}";
         }

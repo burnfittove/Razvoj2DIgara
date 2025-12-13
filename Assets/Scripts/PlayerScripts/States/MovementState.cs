@@ -1,3 +1,4 @@
+using Events;
 using PlayerScripts.Shooting;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ namespace PlayerScripts.States
         private void Move(Vector2 direction)
         {
             p.rb.MovePosition((Vector2)p.transform.position + direction * (p.Speed.Value * Time.fixedDeltaTime));
+            GameEventManager.Instance.AttributeUpdateEvents.HealthChange(-.01f);
         }
     }
 }

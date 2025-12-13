@@ -7,6 +7,12 @@ namespace Events
         // # Attributes
         // ## Regular
         // ### Health
+        public event Action<float> OnMaxHealthChange;
+
+        public void MaxHealthChange(float value)
+        {
+            OnMaxHealthChange?.Invoke(value);
+        }
         public event Action<float> OnHealthChange;
         public void HealthChange(float value)
         {

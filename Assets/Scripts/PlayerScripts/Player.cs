@@ -82,7 +82,8 @@ namespace PlayerScripts
         {
             // Subscribe to attribute change events
             // Regular
-            GameEventManager.Instance.AttributeUpdateEvents.OnHealthChange += UpdateMaxHealth;
+            GameEventManager.Instance.AttributeUpdateEvents.OnMaxHealthChange += UpdateMaxHealth;
+            GameEventManager.Instance.AttributeUpdateEvents.OnHealthChange += UpdateHealth;
             GameEventManager.Instance.AttributeUpdateEvents.OnSpeedChange += UpdateSpeed;
             GameEventManager.Instance.AttributeUpdateEvents.OnDamageChange += UpdateDamage;
             GameEventManager.Instance.AttributeUpdateEvents.OnFireDelayChange += UpdateFireDelay;
@@ -98,12 +99,22 @@ namespace PlayerScripts
             GameEventManager.Instance.AttributeUpdateEvents.OnRangeMultiplierChange += UpdateRangeMultiplier;
             GameEventManager.Instance.AttributeUpdateEvents.OnLuckMultiplierChange += UpdateLuckMultiplier;
         }
+        
+        // Debug
+        // private void Update()
+        // {
+        //     Debug.Log(MaxHealth.Value);
+        // }
 
         // Attributes
         private void UpdateMaxHealth(float value)
         {
             MaxHealth.UpdateValue(value);
             Health.ChangeConstantMaxValue(MaxHealth.Value);
+            Health.UpdateValue(value);
+        }
+        private void UpdateHealth(float value)
+        {
             Health.UpdateValue(value);
         }
         private void UpdateSpeed(float value)
@@ -163,7 +174,7 @@ namespace PlayerScripts
         
         public void TakeDamage(float damage)
         {
-            Health.UpdateValue(-damage);
+            GameEventManager.Instance.AttributeUpdateEvents.MaxHealthChange(damage);
         }
     }
 }

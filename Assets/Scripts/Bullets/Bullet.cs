@@ -51,9 +51,7 @@ namespace Bullets
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag != "Player") return;
-            other.GetComponent<IDamageable>().TakeDamage(damage);
-            gameObject.SetActive(false);
+            if (other.CompareTag("Wall")) gameObject.SetActive(false);
         }
     }
 }

@@ -24,7 +24,8 @@ public class PlayerBullet : Bullet
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "Enemy") return;
+        base.OnTriggerEnter2D(other);
+        if (!other.CompareTag("Enemy")) return;
         other.GetComponent<IDamageable>()?.TakeDamage(damage);
         gameObject.SetActive(false);
     }
