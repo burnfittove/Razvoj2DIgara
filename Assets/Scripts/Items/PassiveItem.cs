@@ -8,7 +8,7 @@ namespace Items
         public GameObject itemEffectPrefab;
         protected override void OnItemPickedUp()
         {
-            GameEventManager.Instance.ItemPickupEvents.PassiveItemAcquired(itemEffectPrefab);
+            GameEventManager.Instance.itemEvents.PassiveItemAcquired(itemEffectPrefab);
             Destroy(gameObject);
         }
     }

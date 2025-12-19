@@ -9,7 +9,7 @@ namespace Events
 
         public InputEvents InputEvents;
         public AttributeUpdateEvents AttributeUpdateEvents;
-        public ItemPickupEvents ItemPickupEvents;
+        public ItemEvents itemEvents;
 
         private void Awake()
         {
@@ -22,7 +22,7 @@ namespace Events
             // Initialize events
             InputEvents = new InputEvents();
             AttributeUpdateEvents = new AttributeUpdateEvents();
-            ItemPickupEvents = new ItemPickupEvents();
+            itemEvents = new ItemEvents();
         }
     }
 }

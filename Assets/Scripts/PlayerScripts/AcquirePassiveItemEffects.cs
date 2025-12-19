@@ -9,7 +9,7 @@ namespace PlayerScripts
         private void OnEnable()
         {
             // Passive item acquisition
-            GameEventManager.Instance.ItemPickupEvents.OnPassiveItemAcquired += InstantiatePassiveItemEffect;
+            GameEventManager.Instance.itemEvents.OnPassiveItemAcquired += InstantiatePassiveItemEffect;
         }
 
         // Passive item effect
