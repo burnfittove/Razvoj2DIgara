@@ -12,14 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1535b927e0c64f3a813c3f9e454ab7b, type: 3}
   m_Name: BlackAmulet
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
+  itemSprite: {fileID: 0}
   itemName: Black Amulet
-  itemDescription: Your magic tightens
+  itemDescription: Your magic tightens\n-Damage +2
   itemQuality: 3
   itemId: 3
-  damageDelta: 2
-  damageMultiplierDelta: 0
-  healthDelta: 0
+  maxHealthDelta: 0
   speedDelta: 0
-  bulletLifetimeDelta: -3
+  damageDelta: 2
   fireDelayDelta: 0
-  fireRateMultiplierDelta: 0
+  rangeDelta: 0
+  shotSpeedDelta: 0
+  luckDelta: 0
+  speedMultiplierDelta: 0
+  damageMultiplierDelta: 0
+  fireDelayMultiplierDelta: 0
+  rangeMultiplierDelta: 0
+  luckMultiplierDelta: 0
+  knockbackDelta: 0
+  contactDamageDelta: 0
+  healAcquiredHealth: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemSprite: {fileID: 0}
   itemName: LEEK
-  itemDescription: 39 39 BEAM
+  itemDescription: 39 39 BEAM\n-Damage Multiplier x0.5\n-Fire Delay Multiplier x0.2
   itemQuality: 5
   itemId: 4
   maxHealthDelta: 0

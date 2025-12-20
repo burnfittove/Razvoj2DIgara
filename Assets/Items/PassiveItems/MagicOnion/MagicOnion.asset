@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemSprite: {fileID: 0}
   itemName: Magic Onion
-  itemDescription: Infinite Layers!
+  itemDescription: Infinite Layers!\n-Damage Multiplier x0.2\n-Fire Delay Multiplier
+    x0.3
   itemQuality: 2
   itemId: 2
   maxHealthDelta: 0

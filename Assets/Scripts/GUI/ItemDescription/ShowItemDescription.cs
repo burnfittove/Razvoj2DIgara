@@ -3,24 +3,27 @@ using Items;
 using TMPro;
 using UnityEngine;
 
-public class ShowItemDescription : MonoBehaviour
+namespace GUI.ItemDescription
 {
-    [SerializeField]
-    private TMP_Text itemName;
-    [SerializeField]
-    private TMP_Text itemDescription;
-
-    private void Awake()
+    public class ShowItemDescription : MonoBehaviour
     {
-        gameObject.SetActive(false);
-        GameEventManager.Instance.itemEvents.OnNearbyItemDetected += UpdateItemDescriptionUI;
-        GameEventManager.Instance.itemEvents.OnNearbyItemLost += () => gameObject.SetActive(false);
-    }
+        [SerializeField]
+        private TMP_Text itemName;
+        [SerializeField]
+        private TMP_Text itemDescription;
 
-    private void UpdateItemDescriptionUI(Item item)
-    {
-        gameObject.SetActive(true);
-        itemName.text = item.itemInformation.itemName;
-        itemDescription.text = item.itemInformation.itemDescription;
+        private void Awake()
+        {
+            gameObject.SetActive(false);
+            GameEventManager.Instance.itemEvents.OnNearbyItemDetected += UpdateItemDescriptionUI;
+            GameEventManager.Instance.itemEvents.OnNearbyItemLost += () => gameObject.SetActive(false);
+        }
+
+        private void UpdateItemDescriptionUI(Item item)
+        {
+            gameObject.SetActive(true);
+            itemName.text = $"{item.itemInformation.itemName} | {item.itemInformation.itemQuality}";
+            itemDescription.text = item.itemInformation.itemDescription;
+        }
     }
 }

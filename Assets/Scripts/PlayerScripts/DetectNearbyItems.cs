@@ -13,7 +13,7 @@ namespace PlayerScripts
         
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(transform.position, 4.2f);
+            Gizmos.DrawWireSphere(transform.position, 3.6f);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemSprite: {fileID: 0}
   itemName: Growth Hormones
-  itemDescription: strongrrr
+  itemDescription: strongrrr\n-Health +10\n-Speed -0.2\n-Fire Delay +0.2
   itemQuality: 2
   itemId: 5
   maxHealthDelta: 10

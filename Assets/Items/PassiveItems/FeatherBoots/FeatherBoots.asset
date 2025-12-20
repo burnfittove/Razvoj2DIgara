@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemSprite: {fileID: 0}
   itemName: Feather Boots
-  itemDescription: They move when you... shoot?
+  itemDescription: They move when you... shoot?\n-Speed +1 when shooting
   itemQuality: 1
   itemId: 8
   maxHealthDelta: 0
