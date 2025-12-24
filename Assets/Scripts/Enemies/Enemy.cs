@@ -1,6 +1,10 @@
+using System;
 using PlayerScripts;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
+using Attribute = PlayerScripts.Attribute;
 
 namespace Enemies
 {
@@ -21,12 +25,16 @@ namespace Enemies
         protected Rigidbody2D rb;
         protected Collider2D cc;
         protected SpriteRenderer sr;
+        protected NavMeshAgent navMeshAgent;
+        protected Player player;
         
         protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             sr = GetComponentInChildren<SpriteRenderer>();
             cc = GetComponent<Collider2D>();
+            navMeshAgent = GetComponent<NavMeshAgent>();
+            player = GameObject.FindWithTag("Player").GetComponent<Player>();
             
             // # Attributes
             // ## Health
@@ -45,6 +53,20 @@ namespace Enemies
             if (isInvisible) sr.enabled = false;
         }
 
+        protected virtual void Start()
+        {
+            InitializeNavMeshValues();
+        }
+
+        protected virtual void InitializeNavMeshValues()
+        {
+            navMeshAgent.updateRotation = false;
+            navMeshAgent.updateUpAxis = false;
+            navMeshAgent.speed = enemyInfo.speed;
+            navMeshAgent.acceleration = enemyInfo.acceleration;
+            navMeshAgent.angularSpeed = enemyInfo.speed * 20;
+        }
+
         public void TakeDamage(float damage)
         {
             Health.UpdateValue(-damage);
@@ -52,17 +74,17 @@ namespace Enemies
 
         protected virtual void OnDeath()
         {
-            Destroy(gameObject);
+            sr.color = new Color(sr.color.r / 3, sr.color.g / 3, sr.color.b / 3);
+            cc.enabled = false;
+            navMeshAgent.enabled = false;
         }
 
         private void Update()
         {
             if (Health.Value <= 0) OnDeath();
+            OnUpdate();
         }
 
-        protected virtual void Move(Vector2 direction)
-        {
-            rb.linearVelocity = direction * (Speed.Value * Time.fixedDeltaTime);
-        }
+        protected abstract void OnUpdate();
     }
 }

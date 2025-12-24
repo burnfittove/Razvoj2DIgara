@@ -1,12 +1,10 @@
-using Enemies;
-using UnityEngine;
-
-public class Roamer : Enemy
+namespace Enemies.Close_range.Roamer
 {
-    protected override void OnDeath()
+    public class Roamer : Enemy
     {
-        sr.color = new Color(sr.color.r / 3, sr.color.g / 3, sr.color.b / 3);
-        cc.enabled = false;
-        enabled = false;
+        protected override void OnUpdate()
+        {
+            if (navMeshAgent.enabled) navMeshAgent.SetDestination(player.transform.position);
+        }
     }
 }
