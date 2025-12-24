@@ -13,7 +13,7 @@ public class CursorController : MonoBehaviour
 
     void OnEnable()
     {
-        GameEventManager.Instance.InputEvents.OnMouseMoved += MoveCursor;
+        GameEventManager.Instance.inputEvents.OnMouseMoved += MoveCursor;
     }
 
     // Update is called once per frame
@@ -29,6 +29,6 @@ public class CursorController : MonoBehaviour
     
     void OnDisable()
     {
-        GameEventManager.Instance.InputEvents.OnMouseMoved -= MoveCursor;
+        GameEventManager.Instance.inputEvents.OnMouseMoved -= MoveCursor;
     }
 }

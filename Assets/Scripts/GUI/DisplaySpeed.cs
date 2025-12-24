@@ -7,7 +7,7 @@ namespace GUI
     {
         private void Update()
         {
-            attributeValue = player.Speed.Value;
+            value = player.Speed.Value;
             multiplierValue = player.Speed.Multiplier;
         }
     }

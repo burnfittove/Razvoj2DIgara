@@ -9,7 +9,7 @@ namespace Items.PassiveItems.FeatherBoots
         protected override void Awake()
         {
             base.Awake();
-            GameEventManager.Instance.InputEvents.OnFirePressed += ChangeSpeedOnMove;
+            GameEventManager.Instance.inputEvents.OnFirePressed += ChangeSpeedOnMove;
         }
 
         private void ChangeSpeedOnMove(float isPressed)

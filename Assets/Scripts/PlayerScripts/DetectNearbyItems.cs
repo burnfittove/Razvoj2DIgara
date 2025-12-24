@@ -8,13 +8,7 @@ namespace PlayerScripts
 {
     public class DetectNearbyItems : MonoBehaviour
     {
-        private Transform[] nearbyItems;
-        public ISet<Item> nearbyItemSet = new HashSet<Item>();
-        
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawWireSphere(transform.position, 3.6f);
-        }
+        private readonly ISet<Item> nearbyItemSet = new HashSet<Item>();
 
         private void OnTriggerEnter2D(Collider2D other)
         {

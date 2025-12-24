@@ -82,22 +82,22 @@ namespace PlayerScripts
         {
             // Subscribe to attribute change events
             // Regular
-            GameEventManager.Instance.AttributeUpdateEvents.OnMaxHealthChange += UpdateMaxHealth;
-            GameEventManager.Instance.AttributeUpdateEvents.OnHealthChange += UpdateHealth;
-            GameEventManager.Instance.AttributeUpdateEvents.OnSpeedChange += UpdateSpeed;
-            GameEventManager.Instance.AttributeUpdateEvents.OnDamageChange += UpdateDamage;
-            GameEventManager.Instance.AttributeUpdateEvents.OnFireDelayChange += UpdateFireDelay;
-            GameEventManager.Instance.AttributeUpdateEvents.OnRangeChange += UpdateRange;
-            GameEventManager.Instance.AttributeUpdateEvents.OnShotSpeedChange += UpdateShotSpeed;
-            GameEventManager.Instance.AttributeUpdateEvents.OnLuckChange += UpdateLuck;
-            GameEventManager.Instance.AttributeUpdateEvents.OnKnockbackChange += UpdateKnockbackStrength;
-            GameEventManager.Instance.AttributeUpdateEvents.OnContactDamageChange += UpdateContactDamage;
+            GameEventManager.Instance.attributeUpdateEvents.OnMaxHealthChange += UpdateMaxHealth;
+            GameEventManager.Instance.attributeUpdateEvents.OnHealthChange += UpdateHealth;
+            GameEventManager.Instance.attributeUpdateEvents.OnSpeedChange += UpdateSpeed;
+            GameEventManager.Instance.attributeUpdateEvents.OnDamageChange += UpdateDamage;
+            GameEventManager.Instance.attributeUpdateEvents.OnFireDelayChange += UpdateFireDelay;
+            GameEventManager.Instance.attributeUpdateEvents.OnRangeChange += UpdateRange;
+            GameEventManager.Instance.attributeUpdateEvents.OnShotSpeedChange += UpdateShotSpeed;
+            GameEventManager.Instance.attributeUpdateEvents.OnLuckChange += UpdateLuck;
+            GameEventManager.Instance.attributeUpdateEvents.OnKnockbackChange += UpdateKnockbackStrength;
+            GameEventManager.Instance.attributeUpdateEvents.OnContactDamageChange += UpdateContactDamage;
             // Multipliers
-            GameEventManager.Instance.AttributeUpdateEvents.OnSpeedMultiplierChange += UpdateSpeedMultiplier;
-            GameEventManager.Instance.AttributeUpdateEvents.OnDamageMultiplierChange += UpdateDamageMultiplier;
-            GameEventManager.Instance.AttributeUpdateEvents.OnFireDelayMultiplierChange += UpdateFireDelayMultiplier;
-            GameEventManager.Instance.AttributeUpdateEvents.OnRangeMultiplierChange += UpdateRangeMultiplier;
-            GameEventManager.Instance.AttributeUpdateEvents.OnLuckMultiplierChange += UpdateLuckMultiplier;
+            GameEventManager.Instance.attributeUpdateEvents.OnSpeedMultiplierChange += UpdateSpeedMultiplier;
+            GameEventManager.Instance.attributeUpdateEvents.OnDamageMultiplierChange += UpdateDamageMultiplier;
+            GameEventManager.Instance.attributeUpdateEvents.OnFireDelayMultiplierChange += UpdateFireDelayMultiplier;
+            GameEventManager.Instance.attributeUpdateEvents.OnRangeMultiplierChange += UpdateRangeMultiplier;
+            GameEventManager.Instance.attributeUpdateEvents.OnLuckMultiplierChange += UpdateLuckMultiplier;
         }
         
         // Debug
@@ -174,7 +174,7 @@ namespace PlayerScripts
         
         public void TakeDamage(float damage)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.MaxHealthChange(damage);
+            GameEventManager.Instance.attributeUpdateEvents.MaxHealthChange(damage);
         }
     }
 }

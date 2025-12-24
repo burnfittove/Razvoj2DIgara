@@ -9,17 +9,17 @@ namespace Managers
     {
         public void MovePressed(InputAction.CallbackContext context)
         {
-            GameEventManager.Instance.InputEvents.MovePressed(context.ReadValue<Vector2>());
+            GameEventManager.Instance.inputEvents.MovePressed(context.ReadValue<Vector2>());
         }
 
         public void FirePressed(InputAction.CallbackContext context)
         {
-            GameEventManager.Instance.InputEvents.FirePressed(context.ReadValue<float>());
+            GameEventManager.Instance.inputEvents.FirePressed(context.ReadValue<float>());
         }
 
         public void MouseMoved(InputAction.CallbackContext context)
         {
-            GameEventManager.Instance.InputEvents.MouseMoved(context.ReadValue<Vector2>());
+            GameEventManager.Instance.inputEvents.MouseMoved(context.ReadValue<Vector2>());
         }
     }
 }

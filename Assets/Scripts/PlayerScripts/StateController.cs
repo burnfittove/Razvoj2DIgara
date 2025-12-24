@@ -21,7 +21,7 @@ namespace PlayerScripts
         private void Start()
         {
             ChangeState(IdleState);
-            GameEventManager.Instance.InputEvents.OnMovePressed += MovePressed;
+            GameEventManager.Instance.inputEvents.OnMovePressed += MovePressed;
         }
 
         // Update is called once per frame

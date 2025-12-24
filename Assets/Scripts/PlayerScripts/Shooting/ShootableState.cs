@@ -10,15 +10,15 @@ namespace PlayerScripts.Shooting
         
         protected override void OnEnter()
         {
-            GameEventManager.Instance.InputEvents.OnMouseMoved += GetDirection;
-            GameEventManager.Instance.InputEvents.OnFirePressed += FirePressed;
+            GameEventManager.Instance.inputEvents.OnMouseMoved += GetDirection;
+            GameEventManager.Instance.inputEvents.OnFirePressed += FirePressed;
         }
 
 
         protected override void OnExit()
         {
-            GameEventManager.Instance.InputEvents.OnMouseMoved -= GetDirection;
-            GameEventManager.Instance.InputEvents.OnFirePressed -= FirePressed;
+            GameEventManager.Instance.inputEvents.OnMouseMoved -= GetDirection;
+            GameEventManager.Instance.inputEvents.OnFirePressed -= FirePressed;
         }
         private void FirePressed(float value)
         {

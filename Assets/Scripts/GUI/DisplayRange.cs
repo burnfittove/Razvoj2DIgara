@@ -7,7 +7,7 @@ namespace GUI
     {
         private void Update()
         {
-            attributeValue = player.Range.Value;
+            value = player.Range.Value;
             multiplierValue = player.Range.Multiplier;
         }
     }

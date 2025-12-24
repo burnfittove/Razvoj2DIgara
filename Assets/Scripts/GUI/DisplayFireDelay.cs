@@ -7,7 +7,7 @@ namespace GUI
     {
         private void Update()
         {
-            attributeValue = player.FireDelay.Value;
+            value = player.FireDelay.Value;
             multiplierValue = player.FireDelay.Multiplier;
         }
     }

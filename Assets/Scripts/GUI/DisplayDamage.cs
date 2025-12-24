@@ -6,7 +6,7 @@ namespace GUI
     {
         private void Update()
         {
-            attributeValue = player.Damage.Value;
+            value = player.Damage.Value;
             multiplierValue = player.Damage.Multiplier;
         }
     }

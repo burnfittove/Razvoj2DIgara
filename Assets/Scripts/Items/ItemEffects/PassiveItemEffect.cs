@@ -25,78 +25,78 @@ namespace Items.ItemEffects
         // Base attributes
         protected void ChangeMaxHealth(float newMaxHealth)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.MaxHealthChange(newMaxHealth);
+            GameEventManager.Instance.attributeUpdateEvents.MaxHealthChange(newMaxHealth);
         }
         protected void ChangeHealth(float newHealth)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.HealthChange(newHealth);
+            GameEventManager.Instance.attributeUpdateEvents.HealthChange(newHealth);
         }
 
         protected void ChangeSpeed(float newSpeed)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.SpeedChange(newSpeed);
+            GameEventManager.Instance.attributeUpdateEvents.SpeedChange(newSpeed);
         }
         
         protected void ChangeDamage(float newDamage)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.DamageChange(newDamage);
+            GameEventManager.Instance.attributeUpdateEvents.DamageChange(newDamage);
         }
 
         protected void ChangeFireDelay(float newFireRate)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.FireDelayChange(newFireRate);
+            GameEventManager.Instance.attributeUpdateEvents.FireDelayChange(newFireRate);
         }
 
         protected void ChangeRange(float newRange)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.RangeChange(newRange);
+            GameEventManager.Instance.attributeUpdateEvents.RangeChange(newRange);
         }
 
         protected void ChangeShotSpeed(float newShotSpeed)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.ShotSpeedChange(newShotSpeed);
+            GameEventManager.Instance.attributeUpdateEvents.ShotSpeedChange(newShotSpeed);
         }
 
         protected void ChangeLuck(float newLuck)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.LuckChange(newLuck);
+            GameEventManager.Instance.attributeUpdateEvents.LuckChange(newLuck);
         }
         
         // Attribute multipliers
         protected void ChangeSpeedMultiplier(float newSpeedMultiplier)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.SpeedMultiplierChange(newSpeedMultiplier);
+            GameEventManager.Instance.attributeUpdateEvents.SpeedMultiplierChange(newSpeedMultiplier);
         }
         
         protected void ChangeDamageMultiplier(float newDamageMultiplier)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
+            GameEventManager.Instance.attributeUpdateEvents.DamageMultiplierChange(newDamageMultiplier);
         }
         
         protected void ChangeFireDelayMultiplier(float newFireRateMultiplier)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
+            GameEventManager.Instance.attributeUpdateEvents.FireDelayMultiplierChange(newFireRateMultiplier);
         }
 
         protected void ChangeRangeMultiplier(float newRangeMultiplier)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.RangeMultiplierChange(newRangeMultiplier);
+            GameEventManager.Instance.attributeUpdateEvents.RangeMultiplierChange(newRangeMultiplier);
         }
 
         protected void ChangeLuckMultiplier(float newLuckMultiplier)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.LuckMultiplierChange(newLuckMultiplier);
+            GameEventManager.Instance.attributeUpdateEvents.LuckMultiplierChange(newLuckMultiplier);
         }
         
         // Other attributes
         protected void ChangeKnockbackStrength(float newKnockbackStrength)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.KnockbackChange(newKnockbackStrength);
+            GameEventManager.Instance.attributeUpdateEvents.KnockbackChange(newKnockbackStrength);
         }
 
         protected void ChangeContactDamage(float newContactDamage)
         {
-            GameEventManager.Instance.AttributeUpdateEvents.ContactDamageChange(newContactDamage);
+            GameEventManager.Instance.attributeUpdateEvents.ContactDamageChange(newContactDamage);
         }
     }
 }

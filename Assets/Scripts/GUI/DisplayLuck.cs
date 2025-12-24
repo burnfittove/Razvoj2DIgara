@@ -7,7 +7,7 @@ namespace GUI
     {
         private void Update()
         {
-            attributeValue = player.Luck.Value;
+            value = player.Luck.Value;
             multiplierValue = player.Luck.Multiplier;
         }
     }
