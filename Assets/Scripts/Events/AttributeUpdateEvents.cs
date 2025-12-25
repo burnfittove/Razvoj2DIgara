@@ -110,6 +110,14 @@ namespace Events
             OnRangeMultiplierChange?.Invoke(value);
         }
         
+        // ### Shot Speed Multiplier
+        public event Action<float> OnShotSpeedMultiplierChange;
+
+        public void ShotSpeedMultiplierChange(float value)
+        {
+            OnShotSpeedMultiplierChange?.Invoke(value);
+        }
+        
         // ### Luck Multiplier
         public event Action<float> OnLuckMultiplierChange;
 

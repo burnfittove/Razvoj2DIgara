@@ -9,12 +9,12 @@ namespace Items.ItemEffects
     {
         public ItemInformationSO itemInformation;
         public bool isPersistent = false;
-        protected Player Player;
+        protected Player player;
 
         // Get components
         protected virtual void Awake()
         {
-            Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
 
         private void Start()

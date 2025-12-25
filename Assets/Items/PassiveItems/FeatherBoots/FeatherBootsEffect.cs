@@ -15,9 +15,9 @@ namespace Items.PassiveItems.FeatherBoots
         private void ChangeSpeedOnMove(float isPressed)
         {
             if (isPressed > 0.1f)
-                Player.Speed.UpdateValue(itemInformation.speedDelta);
+                GameEventManager.Instance.attributeUpdateEvents.SpeedChange(itemInformation.speedDelta);
             else
-                Player.Speed.UpdateValue(-itemInformation.speedDelta * 2);
+                GameEventManager.Instance.attributeUpdateEvents.SpeedChange(-itemInformation.speedDelta * 2);
         }
     }
 }

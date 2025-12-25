@@ -3,9 +3,9 @@ using Items;
 using TMPro;
 using UnityEngine;
 
-namespace GUI.ItemDescription
+namespace GUI
 {
-    public class ShowItemDescription : MonoBehaviour
+    public class DisplayItemDescription : MonoBehaviour
     {
         [SerializeField]
         private TMP_Text itemName;

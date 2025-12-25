@@ -1,0 +1,24 @@
+using Events;
+
+namespace GUI.Attributes
+{
+    public class DisplaySouls : DisplayAttribute
+    {
+        protected override void SubscribeToAttributeEvent()
+        {
+            GameEventManager.Instance.pickupEvents.OnSoulPickUp += _ => DisplayValues();
+        }
+
+        protected override void UpdateValues()
+        {
+            displayPrimaryValue = player.Souls.Value;
+        }
+
+        protected override void DisplayValues()
+        {
+            UpdateValues();
+            
+            tmpText.text = $"{attributeName}: {displayPrimaryValue}";
+        }
+    }
+}

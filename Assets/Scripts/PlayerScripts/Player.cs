@@ -28,6 +28,9 @@ namespace PlayerScripts
         [Header("Hidden Attributes")]
         public Attribute KnockbackStrength { get; private set; }
         public Attribute ContactDamage { get; private set; }
+        [Header("Currencies")]
+        public Attribute Money { get; private set; }
+        public Attribute Souls { get; private set; }
         [Header("Constraints")]
         private float maxSpeed;
         private float minValue;
@@ -70,12 +73,17 @@ namespace PlayerScripts
             // ### Shot speed
             ShotSpeed = new Attribute(playerInformation.shotSpeed, 1, minMultiplier, maxMultiplier, minValue, 50);
             // ### Luck
-            Luck = new Attribute(playerInformation.luck, playerInformation.luckMultiplier, minMultiplier,  maxMultiplier, minValue, 50);
+            Luck = new Attribute(playerInformation.luck, playerInformation.luckMultiplier, minMultiplier,  maxMultiplier, minValue, float.MaxValue);
             // ## Hidden Attributes
             // ### Knockback strength
             KnockbackStrength = new Attribute(playerInformation.knockbackStrength, 1, minMultiplier, maxMultiplier, minValue, 10);
             // ### Contact damage
             ContactDamage = new Attribute(playerInformation.contactDamage, 1, minMultiplier, maxMultiplier, minValue, float.MaxValue);
+            // ## Currencies
+            // ### Money
+            Money = new Attribute(0, 1, minMultiplier, maxMultiplier, 0, float.MaxValue);
+            // ### Souls
+            Souls = new Attribute(0, 1, minMultiplier, maxMultiplier, 0, float.MaxValue);
         }
 
         private void OnEnable()
@@ -98,6 +106,9 @@ namespace PlayerScripts
             GameEventManager.Instance.attributeUpdateEvents.OnFireDelayMultiplierChange += UpdateFireDelayMultiplier;
             GameEventManager.Instance.attributeUpdateEvents.OnRangeMultiplierChange += UpdateRangeMultiplier;
             GameEventManager.Instance.attributeUpdateEvents.OnLuckMultiplierChange += UpdateLuckMultiplier;
+            // Currencies
+            GameEventManager.Instance.pickupEvents.OnCurrencyPickUp += UpdateMoney;
+            GameEventManager.Instance.pickupEvents.OnSoulPickUp += UpdateSouls;
         }
         
         // Debug
@@ -172,6 +183,17 @@ namespace PlayerScripts
             Luck.UpdateMultiplier(value);
         }
         
+        // Currencies
+        private void UpdateMoney(int value)
+        {
+            Money.UpdateValue(value);
+        }
+        private void UpdateSouls(int value)
+        {
+            Souls.UpdateValue(value);
+        }
+        
+        // IDamageable
         public void TakeDamage(float damage)
         {
             GameEventManager.Instance.attributeUpdateEvents.MaxHealthChange(damage);
