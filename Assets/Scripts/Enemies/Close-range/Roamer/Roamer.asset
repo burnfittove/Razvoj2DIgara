@@ -22,3 +22,4 @@ MonoBehaviour:
   fireDelay: 0
   range: 0
   shotSpeed: 0
+  chasePlayer: 1

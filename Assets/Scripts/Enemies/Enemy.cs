@@ -1,7 +1,4 @@
-using System;
 using PlayerScripts;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using Attribute = PlayerScripts.Attribute;
@@ -79,12 +76,15 @@ namespace Enemies
             navMeshAgent.enabled = false;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (Health.Value <= 0) OnDeath();
-            OnUpdate();
+            if (enemyInfo.chasePlayer) ChasePlayer();
         }
 
-        protected abstract void OnUpdate();
+        protected virtual void ChasePlayer()
+        {
+            if (navMeshAgent.enabled) navMeshAgent.SetDestination(player.transform.position);
+        }
     }
 }

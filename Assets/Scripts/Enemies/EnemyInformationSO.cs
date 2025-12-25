@@ -16,5 +16,6 @@ namespace Enemies
         public float fireDelay;
         public float range;
         public float shotSpeed;
+        public bool chasePlayer;
     }
 }
