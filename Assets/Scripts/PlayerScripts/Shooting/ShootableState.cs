@@ -20,9 +20,9 @@ namespace PlayerScripts.Shooting
             GameEventManager.Instance.inputEvents.OnMouseMoved -= GetDirection;
             GameEventManager.Instance.inputEvents.OnFirePressed -= FirePressed;
         }
-        private void FirePressed(float value)
+        private void FirePressed(InputAction.CallbackContext value)
         {
-            p.IsFiring = value > .1f;
+            p.IsFiring = value.ReadValue<float>() > .1f;
         }
 
         protected override void OnUpdate()
@@ -48,9 +48,9 @@ namespace PlayerScripts.Shooting
             p.FireDelayBuffer = p.FireDelay.Value;
         }
 
-        public void GetDirection(Vector2 cursorWorldPosition)
+        public void GetDirection(InputAction.CallbackContext cursorWorldPosition)
         {
-            p.FireDirection = (Camera.main.ScreenToWorldPoint(cursorWorldPosition) - p.transform.position).normalized;
+            p.FireDirection = (Camera.main.ScreenToWorldPoint(cursorWorldPosition.ReadValue<Vector2>()) - p.transform.position).normalized;
         }
     }
 }
