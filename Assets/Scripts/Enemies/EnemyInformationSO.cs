@@ -10,10 +10,12 @@ namespace Enemies
         public byte enemyId;
         public float health;
         public float speed;
+        public float acceleration = 10;
         public float damage;
         public float contactDamage;
         public float fireDelay;
         public float range;
         public float shotSpeed;
+        public bool chasePlayer;
     }
 }

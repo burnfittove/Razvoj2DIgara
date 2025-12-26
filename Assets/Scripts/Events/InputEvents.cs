@@ -6,20 +6,20 @@ namespace Events
 {
     public class InputEvents
     {
-        public event Action<Vector2> OnMovePressed;
-        public void MovePressed(Vector2 direction)
+        public event Action<InputAction.CallbackContext> OnMovePressed;
+        public void MovePressed(InputAction.CallbackContext direction)
         {
             OnMovePressed?.Invoke(direction);
         }
 
-        public event Action<float> OnFirePressed;
-        public void FirePressed(float isPressed)
+        public event Action<InputAction.CallbackContext> OnFirePressed;
+        public void FirePressed(InputAction.CallbackContext isPressed)
         {
             OnFirePressed?.Invoke(isPressed);
         }
 
-        public event Action<Vector2> OnMouseMoved;
-        public void MouseMoved(Vector2 position)
+        public event Action<InputAction.CallbackContext> OnMouseMoved;
+        public void MouseMoved(InputAction.CallbackContext position)
         {
             OnMouseMoved?.Invoke(position);
         }

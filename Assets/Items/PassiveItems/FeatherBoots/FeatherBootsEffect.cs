@@ -1,6 +1,7 @@
 using Events;
 using Items.ItemEffects;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Items.PassiveItems.FeatherBoots
 {
@@ -12,12 +13,14 @@ namespace Items.PassiveItems.FeatherBoots
             GameEventManager.Instance.inputEvents.OnFirePressed += ChangeSpeedOnMove;
         }
 
-        private void ChangeSpeedOnMove(float isPressed)
+        private void ChangeSpeedOnMove(InputAction.CallbackContext isPressed)
         {
-            if (isPressed > 0.1f)
-                Player.Speed.UpdateValue(itemInformation.speedDelta);
+            if (isPressed.performed) return;
+            
+            if (isPressed.started)
+                GameEventManager.Instance.attributeUpdateEvents.SpeedChange(itemInformation.speedDelta);
             else
-                Player.Speed.UpdateValue(-itemInformation.speedDelta * 2);
+                GameEventManager.Instance.attributeUpdateEvents.SpeedChange(-itemInformation.speedDelta);
         }
     }
 }

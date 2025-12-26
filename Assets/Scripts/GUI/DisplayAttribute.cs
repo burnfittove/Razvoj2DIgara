@@ -4,29 +4,38 @@ using UnityEngine;
 
 namespace GUI
 {
-    /// <summary>
-    /// Classes that inherit this scripts must update attributeValue and multiplierValue (if used) in Update()
-    /// </summary>
-    public class DisplayAttribute : DisplayValueWithTMPText
+    public abstract class DisplayAttribute : MonoBehaviour
     {
         protected Player player;
-        public bool displayMultiplier;
-        protected float multiplierValue;
+        [SerializeField] protected string attributeName;
+        protected float displayPrimaryValue;
+        protected float displaySecondaryValue;
+        protected TMP_Text tmpText;
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            player = GameObject.FindWithTag("Player").GetComponent<Player>();
+            // Initialize components
+            GameObject.FindGameObjectWithTag("Player").TryGetComponent(out player);
             tmpText = GetComponent<TMP_Text>();
         }
 
-        protected void LateUpdate()
+        protected virtual void Start()
         {
-            UpdateText();
+            // Subscribe to events
+            SubscribeToAttributeEvent(); // This method NEEDS to run in Start to ensure it always occurs after the player has subscribed to the attribute change events. This way, the methods that change the GUI always run after the player has changed their attributes.
+            
+            // Initialize GUI
+            DisplayValues();
         }
 
-        protected override void UpdateText()
+        protected virtual void DisplayValues()
         {
-            tmpText.text = $"{label}: {value:0.00}{(displayMultiplier ? $"/x{multiplierValue:0.00}" : "")}";
+            UpdateValues();
+            
+            tmpText.text = $"{attributeName}: {displayPrimaryValue:0.00}/x{displaySecondaryValue:0.00}";
         }
+        
+        protected abstract void SubscribeToAttributeEvent();
+        protected abstract void UpdateValues();
     }
 }

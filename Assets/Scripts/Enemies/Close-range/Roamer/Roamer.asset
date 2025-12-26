@@ -15,8 +15,11 @@ MonoBehaviour:
   enemyName: Roamer
   enemyId: 1
   health: 10
-  speed: 120
+  speed: 3
+  acceleration: 10
   damage: 3
   contactDamage: 1
   fireDelay: 0
-  bulletLifetime: 0
+  range: 0
+  shotSpeed: 0
+  chasePlayer: 1

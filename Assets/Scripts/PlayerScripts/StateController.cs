@@ -1,6 +1,7 @@
 using Events;
 using PlayerScripts.States;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace PlayerScripts
 {
@@ -40,9 +41,9 @@ namespace PlayerScripts
             currentState.OnStateEnter(this, player);
         }
 
-        private void MovePressed(Vector2 direction)
+        private void MovePressed(InputAction.CallbackContext direction)
         {
-            player.MovementDirection = direction;
+            player.MovementDirection = direction.ReadValue<Vector2>();
         }
 
         private void DecreaseFireDelay()
