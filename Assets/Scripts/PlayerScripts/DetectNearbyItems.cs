@@ -1,22 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using Events;
-using Items;
 using UnityEngine;
 
 namespace PlayerScripts
 {
     public class DetectNearbyItems : MonoBehaviour
     {
-        private readonly ISet<Item> nearbyItemSet = new HashSet<Item>();
+        private readonly ISet<Item.Item> nearbyItemSet = new HashSet<Item.Item>();
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag != "Item") return;
-            nearbyItemSet.Add(other.GetComponent<Item>());
+            if (!other.CompareTag("Item")) return;
+            nearbyItemSet.Add(other.GetComponent<Item.Item>());
         }
 
-        private Item GetNearestItem()
+        private Item.Item GetNearestItem()
         {
             if (nearbyItemSet.Count == 1) return nearbyItemSet.First();
          
@@ -36,8 +35,8 @@ namespace PlayerScripts
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.tag != "Item") return;
-            nearbyItemSet.Remove(other.GetComponent<Item>());
+            if (!other.CompareTag("Item")) return;
+            nearbyItemSet.Remove(other.GetComponent<Item.Item>());
             GameEventManager.Instance.itemEvents.NearbyItemLost();
         }
 

@@ -1,5 +1,4 @@
 using Events;
-using Items;
 using TMPro;
 using UnityEngine;
 
@@ -19,11 +18,11 @@ namespace GUI
             GameEventManager.Instance.itemEvents.OnNearbyItemLost += () => gameObject.SetActive(false);
         }
 
-        private void UpdateItemDescriptionUI(Item item)
+        private void UpdateItemDescriptionUI(Item.Item item)
         {
             gameObject.SetActive(true);
-            itemName.text = $"{item.itemInformation.itemName} | {item.itemInformation.itemQuality}";
-            itemDescription.text = item.itemInformation.itemDescription;
+            itemName.text = $"{item.ItemInformation.itemName} | {item.ItemInformation.itemQuality}";
+            itemDescription.text = item.ItemInformation.itemDescription;
         }
     }
 }

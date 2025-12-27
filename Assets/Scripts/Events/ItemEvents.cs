@@ -1,25 +1,27 @@
 using System;
-using Items;
 using UnityEngine;
 
-public class ItemEvents
+namespace Events
 {
-    public event Action<GameObject> OnPassiveItemAcquired;
-    public void PassiveItemAcquired(GameObject item)
+    public class ItemEvents
     {
-        OnPassiveItemAcquired?.Invoke(item);
-    }
+        public event Action<GameObject> OnPassiveItemAcquired;
+        public void PassiveItemAcquired(GameObject item)
+        {
+            OnPassiveItemAcquired?.Invoke(item);
+        }
     
-    public event Action<Item> OnNearbyItemDetected;
-    public void NearbyItemDetected(Item item)
-    {
-        OnNearbyItemDetected?.Invoke(item);
-    }
+        public event Action<Item.Item> OnNearbyItemDetected;
+        public void NearbyItemDetected(Item.Item item)
+        {
+            OnNearbyItemDetected?.Invoke(item);
+        }
     
-    public event Action OnNearbyItemLost;
+        public event Action OnNearbyItemLost;
 
-    public void NearbyItemLost()
-    {
-        OnNearbyItemLost?.Invoke();
+        public void NearbyItemLost()
+        {
+            OnNearbyItemLost?.Invoke();
+        }
     }
 }
