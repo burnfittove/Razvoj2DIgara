@@ -15,9 +15,9 @@ namespace Items.PassiveItems.FeatherBoots
 
         private void ChangeSpeedOnMove(InputAction.CallbackContext isPressed)
         {
-            if (isPressed.performed) return;
+            if (isPressed.started) return;
             
-            if (isPressed.started)
+            if (isPressed.performed)
                 GameEventManager.Instance.attributeUpdateEvents.SpeedChange(itemInformation.speedDelta);
             else
                 GameEventManager.Instance.attributeUpdateEvents.SpeedChange(-itemInformation.speedDelta);

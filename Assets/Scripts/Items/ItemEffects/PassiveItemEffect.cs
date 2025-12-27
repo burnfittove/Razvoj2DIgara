@@ -1,4 +1,3 @@
-using System;
 using Events;
 using PlayerScripts;
 using UnityEngine;
@@ -14,7 +13,7 @@ namespace Items.ItemEffects
         // Get components
         protected virtual void Awake()
         {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            GameObject.FindGameObjectWithTag("Player").TryGetComponent(out player);
         }
 
         private void Start()

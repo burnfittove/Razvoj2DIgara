@@ -15,7 +15,7 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   itemName: Black Amulet
   itemDescription: Your magic tightens\n-Damage +2
-  itemQuality: 3
+  itemQuality: 4
   itemId: 3
   maxHealthDelta: 0
   speedDelta: 0
@@ -32,3 +32,4 @@ MonoBehaviour:
   knockbackDelta: 0
   contactDamageDelta: 0
   healAcquiredHealth: 0
+  price: 4800

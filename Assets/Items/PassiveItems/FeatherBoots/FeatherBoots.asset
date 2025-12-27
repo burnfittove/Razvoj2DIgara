@@ -32,3 +32,4 @@ MonoBehaviour:
   knockbackDelta: 0
   contactDamageDelta: 0
   healAcquiredHealth: 0
+  price: 1200

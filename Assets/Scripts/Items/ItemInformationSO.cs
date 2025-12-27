@@ -27,6 +27,8 @@ namespace Items
         public float luckMultiplierDelta;
         public float knockbackDelta;
         public float contactDamageDelta;
+        [Header("Other")] 
         public bool healAcquiredHealth;
+        public int price;
     }
 }

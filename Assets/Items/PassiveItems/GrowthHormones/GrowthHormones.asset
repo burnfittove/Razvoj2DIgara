@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemSprite: {fileID: 0}
   itemName: Growth Hormones
-  itemDescription: strongrrr\n-Health +10\n-Speed -0.2\n-Damage +0.2
+  itemDescription: strongrrr\n-Health +10\n-Speed -0.2\n-Fire Delay -0.2
   itemQuality: 2
   itemId: 5
   maxHealthDelta: 10
   speedDelta: -0.2
-  damageDelta: 0.2
-  fireDelayDelta: 0
+  damageDelta: 0
+  fireDelayDelta: -0.2
   rangeDelta: 0
   shotSpeedDelta: 0
   luckDelta: 0
@@ -32,3 +32,4 @@ MonoBehaviour:
   knockbackDelta: 0
   contactDamageDelta: 0
   healAcquiredHealth: 1
+  price: 2800
