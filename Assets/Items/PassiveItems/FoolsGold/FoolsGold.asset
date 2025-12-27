@@ -31,5 +31,6 @@ MonoBehaviour:
   luckMultiplierDelta: 0
   knockbackDelta: 0
   contactDamageDelta: 0
+  isPersistentPassive: 1
   healAcquiredHealth: 0
   price: 2999
