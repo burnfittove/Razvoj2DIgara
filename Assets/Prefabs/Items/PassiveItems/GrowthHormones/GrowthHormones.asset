@@ -9,28 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1535b927e0c64f3a813c3f9e454ab7b, type: 3}
-  m_Name: MagicOnion
+  m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
+  m_Name: GrowthHormones
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
-  itemSprite: {fileID: 0}
-  itemName: Magic Onion
-  itemDescription: Infinite Layers!\n-Damage Multiplier x0.2\n-Fire Delay Multiplier
-    x0.3
+  itemName: Growth Hormones
+  itemDescription: Shortie\n-Health +10\n-Speed -0.2\n-Fire Delay -0.2
   itemQuality: 2
-  itemId: 2
-  maxHealthDelta: 0
-  speedDelta: 0
+  itemId: 0
+  isPersistantPassive: 0
+  healAcquiredHealth: 1
+  price: 2800
+  maxHealthDelta: 10
+  speedDelta: -0.2
   damageDelta: 0
-  fireDelayDelta: 0
+  fireDelayDelta: -0.2
   rangeDelta: 0
   shotSpeedDelta: 0
   luckDelta: 0
-  speedMultiplierDelta: 0
-  damageMultiplierDelta: 0.2
-  fireDelayMultiplierDelta: 0.3
-  rangeMultiplierDelta: 0
-  luckMultiplierDelta: 0
   knockbackDelta: 0
   contactDamageDelta: 0
-  healAcquiredHealth: 0
-  price: 2500
+  speedMultiplierDelta: 0
+  damageMultiplierDelta: 0
+  fireDelayMultiplierDelta: 0
+  rangeMultiplierDelta: 0
+  luckMultiplierDelta: 0

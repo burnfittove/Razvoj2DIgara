@@ -140,4 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b5140d52723be6d894f0b7d6d604f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItems.GrowthHormones.GrowthHormones
-  itemInformation: {fileID: 11400000, guid: b146d31ab3ba80147bcb5a0f69ab3214, type: 2}
+  itemInformation: {fileID: 11400000, guid: 4673651fbb6dfc7d78aa06e0a6720a77, type: 2}

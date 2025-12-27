@@ -11,6 +11,7 @@ namespace Item
         public ushort itemId;
         public bool isPersistantPassive;
         public bool healAcquiredHealth;
+        public int price;
 
         [Header("Base")] 
         public float maxHealthDelta;

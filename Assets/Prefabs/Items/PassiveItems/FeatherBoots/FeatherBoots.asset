@@ -9,27 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1535b927e0c64f3a813c3f9e454ab7b, type: 3}
-  m_Name: QuickCast
+  m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
+  m_Name: FeatherBoots
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
-  itemSprite: {fileID: 0}
-  itemName: Quick Cast
-  itemDescription: Mage Up!\n-Fire Delay -0.3
-  itemQuality: 2
-  itemId: 1
+  itemName: Feather Boots
+  itemDescription: -Speed +1 when shooting
+  itemQuality: 1
+  itemId: 0
+  isPersistantPassive: 1
+  healAcquiredHealth: 0
+  price: 1200
   maxHealthDelta: 0
-  speedDelta: 0
+  speedDelta: 0.5
   damageDelta: 0
-  fireDelayDelta: -0.3
+  fireDelayDelta: 0
   rangeDelta: 0
   shotSpeedDelta: 0
   luckDelta: 0
+  knockbackDelta: 0
+  contactDamageDelta: 0
   speedMultiplierDelta: 0
   damageMultiplierDelta: 0
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
-  knockbackDelta: 0
-  contactDamageDelta: 0
-  healAcquiredHealth: 0
-  price: 2750

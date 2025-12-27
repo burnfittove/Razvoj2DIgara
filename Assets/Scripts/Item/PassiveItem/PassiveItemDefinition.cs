@@ -18,7 +18,7 @@ namespace Item.PassiveItem
 
         protected override void OnItemPickedUp()
         {
-            if (!ItemInformation.isPersistentPassive) Destroy(gameObject);
+            if (!ItemInformation.isPersistantPassive) Destroy(gameObject);
             spriteRenderer.enabled = false;
             circleCollider.enabled = false;
             transform.SetParent(player.transform);

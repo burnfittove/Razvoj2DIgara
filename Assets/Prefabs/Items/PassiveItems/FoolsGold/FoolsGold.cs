@@ -11,7 +11,8 @@ namespace Items.PassiveItems.FoolsGold
             GameEventManager.Instance.pickupEvents.OnCurrencyPickUp += val =>
             {
                 var rand = Random.Range(0, 100);
-                if (rand <= player.Luck.Value) player.Money.UpdateValue(val);
+                if (!(rand <= player.Luck.Value)) return;
+                player.Money.UpdateValue(val);
             };
             base.OnItemPickedUp();
         }
