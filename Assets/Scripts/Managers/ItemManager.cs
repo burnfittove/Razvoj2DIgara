@@ -17,14 +17,23 @@ namespace Managers
             allItems[(int)ItemPool.DemonPool] = demonPool;
         }
 
-        public GameObject GetItem(ItemPool itemPool, int itemId)
+        public GameObject GetItemFromPool(ItemPool itemPool)
         {
-            return allItems[(int)itemPool][itemId];
-        }
-
-        public GameObject GetItem(ItemPool itemPool)
-        {
+            // Get item pool
             ref var pool = ref allItems[(int)itemPool];
+            
+            // Get item from pool
+            var itemId = Random.Range(0, pool.Length);
+            return pool[itemId] ? pool[itemId] : pool[0];
+        }
+        
+        public GameObject GetItem()
+        {
+            // Get item pool
+            var poolId = Random.Range(0, allItems.Length);
+            ref var pool = ref allItems[poolId];
+            
+            // Get item from pool
             var itemId = Random.Range(0, pool.Length);
             return pool[itemId] ? pool[itemId] : pool[0];
         }

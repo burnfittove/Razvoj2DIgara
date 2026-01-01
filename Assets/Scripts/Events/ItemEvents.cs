@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UnityEngine;
 
 namespace Events
@@ -18,11 +19,15 @@ namespace Events
         }
     
         public event Action OnNearbyItemLost;
-
         public void NearbyItemLost()
         {
             OnNearbyItemLost?.Invoke();
         }
 
+        public event Action<ItemPool> OnCreateItemFromPool;
+        public void CreateItemFromPool(ItemPool itemPool)
+        {
+            OnCreateItemFromPool?.Invoke(itemPool);
+        }
     }
 }
