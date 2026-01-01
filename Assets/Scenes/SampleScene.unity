@@ -4353,6 +4353,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GUI.Attributes.DisplayRange
   attributeName: rng
+--- !u!1 &1730772009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1730772010}
+  m_Layer: 0
+  m_Name: ItemSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1730772010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730772009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799505331
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,6 +4571,8 @@ MonoBehaviour:
   - {fileID: 1329916595875140508, guid: 764167af6336572679724c4427eb6c68, type: 3}
   - {fileID: 1868455218739193624, guid: 0e1cc15b383a6f9dcaebc0dbf9a672ad, type: 3}
   demonPool: []
+  itemSpawnPosition: {fileID: 1730772010}
+  debugPool: 0
 --- !u!1 &1921364619
 GameObject:
   m_ObjectHideFlags: 0
@@ -27953,3 +27986,4 @@ SceneRoots:
   - {fileID: 1619620919}
   - {fileID: 883823190}
   - {fileID: 934125127}
+  - {fileID: 1730772010}
