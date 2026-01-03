@@ -13,17 +13,11 @@ namespace Managers
     /// </summary>
     public class ItemManager : MonoBehaviour
     {
-        private Dictionary<ItemPool, Dictionary<int, GameObject>> allItems = new();
-        [Header("Editor only")] 
-        [SerializeField] private GameObject[] editorRegularItemPool;
-        [SerializeField] private GameObject[] editorShopItemPool;
+        private readonly List<List<GameObject>> allItems = new();
+        [SerializeField] private List<GameObject> regularItemPool = new();
+        [SerializeField] private List<GameObject> shopItemPool = new();
         [SerializeField] private Transform itemSpawnLocation;
         [SerializeField] private GameObject fallbackItem;
-        [Header("For use")]
-        private Dictionary<int, GameObject> regularItemPool = new();
-        private Dictionary<int, GameObject> shopItemPool = new();
-        private int regularItemPoolSize;
-        private int shopItemPoolSize;
 
         private void Awake()
         {
@@ -32,71 +26,52 @@ namespace Managers
             GameEventManager.Instance.itemEvents.OnCreateItemFromPool += GetItemFromPool;
         }
 
-        private void Update()
-        {
-            if (Keyboard.current.enterKey.wasPressedThisFrame) GameEventManager.Instance.itemEvents.CreateItemFromPool(ItemPool.RegularPool);
-            
-            Debug.Log($"REGULAR ITEM POOL COUNT: {regularItemPool.Count}");
-            Debug.Log($"SHOP ITEM POOL COUNT: {shopItemPool.Count}");
-        }
-
         private void Initialize()
         {
-            // Fill dictionaries
-            FillDictionary(regularItemPool, editorRegularItemPool);
-            FillDictionary(shopItemPool, editorShopItemPool);
-            
-            // Set dictionary sizes
-            regularItemPoolSize = regularItemPool.Count;
-            shopItemPoolSize = shopItemPool.Count;
-            
-            // Put item pools in allItems
-            allItems.Add(ItemPool.RegularPool, regularItemPool);
-            allItems.Add(ItemPool.ShopPool, shopItemPool);
-        }
-
-        private void FillDictionary(Dictionary<int, GameObject> dictionary, GameObject[] items)
-        {
-            // Fills dictionary with array values for quick access
-            foreach (var item in items)
-            {
-                dictionary.Add(item.GetComponent<Item.Item>().ItemInformation.itemId, item);
-            }
-
-            // Set editor array as null so it's cleaned by garbage collection
-            // The idea is that all of this initialization only happens at the start of the run and these dictionaries persist through different scenes, if this turns out to be impossible then it will have to happen at the start of each room and the arrays will have to stay in memory
-            //editorRegularItemPool = null;
-        }
-
-        private void RemoveItemFromPools(int itemId)
-        {
-            // Remove the item from all item pools by its ID
-            foreach (var itemPool in allItems.Values)
-            {
-                itemPool.Remove(itemId);
-            }
+            allItems.Add(regularItemPool); 
+            allItems.Add(shopItemPool);
         }
 
         private void GetItemFromPool(ItemPool pool)
         {
-            // Get item pool
-            var itemPool = allItems[pool];
-            // Get item ID
-            // If there is only one item left in the dictionary 
+            // Choose item pool
+            var itemPool = allItems[(int)pool];
+            
+            // If the item pool is empty, create the fallback item
             if (itemPool.Count == 0)
             {
-                Instantiate(fallbackItem, itemSpawnLocation.position, Quaternion.identity);          // FOR SOME REASON THIS CRASHES THE GAME
+                Instantiate(fallbackItem, itemSpawnLocation.position, Quaternion.identity);
                 return;
             }
+            // Get item
             int randId;
             do
             {
                 randId = Random.Range(0, itemPool.Count);
-            } while (!itemPool.ContainsKey(randId));
-            // Create item on desired location
-            Instantiate(itemPool[randId], itemSpawnLocation.position, Quaternion.identity);
-            // Remove the created item from all item pools
-            RemoveItemFromPools(randId);           // FOR SOME REASON THIS CRASHES THE GAME WHEN THE FINAL ITEM IS REMOVED
+            } while (!itemPool[randId]);
+            
+            // Create the item
+            var item = itemPool[randId];
+            Instantiate(item, itemSpawnLocation.position, Quaternion.identity);
+            
+            // Remove the item from the pool
+            RemoveItemFromPools(item);
         }
+
+        private void RemoveItemFromPools(GameObject item2Remove)
+        {
+            foreach (var itemPool in allItems)
+            {
+                foreach (var item in itemPool.Where(item => item == item2Remove).ToList()) itemPool.Remove(item);
+            }
+        }
+        
+        // private void Update()
+        // {
+        //     if (Keyboard.current.enterKey.wasPressedThisFrame) GameEventManager.Instance.itemEvents.CreateItemFromPool(ItemPool.RegularPool);
+        //     
+        //     Debug.Log($"REGULAR ITEM POOL COUNT: {regularItemPool.Count}");
+        //     Debug.Log($"SHOP ITEM POOL COUNT: {shopItemPool.Count}");
+        // }
     }
 }
