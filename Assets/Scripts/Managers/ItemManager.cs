@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Managers
 {
@@ -20,6 +22,8 @@ namespace Managers
         [Header("For use")]
         private Dictionary<int, GameObject> regularItemPool = new();
         private Dictionary<int, GameObject> shopItemPool = new();
+        private int regularItemPoolSize;
+        private int shopItemPoolSize;
 
         private void Awake()
         {
@@ -28,11 +32,23 @@ namespace Managers
             GameEventManager.Instance.itemEvents.OnCreateItemFromPool += GetItemFromPool;
         }
 
+        private void Update()
+        {
+            if (Keyboard.current.enterKey.wasPressedThisFrame) GameEventManager.Instance.itemEvents.CreateItemFromPool(ItemPool.RegularPool);
+            
+            Debug.Log($"REGULAR ITEM POOL COUNT: {regularItemPool.Count}");
+            Debug.Log($"SHOP ITEM POOL COUNT: {shopItemPool.Count}");
+        }
+
         private void Initialize()
         {
             // Fill dictionaries
             FillDictionary(regularItemPool, editorRegularItemPool);
             FillDictionary(shopItemPool, editorShopItemPool);
+            
+            // Set dictionary sizes
+            regularItemPoolSize = regularItemPool.Count;
+            shopItemPoolSize = shopItemPool.Count;
             
             // Put item pools in allItems
             allItems.Add(ItemPool.RegularPool, regularItemPool);
@@ -57,8 +73,7 @@ namespace Managers
             // Remove the item from all item pools by its ID
             foreach (var itemPool in allItems.Values)
             {
-                if (!itemPool.ContainsKey(itemId)) continue;
-                itemPool[itemId] = null;
+                itemPool.Remove(itemId);
             }
         }
 
@@ -68,21 +83,20 @@ namespace Managers
             var itemPool = allItems[pool];
             // Get item ID
             // If there is only one item left in the dictionary 
-            if (itemPool.Count == 1)
+            if (itemPool.Count == 0)
             {
-                Instantiate(itemPool[0], itemSpawnLocation.position, Quaternion.identity);          // THIS NEEDS TO BE CHANGED SO IT CREATES THE DEFAULT ITEM
+                Instantiate(fallbackItem, itemSpawnLocation.position, Quaternion.identity);          // FOR SOME REASON THIS CRASHES THE GAME
                 return;
             }
             int randId;
             do
             {
                 randId = Random.Range(0, itemPool.Count);
-                Debug.Log($"I chose: {randId}");
-            } while (!itemPool[randId]);
+            } while (!itemPool.ContainsKey(randId));
             // Create item on desired location
             Instantiate(itemPool[randId], itemSpawnLocation.position, Quaternion.identity);
             // Remove the created item from all item pools
-            if (randId != 0) RemoveItemFromPools(randId);           // THIS NEEDS TO ALSO INCLUDE THE FIRST ITEM
+            RemoveItemFromPools(randId);           // FOR SOME REASON THIS CRASHES THE GAME WHEN THE FINAL ITEM IS REMOVED
         }
     }
 }
