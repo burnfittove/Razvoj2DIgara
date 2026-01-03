@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PlayerScripts
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/PlayerInformation", fileName = "PlayerInformationSO", order = 0)]
+    [CreateAssetMenu(menuName = "ScriptableObjects/PlayerInformation", fileName = "PlayerInformationSO", order = 2)]
     public class PlayerInformationSO : ScriptableObject
     {
         [Header("Character Info")] 

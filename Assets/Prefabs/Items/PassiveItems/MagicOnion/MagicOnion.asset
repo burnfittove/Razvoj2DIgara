@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: MagicOnion
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
+  itemId: 7
   itemName: Magic Onion
   itemDescription: Infinte Layers\n-Damage Multiplier x0.2\n-Fire Delay Multiplier
     x0.3
   itemQuality: 2
-  itemId: 0
   isPersistantPassive: 0
   healAcquiredHealth: 0
   price: 2500
+  demonPrice: 20
   maxHealthDelta: 0
   speedDelta: 0
   damageDelta: 0

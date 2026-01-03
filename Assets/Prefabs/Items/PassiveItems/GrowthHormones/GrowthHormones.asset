@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: GrowthHormones
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
+  itemId: 5
   itemName: Growth Hormones
   itemDescription: Shortie\n-Health +10\n-Speed -0.2\n-Fire Delay -0.2
   itemQuality: 2
-  itemId: 0
   isPersistantPassive: 0
   healAcquiredHealth: 1
   price: 2800
+  demonPrice: 20
   maxHealthDelta: 10
   speedDelta: -0.2
   damageDelta: 0

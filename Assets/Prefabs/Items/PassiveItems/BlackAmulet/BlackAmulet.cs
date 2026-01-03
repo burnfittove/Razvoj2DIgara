@@ -1,6 +1,6 @@
 using Item.PassiveItem;
 
-namespace Items.PassiveItems.BlackAmulet
+namespace Prefabs.Items.PassiveItems.BlackAmulet
 {
     public class BlackAmulet : PassiveItem
     {

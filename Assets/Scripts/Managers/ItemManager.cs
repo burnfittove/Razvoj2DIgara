@@ -1,80 +1,88 @@
 using System.Collections.Generic;
+using System.Linq;
+using Events;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Managers
 {
+    /// <summary>
+    /// The GameObject arrays are used to add prefabs from the editor. Later, during Awake, the prefabs in these arrays are added to a dictionary in itemId, GameObject pairs.
+    /// </summary>
     public class ItemManager : MonoBehaviour
     {
-        // private readonly GameObject[][] allItems = new GameObject[3][];
-        // [SerializeField] private GameObject[] regularPool;
-        // [SerializeField] private GameObject[] shopPool;
-        // [SerializeField] private GameObject[] demonPool;
-        // [SerializeField] private Transform itemSpawnPosition;
-        // public ItemPool debugPool;
-        //
-        // private void Awake()
-        // {
-        //     allItems[(int)ItemPool.RegularPool] = regularPool;
-        //     allItems[(int)ItemPool.ShopPool] = shopPool;
-        //     allItems[(int)ItemPool.DemonPool] = demonPool;
-        //
-        //     GameEventManager.Instance.itemEvents.OnCreateItemFromPool += GetItemFromPool;
-        // }
-        //
-        // private void GetItemFromPool(ItemPool itemPool)
-        // {
-        //     // Get item pool
-        //     ref var pool = ref allItems[(int)itemPool];
-        //     
-        //     // Get item from pool
-        //     var itemId = 0;
-        //     
-        //     // Try to get an item and if the item is null (it has been pulled previously) try again.
-        //     do
-        //     {
-        //         itemId = Random.Range(0, pool.Length);
-        //     } while (!pool[itemId]);
-        //     
-        //     Instantiate(pool[itemId], itemSpawnPosition.position, Quaternion.identity);
-        //     
-        //     // Set the item to null if it has been pulled unless it's the first item (default fallback)
-        //     if (itemId != 0) pool[itemId] = null;
-        // }
-        //
-        // public GameObject GetItem()
-        // {
-        //     // Get item pool
-        //     var poolId = Random.Range(0, allItems.Length);
-        //     ref var pool = ref allItems[poolId];
-        //     
-        //     // Get item from pool
-        //     var itemId = Random.Range(0, pool.Length);
-        //     return pool[itemId] ? pool[itemId] : pool[0];
-        // }
-        /// <summary>
-        /// The GameObject arrays are used to add prefabs from the editor. Later, during Awake, the prefabs in these arrays are added to a dictionary in itemId, GameObject pairs.
-        /// </summary>
-        private readonly Dictionary<ushort, GameObject>[] allItems = new Dictionary<ushort, GameObject>[3];
-        [SerializeField] private GameObject[] regularPoolEditor;
-        private Dictionary<ushort, GameObject> regularPool;
-        [SerializeField] private GameObject[] shopPoolEditor;
-        private Dictionary<ushort, GameObject> shopPool;
-        [SerializeField] private GameObject[] demonPoolEditor;
-        private Dictionary<ushort, GameObject> demonPool;
-        [SerializeField] private Transform itemSpawnPosition;
+        private Dictionary<ItemPool, Dictionary<int, GameObject>> allItems = new();
+        [Header("Editor only")] 
+        [SerializeField] private GameObject[] editorRegularItemPool;
+        [SerializeField] private GameObject[] editorShopItemPool;
+        [SerializeField] private Transform itemSpawnLocation;
+        [SerializeField] private GameObject fallbackItem;
+        [Header("For use")]
+        private Dictionary<int, GameObject> regularItemPool = new();
+        private Dictionary<int, GameObject> shopItemPool = new();
 
         private void Awake()
         {
-            // FillDictionary(ref regularPool, ref regularPoolEditor);
+            Initialize();
+            
+            GameEventManager.Instance.itemEvents.OnCreateItemFromPool += GetItemFromPool;
         }
 
-        // private void FillDictionary(ref Dictionary<ushort, GameObject> dictionaryItemPool, ref GameObject[] arrayItemPool)
-        // {
-        //     for (var i = 0; i < arrayItemPool.Length; i++)
-        //     {
-        //         var itemId = arrayItemPool[i].GetComponent<Item.Item>().ItemInformation.itemId;
-        //         dictionaryItemPool.Add(5, arrayItemPool[i]);
-        //     }
-        // }
+        private void Initialize()
+        {
+            // Fill dictionaries
+            FillDictionary(regularItemPool, editorRegularItemPool);
+            FillDictionary(shopItemPool, editorShopItemPool);
+            
+            // Put item pools in allItems
+            allItems.Add(ItemPool.RegularPool, regularItemPool);
+            allItems.Add(ItemPool.ShopPool, shopItemPool);
+        }
+
+        private void FillDictionary(Dictionary<int, GameObject> dictionary, GameObject[] items)
+        {
+            // Fills dictionary with array values for quick access
+            foreach (var item in items)
+            {
+                dictionary.Add(item.GetComponent<Item.Item>().ItemInformation.itemId, item);
+            }
+
+            // Set editor array as null so it's cleaned by garbage collection
+            // The idea is that all of this initialization only happens at the start of the run and these dictionaries persist through different scenes, if this turns out to be impossible then it will have to happen at the start of each room and the arrays will have to stay in memory
+            //editorRegularItemPool = null;
+        }
+
+        private void RemoveItemFromPools(int itemId)
+        {
+            // Remove the item from all item pools by its ID
+            foreach (var itemPool in allItems.Values)
+            {
+                if (!itemPool.ContainsKey(itemId)) continue;
+                itemPool[itemId] = null;
+            }
+        }
+
+        private void GetItemFromPool(ItemPool pool)
+        {
+            // Get item pool
+            var itemPool = allItems[pool];
+            // Get item ID
+            // If there is only one item left in the dictionary 
+            if (itemPool.Count == 1)
+            {
+                Instantiate(itemPool[0], itemSpawnLocation.position, Quaternion.identity);          // THIS NEEDS TO BE CHANGED SO IT CREATES THE DEFAULT ITEM
+                return;
+            }
+            int randId;
+            do
+            {
+                randId = Random.Range(0, itemPool.Count);
+                Debug.Log($"I chose: {randId}");
+            } while (!itemPool[randId]);
+            // Create item on desired location
+            Instantiate(itemPool[randId], itemSpawnLocation.position, Quaternion.identity);
+            // Remove the created item from all item pools
+            if (randId != 0) RemoveItemFromPools(randId);           // THIS NEEDS TO ALSO INCLUDE THE FIRST ITEM
+        }
     }
 }

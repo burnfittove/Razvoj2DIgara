@@ -4555,11 +4555,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5016e3c9eb42ed5ac930ed46d068fcfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemManager
-  regularPoolEditor:
+  editorRegularItemPool:
   - {fileID: 8586001984628955073, guid: 7a59d59a689152852a9e72a4bfc5f3bc, type: 3}
-  shopPoolEditor: []
-  demonPoolEditor: []
-  itemSpawnPosition: {fileID: 0}
+  - {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+  - {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
+  - {fileID: 2241675788358728339, guid: f6b3856fa183f579e8b062b6996ab235, type: 3}
+  - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
+  editorShopItemPool:
+  - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
+  - {fileID: 2241675788358728339, guid: f6b3856fa183f579e8b062b6996ab235, type: 3}
+  itemSpawnLocation: {fileID: 1730772010}
+  fallbackItem: {fileID: 4659189402167889196, guid: 39a71f95c953e3a1ca88579d99e71a1a, type: 3}
 --- !u!1 &1921364619
 GameObject:
   m_ObjectHideFlags: 0

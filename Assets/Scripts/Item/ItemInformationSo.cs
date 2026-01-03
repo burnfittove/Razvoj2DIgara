@@ -2,16 +2,18 @@ using UnityEngine;
 
 namespace Item
 {
+    [CreateAssetMenu(menuName = "ScriptableObjects/ItemInformation", fileName = "ItemInformationSO", order = 0)]
     public class ItemInformationSo : ScriptableObject
     {
         [Header("Basic Information")]
+        public int itemId;
         public string itemName;
         public string itemDescription;
         public byte itemQuality;
-        public ushort itemId;
         public bool isPersistantPassive;
         public bool healAcquiredHealth;
         public int price;
+        public int demonPrice;
 
         [Header("Base")] 
         public float maxHealthDelta;

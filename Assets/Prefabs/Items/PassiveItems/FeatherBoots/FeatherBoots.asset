@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: FeatherBoots
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
+  itemId: 3
   itemName: Feather Boots
   itemDescription: -Speed +1 when shooting
   itemQuality: 1
-  itemId: 0
   isPersistantPassive: 1
   healAcquiredHealth: 0
   price: 1200
+  demonPrice: 10
   maxHealthDelta: 0
   speedDelta: 0.5
   damageDelta: 0

@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: MikuMikuBeam
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
+  itemId: 2
   itemName: Leek
   itemDescription: 39 39 BEAM!!\n-Speed +2\n-Damage Multiplier x0.5\n-Fire Delay
     Multiplier x0.2
   itemQuality: 5
-  itemId: 0
   isPersistantPassive: 0
   healAcquiredHealth: 0
   price: 5939
+  demonPrice: 50
   maxHealthDelta: 0
   speedDelta: 2
   damageDelta: 0

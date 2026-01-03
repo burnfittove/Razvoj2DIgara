@@ -1,6 +1,6 @@
 using Item.PassiveItem;
 
-namespace Items.PassiveItems.MikuMikuBeam
+namespace Prefabs.Items.PassiveItems.MikuMikuBeam
 {
     public class MikuMikuBeam : PassiveItem
     {

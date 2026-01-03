@@ -45,11 +45,17 @@ namespace PlayerScripts
     
         public void UpdateValue(float newValue)
         {
-            // Exit if the value is 0
-            if (newValue == 0) return;
-        
             // Update the true attribute
             trueValue += newValue;
+            if (trueValue < minValue) trueValue = minValue;
+            if (trueValue > maxValue) trueValue = maxValue;
+            // Recalculate the usable attribute
+            Value = trueValue * Multiplier;
+        }
+        
+        public void UpdateValue()
+        {
+            // Update value based on min and max values
             if (trueValue < minValue) trueValue = minValue;
             if (trueValue > maxValue) trueValue = maxValue;
             // Recalculate the usable attribute
