@@ -34,21 +34,14 @@ namespace Merchants
             
             // Get the y coordinate for the first row
             var pos = (Vector2)startingPos.position - new Vector2(gapBetweenItems.x, 0);
-            
-            // // Go through all items
-            // foreach (var item in items)
-            // {
-            //     // Create the item and assign it to its slot in the array
-            //     var instantiatedItem = Instantiate(item, pos, Quaternion.identity);
-            //     // Change the next items spawn position
-            //     IncrementPosition(ref pos);
-            // }
 
             // Go through all items
             for (var i = 0; i < items.Length; i++)
             {
                 // Create the item and assign it to its slot in the array
                 var instantiatedItem = Instantiate(items[i], pos, Quaternion.identity);
+                // Make item buyable
+                instantiatedItem.GetComponent<Item.Item>().isBuyable = true;
                 items[i] = instantiatedItem;
                 // Change the next items spawn position
                 IncrementPosition(ref pos);
