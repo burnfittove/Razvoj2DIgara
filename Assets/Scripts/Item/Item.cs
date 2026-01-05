@@ -9,7 +9,7 @@ namespace Item
     {
         [SerializeField] protected ItemInformationSo itemInformation;
         public ItemInformationSo ItemInformation => itemInformation;
-        public bool isBuyable = false;
+        public RequiredPayment isBuyable = RequiredPayment.None;
 
 
         private void Start()
@@ -23,7 +23,6 @@ namespace Item
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            if (isBuyable) GameEventManager.Instance.pickupEvents.CurrencyPickUp(-itemInformation.price);
             OnItemPickedUp();
         }
     }

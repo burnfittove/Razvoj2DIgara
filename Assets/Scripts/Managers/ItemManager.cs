@@ -13,7 +13,7 @@ namespace Managers
     /// </summary>
     public class ItemManager : MonoBehaviour
     {
-        private readonly List<List<GameObject>> allItems = new();
+        private readonly Dictionary<ItemPool, List<GameObject>> allItems = new();
         [SerializeField] private List<GameObject> regularItemPool = new();
         [SerializeField] private List<GameObject> shopItemPool = new();
         [SerializeField] private Transform itemSpawnLocation;
@@ -22,27 +22,24 @@ namespace Managers
         private void Awake()
         {
             Initialize();
-            
-            GameEventManager.Instance.itemEvents.OnCreateItemFromPool += GetItemFromPool;
         }
 
         private void Initialize()
         {
-            allItems.Add(regularItemPool); 
-            allItems.Add(shopItemPool);
+            allItems.Add(ItemPool.RegularPool, regularItemPool);
+            allItems.Add(ItemPool.ShopPool, shopItemPool);
         }
 
-        private void GetItemFromPool(ItemPool pool)
+        public GameObject GetItemFromPool(ItemPool pool)
         {
+            Debug.Log(allItems[pool]);
+            return null;
             // Choose item pool
-            var itemPool = allItems[(int)pool];
+            var itemPool = allItems[pool];
             
             // If the item pool is empty, create the fallback item
-            if (itemPool.Count == 0)
-            {
-                Instantiate(fallbackItem, itemSpawnLocation.position, Quaternion.identity);
-                return;
-            }
+            if (itemPool.Count == 0) return null;
+            
             // Get item
             int randId;
             do
@@ -52,15 +49,17 @@ namespace Managers
             
             // Create the item
             var item = itemPool[randId];
-            Instantiate(item, itemSpawnLocation.position, Quaternion.identity);
             
             // Remove the item from the pool
             RemoveItemFromPools(item);
+            
+            // Return the item
+            return item;
         }
 
         private void RemoveItemFromPools(GameObject item2Remove)
         {
-            foreach (var itemPool in allItems)
+            foreach (var itemPool in allItems.Values)
             {
                 foreach (var item in itemPool.Where(item => item == item2Remove).ToList()) itemPool.Remove(item);
             }

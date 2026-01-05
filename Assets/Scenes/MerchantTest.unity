@@ -369,7 +369,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 33346778}
-  - component: {fileID: 33346779}
   m_Layer: 0
   m_Name: MerchantTest
   m_TagString: Untagged
@@ -392,26 +391,9 @@ Transform:
   m_Children:
   - {fileID: 835710466}
   - {fileID: 1126227838}
+  - {fileID: 542043210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &33346779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33346776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 072d6f4708db323bb84dd10539154498, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Merchants.Shopkeeper
-  items:
-  - {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
-  - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
-  - {fileID: 2241675788358728339, guid: f6b3856fa183f579e8b062b6996ab235, type: 3}
-  startingPos: {fileID: 1126227838}
-  gapBetweenItems: {x: 1.5, y: 1.2}
 --- !u!1 &43928162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,6 +3861,52 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!1 &542043209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542043210}
+  - component: {fileID: 542043211}
+  m_Layer: 0
+  m_Name: ShopkeeperItemPosition (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542043210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542043209}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: -1.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 33346778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &542043211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542043209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf1892b8983b42eba28bc6e71e1b69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Merchants.CreateItemFromPool
+  itemManager: {fileID: 0}
+  itemPool: 1
 --- !u!1 &583061212
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,8 +4706,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1126227838}
+  - component: {fileID: 1126227839}
   m_Layer: 0
-  m_Name: ItemSpawnStartingPosition
+  m_Name: ShopkeeperItemPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4693,13 +4722,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126227837}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 33346778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1126227839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126227837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf1892b8983b42eba28bc6e71e1b69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Merchants.CreateItemFromPool
+  itemManager: {fileID: 0}
+  itemPool: 1
 --- !u!1 &1144805254
 GameObject:
   m_ObjectHideFlags: 0
@@ -10697,7 +10740,7 @@ GameObject:
   - component: {fileID: 1880602516}
   m_Layer: 0
   m_Name: ItemManager
-  m_TagString: Untagged
+  m_TagString: ItemManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10733,10 +10776,17 @@ MonoBehaviour:
   - {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
   - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
   - {fileID: 2241675788358728339, guid: f6b3856fa183f579e8b062b6996ab235, type: 3}
+  - {fileID: 2241675788358728339, guid: db415b691033ff8d39d0404c88a98aa2, type: 3}
+  - {fileID: 1329916595875140508, guid: 764167af6336572679724c4427eb6c68, type: 3}
+  - {fileID: 1868455218739193624, guid: 0e1cc15b383a6f9dcaebc0dbf9a672ad, type: 3}
+  - {fileID: 4659189402167889196, guid: 39a71f95c953e3a1ca88579d99e71a1a, type: 3}
+  - {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
   - {fileID: 8586001984628955073, guid: 7a59d59a689152852a9e72a4bfc5f3bc, type: 3}
   shopItemPool:
   - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
   - {fileID: 2241675788358728339, guid: f6b3856fa183f579e8b062b6996ab235, type: 3}
+  - {fileID: 2241675788358728339, guid: db415b691033ff8d39d0404c88a98aa2, type: 3}
+  - {fileID: 1868455218739193624, guid: 0e1cc15b383a6f9dcaebc0dbf9a672ad, type: 3}
   itemSpawnLocation: {fileID: 0}
   fallbackItem: {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
 --- !u!1 &1978385383
