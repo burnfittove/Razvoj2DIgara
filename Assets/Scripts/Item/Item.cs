@@ -13,7 +13,7 @@ namespace Item
         [HideInInspector] public bool meetsBuyRequirements;
 
 
-        private void Start()
+        private void Awake()
         {
             if (itemInformation.price == 0) itemInformation.price = itemInformation.itemQuality * 1000;
             if (itemInformation.demonPrice == 0) itemInformation.demonPrice = itemInformation.itemQuality * 10;

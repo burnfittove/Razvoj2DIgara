@@ -16,7 +16,7 @@ namespace Managers
         private readonly Dictionary<ItemPool, List<GameObject>> allItems = new();
         [SerializeField] private List<GameObject> regularItemPool = new();
         [SerializeField] private List<GameObject> shopItemPool = new();
-        [SerializeField] private List<GameObject> demonItemPool = new();
+        [SerializeField] private List<GameObject> vampireItemPool = new();
         [SerializeField] private Transform itemSpawnLocation;
         [SerializeField] private GameObject fallbackItem;
 
@@ -29,7 +29,7 @@ namespace Managers
         {
             allItems.Add(ItemPool.RegularPool, regularItemPool);
             allItems.Add(ItemPool.ShopPool, shopItemPool);
-            allItems.Add(ItemPool.DemonPool, demonItemPool);
+            allItems.Add(ItemPool.VampirePool, vampireItemPool);
         }
 
         public GameObject GetItemFromPool(ItemPool pool)

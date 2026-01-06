@@ -20,7 +20,7 @@ namespace Item
                 case ItemPool.ShopPool:
                     item.AddComponent<MoneyBuyable>();
                     break;
-                case ItemPool.DemonPool:
+                case ItemPool.VampirePool:
                     item.AddComponent<HealthBuyable>();
                     break;
             }
