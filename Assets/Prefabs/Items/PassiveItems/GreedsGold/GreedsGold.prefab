@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Items.PassiveItems.GreedsGold.GreedsGold
   itemInformation: {fileID: 11400000, guid: de62250ccca96df948f37ace0d5a96ef, type: 2}
+  isBuyable: 0

@@ -109,6 +109,8 @@ namespace PlayerScripts
             // Currencies
             GameEventManager.Instance.pickupEvents.OnCurrencyPickUp += UpdateMoney;
             GameEventManager.Instance.pickupEvents.OnSoulPickUp += UpdateSouls;
+            GameEventManager.Instance.attributeUpdateEvents.OnMoneyChange += UpdateMoney;
+            GameEventManager.Instance.attributeUpdateEvents.OnSoulChange += UpdateSouls;
         }
         
         // Debug

@@ -16,6 +16,7 @@ namespace Managers
         private readonly Dictionary<ItemPool, List<GameObject>> allItems = new();
         [SerializeField] private List<GameObject> regularItemPool = new();
         [SerializeField] private List<GameObject> shopItemPool = new();
+        [SerializeField] private List<GameObject> demonItemPool = new();
         [SerializeField] private Transform itemSpawnLocation;
         [SerializeField] private GameObject fallbackItem;
 
@@ -28,29 +29,22 @@ namespace Managers
         {
             allItems.Add(ItemPool.RegularPool, regularItemPool);
             allItems.Add(ItemPool.ShopPool, shopItemPool);
+            allItems.Add(ItemPool.DemonPool, demonItemPool);
         }
 
         public GameObject GetItemFromPool(ItemPool pool)
         {
-            Debug.Log(allItems[pool]);
-            return null;
-            // Choose item pool
+            // Get item pool
             var itemPool = allItems[pool];
             
-            // If the item pool is empty, create the fallback item
+            // If there are no items left in the pool, return null
             if (itemPool.Count == 0) return null;
             
-            // Get item
-            int randId;
-            do
-            {
-                randId = Random.Range(0, itemPool.Count);
-            } while (!itemPool[randId]);
+            // Get random id from pool
+            var randomIndex = Random.Range(0, itemPool.Count);
+            var item = itemPool[randomIndex];
             
-            // Create the item
-            var item = itemPool[randId];
-            
-            // Remove the item from the pool
+            // Remove the item from item pools
             RemoveItemFromPools(item);
             
             // Return the item
@@ -59,9 +53,13 @@ namespace Managers
 
         private void RemoveItemFromPools(GameObject item2Remove)
         {
+            // Remove the item from every item pool because the player shouldn't have two of the same item, normally 
             foreach (var itemPool in allItems.Values)
             {
-                foreach (var item in itemPool.Where(item => item == item2Remove).ToList()) itemPool.Remove(item);
+                for (var i = 0; i < itemPool.Count; i++)
+                {
+                    if (itemPool[i] == item2Remove) itemPool.RemoveAt(i);
+                }
             }
         }
         

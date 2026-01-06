@@ -125,5 +125,20 @@ namespace Events
         {
             OnLuckMultiplierChange?.Invoke(value);
         }
+        
+        
+        // ## Money
+        public event Action<int> OnMoneyChange;
+        public void MoneyChange(int value)
+        {
+            OnMoneyChange?.Invoke(value);
+        }
+        
+        // ## Souls
+        public event Action<int> OnSoulChange;
+        public void SoulChange(int value)
+        {
+            OnSoulChange?.Invoke(value);
+        }
     }
 }

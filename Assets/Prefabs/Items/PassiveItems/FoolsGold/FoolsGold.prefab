@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItems.FoolsGold.FoolsGold
   itemInformation: {fileID: 11400000, guid: b146d31ab3ba80147bcb5a0f69ab3214, type: 2}
+  isBuyable: 0
