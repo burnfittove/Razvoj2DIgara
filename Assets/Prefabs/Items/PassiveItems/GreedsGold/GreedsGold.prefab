@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7676368402459907968}
   - component: {fileID: 7928169316639727373}
   - component: {fileID: 2929472909260053844}
-  - component: {fileID: 6723917371889780137}
+  - component: {fileID: 592091912513153874}
   m_Layer: 0
-  m_Name: FoolsGold
+  m_Name: GreedsGold
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &6723917371889780137
+--- !u!114 &592091912513153874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2241675788358728339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b96cde769a1a410481cb2e0934d9a789, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c6fc64cf5332853d969d658ac7eb473, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItems.FoolsGold.FoolsGold
-  itemInformation: {fileID: 11400000, guid: b146d31ab3ba80147bcb5a0f69ab3214, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Items.PassiveItems.GreedsGold.GreedsGold
+  itemInformation: {fileID: 11400000, guid: de62250ccca96df948f37ace0d5a96ef, type: 2}
   isBuyable: 0

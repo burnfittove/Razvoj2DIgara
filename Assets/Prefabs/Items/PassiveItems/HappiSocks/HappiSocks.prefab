@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItems.HappiSocks.HappiSocks
   itemInformation: {fileID: 11400000, guid: f3a86d8b6f36a63c6b00d6d0ee27b813, type: 2}
+  isBuyable: 0

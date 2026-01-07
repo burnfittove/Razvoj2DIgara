@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
-  m_Name: QuickCast
-  m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
-  itemId: 0
-  itemName: Quick Cast
-  itemDescription: Mage Up\n-Fire Delay -0.3
-  itemQuality: 2
-  isPersistantPassive: 0
+  m_Name: GreedsGold
+  m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
+  itemId: 9
+  itemName: Greed's Gold
+  itemDescription: Wealth!
+  itemQuality: 5
+  isPersistantPassive: 1
   healAcquiredHealth: 0
-  price: 2750
-  demonPrice: 20
+  price: 5999
+  demonPrice: 59
   maxHealthDelta: 0
   speedDelta: 0
   damageDelta: 0
-  fireDelayDelta: -0.3
+  fireDelayDelta: 0
   rangeDelta: 0
   shotSpeedDelta: 0
   luckDelta: 0

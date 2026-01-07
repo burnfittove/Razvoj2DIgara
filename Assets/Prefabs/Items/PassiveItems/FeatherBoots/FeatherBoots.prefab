@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItems.FeatherBoots.FeatherBoots
   itemInformation: {fileID: 11400000, guid: 542ad42ce641cea24b3a22c4a1de46c2, type: 2}
+  isBuyable: 0

@@ -7,6 +7,7 @@ namespace GUI.Attributes
         protected override void SubscribeToAttributeEvent()
         {
             GameEventManager.Instance.pickupEvents.OnSoulPickUp += _ => DisplayValues();
+            GameEventManager.Instance.attributeUpdateEvents.OnSoulChange += _ => DisplayValues();
         }
 
         protected override void UpdateValues()

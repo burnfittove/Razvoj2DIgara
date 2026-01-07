@@ -4,6 +4,6 @@ namespace Managers
     {
         RegularPool = 0,
         ShopPool = 1,
-        DemonPool = 2
+        VampirePool = 2
     }
 }

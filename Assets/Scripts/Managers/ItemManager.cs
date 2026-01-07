@@ -13,56 +13,53 @@ namespace Managers
     /// </summary>
     public class ItemManager : MonoBehaviour
     {
-        private readonly List<List<GameObject>> allItems = new();
+        private readonly Dictionary<ItemPool, List<GameObject>> allItems = new();
         [SerializeField] private List<GameObject> regularItemPool = new();
         [SerializeField] private List<GameObject> shopItemPool = new();
+        [SerializeField] private List<GameObject> vampireItemPool = new();
         [SerializeField] private Transform itemSpawnLocation;
         [SerializeField] private GameObject fallbackItem;
 
         private void Awake()
         {
             Initialize();
-            
-            GameEventManager.Instance.itemEvents.OnCreateItemFromPool += GetItemFromPool;
         }
 
         private void Initialize()
         {
-            allItems.Add(regularItemPool); 
-            allItems.Add(shopItemPool);
+            allItems.Add(ItemPool.RegularPool, regularItemPool);
+            allItems.Add(ItemPool.ShopPool, shopItemPool);
+            allItems.Add(ItemPool.VampirePool, vampireItemPool);
         }
 
-        private void GetItemFromPool(ItemPool pool)
+        public GameObject GetItemFromPool(ItemPool pool)
         {
-            // Choose item pool
-            var itemPool = allItems[(int)pool];
+            // Get item pool
+            var itemPool = allItems[pool];
             
-            // If the item pool is empty, create the fallback item
-            if (itemPool.Count == 0)
-            {
-                Instantiate(fallbackItem, itemSpawnLocation.position, Quaternion.identity);
-                return;
-            }
-            // Get item
-            int randId;
-            do
-            {
-                randId = Random.Range(0, itemPool.Count);
-            } while (!itemPool[randId]);
+            // If there are no items left in the pool, return null
+            if (itemPool.Count == 0) return null;
             
-            // Create the item
-            var item = itemPool[randId];
-            Instantiate(item, itemSpawnLocation.position, Quaternion.identity);
+            // Get random id from pool
+            var randomIndex = Random.Range(0, itemPool.Count);
+            var item = itemPool[randomIndex];
             
-            // Remove the item from the pool
+            // Remove the item from item pools
             RemoveItemFromPools(item);
+            
+            // Return the item
+            return item;
         }
 
         private void RemoveItemFromPools(GameObject item2Remove)
         {
-            foreach (var itemPool in allItems)
+            // Remove the item from every item pool because the player shouldn't have two of the same item, normally 
+            foreach (var itemPool in allItems.Values)
             {
-                foreach (var item in itemPool.Where(item => item == item2Remove).ToList()) itemPool.Remove(item);
+                for (var i = 0; i < itemPool.Count; i++)
+                {
+                    if (itemPool[i] == item2Remove) itemPool.RemoveAt(i);
+                }
             }
         }
         
