@@ -1,5 +1,6 @@
 using System;
 using Events;
+using Item.ActiveItem;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -7,7 +8,7 @@ namespace PlayerScripts
     public class Player : MonoBehaviour, IDamageable
     {
         [Header("Attributes")]
-        [SerializeField] private PlayerInformationSO playerInformation;
+        [SerializeField] private PlayerInformationSo playerInformation;
 
         [Header("Visible Attributes")] 
         public Attribute MaxHealth { get; private set; }
@@ -42,6 +43,8 @@ namespace PlayerScripts
         public float FireDelayBuffer { get; set; }
         public bool IsFiring { get; set; }
         public Vector2 FireDirection { get; set; }
+        [Header("Active Item")] 
+        public GameObject ActiveItem { get; set; }
 
         [Header("Components")]
         [HideInInspector] public Rigidbody2D rb;
@@ -112,14 +115,10 @@ namespace PlayerScripts
             GameEventManager.Instance.attributeUpdateEvents.OnMoneyChange += UpdateMoney;
             GameEventManager.Instance.attributeUpdateEvents.OnSoulChange += UpdateSouls;
         }
-        
-        // Debug
-        // private void Update()
-        // {
-        //     Debug.Log(MaxHealth.Value);
-        // }
 
-        // Attributes
+        // ######################
+        // ##### Attributes #####
+        // ######################
         private void UpdateMaxHealth(float value)
         {
             MaxHealth.UpdateValue(value);
@@ -193,6 +192,23 @@ namespace PlayerScripts
         private void UpdateSouls(int value)
         {
             Souls.UpdateValue(value);
+        }
+        
+        // #################
+        // ##### Items #####
+        // #################
+        private void ChangeActiveItem(GameObject newActiveItem)
+        {
+            // If the player doesn't have an active item, give them the new one
+            if (!ActiveItem)
+            {
+                ActiveItem = newActiveItem;
+                return;
+            }
+            
+            // If they do, switch them out
+            var item = Instantiate(ActiveItem, (Vector2)transform.position - Vector2.down * 2, Quaternion.identity);
+            ActiveItem = newActiveItem;
         }
         
         // IDamageable

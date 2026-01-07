@@ -23,5 +23,11 @@ namespace Events
         {
             OnMouseMoved?.Invoke(position);
         }
+
+        public event Action<InputAction.CallbackContext> OnActiveItemUsed;
+        public void ActiveItemUsed(InputAction.CallbackContext itemUsed)
+        {
+            OnActiveItemUsed?.Invoke(itemUsed);
+        }
     }
 }

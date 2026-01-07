@@ -11,6 +11,12 @@ namespace Events
         {
             OnPassiveItemAcquired?.Invoke(item);
         }
+        
+        public event Action<GameObject> OnActiveItemAcquired;
+        public void ActiveItemAcquired(GameObject item)
+        {
+            OnActiveItemAcquired?.Invoke(item);
+        }
     
         public event Action<Item.Item> OnNearbyItemDetected;
         public void NearbyItemDetected(Item.Item item)

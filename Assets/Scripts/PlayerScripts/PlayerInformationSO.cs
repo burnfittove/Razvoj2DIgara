@@ -3,12 +3,12 @@ using UnityEngine;
 namespace PlayerScripts
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/PlayerInformation", fileName = "PlayerInformationSO", order = 2)]
-    public class PlayerInformationSO : ScriptableObject
+    public class PlayerInformationSo : ScriptableObject
     {
         [Header("Character Info")] 
         public string characterName;
         public byte characterId;
-        [Header("Starting Attributes")]
+        [Header("Starting Attributes")] 
         public float health;
         public float speed;
         public float damage;

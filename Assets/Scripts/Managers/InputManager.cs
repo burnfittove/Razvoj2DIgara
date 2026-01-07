@@ -21,5 +21,10 @@ namespace Managers
         {
             GameEventManager.Instance.inputEvents.MouseMoved(context);
         }
+
+        public void ActiveItemUsed(InputAction.CallbackContext context)
+        {
+            GameEventManager.Instance.inputEvents.ActiveItemUsed(context);
+        }
     }
 }
