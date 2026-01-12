@@ -14,7 +14,9 @@ namespace Item
         public bool healAcquiredHealth;
         public int price;
         public int demonPrice;
-
+        public int maxCharge;
+        
+        [Header("Attribute Changes")]
         [Header("Base")] 
         public float maxHealthDelta;
         public float speedDelta;
