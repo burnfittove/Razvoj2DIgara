@@ -12,12 +12,12 @@ namespace Item
         public ItemInformationSo ItemInformation => itemInformation;
         [HideInInspector] public bool isBuyable = false;
         [HideInInspector] public bool meetsPickUpRequirements;
-        protected SpriteRenderer spriteRenderer;
-        protected Collider2D coll;
+        private SpriteRenderer spriteRenderer;
+        private Collider2D coll;
         protected Player player;
 
 
-        private void Awake()
+        protected virtual void Awake()
         {
             // Get references
             TryGetComponent(out spriteRenderer);

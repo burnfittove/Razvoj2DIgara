@@ -1,7 +1,7 @@
-using System;
 using Events;
 using Item.ActiveItem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace PlayerScripts
 {
@@ -114,6 +114,9 @@ namespace PlayerScripts
             GameEventManager.Instance.pickupEvents.OnSoulPickUp += UpdateSouls;
             GameEventManager.Instance.attributeUpdateEvents.OnMoneyChange += UpdateMoney;
             GameEventManager.Instance.attributeUpdateEvents.OnSoulChange += UpdateSouls;
+            // Active Item
+            GameEventManager.Instance.itemEvents.OnActiveItemAcquired += ChangeActiveItem;
+            GameEventManager.Instance.inputEvents.OnActiveItemUsed += UseActiveItem;
         }
 
         // ######################
@@ -206,9 +209,18 @@ namespace PlayerScripts
                 return;
             }
             
-            // If they do, switch them out
-            var item = Instantiate(ActiveItem, (Vector2)transform.position - Vector2.down * 2, Quaternion.identity);
+            // If they do, switch them out; first create the old active item them set the new one
+            GameEventManager.Instance.itemEvents.CreateItemById(ActiveItem, (Vector2)transform.position + Vector2.one * Random.Range(1, 1.4f));
             ActiveItem = newActiveItem;
+        }
+        
+        private void UseActiveItem(InputAction.CallbackContext ctx)
+        {
+            if (!ctx.started) return;
+            if (!ActiveItem) return;
+            var temp = ActiveItem.GetComponent<ActiveItem>();
+            if (temp.currentCharge < temp.ItemInformation.maxCharge) return;
+            ActiveItem.GetComponent<ActiveItem>().UseActiveItem();
         }
         
         // IDamageable

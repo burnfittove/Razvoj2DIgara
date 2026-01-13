@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: ReverseMagicTechnique
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 0
+  itemId: 12
   itemName: ReverseMagicTechnique
   itemDescription: Positive energy\n-Health +20\nHas a Luck/11 chance to heal 5 HP
     when entering a hostile room
@@ -21,6 +21,7 @@ MonoBehaviour:
   healAcquiredHealth: 1
   price: 3271
   demonPrice: 30
+  maxCharge: 0
   maxHealthDelta: 20
   speedDelta: 0
   damageDelta: 0

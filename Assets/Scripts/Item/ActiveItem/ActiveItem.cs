@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
 using Events;
-using UnityEngine;
 
 namespace Item.ActiveItem
 {
-    public class ActiveItem : Item
+    public abstract class ActiveItem : Item
     {
         public int currentCharge;
         protected override void OnItemPickedUp()
@@ -14,9 +11,15 @@ namespace Item.ActiveItem
             HideItem();
         }
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             currentCharge = itemInformation.maxCharge;
+        }
+
+        public virtual void UseActiveItem()
+        {
+            currentCharge = 0;
         }
     }
 }

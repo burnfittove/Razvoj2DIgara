@@ -39,8 +39,8 @@
                     "id": "de35592a-1206-48b3-9986-405a0b36564b",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
