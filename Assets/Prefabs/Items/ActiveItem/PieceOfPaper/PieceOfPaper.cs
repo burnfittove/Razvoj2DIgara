@@ -1,6 +1,6 @@
 using Events;
 
-namespace Prefabs.Items.ActiveItem
+namespace Prefabs.Items.ActiveItem.PieceOfPaper
 {
     public class PieceOfPaper : Item.ActiveItem.ActiveItem
     {

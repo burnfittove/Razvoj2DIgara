@@ -2,7 +2,7 @@ using Events;
 using Item.PassiveItem;
 using UnityEngine;
 
-namespace Items.PassiveItems.FoolsGold
+namespace Prefabs.Items.PassiveItems.FoolsGold
 {
     public class FoolsGold : PassiveItem
     {

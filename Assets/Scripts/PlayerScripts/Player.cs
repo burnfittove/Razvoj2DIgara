@@ -202,15 +202,17 @@ namespace PlayerScripts
         // #################
         private void ChangeActiveItem(GameObject newActiveItem)
         {
-            // If the player doesn't have an active item, give them the new one
-            if (!ActiveItem)
-            {
-                ActiveItem = newActiveItem;
-                return;
-            }
-            
-            // If they do, switch them out; first create the old active item them set the new one
-            GameEventManager.Instance.itemEvents.CreateItemById(ActiveItem, (Vector2)transform.position + Vector2.one * Random.Range(1, 1.4f));
+            // // If the player doesn't have an active item, give them the new one
+            // if (!ActiveItem)
+            // {
+            //     ActiveItem = newActiveItem;
+            //     return;
+            // }
+            //
+            // // If they do, switch them out; first create the old active item them set the new one
+            // GameEventManager.Instance.itemEvents.CreateItemById(ActiveItem, (Vector2)transform.position + Vector2.one * Random.Range(1, 1.4f));
+            // ActiveItem = newActiveItem;
+            // Overrides the active item and removes the old one
             ActiveItem = newActiveItem;
         }
         
