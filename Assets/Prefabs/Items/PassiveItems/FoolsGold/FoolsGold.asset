@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: FoolsGold
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
-  itemId: 4
+  itemId: 2
   itemName: Fool's Gold
   itemDescription: Wealth?
   itemQuality: 2
@@ -20,6 +20,7 @@ MonoBehaviour:
   healAcquiredHealth: 0
   price: 2999
   demonPrice: 20
+  maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0
   damageDelta: 0

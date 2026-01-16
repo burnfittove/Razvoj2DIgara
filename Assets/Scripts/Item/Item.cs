@@ -1,5 +1,6 @@
 using System;
 using Events;
+using PlayerScripts;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,14 +11,22 @@ namespace Item
         [SerializeField] protected ItemInformationSo itemInformation;
         public ItemInformationSo ItemInformation => itemInformation;
         [HideInInspector] public bool isBuyable = false;
-        [HideInInspector] public bool meetsBuyRequirements;
+        [HideInInspector] public bool meetsPickUpRequirements;
+        private SpriteRenderer spriteRenderer;
+        private Collider2D coll;
+        protected Player player;
 
 
-        private void Awake()
+        protected virtual void Awake()
         {
+            // Get references
+            TryGetComponent(out spriteRenderer);
+            TryGetComponent(out coll);
+            GameObject.FindWithTag("Player").TryGetComponent(out player);
+            
             if (itemInformation.price == 0) itemInformation.price = itemInformation.itemQuality * 1000;
             if (itemInformation.demonPrice == 0) itemInformation.demonPrice = itemInformation.itemQuality * 10;
-            meetsBuyRequirements = true;
+            meetsPickUpRequirements = true;
         }
 
         protected abstract void OnItemPickedUp();
@@ -25,8 +34,14 @@ namespace Item
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            if (!meetsBuyRequirements) return;
+            if (!meetsPickUpRequirements) return;
             OnItemPickedUp();
+        }
+
+        protected virtual void HideItem()
+        {
+            spriteRenderer.enabled = false;
+            coll.enabled = false;
         }
     }
 }

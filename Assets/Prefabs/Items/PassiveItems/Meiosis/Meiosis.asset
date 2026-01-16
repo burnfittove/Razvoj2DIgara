@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: Meiosis
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 0
+  itemId: 8
   itemName: Meiosis
   itemDescription: Quadruple up!!\n-Health *2\n-All stats -0.5
   itemQuality: 5
@@ -20,6 +20,7 @@ MonoBehaviour:
   healAcquiredHealth: 1
   price: 5100
   demonPrice: 50
+  maxCharge: 0
   maxHealthDelta: 0
   speedDelta: -0.5
   damageDelta: -0.5

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: GreedsGold
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 9
+  itemId: 3
   itemName: Greed's Gold
   itemDescription: Wealth!
   itemQuality: 5
@@ -20,6 +20,7 @@ MonoBehaviour:
   healAcquiredHealth: 0
   price: 5999
   demonPrice: 59
+  maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0
   damageDelta: 0

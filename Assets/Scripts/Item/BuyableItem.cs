@@ -27,7 +27,7 @@ namespace Item
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            if (!item.meetsBuyRequirements) return;
+            if (!item.meetsPickUpRequirements) return;
             BuyItem();
         }
 

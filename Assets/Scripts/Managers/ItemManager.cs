@@ -30,6 +30,26 @@ namespace Managers
             allItems.Add(ItemPool.RegularPool, regularItemPool);
             allItems.Add(ItemPool.ShopPool, shopItemPool);
             allItems.Add(ItemPool.VampirePool, vampireItemPool);
+
+            GameEventManager.Instance.itemEvents.OnCreateItemById += CreateItemById;
+        }
+
+        private void CreateItemById(GameObject obj, Vector2 pos)
+        {
+            var itemId = obj.GetComponent<Item.Item>().ItemInformation.itemId;
+            var itemFound = false;
+            foreach (var itemPool in allItems.Values)
+            {
+                foreach (var item in itemPool)
+                {
+                    if (item.GetComponent<Item.Item>().ItemInformation.itemId != itemId) continue;
+                    Instantiate(obj, pos, Quaternion.identity);
+                    itemFound = true;
+                    break;
+                }
+
+                if (itemFound) break;
+            }
         }
 
         public GameObject GetItemFromPool(ItemPool pool)
