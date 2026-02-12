@@ -1,3 +1,5 @@
+using Currencies.Souls;
+using Events;
 using PlayerScripts;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,6 +18,10 @@ namespace Enemies
         protected Attribute Range;
         protected Attribute ShotSpeed;
         protected Attribute ContactDamage;
+        private Color startColor;
+        private const int baseSoulSpawnChance = 100;
+        [SerializeField] protected GameObject soulPrefab;
+        protected bool isAlive = true; // TODO: Make a state machine so that you don't need variables like this to determine the state of an enemy. Make it simple, don't overcomplicate!
         // Other attributes
         protected bool isInvisible;
         // Components
@@ -32,6 +38,7 @@ namespace Enemies
             cc = GetComponent<Collider2D>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
+            startColor = sr.color;
             
             // # Attributes
             // ## Health
@@ -71,13 +78,33 @@ namespace Enemies
 
         protected virtual void OnDeath()
         {
-            sr.color = new Color(sr.color.r / 3, sr.color.g / 3, sr.color.b / 3);
+            isAlive = false;
+            sr.color = startColor / 2;
             cc.enabled = false;
             navMeshAgent.enabled = false;
+            GameEventManager.Instance.roomEvents.OnEnemyDeath();
+            CreateSoul();
+        }
+
+        private void CreateSoul()
+        {
+            // Get a chance from 0 to 100
+            var chance = Random.Range(0, baseSoulSpawnChance + player.Luck.Value / 1.1f);
+            // If the chance is greater than the player's luck, do nothing
+            if (chance > player.Luck.Value) return;
+            // If the soulPrefab is unassigned, do nothing
+            if (!soulPrefab)
+            {
+                Debug.LogWarning($"{this} has unassigned soulPrefab");
+                return;
+            }
+            // Create soul otherwise
+            Instantiate(soulPrefab, transform.position, transform.rotation);
         }
 
         protected virtual void Update()
         {
+            if (!isAlive) return;
             if (Health.Value <= 0) OnDeath();
             if (enemyInfo.chasePlayer) ChasePlayer();
         }

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3910693078310252538}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -3, z: 0}
+  m_LocalPosition: {x: 10, y: -2.94, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Roamer
   enemyInfo: {fileID: 11400000, guid: 764288160a4074ffaa8a8a32a3ffe16f, type: 2}
+  soulPrefab: {fileID: 929468707551178397, guid: 0663d5f6919fc3d0ca22eeda4414a440, type: 3}
 --- !u!195 &-6710647834760527876
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ GameObject:
   - component: {fileID: 263153350153689948}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

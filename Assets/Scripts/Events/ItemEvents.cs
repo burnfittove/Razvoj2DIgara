@@ -30,18 +30,23 @@ namespace Events
             OnNearbyItemLost?.Invoke();
         }
 
-        // TODO: Change Action<ItemPool>, to Func<ItemPool, GameObject> and use the event when creating an item instead of using an instance of the ItemManager in other scripts
-        public event Action<ItemPool> OnCreateItemFromPool;
-        public void CreateItemFromPool(ItemPool itemPool)
+        public event Func<ItemPool, GameObject> OnGetItemFromPool;
+        public GameObject GetItemFromPool(ItemPool itemPool)
         {
-            OnCreateItemFromPool?.Invoke(itemPool);
+            return OnGetItemFromPool?.Invoke(itemPool);
         }
 
-        public event Action<GameObject, Vector2> OnCreateItemById;
+        public event Action<GameObject, Vector2> OnCreateItemById; // TODO: Also turn this into Func<GameObject/int, GameObject>
 
         public void CreateItemById(GameObject item, Vector2 position)
         {
             OnCreateItemById?.Invoke(item, position);
+        }
+        
+        public event Func<GameObject> OnGetPenny; // The item manager then creates the penny
+        public virtual GameObject GetPenny()
+        {
+            return OnGetPenny?.Invoke();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Events
         public AttributeUpdateEvents attributeUpdateEvents;
         public ItemEvents itemEvents;
         public PickupEvents pickupEvents;
+        public RoomEvents roomEvents;
 
         private void Awake()
         {
@@ -25,6 +26,7 @@ namespace Events
             attributeUpdateEvents = new AttributeUpdateEvents();
             itemEvents = new ItemEvents();
             pickupEvents = new PickupEvents();
+            roomEvents = new RoomEvents();
         }
     }
 }
