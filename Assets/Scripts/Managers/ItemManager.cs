@@ -27,37 +27,33 @@ namespace Managers
             allItems.Add(ItemPool.ShopPool, shopItemPool);
             allItems.Add(ItemPool.VampirePool, vampireItemPool);
 
-            GameEventManager.Instance.itemEvents.OnCreateItemById += CreateItemById;
+            GameEventManager.Instance.itemEvents.OnGetItemById += GetItemById;
             GameEventManager.Instance.itemEvents.OnGetPenny += GetPenny;
             GameEventManager.Instance.itemEvents.OnGetItemFromPool += GetItemFromPool;
         }
 
         // Returns an item by its ID
-        private void CreateItemById(GameObject obj, Vector2 pos)
+        private GameObject GetItemById(int itemId)
         {
-            // Get the item id
-            var itemId = obj.GetComponent<Item.Item>().ItemInformation.itemId;
-            var itemFound = false;
-            
-            // Find the first instance of the item in any item pool
-            foreach (var itemPool in allItems.Values)   // Search all item pools
+            // Get an item according to its ID from any pool
+            foreach (var itemPool in allItems.Values)
             {
-                foreach (var item in itemPool)  // Search specific item pool
+                foreach (var item in itemPool)
                 {
-                    if (item.GetComponent<Item.Item>().ItemInformation.itemId != itemId) continue;
-                    // Create the found item and remove it from item pools
-                    Instantiate(obj, pos, Quaternion.identity);
-                    itemFound = true;
-                    RemoveItemFromPools(item);
-                    break;
+                    // If the object doesn't have an item component, continue
+                    if (!item.TryGetComponent<Item.Item>(out var itemComponent)) continue; // This is very inefficient, but fuck it, this method won't get used much anyway
+                    // If the random item's ID doesn't equal the given ID, continue
+                    if (itemComponent.ItemInformation.itemId != itemId) continue;
+                    // GetItemCopy
+                    return GetItemCopy(item);
                 }
-
-                if (itemFound) break;
             }
+
+            return null;
         }
 
         // Returns a random item from a specified pool
-        public GameObject GetItemFromPool(ItemPool pool)
+        private GameObject GetItemFromPool(ItemPool pool)
         {
             // Get item pool
             var itemPool = allItems[pool];
@@ -69,13 +65,8 @@ namespace Managers
             var randomIndex = Random.Range(0, itemPool.Count);
             var item = itemPool[randomIndex];
             
-            // Remove the item from item pools
-            RemoveItemFromPools(item);
-            
-            // Return a copy of the item
-            var itemCopy = Instantiate(item);
-            itemCopy.SetActive(false);
-            return itemCopy;
+            // GetItemCopy
+            return GetItemCopy(item);
         }
         
         // Returns a penny
@@ -95,9 +86,25 @@ namespace Managers
             {
                 for (var i = 0; i < itemPool.Count; i++)
                 {
-                    if (itemPool[i] == item2Remove) itemPool.RemoveAt(i);
+                    // If the random item equals the provided item, remove it and stop the loop
+                    if (itemPool[i] != item2Remove) continue;
+                    itemPool.RemoveAt(i);
+                    break;
+
                 }
             }
+        }
+
+        // Return the instantiated object and remove it from all item pools 
+        private GameObject GetItemCopy(GameObject item)
+        {
+            // Remove the item from all item pools
+            RemoveItemFromPools(item);
+            // Create the copy of the provided item
+            var obj = Instantiate(item);
+            obj.SetActive(false);
+            // Return the copy of the item
+            return obj;
         }
         
         // private void Update()

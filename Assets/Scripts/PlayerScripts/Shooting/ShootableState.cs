@@ -50,7 +50,9 @@ namespace PlayerScripts.Shooting
 
         public void GetDirection(InputAction.CallbackContext cursorWorldPosition)
         {
-            p.FireDirection = (Camera.main.ScreenToWorldPoint(cursorWorldPosition.ReadValue<Vector2>()) - p.transform.position).normalized;
+            if (Camera.main != null)
+                p.FireDirection = (Camera.main.ScreenToWorldPoint(cursorWorldPosition.ReadValue<Vector2>()) -
+                                   p.transform.position).normalized;
         }
     }
 }

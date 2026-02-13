@@ -18,26 +18,31 @@ namespace Managers
         
         private void Awake()
         {
+            // Get component references
+            if (!player) GameObject.FindGameObjectWithTag("Player").TryGetComponent(out player);
+            
             // Get the amount of enemies in the room
             enemiesInTheRoom = GameObject.FindGameObjectsWithTag("Enemy").Length;
             
             // Subscribe to events
             GameEventManager.Instance.roomEvents.EnemyDeath += DecreaseEnemyCount;
-            GameEventManager.Instance.roomEvents.EnemyDeath += SpawnReward;
+            GameEventManager.Instance.roomEvents.RoomCleared += SpawnReward;
         }
 
         private void DecreaseEnemyCount()
         {
+            // Decrease the enemy count in the room
             enemiesInTheRoom--;
+            
+            // If there are no more enemies in the room, mark the room as cleared
+            if (enemiesInTheRoom <= 0) GameEventManager.Instance.roomEvents.OnRoomCleared();
         }
 
         private void SpawnReward()
         {
-            if (enemiesInTheRoom > 0) return;
-            
             // Check for item
             var chance = Random.Range(baseItemChance, GetModifiedChance(baseItemChance));
-            if (chance <= player.Luck.Value)
+            if (chance <= player?.Luck.Value)
             {
                 // Get a copy of the item
                 var obj = GameEventManager.Instance.itemEvents.GetItemFromPool(ItemPool.RegularPool);
@@ -48,16 +53,18 @@ namespace Managers
             }
             
             // Check for penny
-            chance = Random.Range(basePennyChance, GetModifiedChance(basePennyChance));
-            if (chance <= player.Luck.Value)
-            {
-                // Get a copy of the item
-                var obj = GameEventManager.Instance.itemEvents.GetPenny();
-                // Set its position and activate it
-                obj.transform.position = spawnPosition.position;
-                obj.SetActive(true);
-                return;
-            }
+            SetCurrencyPrefab(GameEventManager.Instance.itemEvents.GetPenny, basePennyChance);
+        }
+
+        private void SetCurrencyPrefab(Func<GameObject> getCurrency, float baseChance)
+        {
+            var chance = Random.Range(baseChance, GetModifiedChance(baseChance));
+            if (!(chance <= player?.Luck.Value)) return;
+            // Get a copy of the item
+            var obj = getCurrency();
+            // Set its position and activate it
+            obj.transform.position = spawnPosition.position;
+            obj.SetActive(true);
         }
 
         private float GetModifiedChance(float baseChance)

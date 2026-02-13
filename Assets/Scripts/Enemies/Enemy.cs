@@ -1,9 +1,11 @@
+using System;
 using Currencies.Souls;
 using Events;
 using PlayerScripts;
 using UnityEngine;
 using UnityEngine.AI;
 using Attribute = PlayerScripts.Attribute;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -11,34 +13,27 @@ namespace Enemies
     {
         // Attributes
         public EnemyInformationSO enemyInfo;
-        protected Attribute Health;
-        protected Attribute Speed;
-        protected Attribute Damage;
-        protected Attribute FireDelay;
-        protected Attribute Range;
-        protected Attribute ShotSpeed;
-        protected Attribute ContactDamage;
-        private Color startColor;
-        private const int baseSoulSpawnChance = 100;
+        public Attribute Health { get; private set; }
+        public Attribute Speed { get; private set; }
+        public Attribute Damage { get; private set; }
+        public Attribute FireDelay { get; private set; }
+        public Attribute Range { get; private set; }
+        public Attribute ShotSpeed { get; private set; }
+        public Attribute ContactDamage { get; private set; }
         [SerializeField] protected GameObject soulPrefab;
-        protected bool isAlive = true; // TODO: Make a state machine so that you don't need variables like this to determine the state of an enemy. Make it simple, don't overcomplicate!
-        // Other attributes
-        protected bool isInvisible;
         // Components
-        protected Rigidbody2D rb;
-        protected Collider2D cc;
-        protected SpriteRenderer sr;
-        protected NavMeshAgent navMeshAgent;
+        [HideInInspector] public Collider2D cc;
+        [HideInInspector] public SpriteRenderer sr;
+        [HideInInspector] public NavMeshAgent navMeshAgent;
         protected Player player;
         
         protected virtual void Awake()
         {
-            rb = GetComponent<Rigidbody2D>();
+            // Get component references
             sr = GetComponentInChildren<SpriteRenderer>();
             cc = GetComponent<Collider2D>();
             navMeshAgent = GetComponent<NavMeshAgent>();
-            player = GameObject.FindWithTag("Player").GetComponent<Player>();
-            startColor = sr.color;
+            if (!player) player = GameObject.FindWithTag("Player").GetComponent<Player>();
             
             // # Attributes
             // ## Health
@@ -53,8 +48,8 @@ namespace Enemies
             Range = new Attribute(enemyInfo.range,  1, 1, 1, 0, enemyInfo.shotSpeed);
             // ## Shot Speed
             ShotSpeed = new Attribute(enemyInfo.shotSpeed, 1, 1, 1, 0, enemyInfo.shotSpeed);
-            
-            if (isInvisible) sr.enabled = false;
+            // ## Contact Damage
+            ContactDamage = new Attribute(enemyInfo.contactDamage, 1, 1, 1, 0, enemyInfo.contactDamage);
         }
 
         protected virtual void Start()
@@ -71,25 +66,10 @@ namespace Enemies
             navMeshAgent.angularSpeed = enemyInfo.speed * 20;
         }
 
-        public void TakeDamage(float damage)
-        {
-            Health.UpdateValue(-damage);
-        }
-
-        protected virtual void OnDeath()
-        {
-            isAlive = false;
-            sr.color = startColor / 2;
-            cc.enabled = false;
-            navMeshAgent.enabled = false;
-            GameEventManager.Instance.roomEvents.OnEnemyDeath();
-            CreateSoul();
-        }
-
-        private void CreateSoul()
+        public void CreateSoul()
         {
             // Get a chance from 0 to 100
-            var chance = Random.Range(0, baseSoulSpawnChance + player.Luck.Value / 1.1f);
+            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + player.Luck.Value / 1.1f);
             // If the chance is greater than the player's luck, do nothing
             if (chance > player.Luck.Value) return;
             // If the soulPrefab is unassigned, do nothing
@@ -102,16 +82,20 @@ namespace Enemies
             Instantiate(soulPrefab, transform.position, transform.rotation);
         }
 
-        protected virtual void Update()
-        {
-            if (!isAlive) return;
-            if (Health.Value <= 0) OnDeath();
-            if (enemyInfo.chasePlayer) ChasePlayer();
-        }
-
-        protected virtual void ChasePlayer()
+        public void ChasePlayer()
         {
             if (navMeshAgent.enabled) navMeshAgent.SetDestination(player.transform.position);
+        }
+        
+        public void TakeDamage(float damage)
+        {
+            Health.UpdateValue(-damage);
+        }
+
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            if (!other.gameObject.TryGetComponent<IDamageable>(out var p)) return;
+            p.TakeDamage(-ContactDamage.Value);
         }
     }
 }

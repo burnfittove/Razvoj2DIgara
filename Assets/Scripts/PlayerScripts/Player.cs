@@ -1,3 +1,4 @@
+using System;
 using Events;
 using Item.ActiveItem;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace PlayerScripts
         [Header("Hidden Attributes")]
         public Attribute KnockbackStrength { get; private set; }
         public Attribute ContactDamage { get; private set; }
+        public Attribute InvincibilityDuration { get; private set; }
         [Header("Currencies")]
         public Attribute Money { get; private set; }
         public Attribute Souls { get; private set; }
@@ -82,6 +84,8 @@ namespace PlayerScripts
             KnockbackStrength = new Attribute(playerInformation.knockbackStrength, 1, minMultiplier, maxMultiplier, minValue, 10);
             // ### Contact damage
             ContactDamage = new Attribute(playerInformation.contactDamage, 1, minMultiplier, maxMultiplier, minValue, float.MaxValue);
+            // ### Invincibility Duration
+            InvincibilityDuration = new Attribute(playerInformation.invincibilityDuration, 1, 1, 1, -10, 10);
             // ## Currencies
             // ### Money
             Money = new Attribute(0, 1, minMultiplier, maxMultiplier, 0, float.MaxValue);
@@ -224,11 +228,30 @@ namespace PlayerScripts
             if (temp.currentCharge < temp.ItemInformation.maxCharge) return;
             ActiveItem.GetComponent<ActiveItem>().UseActiveItem();
         }
-        
+
+        public void DecreaseInvincibilityDuration()
+        {
+            if (InvincibilityDuration.Value < 0) return;
+            InvincibilityDuration.UpdateValue(-Time.deltaTime);
+        }
+
+        private void Update()
+        {
+            // Decrease the invincibility timer
+            // DecreaseInvincibilityDuration();
+        }
+
         // IDamageable
         public void TakeDamage(float damage)
         {
-            GameEventManager.Instance.attributeUpdateEvents.MaxHealthChange(damage);
+            // If the player is supposed to be invincible, return
+            if (InvincibilityDuration.Value > 0) return;
+            
+            // Take damage
+            GameEventManager.Instance.attributeUpdateEvents.HealthChange(damage);
+            
+            // Set invincibility timer
+            InvincibilityDuration.UpdateValue(playerInformation.invincibilityDuration);
         }
     }
 }

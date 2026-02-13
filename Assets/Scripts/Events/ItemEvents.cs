@@ -36,11 +36,11 @@ namespace Events
             return OnGetItemFromPool?.Invoke(itemPool);
         }
 
-        public event Action<GameObject, Vector2> OnCreateItemById; // TODO: Also turn this into Func<GameObject/int, GameObject>
+        public event Func<int, GameObject> OnGetItemById;
 
-        public void CreateItemById(GameObject item, Vector2 position)
+        public GameObject GetItemById(int itemId)
         {
-            OnCreateItemById?.Invoke(item, position);
+            return OnGetItemById?.Invoke(itemId);
         }
         
         public event Func<GameObject> OnGetPenny; // The item manager then creates the penny

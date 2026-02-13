@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemies
 {
@@ -17,5 +18,6 @@ namespace Enemies
         public float range;
         public float shotSpeed;
         public bool chasePlayer;
+        public int baseMaxSoulSpawnChance = 100;
     }
 }

@@ -11,5 +11,12 @@ namespace Events
         {
             EnemyDeath?.Invoke();
         }
+
+        public event Action RoomCleared;
+
+        public void OnRoomCleared()
+        {
+            RoomCleared?.Invoke();
+        }
     }
 }
