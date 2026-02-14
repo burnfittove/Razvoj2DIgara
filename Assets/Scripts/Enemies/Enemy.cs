@@ -94,8 +94,8 @@ namespace Enemies
 
         private void OnCollisionStay2D(Collision2D other)
         {
-            if (!other.gameObject.TryGetComponent<IDamageable>(out var p)) return;
-            p.TakeDamage(-ContactDamage.Value);
+            // Damage the player
+            if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out var damageable)) damageable.TakeDamage(ContactDamage.Value);
         }
     }
 }

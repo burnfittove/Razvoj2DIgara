@@ -1,5 +1,6 @@
 using System;
 using Events;
+using JetBrains.Annotations;
 using PlayerScripts;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Managers
         private const float chanceModifier = 1.2f; // The larger this value, the more the player's luck will change the chance of getting a reward (see GetModifiedChance())
         [SerializeField] private Player player;
         [SerializeField] private Transform spawnPosition;
+        [SerializeField] private bool isClearedByDefault;
         
         private void Awake()
         {
@@ -25,17 +27,23 @@ namespace Managers
             enemiesInTheRoom = GameObject.FindGameObjectsWithTag("Enemy").Length;
             
             // Subscribe to events
-            GameEventManager.Instance.roomEvents.EnemyDeath += DecreaseEnemyCount;
-            GameEventManager.Instance.roomEvents.RoomCleared += SpawnReward;
+            GameEventManager.Instance.roomEvents.OnEnemyDeath += DecreaseOnEnemyCount;
+            GameEventManager.Instance.roomEvents.OnRoomCleared += SpawnReward;
         }
 
-        private void DecreaseEnemyCount()
+        private void Start()
+        {
+            // If the room is cleared by default, run room cleared
+            if (isClearedByDefault) GameEventManager.Instance.roomEvents.RoomCleared();
+        }
+
+        private void DecreaseOnEnemyCount()
         {
             // Decrease the enemy count in the room
             enemiesInTheRoom--;
             
             // If there are no more enemies in the room, mark the room as cleared
-            if (enemiesInTheRoom <= 0) GameEventManager.Instance.roomEvents.OnRoomCleared();
+            if (enemiesInTheRoom <= 0) GameEventManager.Instance.roomEvents.RoomCleared();
         }
 
         private void SpawnReward()
@@ -46,6 +54,8 @@ namespace Managers
             {
                 // Get a copy of the item
                 var obj = GameEventManager.Instance.itemEvents.GetItemFromPool(ItemPool.RegularPool);
+                // If the pool is empty, do nothing
+                if (!obj) return;
                 // Set its position and activate it
                 obj.transform.position = spawnPosition.position;
                 obj.SetActive(true);

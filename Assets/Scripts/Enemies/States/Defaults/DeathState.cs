@@ -17,7 +17,7 @@ namespace Enemies.States.Defaults
             enemy.cc.enabled = false;
             
             // Invoke the enemy death event
-            GameEventManager.Instance.roomEvents.OnEnemyDeath();
+            GameEventManager.Instance.roomEvents.EnemyDeath();
             
             // Create a soul
             enemy.CreateSoul();

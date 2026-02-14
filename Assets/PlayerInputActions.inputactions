@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "64e692b5-b104-4bba-ac90-83f61b9271c9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold(duration=2.5)",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -250,6 +259,17 @@
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
                     "action": "UseActiveItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1209c3f2-045f-4b51-aac3-dfc0bf8c3434",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "Quit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

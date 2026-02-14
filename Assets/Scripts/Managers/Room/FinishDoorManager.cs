@@ -18,7 +18,7 @@ namespace Managers.Room
             sr.sprite = doorClosed;
             
             // Subscribe to events
-            GameEventManager.Instance.roomEvents.RoomCleared += OpenDoor;
+            GameEventManager.Instance.roomEvents.OnRoomCleared += OpenDoor;
         }
 
         private void OpenDoor()

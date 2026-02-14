@@ -248,7 +248,7 @@ namespace PlayerScripts
             if (InvincibilityDuration.Value > 0) return;
             
             // Take damage
-            GameEventManager.Instance.attributeUpdateEvents.HealthChange(damage);
+            GameEventManager.Instance.attributeUpdateEvents.HealthChange(-damage);
             
             // Set invincibility timer
             InvincibilityDuration.UpdateValue(playerInformation.invincibilityDuration);

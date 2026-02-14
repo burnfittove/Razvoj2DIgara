@@ -28,6 +28,7 @@ MonoBehaviour:
   luckMultiplier: 1
   knockbackStrength: 1
   contactDamage: 0
+  invincibilityDuration: 1.2
   maxSpeed: 10
   maxHealth: 9999
   minValue: 0.5

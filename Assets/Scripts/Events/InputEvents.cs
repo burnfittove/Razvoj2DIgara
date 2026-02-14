@@ -29,5 +29,11 @@ namespace Events
         {
             OnActiveItemUsed?.Invoke(itemUsed);
         }
+        
+        public event Action<InputAction.CallbackContext> OnQuitGame;
+        public void QuitGame(InputAction.CallbackContext isPressed)
+        {
+            OnQuitGame?.Invoke(isPressed);
+        }
     }
 }

@@ -5,18 +5,18 @@ namespace Events
 {
     public sealed class RoomEvents
     {
-        public event Action EnemyDeath;
+        public event Action OnEnemyDeath;
 
-        public void OnEnemyDeath()
+        public void EnemyDeath()
         {
-            EnemyDeath?.Invoke();
+            OnEnemyDeath?.Invoke();
         }
 
-        public event Action RoomCleared;
+        public event Action OnRoomCleared;
 
-        public void OnRoomCleared()
+        public void RoomCleared()
         {
-            RoomCleared?.Invoke();
+            OnRoomCleared?.Invoke();
         }
     }
 }

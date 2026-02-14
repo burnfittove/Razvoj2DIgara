@@ -14,12 +14,12 @@ namespace Managers
     public class ItemManager : MonoBehaviour
     {
         private readonly Dictionary<ItemPool, List<GameObject>> allItems = new();
-        [SerializeField] private List<GameObject> regularItemPool = new();
-        [SerializeField] private List<GameObject> shopItemPool = new();
-        [SerializeField] private List<GameObject> vampireItemPool = new();
+        private static List<GameObject> regularItemPool = new();
+        private static List<GameObject> shopItemPool = new();
+        private static List<GameObject> vampireItemPool = new();
         [SerializeField] private Transform itemSpawnLocation;
-        [SerializeField] private GameObject fallbackItem;
-        [SerializeField] private GameObject penny;
+        private static GameObject fallbackItem;
+        private static GameObject penny;
 
         private void Awake()
         {
@@ -49,7 +49,7 @@ namespace Managers
                 }
             }
 
-            return null;
+            return fallbackItem;
         }
 
         // Returns a random item from a specified pool
@@ -58,8 +58,15 @@ namespace Managers
             // Get item pool
             var itemPool = allItems[pool];
             
-            // If there are no items left in the pool, return null
-            if (itemPool.Count == 0) return null;
+            // If there are no items left in the pool, return the fallback item
+            if (itemPool.Count == 0)
+            {
+                // Create the copy of the provided item
+                var obj = Instantiate(fallbackItem);
+                obj.SetActive(false);
+                // Return the copy of the item
+                return obj;
+            }
             
             // Get random id from pool
             var randomIndex = Random.Range(0, itemPool.Count);
@@ -90,7 +97,6 @@ namespace Managers
                     if (itemPool[i] != item2Remove) continue;
                     itemPool.RemoveAt(i);
                     break;
-
                 }
             }
         }

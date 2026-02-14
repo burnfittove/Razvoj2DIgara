@@ -26,5 +26,10 @@ namespace Managers
         {
             GameEventManager.Instance.inputEvents.ActiveItemUsed(context);
         }
+
+        public void QuitGame(InputAction.CallbackContext context)
+        {
+            GameEventManager.Instance.inputEvents.QuitGame(context);
+        }
     }
 }
