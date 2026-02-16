@@ -14,12 +14,11 @@ namespace Managers
     public class ItemManager : MonoBehaviour
     {
         private readonly Dictionary<ItemPool, List<GameObject>> allItems = new();
-        private static List<GameObject> regularItemPool = new();
-        private static List<GameObject> shopItemPool = new();
-        private static List<GameObject> vampireItemPool = new();
-        [SerializeField] private Transform itemSpawnLocation;
-        private static GameObject fallbackItem;
-        private static GameObject penny;
+        [SerializeField] private List<GameObject> regularItemPool = new();
+        [SerializeField] private List<GameObject> shopItemPool = new();
+        [SerializeField] private List<GameObject> vampireItemPool = new();
+        [SerializeField] private GameObject fallbackItem;
+        [SerializeField] private GameObject penny;
 
         private void Awake()
         {

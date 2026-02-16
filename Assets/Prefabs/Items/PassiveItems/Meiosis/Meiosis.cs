@@ -1,4 +1,5 @@
 using Item.PassiveItem;
+using PlayerScripts;
 
 namespace Prefabs.Items.PassiveItems.Meiosis
 {
@@ -6,7 +7,7 @@ namespace Prefabs.Items.PassiveItems.Meiosis
     {
         protected override void OnItemPickedUp()
         {
-            ChangeMaxHealth(player.MaxHealth.Value);
+            ChangeMaxHealth(PlayerInfo.Instance.MaxHealth.Value);
             ChangeSpeed(itemInformation.speedDelta);
             ChangeDamage(itemInformation.damageDelta);
             ChangeFireDelay(itemInformation.fireDelayDelta);

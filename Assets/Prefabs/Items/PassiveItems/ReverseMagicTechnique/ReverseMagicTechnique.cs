@@ -1,4 +1,5 @@
 using Item.PassiveItem;
+using PlayerScripts;
 using UnityEngine;
 
 namespace Prefabs.Items.PassiveItems.ReverseMagicTechnique
@@ -13,7 +14,7 @@ namespace Prefabs.Items.PassiveItems.ReverseMagicTechnique
 
         protected override void RoomStartEffect()
         {
-            if (Random.Range(0, 11) <= player.Luck.Value) ChangeHealth(5);
+            if (Random.Range(0, 11) <= PlayerInfo.Instance.Luck.Value) ChangeHealth(5);
         }
     }
 }

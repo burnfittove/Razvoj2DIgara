@@ -18,5 +18,11 @@ namespace Events
         {
             OnRoomCleared?.Invoke();
         }
+
+        public event Action OnChangeRoom;
+        public void ChangeRoom()
+        {
+            OnChangeRoom?.Invoke();
+        }
     }
 }

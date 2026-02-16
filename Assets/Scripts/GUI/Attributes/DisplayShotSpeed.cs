@@ -1,4 +1,5 @@
 using Events;
+using PlayerScripts;
 
 namespace GUI.Attributes
 {
@@ -12,8 +13,8 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = player.ShotSpeed.Value;
-            displaySecondaryValue = player.ShotSpeed.Multiplier;
+            displayPrimaryValue = PlayerInfo.Instance.ShotSpeed.Value;
+            displaySecondaryValue = PlayerInfo.Instance.ShotSpeed.Multiplier;
         }
     }
 }

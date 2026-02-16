@@ -1,4 +1,5 @@
 using System;
+using PlayerScripts;
 using UnityEngine;
 using Attribute = PlayerScripts.Attribute;
 
@@ -9,13 +10,17 @@ namespace Item
         protected Attribute playerAttribute;
         protected Item item;
         
-        protected void Awake()
+        protected virtual void Awake()
         {
-            Initialize();
             item.isBuyable = true;
         }
 
-        protected abstract void Initialize();
+        protected void Initialize(Attribute attribute)
+        {
+            GameObject.FindGameObjectWithTag("Player").TryGetComponent(out Player player);
+            playerAttribute = attribute;
+            TryGetComponent(out item);
+        }
 
         private void LateUpdate()
         {

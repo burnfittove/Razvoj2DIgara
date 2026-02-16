@@ -6,8 +6,6 @@ namespace PlayerScripts.Shooting
 {
     public abstract class ShootableState : State, IShooter
     { 
-        private InputDevice inputDevice;
-        
         protected override void OnEnter()
         {
             GameEventManager.Instance.inputEvents.OnMouseMoved += GetDirection;
@@ -36,23 +34,22 @@ namespace PlayerScripts.Shooting
             if (p.FireDelayBuffer > 0) return;
 
             // Use the BulletPooling Script to Instantiate bullets
-            var bullet = BulletPooling.SharedInstance.GetPooledObject();
+            var bullet = BulletPooling.Instance.GetPooledObject();
             if (bullet is not null)
             {
                 bullet.transform.position = p.transform.position;
-                bullet.Initialize(direction, p.ShotSpeed.Value, p.Damage.Value, p.Range.Value);
+                bullet.Initialize(direction, PlayerInfo.Instance.ShotSpeed.Value, PlayerInfo.Instance.Damage.Value, PlayerInfo.Instance.Range.Value);
                 bullet.gameObject.SetActive(true);
             }
 
             // Set fire delay
-            p.FireDelayBuffer = p.FireDelay.Value;
+            p.FireDelayBuffer = PlayerInfo.Instance.FireDelay.Value;
         }
 
         public void GetDirection(InputAction.CallbackContext cursorWorldPosition)
         {
-            if (Camera.main != null)
-                p.FireDirection = (Camera.main.ScreenToWorldPoint(cursorWorldPosition.ReadValue<Vector2>()) -
-                                   p.transform.position).normalized;
+            if (Camera.main == null) return; 
+            p.FireDirection = (Camera.main.ScreenToWorldPoint(cursorWorldPosition.ReadValue<Vector2>()) - p.transform.position).normalized;
         }
     }
 }

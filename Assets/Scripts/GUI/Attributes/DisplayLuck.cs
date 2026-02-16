@@ -1,4 +1,5 @@
 using Events;
+using PlayerScripts;
 
 namespace GUI.Attributes
 {
@@ -12,8 +13,8 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = player.Luck.Value;
-            displaySecondaryValue = player.Luck.Multiplier;
+            displayPrimaryValue = PlayerInfo.Instance.Luck.Value;
+            displaySecondaryValue = PlayerInfo.Instance.Luck.Multiplier;
         }
     }
 }

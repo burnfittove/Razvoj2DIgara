@@ -12,7 +12,7 @@ namespace Enemies
     public abstract class Enemy: MonoBehaviour, IDamageable
     {
         // Attributes
-        public EnemyInformationSO enemyInfo;
+        public EnemyInformationSo enemyInfo;
         public Attribute Health { get; private set; }
         public Attribute Speed { get; private set; }
         public Attribute Damage { get; private set; }
@@ -25,7 +25,7 @@ namespace Enemies
         [HideInInspector] public Collider2D cc;
         [HideInInspector] public SpriteRenderer sr;
         [HideInInspector] public NavMeshAgent navMeshAgent;
-        protected Player player;
+        protected Transform player;
         
         protected virtual void Awake()
         {
@@ -33,7 +33,7 @@ namespace Enemies
             sr = GetComponentInChildren<SpriteRenderer>();
             cc = GetComponent<Collider2D>();
             navMeshAgent = GetComponent<NavMeshAgent>();
-            if (!player) player = GameObject.FindWithTag("Player").GetComponent<Player>();
+            if (!player) player = GameObject.FindWithTag("Player").transform;
             
             // # Attributes
             // ## Health
@@ -69,9 +69,9 @@ namespace Enemies
         public void CreateSoul()
         {
             // Get a chance from 0 to 100
-            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + player.Luck.Value / 1.1f);
+            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.Value / 1.1f);
             // If the chance is greater than the player's luck, do nothing
-            if (chance > player.Luck.Value) return;
+            if (chance > PlayerInfo.Instance.Luck.Value) return;
             // If the soulPrefab is unassigned, do nothing
             if (!soulPrefab)
             {

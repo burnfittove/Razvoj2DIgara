@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3601514924474548696}
   m_Layer: 0
   m_Name: ItemManager
-  m_TagString: ItemManager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,23 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5016e3c9eb42ed5ac930ed46d068fcfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemManager
-  regularItemPool:
-  - {fileID: 8811422137312529846, guid: e9fa0c847676db8f3bb7d10910370b45, type: 3}
-  - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
-  - {fileID: 2241675788358728339, guid: f6b3856fa183f579e8b062b6996ab235, type: 3}
-  - {fileID: 1329916595875140508, guid: 764167af6336572679724c4427eb6c68, type: 3}
-  - {fileID: 1868455218739193624, guid: 0e1cc15b383a6f9dcaebc0dbf9a672ad, type: 3}
-  - {fileID: 4659189402167889196, guid: 39a71f95c953e3a1ca88579d99e71a1a, type: 3}
-  - {fileID: 8811422137312529846, guid: 1776d1cdc3193825f8ce79a43e6d6588, type: 3}
-  - {fileID: 4593469962012809071, guid: c834a4364e87d0a5c9fc997971c82be5, type: 3}
-  - {fileID: 8586001984628955073, guid: 7a59d59a689152852a9e72a4bfc5f3bc, type: 3}
-  - {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
-  shopItemPool:
-  - {fileID: 112474819504677130, guid: e2b115ac9fddc4451b3e781941e7686b, type: 3}
-  - {fileID: 2241675788358728339, guid: e6e171a24f2f216cf9dc6b0181b46890, type: 3}
-  - {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
-  vampireItemPool:
-  - {fileID: 1643235817626384187, guid: 317bf013d138b91d6969f83dd9138e96, type: 3}
   itemSpawnLocation: {fileID: 0}
-  fallbackItem: {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
-  penny: {fileID: 929468707551178397, guid: ff73e77bc03e440ce8151c2104a12cfd, type: 3}

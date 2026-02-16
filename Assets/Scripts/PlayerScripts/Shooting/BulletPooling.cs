@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Bullets;
 using UnityEngine;
 
@@ -6,38 +7,55 @@ namespace PlayerScripts.Shooting
 {
     public class BulletPooling : MonoBehaviour
     {
-        public static BulletPooling SharedInstance;
+        public static BulletPooling Instance;
         public List<Bullet> pooledObjects;
         public GameObject objectToPool;
         public int amountToPool;
 
         private void Awake()
         {
-            SharedInstance = this;
+            if (Instance != null && Instance != this) Debug.LogError("Multiple instances of BulletPooling detected!");
+            Instance = this;
         }
 
         private void Start()
         {
+            // Create a list of bullets
             pooledObjects = new List<Bullet>();
+            
+            // Create n bullets
             for (var i = 0; i < amountToPool; i++)
             {
-                var tmp = Instantiate(objectToPool);
-                tmp.SetActive(false);
-                pooledObjects.Add(tmp.GetComponent<Bullet>());
+                CreateBullet();
             }
         }
 
         // Return inactive Bullets
         public Bullet GetPooledObject()
         {
-            for (var i = 0; i < amountToPool; i++)
+            // Go through the whole list
+            foreach (var t in pooledObjects)
             {
-                if (!pooledObjects[i].gameObject.activeInHierarchy)
+                // If the object is inactive, it means it is currently unused, so it should be shot as the next bullet
+                if (!t.gameObject.activeInHierarchy)
                 {
-                    return pooledObjects[i];
+                    return t;
                 }
             }
-            return null;
+            
+            // If there are no free bullets, create a new one and return it
+            CreateBullet();
+            return pooledObjects.Last();
+        }
+
+        private void CreateBullet()
+        {
+            // Create instance
+            var tmp = Instantiate(objectToPool);
+            // Disable it
+            tmp.SetActive(false);
+            // Add it to the list
+            pooledObjects.Add(tmp.GetComponent<Bullet>());
         }
     }
 }

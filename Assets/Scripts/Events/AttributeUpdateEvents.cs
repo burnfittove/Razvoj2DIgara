@@ -8,7 +8,6 @@ namespace Events
         // ## Regular
         // ### Health
         public event Action<float> OnMaxHealthChange;
-
         public void MaxHealthChange(float value)
         {
             OnMaxHealthChange?.Invoke(value);
@@ -21,7 +20,6 @@ namespace Events
     
         // ### Speed
         public event Action<float> OnSpeedChange;
-
         public void SpeedChange(float value)
         {
             OnSpeedChange?.Invoke(value);
@@ -80,7 +78,6 @@ namespace Events
         // ## Multipliers
         // ### Speed Multiplier
         public event Action<float> OnSpeedMultiplierChange;
-
         public void SpeedMultiplierChange(float value)
         {
             OnSpeedMultiplierChange?.Invoke(value);
@@ -88,7 +85,6 @@ namespace Events
         
         // ### Damage Multiplier
         public event Action<float> OnDamageMultiplierChange;
-
         public void DamageMultiplierChange(float value)
         {
             OnDamageMultiplierChange?.Invoke(value);
@@ -96,7 +92,6 @@ namespace Events
         
         // ### Fire delay
         public event Action<float> OnFireDelayMultiplierChange;
-
         public void FireDelayMultiplierChange(float value)
         {
             OnFireDelayMultiplierChange?.Invoke(value);
@@ -104,7 +99,6 @@ namespace Events
         
         // ### Range Multiplier
         public event Action<float> OnRangeMultiplierChange;
-
         public void RangeMultiplierChange(float value)
         {
             OnRangeMultiplierChange?.Invoke(value);
@@ -112,7 +106,6 @@ namespace Events
         
         // ### Shot Speed Multiplier
         public event Action<float> OnShotSpeedMultiplierChange;
-
         public void ShotSpeedMultiplierChange(float value)
         {
             OnShotSpeedMultiplierChange?.Invoke(value);
@@ -120,7 +113,6 @@ namespace Events
         
         // ### Luck Multiplier
         public event Action<float> OnLuckMultiplierChange;
-
         public void LuckMultiplierChange(float value)
         {
             OnLuckMultiplierChange?.Invoke(value);

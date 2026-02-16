@@ -5,7 +5,7 @@ namespace Enemies
 {
     
     [CreateAssetMenu(menuName = "ScriptableObjects/EnemyInformation", fileName = "EnemyInformationSO", order = 0)]
-    public class EnemyInformationSO : ScriptableObject
+    public class EnemyInformationSo : ScriptableObject
     {
         public string enemyName;
         public byte enemyId;

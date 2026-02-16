@@ -1,4 +1,5 @@
 using Events;
+using PlayerScripts;
 using TMPro;
 using UnityEngine.UI;
 
@@ -15,8 +16,8 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = player.Health.Value;
-            displaySecondaryValue = player.MaxHealth.Value;
+            displayPrimaryValue = PlayerInfo.Instance.Health.Value;
+            displaySecondaryValue = PlayerInfo.Instance.MaxHealth.Value;
         }
 
         protected override void Awake()

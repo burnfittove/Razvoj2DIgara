@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using PlayerScripts;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Managers
@@ -11,30 +12,37 @@ namespace Managers
     public class RoomManager : MonoBehaviour
     {
         private int enemiesInTheRoom;
-        private const float basePennyChance = 20;
-        private const float baseItemChance = 500;
-        private const float chanceModifier = 1.2f; // The larger this value, the more the player's luck will change the chance of getting a reward (see GetModifiedChance())
+        private const float BasePennyChance = 20;
+        private const float BaseItemChance = 500;
+        private const float ChanceModifier = 1.2f; // The larger this value, the more the player's luck will change the chance of getting a reward (see GetModifiedChance())
         [SerializeField] private Player player;
         [SerializeField] private Transform spawnPosition;
-        [SerializeField] private bool isClearedByDefault;
+        // Regular rooms
+        [Header("Regular Rooms")]
+        [SerializeField] private string regularRoomName = "RegularRoom";
+        [SerializeField] private int regularRoomAmount = 2;
+        public Scene scene;
         
         private void Awake()
         {
             // Get component references
             if (!player) GameObject.FindGameObjectWithTag("Player").TryGetComponent(out player);
             
-            // Get the amount of enemies in the room
-            enemiesInTheRoom = GameObject.FindGameObjectsWithTag("Enemy").Length;
-            
             // Subscribe to events
+            SceneManager.sceneLoaded += (_, _) =>
+            {
+                GetAllEnemiesInRoom();
+                spawnPosition = GameObject.FindGameObjectWithTag("Spawner").transform;
+            };
             GameEventManager.Instance.roomEvents.OnEnemyDeath += DecreaseOnEnemyCount;
             GameEventManager.Instance.roomEvents.OnRoomCleared += SpawnReward;
+            GameEventManager.Instance.roomEvents.OnChangeRoom += ChangeRoom;
         }
 
         private void Start()
         {
-            // If the room is cleared by default, run room cleared
-            if (isClearedByDefault) GameEventManager.Instance.roomEvents.RoomCleared();
+            // Clear start room to give a potential reward in the start room and allow the player to continue
+            GameEventManager.Instance.roomEvents.RoomCleared();
         }
 
         private void DecreaseOnEnemyCount()
@@ -46,11 +54,17 @@ namespace Managers
             if (enemiesInTheRoom <= 0) GameEventManager.Instance.roomEvents.RoomCleared();
         }
 
+        private void GetAllEnemiesInRoom()
+        {
+            // Get the amount of enemies in the room
+            enemiesInTheRoom = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        }
+
         private void SpawnReward()
         {
             // Check for item
-            var chance = Random.Range(baseItemChance, GetModifiedChance(baseItemChance));
-            if (chance <= player?.Luck.Value)
+            var chance = Random.Range(BaseItemChance, GetModifiedChance(BaseItemChance));
+            if (chance <= PlayerInfo.Instance.Luck.Value)
             {
                 // Get a copy of the item
                 var obj = GameEventManager.Instance.itemEvents.GetItemFromPool(ItemPool.RegularPool);
@@ -63,13 +77,13 @@ namespace Managers
             }
             
             // Check for penny
-            SetCurrencyPrefab(GameEventManager.Instance.itemEvents.GetPenny, basePennyChance);
+            SetCurrencyPrefab(GameEventManager.Instance.itemEvents.GetPenny, BasePennyChance);
         }
 
         private void SetCurrencyPrefab(Func<GameObject> getCurrency, float baseChance)
         {
             var chance = Random.Range(baseChance, GetModifiedChance(baseChance));
-            if (!(chance <= player?.Luck.Value)) return;
+            if (!(chance <= PlayerInfo.Instance.Luck.Value)) return;
             // Get a copy of the item
             var obj = getCurrency();
             // Set its position and activate it
@@ -79,7 +93,13 @@ namespace Managers
 
         private float GetModifiedChance(float baseChance)
         {
-            return baseChance + player.Luck.Value / 1.1f;
+            return baseChance + PlayerInfo.Instance.Luck.Value / 1.1f;
+        }
+
+        private void ChangeRoom()
+        {
+            var roomSuffix = Random.Range(0, regularRoomAmount);
+            SceneManager.LoadSceneAsync($"{regularRoomName}{roomSuffix}");
         }
     }
 }

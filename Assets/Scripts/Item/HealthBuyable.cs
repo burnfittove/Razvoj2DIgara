@@ -6,11 +6,10 @@ namespace Item
 {
     public class HealthBuyable : BuyableItem
     {
-        protected override void Initialize()
+        protected override void Awake()
         {
-            GameObject.FindGameObjectWithTag("Player").TryGetComponent(out Player player);
-            playerAttribute = player.MaxHealth;
-            TryGetComponent(out item);
+            Initialize(PlayerInfo.Instance.Health);
+            base.Awake();
         }
 
         protected override void SetColliderState()
