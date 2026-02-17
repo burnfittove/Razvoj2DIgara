@@ -21,6 +21,9 @@ namespace Enemies.States.Defaults
             
             // Create a soul
             enemy.CreateSoul();
+            
+            // Create money
+            enemy.CreateMoney();
         }
     }
 }

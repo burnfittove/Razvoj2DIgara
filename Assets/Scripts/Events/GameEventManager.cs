@@ -13,6 +13,7 @@ namespace Events
         public PickupEvents pickupEvents;
         public RoomEvents roomEvents;
         public MainMenuEvents mainMenuEvents;
+        public RewardEvents rewardEvents;
 
         private void Awake()
         {
@@ -26,6 +27,7 @@ namespace Events
             pickupEvents = new PickupEvents();
             roomEvents = new RoomEvents();
             mainMenuEvents = new MainMenuEvents();
+            rewardEvents = new RewardEvents();
         }
     }
 }

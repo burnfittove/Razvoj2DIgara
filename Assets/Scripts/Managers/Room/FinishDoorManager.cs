@@ -27,7 +27,7 @@ namespace Managers.Room
             GameEventManager.Instance.roomEvents.OnRoomCleared += OpenDoor;
         }
 
-        private void OpenDoor(bool _)
+        private void OpenDoor()
         {
             sr.sprite = doorOpen;
             col.enabled = true;

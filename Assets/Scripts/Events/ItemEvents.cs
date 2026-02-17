@@ -42,11 +42,5 @@ namespace Events
         {
             return OnGetItemById?.Invoke(itemId);
         }
-        
-        public event Func<GameObject> OnGetPenny; // The item manager then creates the penny
-        public virtual GameObject GetPenny()
-        {
-            return OnGetPenny?.Invoke();
-        }
     }
 }

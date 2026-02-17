@@ -1,4 +1,5 @@
 using System;
+using Currencies.Money;
 using Currencies.Souls;
 using Events;
 using PlayerScripts;
@@ -21,16 +22,18 @@ namespace Enemies
         public Attribute Range { get; private set; }
         public Attribute ShotSpeed { get; private set; }
         public Attribute ContactDamage { get; private set; }
-        [SerializeField] protected GameObject soulPrefab;
         // Components
         [HideInInspector] public Collider2D cc;
         [HideInInspector] public SpriteRenderer sr;
         [HideInInspector] public NavMeshAgent navMeshAgent;
         protected Transform player;
         // Bool that determines whether the enemy will spawn a soul when they die
-        private bool doSpawnSoul = false;
+        private GameObject soulPrefab;
         // Bool that determines whether the enemy will spawn money when they die and how many instances
-        private GameObject[] moneyInstances = null;
+        private GameObject[] moneyObjects = new GameObject[4];
+        [SerializeField] private int nickelChance = 30;
+        [SerializeField] private int dimeChance = 50;
+        [SerializeField] private int quarterChance = 100;
         
         protected virtual void Awake()
         {
@@ -76,19 +79,21 @@ namespace Enemies
         public void CreateSoul()
         {
             // If the enemy shouldn't spawn a soul, return
-            if (!doSpawnSoul) return;
-            // If the soulPrefab is unassigned, do nothing
             if (!soulPrefab) return;
             // Create soul otherwise
-            Instantiate(soulPrefab, transform.position, transform.rotation);
+            RevealReward(soulPrefab, transform.position);
         }
 
         public void CreateMoney()
         {
             // If the enemy shouldn't spawn money, return
-            if (moneyInstances == null) return;
-            // If the soulPrefab is unassigned, do nothing
-            if (!soulPrefab) return;
+            if (moneyObjects == null) return;
+            // Create each money object otherwise
+            foreach (var moneyObject in moneyObjects)
+            {
+                if (!moneyObject) break;
+                RevealReward(moneyObject, (Vector2)transform.position + new Vector2(Random.Range(0, .3f), Random.Range(0, .3f)));
+            }
         }
 
         public void ChasePlayer()
@@ -110,21 +115,56 @@ namespace Enemies
         private void CalculateChance2SpawnSoul()
         {
             // Get a chance from 0 to baseMaxSoulSpawnChance
-            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.Value / 1.1f);
+            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.Value / 1.5f);
             // If the chance is greater than the player's luck, do nothing
             if (chance > PlayerInfo.Instance.Luck.Value) return;
-            // Otherwise, make doSpawnSoul true
-            doSpawnSoul = true;
+            // Otherwise, create a soul to spawn
+            soulPrefab = GameEventManager.Instance.rewardEvents.RewardSoul();
         }
         
         private void CalculateChance2SpawnMoney()
         {
             // Get a chance from 0 to baseMaxMoneySpawnChance
-            var chance = Random.Range(0, enemyInfo.baseMaxMoneySpawnChance + PlayerInfo.Instance.Luck.Value / 1.1f);
+            var chance = Random.Range(0, enemyInfo.baseMaxMoneySpawnChance + PlayerInfo.Instance.Luck.Value / 1.8f);
             // If the chance is greater than the player's luck, do nothing
             if (chance > PlayerInfo.Instance.Luck.Value) return;
             // Otherwise, get a random number from 1-4 (the amount of money instances to spawn) and decide which type of money the player will be rewarded
-            // TODO: Make a reward handout manager
+            var amount = Random.Range(1, 5);
+            for (var i = 0; i < amount; i++)
+            {
+                // Chance for quarter
+                chance = Random.Range(0, quarterChance + PlayerInfo.Instance.Luck.Value / 1.1f);
+                if (chance <= PlayerInfo.Instance.Luck.Value)
+                {
+                    moneyObjects[i] = GameEventManager.Instance.rewardEvents.RewardMoney(MoneyValue.Quarter);
+                    continue;
+                }
+                
+                // Chance for dime
+                chance = Random.Range(0, dimeChance + PlayerInfo.Instance.Luck.Value / 1.1f);
+                if (chance <= PlayerInfo.Instance.Luck.Value)
+                {
+                    moneyObjects[i] = GameEventManager.Instance.rewardEvents.RewardMoney(MoneyValue.Dime);
+                    continue;
+                }
+                
+                // Chance for nickel
+                chance = Random.Range(0, nickelChance + PlayerInfo.Instance.Luck.Value / 1.1f);
+                if (chance <= PlayerInfo.Instance.Luck.Value)
+                {
+                    moneyObjects[i] = GameEventManager.Instance.rewardEvents.RewardMoney(MoneyValue.Nickel);
+                    continue;
+                }
+                
+                // If all else fails, reward a penny
+                moneyObjects[i] = GameEventManager.Instance.rewardEvents.RewardMoney(MoneyValue.Penny);
+            }
+        }
+
+        private void RevealReward(GameObject reward, Vector2 position)
+        {
+            reward.transform.position = position;
+            reward.SetActive(true);
         }
     }
 }
