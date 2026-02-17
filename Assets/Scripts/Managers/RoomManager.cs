@@ -1,8 +1,6 @@
 using System;
 using Events;
-using JetBrains.Annotations;
 using PlayerScripts;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -21,6 +19,12 @@ namespace Managers
         [Header("Regular Rooms")]
         [SerializeField] private string regularRoomName = "RegularRoom";
         [SerializeField] private int regularRoomAmount = 2;
+        // Item rooms
+        [Header("Item Rooms")]
+        [SerializeField] private string itemRoomName = "ItemRoom";
+        [SerializeField] private int itemRoomAmount = 1;
+        [SerializeField] private int itemRoomFrequency = 5; // Every nth room will be an item room
+        private int roomsUntilItemRoom;
         public Scene scene;
         
         private void Awake()
@@ -32,17 +36,21 @@ namespace Managers
             SceneManager.sceneLoaded += (_, _) =>
             {
                 GetAllEnemiesInRoom();
-                spawnPosition = GameObject.FindGameObjectWithTag("Spawner").transform;
+                var spawnPos = GameObject.FindGameObjectWithTag("Spawner").transform;
+                if (spawnPos) spawnPosition = spawnPos;
             };
             GameEventManager.Instance.roomEvents.OnEnemyDeath += DecreaseOnEnemyCount;
             GameEventManager.Instance.roomEvents.OnRoomCleared += SpawnReward;
             GameEventManager.Instance.roomEvents.OnChangeRoom += ChangeRoom;
+            
+            // Set variables
+            roomsUntilItemRoom = itemRoomFrequency;
         }
 
         private void Start()
         {
             // Clear start room to give a potential reward in the start room and allow the player to continue
-            GameEventManager.Instance.roomEvents.RoomCleared();
+            GameEventManager.Instance.roomEvents.RoomCleared(true);
         }
 
         private void DecreaseOnEnemyCount()
@@ -51,17 +59,22 @@ namespace Managers
             enemiesInTheRoom--;
             
             // If there are no more enemies in the room, mark the room as cleared
-            if (enemiesInTheRoom <= 0) GameEventManager.Instance.roomEvents.RoomCleared();
+            if (enemiesInTheRoom <= 0) GameEventManager.Instance.roomEvents.RoomCleared(true);
         }
 
         private void GetAllEnemiesInRoom()
         {
             // Get the amount of enemies in the room
             enemiesInTheRoom = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            
+            if (enemiesInTheRoom == 0) GameEventManager.Instance.roomEvents.RoomCleared(false);
         }
 
-        private void SpawnReward()
+        private void SpawnReward(bool createReward) // TODO: Move this function to a reward handout manager
         {
+            // If the room doesn't give a reward, return
+            if (!createReward) return;
+            
             // Check for item
             var chance = Random.Range(BaseItemChance, GetModifiedChance(BaseItemChance));
             if (chance <= PlayerInfo.Instance.Luck.Value)
@@ -98,8 +111,19 @@ namespace Managers
 
         private void ChangeRoom()
         {
-            var roomSuffix = Random.Range(0, regularRoomAmount);
-            SceneManager.LoadSceneAsync($"{regularRoomName}{roomSuffix}");
+            // Change the scene to an ItemRoom
+            if (roomsUntilItemRoom <= 0)
+            {
+                roomsUntilItemRoom = itemRoomFrequency;
+                var itemRoomSuffix = Random.Range(0, itemRoomAmount);
+                SceneManager.LoadScene($"{itemRoomName}{itemRoomSuffix}");
+                return;
+            }
+            
+            // Change the scene to a RegularRoom
+            var regRoomSuffix = Random.Range(0, regularRoomAmount);
+            SceneManager.LoadSceneAsync($"{regularRoomName}{regRoomSuffix}");
+            roomsUntilItemRoom--;
         }
     }
 }

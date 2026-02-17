@@ -1,7 +1,6 @@
 using System;
 using Events;
 using Managers;
-using NUnit.Framework.Constraints;
 using UnityEngine;
 
 namespace Item
@@ -33,9 +32,14 @@ namespace Item
                         item.AddComponent<HealthBuyable>();
                         break;
                     case ItemPool.RegularPool:
+                    default:
                         break;
                 }
             }
+            
+            // Show the item
+            item.transform.position = transform.position;
+            item.SetActive(true);
 
             // // Instantiate from ItemManager
             // if (!GameObject.FindGameObjectWithTag("ItemManager").TryGetComponent(out ItemManager itemManager)) Destroy(gameObject);

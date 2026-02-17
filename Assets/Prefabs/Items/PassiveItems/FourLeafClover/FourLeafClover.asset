@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 14
   itemName: Four Leaf Clover
-  itemDescription: You're one of a kind ;)
+  itemDescription: You're one of a kind ;)\n-Luck Multiuplier x1.2
   itemQuality: 5
   isPersistantPassive: 0
   healAcquiredHealth: 0
   price: 5076
-  demonPrice: 0
+  demonPrice: 50
   maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0

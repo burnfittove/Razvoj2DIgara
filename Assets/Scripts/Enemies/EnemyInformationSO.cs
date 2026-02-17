@@ -19,5 +19,7 @@ namespace Enemies
         public float shotSpeed;
         public bool chasePlayer;
         public int baseMaxSoulSpawnChance = 100;
+        public int baseMaxMoneySpawnChance = 25;
+        
     }
 }

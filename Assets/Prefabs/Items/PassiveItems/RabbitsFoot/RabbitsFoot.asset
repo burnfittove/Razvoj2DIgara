@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 13
   itemName: Rabbit's Foot
-  itemDescription: Killed by magic
+  itemDescription: Killed by magic\n- Luck +2
   itemQuality: 1
   isPersistantPassive: 0
   healAcquiredHealth: 0
   price: 1800
-  demonPrice: 0
+  demonPrice: 10
   maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0

@@ -2,6 +2,7 @@ using System;
 using Currencies.Souls;
 using Events;
 using PlayerScripts;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using Attribute = PlayerScripts.Attribute;
@@ -26,6 +27,10 @@ namespace Enemies
         [HideInInspector] public SpriteRenderer sr;
         [HideInInspector] public NavMeshAgent navMeshAgent;
         protected Transform player;
+        // Bool that determines whether the enemy will spawn a soul when they die
+        private bool doSpawnSoul = false;
+        // Bool that determines whether the enemy will spawn money when they die and how many instances
+        private GameObject[] moneyInstances = null;
         
         protected virtual void Awake()
         {
@@ -55,6 +60,8 @@ namespace Enemies
         protected virtual void Start()
         {
             InitializeNavMeshValues();
+            CalculateChance2SpawnSoul();
+            CalculateChance2SpawnMoney();
         }
 
         protected virtual void InitializeNavMeshValues()
@@ -68,18 +75,20 @@ namespace Enemies
 
         public void CreateSoul()
         {
-            // Get a chance from 0 to 100
-            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.Value / 1.1f);
-            // If the chance is greater than the player's luck, do nothing
-            if (chance > PlayerInfo.Instance.Luck.Value) return;
+            // If the enemy shouldn't spawn a soul, return
+            if (!doSpawnSoul) return;
             // If the soulPrefab is unassigned, do nothing
-            if (!soulPrefab)
-            {
-                Debug.LogWarning($"{this} has unassigned soulPrefab");
-                return;
-            }
+            if (!soulPrefab) return;
             // Create soul otherwise
             Instantiate(soulPrefab, transform.position, transform.rotation);
+        }
+
+        public void CreateMoney()
+        {
+            // If the enemy shouldn't spawn money, return
+            if (moneyInstances == null) return;
+            // If the soulPrefab is unassigned, do nothing
+            if (!soulPrefab) return;
         }
 
         public void ChasePlayer()
@@ -96,6 +105,26 @@ namespace Enemies
         {
             // Damage the player
             if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out var damageable)) damageable.TakeDamage(ContactDamage.Value);
+        }
+
+        private void CalculateChance2SpawnSoul()
+        {
+            // Get a chance from 0 to baseMaxSoulSpawnChance
+            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.Value / 1.1f);
+            // If the chance is greater than the player's luck, do nothing
+            if (chance > PlayerInfo.Instance.Luck.Value) return;
+            // Otherwise, make doSpawnSoul true
+            doSpawnSoul = true;
+        }
+        
+        private void CalculateChance2SpawnMoney()
+        {
+            // Get a chance from 0 to baseMaxMoneySpawnChance
+            var chance = Random.Range(0, enemyInfo.baseMaxMoneySpawnChance + PlayerInfo.Instance.Luck.Value / 1.1f);
+            // If the chance is greater than the player's luck, do nothing
+            if (chance > PlayerInfo.Instance.Luck.Value) return;
+            // Otherwise, get a random number from 1-4 (the amount of money instances to spawn) and decide which type of money the player will be rewarded
+            // TODO: Make a reward handout manager
         }
     }
 }
