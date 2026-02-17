@@ -23,5 +23,5 @@ MonoBehaviour:
   range: 0
   shotSpeed: 0
   chasePlayer: 1
-  baseMaxSoulSpawnChance: 10
-  baseMaxMoneySpawnChance: 10
+  baseMaxSoulSpawnChance: 8
+  baseMaxMoneySpawnChance: 5
