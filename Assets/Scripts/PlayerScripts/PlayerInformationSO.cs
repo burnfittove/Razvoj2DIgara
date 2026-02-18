@@ -24,6 +24,7 @@ namespace PlayerScripts
         public float luckMultiplier = 1;
         public float knockbackStrength = 1;
         public float contactDamage = 0;
+        public float invincibilityDuration = 1.2f;
         [Header("Constraints")] 
         public float maxSpeed = 50;
         public float maxHealth = 100;

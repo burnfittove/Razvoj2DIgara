@@ -10,7 +10,7 @@ namespace Prefabs.Items.PassiveItems.GreedsGold
         {
             GameEventManager.Instance.pickupEvents.OnCurrencyPickUp += val =>
             {
-                player.Money.UpdateValue(val);
+                GameEventManager.Instance.attributeUpdateEvents.MoneyChange(val);
             };
             base.OnItemPickedUp();
         }

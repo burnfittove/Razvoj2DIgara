@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 8
   itemName: Meiosis
-  itemDescription: Quadruple up!!\n-Health *2\n-All stats -0.5
+  itemDescription: Quadruple up!!\n-Health x2\n-All stats -0.5
   itemQuality: 5
   isPersistantPassive: 0
   healAcquiredHealth: 1

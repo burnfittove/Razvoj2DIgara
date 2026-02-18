@@ -6,11 +6,10 @@ namespace Item
 {
     public class MoneyBuyable : BuyableItem
     {
-        protected override void Initialize()
+        protected override void Awake()
         {
-            GameObject.FindGameObjectWithTag("Player").TryGetComponent(out Player player);
-            playerAttribute = player.Money;
-            TryGetComponent(out item);
+            Initialize(PlayerInfo.Instance.Money);
+            base.Awake();
         }
 
         protected override void SetColliderState()

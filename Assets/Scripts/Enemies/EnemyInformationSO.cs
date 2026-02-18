@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemies
 {
     
     [CreateAssetMenu(menuName = "ScriptableObjects/EnemyInformation", fileName = "EnemyInformationSO", order = 0)]
-    public class EnemyInformationSO : ScriptableObject
+    public class EnemyInformationSo : ScriptableObject
     {
         public string enemyName;
         public byte enemyId;
@@ -17,5 +18,8 @@ namespace Enemies
         public float range;
         public float shotSpeed;
         public bool chasePlayer;
+        public int baseMaxSoulSpawnChance = 100;
+        public int baseMaxMoneySpawnChance = 25;
+        
     }
 }

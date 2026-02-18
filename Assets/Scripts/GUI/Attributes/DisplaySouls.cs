@@ -1,4 +1,5 @@
 using Events;
+using PlayerScripts;
 
 namespace GUI.Attributes
 {
@@ -12,7 +13,7 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = player.Souls.Value;
+            displayPrimaryValue = PlayerInfo.Instance.Souls.Value;
         }
 
         protected override void DisplayValues()

@@ -12,12 +12,12 @@ namespace PlayerScripts.States
             // Move the rigidbody
             Move(p.MovementDirection);
 
-            if (p.MovementDirection.magnitude <= .2f) sc.ChangeState(sc.IdleState);
+            if (p.MovementDirection.magnitude <= .2f) sc.ChangeState(sc.idleState);
         }
 
         private void Move(Vector2 direction)
         {
-            p.rb.MovePosition((Vector2)p.transform.position + direction * (p.Speed.Value * Time.fixedDeltaTime));
+            p.rb.MovePosition((Vector2)p.transform.position + direction * (PlayerInfo.Instance.Speed.Value * Time.fixedDeltaTime));
         }
     }
 }

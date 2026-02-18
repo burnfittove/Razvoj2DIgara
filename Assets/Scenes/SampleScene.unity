@@ -1349,6 +1349,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 57aefa13-4572-4024-a5f7-a78f6fe3b63f
     m_ActionName: 'Gameplay/Look[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: de35592a-1206-48b3-9986-405a0b36564b
+    m_ActionName: 'Gameplay/UseActiveItem[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -3982,8 +3986,10 @@ MonoBehaviour:
   shopItemPool:
   - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
   - {fileID: 2241675788358728339, guid: f6b3856fa183f579e8b062b6996ab235, type: 3}
+  vampireItemPool: []
   itemSpawnLocation: {fileID: 1730772010}
   fallbackItem: {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
+  penny: {fileID: 0}
 --- !u!1 &1921364619
 GameObject:
   m_ObjectHideFlags: 0
@@ -27367,10 +27373,6 @@ PrefabInstance:
     - target: {fileID: 3910693078310252538, guid: b8ce595f5243b664588ec9f89a44e679, type: 3}
       propertyPath: m_Name
       value: Roamer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3910693078310252538, guid: b8ce595f5243b664588ec9f89a44e679, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5083384929681522232, guid: b8ce595f5243b664588ec9f89a44e679, type: 3}
       propertyPath: m_LocalPosition.x

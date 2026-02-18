@@ -6,8 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3c357f73d76e5ddf9b91cecf97268ed0
+  - enabled: 1
+    path: Assets/Scenes/Rooms/StartRoom.unity
+    guid: 083f90a3b914f3d639d2d6cafa166a8d
+  - enabled: 1
+    path: Assets/Scenes/Rooms/RegularRooms/Room0/RegularRoom0.unity
+    guid: 548aea4fa998afc49b09e16ff386d7e0
+  - enabled: 1
+    path: Assets/Scenes/Rooms/RegularRooms/Room1/RegularRoom1.unity
+    guid: abd5194fdf48f1315b188e69cd55af21
+  - enabled: 1
+    path: Assets/Scenes/Rooms/RegularRooms/Room2/RegularRoom2.unity
+    guid: a6bc9c4f11d65efc1bce9396ac787112
+  - enabled: 1
+    path: Assets/Scenes/Rooms/RegularRooms/Room3/RegularRoom3.unity
+    guid: f2b45b64a3eb14c7581b8f2d9792a692
+  - enabled: 1
+    path: Assets/Scenes/Rooms/ItemRooms/Room0/ItemRoom0.unity
+    guid: 212cba8d5066aa6df91d3467a860bf65
+  - enabled: 1
+    path: Assets/Scenes/Rooms/ItemRooms/Room1/ItemRoom1.unity
+    guid: a927794d751f942d3909d703e5eeb429
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Shops/Room0/Shop0.unity
+    guid: f1f400b9d23a6b05aa6a27a441c0012a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

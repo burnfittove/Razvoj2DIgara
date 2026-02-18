@@ -228,7 +228,6 @@ GameObject:
   - component: {fileID: 1668467607026777844}
   - component: {fileID: 794704252521105232}
   - component: {fileID: 737676663174281897}
-  - component: {fileID: 8860205267149071478}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -277,7 +276,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -343,18 +342,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed939fdcdd4ce4e18adf215a453cd6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateController
---- !u!114 &8860205267149071478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792493142562731970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e14d80b84ee744e91ba86816c2af2df9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BulletPooling
-  pooledObjects: []
-  objectToPool: {fileID: 6235908010304694298, guid: 57a122dc51c982bbdaa301e77317956d, type: 3}
-  amountToPool: 50

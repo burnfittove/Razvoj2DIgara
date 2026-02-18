@@ -9,7 +9,7 @@ namespace PlayerScripts.States
         {
             base.OnUpdate();
             // Transition to Movement State
-            if (p.MovementDirection != Vector2.zero) sc.ChangeState(sc.MovementState);
+            if (p.MovementDirection != Vector2.zero) sc.ChangeState(sc.movementState);
         }
     }
 }
