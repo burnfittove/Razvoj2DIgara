@@ -17,6 +17,7 @@ namespace Managers
         [SerializeField] private List<GameObject> regularItemPool = new();
         [SerializeField] private List<GameObject> shopItemPool = new();
         [SerializeField] private List<GameObject> vampireItemPool = new();
+        [SerializeField] private List<GameObject> rewardItemPool = new();
         [SerializeField] private GameObject fallbackItem;
         [SerializeField] private GameObject penny;
 
@@ -25,9 +26,9 @@ namespace Managers
             allItems.Add(ItemPool.RegularPool, regularItemPool);
             allItems.Add(ItemPool.ShopPool, shopItemPool);
             allItems.Add(ItemPool.VampirePool, vampireItemPool);
+            allItems.Add(ItemPool.RewardPool, rewardItemPool);
 
             GameEventManager.Instance.itemEvents.OnGetItemById += GetItemById;
-            GameEventManager.Instance.itemEvents.OnGetPenny += GetPenny;
             GameEventManager.Instance.itemEvents.OnGetItemFromPool += GetItemFromPool;
         }
 
@@ -74,15 +75,6 @@ namespace Managers
             // GetItemCopy
             return GetItemCopy(item);
         }
-        
-        // Returns a penny
-        private GameObject GetPenny()
-        {
-            // Return a copy of the prefab
-            var obj = Instantiate(penny);
-            obj.SetActive(false);
-            return obj;
-        }
 
         // Removes all instances of an item from all pools
         private void RemoveItemFromPools(GameObject item2Remove)
@@ -111,13 +103,5 @@ namespace Managers
             // Return the copy of the item
             return obj;
         }
-        
-        // private void Update()
-        // {
-        //     if (Keyboard.current.enterKey.wasPressedThisFrame) GameEventManager.Instance.itemEvents.CreateItemFromPool(ItemPool.RegularPool);
-        //     
-        //     Debug.Log($"REGULAR ITEM POOL COUNT: {regularItemPool.Count}");
-        //     Debug.Log($"SHOP ITEM POOL COUNT: {shopItemPool.Count}");
-        // }
     }
 }

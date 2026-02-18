@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3399982528629795327}
   - component: {fileID: 8178483895198099490}
   m_Layer: 0
-  m_Name: Penny
+  m_Name: Dime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314aa49cb9214be3aab61321426fa9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Currencies.Money.Coin
-  value: 10
+  value: 100
   triggerCol: {fileID: 8178483895198099490}
 --- !u!58 &8178483895198099490
 CircleCollider2D:

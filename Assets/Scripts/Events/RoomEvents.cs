@@ -12,11 +12,11 @@ namespace Events
             OnEnemyDeath?.Invoke();
         }
 
-        public event Action<bool> OnRoomCleared;
+        public event Action OnRoomCleared;
 
-        public void RoomCleared(bool createReward)
+        public void RoomCleared()
         {
-            OnRoomCleared?.Invoke(createReward);
+            OnRoomCleared?.Invoke();
         }
 
         public event Action OnChangeRoom;
