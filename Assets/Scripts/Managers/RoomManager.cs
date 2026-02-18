@@ -40,12 +40,12 @@ namespace Managers
             // Subscribe to events
             SceneManager.sceneLoaded += (_, _) =>
             {
-                // Get all the enemies in the room
-                GetAllEnemiesInRoom();
-                
                 // Set the item spawning position
                 var spawnPos = GameObject.FindGameObjectWithTag("Spawner").transform;
                 if (spawnPos) spawnPosition = spawnPos;
+                
+                // Get all the enemies in the room
+                GetAllEnemiesInRoom();
             };
             GameEventManager.Instance.roomEvents.OnEnemyDeath += DecreaseOnEnemyCount;
             GameEventManager.Instance.roomEvents.OnRoomCleared += ShowReward;
@@ -93,7 +93,7 @@ namespace Managers
             if (chance <= PlayerInfo.Instance.Luck.Value)
             {
                 // Get a copy of the item
-                reward = GameEventManager.Instance.rewardEvents.RewardItem(ItemPool.RewardPool);
+                reward = RewardManager.Instance.GetRewardItem(ItemPool.RewardPool);
                 return;
             }
             
@@ -116,7 +116,7 @@ namespace Managers
             var chance = Random.Range(baseChance, GetModifiedChance(baseChance));
             if (chance > PlayerInfo.Instance.Luck.Value) return;
             // Get a copy of the item
-            reward = GameEventManager.Instance.rewardEvents.RewardMoney(moneyType);
+            reward = RewardManager.Instance.GetRewardMoney(moneyType);
         }
 
         private float GetModifiedChance(float baseChance)

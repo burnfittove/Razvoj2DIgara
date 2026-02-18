@@ -2,6 +2,7 @@ using System;
 using Currencies.Money;
 using Currencies.Souls;
 using Events;
+using Managers;
 using PlayerScripts;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -119,7 +120,7 @@ namespace Enemies
             // If the chance is greater than the player's luck, do nothing
             if (chance > PlayerInfo.Instance.Luck.Value) return;
             // Otherwise, create a soul to spawn
-            soulPrefab = GameEventManager.Instance.rewardEvents.RewardSoul();
+            soulPrefab = RewardManager.Instance.GetRewardSoul();
         }
         
         private void CalculateChance2SpawnMoney()
@@ -136,7 +137,7 @@ namespace Enemies
                 chance = Random.Range(0, quarterChance + PlayerInfo.Instance.Luck.Value / 1.1f);
                 if (chance <= PlayerInfo.Instance.Luck.Value)
                 {
-                    moneyObjects[i] = GameEventManager.Instance.rewardEvents.RewardMoney(MoneyValue.Quarter);
+                    moneyObjects[i] = RewardManager.Instance.GetRewardMoney(MoneyValue.Quarter);
                     continue;
                 }
                 
@@ -144,7 +145,7 @@ namespace Enemies
                 chance = Random.Range(0, dimeChance + PlayerInfo.Instance.Luck.Value / 1.1f);
                 if (chance <= PlayerInfo.Instance.Luck.Value)
                 {
-                    moneyObjects[i] = GameEventManager.Instance.rewardEvents.RewardMoney(MoneyValue.Dime);
+                    moneyObjects[i] = RewardManager.Instance.GetRewardMoney(MoneyValue.Dime);
                     continue;
                 }
                 
@@ -152,12 +153,12 @@ namespace Enemies
                 chance = Random.Range(0, nickelChance + PlayerInfo.Instance.Luck.Value / 1.1f);
                 if (chance <= PlayerInfo.Instance.Luck.Value)
                 {
-                    moneyObjects[i] = GameEventManager.Instance.rewardEvents.RewardMoney(MoneyValue.Nickel);
+                    moneyObjects[i] = RewardManager.Instance.GetRewardMoney(MoneyValue.Nickel);
                     continue;
                 }
                 
                 // If all else fails, reward a penny
-                moneyObjects[i] = GameEventManager.Instance.rewardEvents.RewardMoney(MoneyValue.Penny);
+                moneyObjects[i] = RewardManager.Instance.GetRewardMoney(MoneyValue.Penny);
             }
         }
 

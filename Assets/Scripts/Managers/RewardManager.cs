@@ -1,4 +1,3 @@
-using System;
 using Currencies.Money;
 using Events;
 using UnityEngine;
@@ -7,51 +6,53 @@ namespace Managers
 {
     public class RewardManager : MonoBehaviour
     {
+        // Singleton
+        public static RewardManager Instance { get; private set; }
+        
         [Header("Soul")]
-        [SerializeField] private GameObject soul;
+        [SerializeField] private GameObject soulPrefab;
         
         [Header("Money")]
         // ##### PENNY #####
-        [SerializeField] private GameObject penny;
+        [SerializeField] private GameObject pennyPrefab;
         // ##### NICKEL #####
-        [SerializeField] private GameObject nickel;
+        [SerializeField] private GameObject nickelPrefab;
         // ##### DIME #####
-        [SerializeField] private GameObject dime;
+        [SerializeField] private GameObject dimePrefab;
         // ##### QUARTER #####
-        [SerializeField] private GameObject quarter;
+        [SerializeField] private GameObject quarterPrefab;
         
         private void Awake()
         {
-            // Subscribe to RewardEvents events
-            GameEventManager.Instance.rewardEvents.OnRewardItem += GetRewardItem;
-            GameEventManager.Instance.rewardEvents.OnRewardMoney += GetRewardMoney;
-            GameEventManager.Instance.rewardEvents.OnRewardSoul += GetRewardSoul;
+            // Singleton
+            if (Instance != null && Instance != this) Debug.LogError("Multiple instances of RewardManager detected!");
+            Instance = this;
         }
 
-        private GameObject GetRewardItem(ItemPool itemPool)
+        public GameObject GetRewardItem(ItemPool itemPool)
         {
             return GameEventManager.Instance.itemEvents.GetItemFromPool(itemPool);
         }
 
-        private GameObject GetRewardMoney(MoneyValue moneyValue)
+        public GameObject GetRewardMoney(MoneyValue moneyValue)
         {
             switch (moneyValue)
             {
                 case MoneyValue.Quarter:
-                    return GetItemCopy(quarter);
+                    return GetItemCopy(quarterPrefab);
                 case MoneyValue.Dime:
-                    return GetItemCopy(dime);
+                    return GetItemCopy(dimePrefab);
                 case MoneyValue.Nickel:
-                    return GetItemCopy(nickel);
+                    return GetItemCopy(nickelPrefab);
                 case MoneyValue.Penny:
                     default:
-                        return GetItemCopy(penny);
+                        return GetItemCopy(pennyPrefab);
             }
         }
 
-        private GameObject GetRewardSoul()
+        public GameObject GetRewardSoul()
         {
-            return GetItemCopy(soul);
+            return GetItemCopy(soulPrefab);
         }
         
         // Return the instantiated object and remove it from all item pools 

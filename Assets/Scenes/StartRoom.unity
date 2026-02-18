@@ -981,11 +981,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c216775a2385920a4b49e053e47fa813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Managers.RewardManager
-  soul: {fileID: 929468707551178397, guid: 0663d5f6919fc3d0ca22eeda4414a440, type: 3}
-  penny: {fileID: 929468707551178397, guid: ff73e77bc03e440ce8151c2104a12cfd, type: 3}
-  nickel: {fileID: 929468707551178397, guid: e56beefe785d05c2c99e8f61165ca37c, type: 3}
-  dime: {fileID: 929468707551178397, guid: 66b22f11c47f676f9ae8aefed6329a10, type: 3}
-  quarter: {fileID: 929468707551178397, guid: b8db9d4c468c1820dbdfbb0dc1e5491e, type: 3}
+  soulPrefab: {fileID: 929468707551178397, guid: 0663d5f6919fc3d0ca22eeda4414a440, type: 3}
+  pennyPrefab: {fileID: 929468707551178397, guid: ff73e77bc03e440ce8151c2104a12cfd, type: 3}
+  nickelPrefab: {fileID: 929468707551178397, guid: e56beefe785d05c2c99e8f61165ca37c, type: 3}
+  dimePrefab: {fileID: 929468707551178397, guid: 66b22f11c47f676f9ae8aefed6329a10, type: 3}
+  quarterPrefab: {fileID: 929468707551178397, guid: b8db9d4c468c1820dbdfbb0dc1e5491e, type: 3}
 --- !u!1 &415934964
 GameObject:
   m_ObjectHideFlags: 0
