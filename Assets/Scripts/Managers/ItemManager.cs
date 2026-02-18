@@ -30,6 +30,9 @@ namespace Managers
 
             GameEventManager.Instance.itemEvents.OnGetItemById += GetItemById;
             GameEventManager.Instance.itemEvents.OnGetItemFromPool += GetItemFromPool;
+            // Remove an item from all item pools only if the player picked it up
+            GameEventManager.Instance.itemEvents.OnPassiveItemAcquired += RemoveItemFromPools;
+            GameEventManager.Instance.itemEvents.OnActiveItemAcquired += RemoveItemFromPools;
         }
 
         // Returns an item by its ID
@@ -93,10 +96,8 @@ namespace Managers
         }
 
         // Return the instantiated object and remove it from all item pools 
-        private GameObject GetItemCopy(GameObject item)
+        private static GameObject GetItemCopy(GameObject item)
         {
-            // Remove the item from all item pools
-            RemoveItemFromPools(item);
             // Create the copy of the provided item
             var obj = Instantiate(item);
             obj.SetActive(false);

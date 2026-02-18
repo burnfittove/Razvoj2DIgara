@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 14
   itemName: Four Leaf Clover
-  itemDescription: You're one of a kind ;)\n-Luck Multiuplier x1.2
+  itemDescription: You're one of a kind ;)\n-Luck Multiuplier x1.5
   itemQuality: 5
   isPersistantPassive: 0
   healAcquiredHealth: 0
@@ -34,4 +34,4 @@ MonoBehaviour:
   damageMultiplierDelta: 0
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
-  luckMultiplierDelta: 1.2
+  luckMultiplierDelta: 1.5

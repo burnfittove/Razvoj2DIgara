@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemId: 1
   itemName: Feather Boots
-  itemDescription: -Speed +1 when shooting
+  itemDescription: -Speed +0.5 when shooting
   itemQuality: 1
   isPersistantPassive: 1
   healAcquiredHealth: 0

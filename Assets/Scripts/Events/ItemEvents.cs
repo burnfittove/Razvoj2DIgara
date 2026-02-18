@@ -37,7 +37,6 @@ namespace Events
         }
 
         public event Func<int, GameObject> OnGetItemById;
-
         public GameObject GetItemById(int itemId)
         {
             return OnGetItemById?.Invoke(itemId);

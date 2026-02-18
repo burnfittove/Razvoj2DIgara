@@ -29,6 +29,12 @@ namespace Managers
         [SerializeField] private int itemRoomAmount = 1;
         [SerializeField] private int itemRoomFrequency = 5; // Every nth room will be an item room
         private int roomsUntilItemRoom;
+        // Shop
+        [Header("Shops")]
+        [SerializeField] private string shopName = "Shop";
+        [SerializeField] private int shopAmount = 1;
+        [SerializeField] private int shopFrequency = 15; // Every nth room will be an item room
+        private int roomsUntilShop;
         // Rewards
         private GameObject reward;
         
@@ -53,6 +59,7 @@ namespace Managers
             
             // Set variables
             roomsUntilItemRoom = itemRoomFrequency;
+            roomsUntilShop = shopFrequency;
         }
 
         private void Start()
@@ -103,9 +110,9 @@ namespace Managers
             // Dime
             SetMoneyReward(MoneyValue.Dime, BaseDimeChance);
             // Nickel
-            SetMoneyReward(MoneyValue.Nickel, BaseDimeChance);
+            SetMoneyReward(MoneyValue.Nickel, BaseNickelChance);
             // Penny
-            SetMoneyReward(MoneyValue.Penny, BaseDimeChance);
+            SetMoneyReward(MoneyValue.Penny, BasePennyChance);
             
         }
 
@@ -126,6 +133,16 @@ namespace Managers
 
         private void ChangeRoom()
         {
+            // Chance the scene to a shop
+            if (roomsUntilShop <= 0)
+            {
+                roomsUntilShop = shopFrequency;
+                roomsUntilItemRoom = itemRoomFrequency; // Since shops override item rooms, it needs to reset this value
+                var itemRoomSuffix = Random.Range(0, shopAmount);
+                SceneManager.LoadSceneAsync($"{shopName}{itemRoomSuffix}");
+                return;
+            }
+            
             // Change the scene to an ItemRoom
             if (roomsUntilItemRoom <= 0)
             {
@@ -139,6 +156,7 @@ namespace Managers
             var regRoomSuffix = Random.Range(0, regularRoomAmount);
             SceneManager.LoadSceneAsync($"{regularRoomName}{regRoomSuffix}");
             roomsUntilItemRoom--;
+            roomsUntilShop--;
         }
 
         private void ShowReward()
