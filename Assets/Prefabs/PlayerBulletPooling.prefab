@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8947015835353653190}
-  - component: {fileID: 4358024880742191693}
+  - component: {fileID: 6596685911566770177}
   m_Layer: 0
-  m_Name: BulletPooling
+  m_Name: PlayerBulletPooling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4358024880742191693
+--- !u!114 &6596685911566770177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3095521767056747250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e14d80b84ee744e91ba86816c2af2df9, type: 3}
+  m_Script: {fileID: 11500000, guid: fbaa77e457cd4e4e8d8db7b579615bbb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerScripts.Shooting.BulletPooling
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScripts.Shooting.PlayerBulletPooling
   pooledObjects: []
-  objectToPool: {fileID: 6235908010304694298, guid: 0f75110cad50e7046a620fade3614e4d, type: 3}
+  objectToPool: {fileID: 6235908010304694298, guid: 57a122dc51c982bbdaa301e77317956d, type: 3}
   amountToPool: 10

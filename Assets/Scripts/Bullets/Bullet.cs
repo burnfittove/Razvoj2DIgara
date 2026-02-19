@@ -31,6 +31,7 @@ namespace Bullets
         // When the bullet is enables, pass it some values
         public virtual void Initialize(Vector2 dir, float speed, float damage, float lifetime)
         {
+            dir.Normalize();
             moveDirection = dir;
             moveSpeed = speed;
             this.damage = damage;

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7376459245241949256}
   - component: {fileID: 7962523510098927588}
   - component: {fileID: 7096530773715536312}
-  - component: {fileID: 3070415149208977223}
-  - component: {fileID: 8378478925113068111}
   - component: {fileID: -6710647834760527876}
+  - component: {fileID: -5481387497172562169}
+  - component: {fileID: 6589570534164805191}
   m_Layer: 0
-  m_Name: Roamer
+  m_Name: RedWizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: -2.94, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.6, y: 0.45, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5083384929681522232}
@@ -101,37 +101,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &3070415149208977223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3910693078310252538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c6a17c7607a440bb3a34a70f1381dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Roamer
-  enemyInfo: {fileID: 11400000, guid: 764288160a4074ffaa8a8a32a3ffe16f, type: 2}
-  cc: {fileID: 0}
-  sr: {fileID: 0}
-  navMeshAgent: {fileID: 0}
-  nickelChance: 20
-  dimeChance: 50
-  quarterChance: 100
---- !u!114 &8378478925113068111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3910693078310252538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cac5a3c12314e8fe195e682121e6adbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Enemies.States.RoamerEnemyStateController
 --- !u!195 &-6710647834760527876
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -154,6 +123,39 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5481387497172562169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910693078310252538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b6dd7236f400463b5f27e827310677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Enemies.Far_range.ShadowWizardMoneyGang.Red.RedWizard
+  enemyInfo: {fileID: 11400000, guid: 930348dc253dde96f8e5e73c7d573bf4, type: 2}
+  fireDelayBuffer: 0
+  cc: {fileID: 0}
+  sr: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  player: {fileID: 0}
+  nickelChance: 35
+  dimeChance: 55
+  quarterChance: 120
+--- !u!114 &6589570534164805191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910693078310252538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbebd515dff784b0bb1863e81e7a7fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Enemies.Far_range.ShadowWizardMoneyGang.Red.States.RedWizardEnemyStateController
 --- !u!1 &4961607516202796565
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +236,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.9137255, g: 0.24156874, b: 0, a: 1}
+  m_Color: {r: 0.9137255, g: 0, b: 0.18977709, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

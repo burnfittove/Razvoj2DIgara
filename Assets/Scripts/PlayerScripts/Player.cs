@@ -71,12 +71,6 @@ namespace PlayerScripts
             PlayerInfo.Instance.InvincibilityDuration.UpdateValue(-Time.deltaTime);
         }
 
-        private void Update()
-        {
-            // Decrease the invincibility timer
-            // DecreaseInvincibilityDuration();
-        }
-
         // IDamageable
         public void TakeDamage(float damage)
         {

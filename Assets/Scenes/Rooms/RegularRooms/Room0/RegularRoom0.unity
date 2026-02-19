@@ -4486,7 +4486,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49f0d7483dd7e1163b372d9457a0848d, type: 3}
---- !u!1001 &1922674216
+--- !u!1001 &1898430264
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4496,15 +4496,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3095521767056747250, guid: 7f6941052bbafca7a9a06cc805af35a0, type: 3}
       propertyPath: m_Name
-      value: BulletPooling
+      value: PlayerBulletPooling
       objectReference: {fileID: 0}
     - target: {fileID: 8947015835353653190, guid: 7f6941052bbafca7a9a06cc805af35a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.39106
+      value: -4.63079
       objectReference: {fileID: 0}
     - target: {fileID: 8947015835353653190, guid: 7f6941052bbafca7a9a06cc805af35a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.7756
+      value: 3.91482
       objectReference: {fileID: 0}
     - target: {fileID: 8947015835353653190, guid: 7f6941052bbafca7a9a06cc805af35a0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4598,7 +4598,7 @@ SceneRoots:
   - {fileID: 174265052}
   - {fileID: 1032683657}
   - {fileID: 334015899}
-  - {fileID: 1922674216}
   - {fileID: 651965875}
   - {fileID: 1686558823}
   - {fileID: 1139342272}
+  - {fileID: 1898430264}

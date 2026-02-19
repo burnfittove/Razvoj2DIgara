@@ -102,7 +102,7 @@ namespace PlayerScripts
             // ### Fire Delay
             FireDelay = new Attribute(info.fireDelay, info.fireDelayMultiplier,minMultiplier,  maxMultiplier, minValue, 100);
             // ### Range
-            Range = new Attribute(info.range, info.rangeMultiplier, minMultiplier,  maxMultiplier, minValue, 20);
+            Range = new Attribute(info.range, info.rangeMultiplier, minMultiplier,  maxMultiplier, minValue, 500);
             // ### Shot speed
             ShotSpeed = new Attribute(info.shotSpeed, 1, minMultiplier, maxMultiplier, minValue, 50);
             // ### Luck

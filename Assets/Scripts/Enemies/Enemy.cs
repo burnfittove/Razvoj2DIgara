@@ -23,11 +23,13 @@ namespace Enemies
         public Attribute Range { get; private set; }
         public Attribute ShotSpeed { get; private set; }
         public Attribute ContactDamage { get; private set; }
+        // Shooting-related field(s)
+        [HideInInspector] public float fireDelayBuffer;
         // Components
         [HideInInspector] public Collider2D cc;
         [HideInInspector] public SpriteRenderer sr;
         [HideInInspector] public NavMeshAgent navMeshAgent;
-        protected Transform player;
+        [HideInInspector] public Transform player;
         // Bool that determines whether the enemy will spawn a soul when they die
         private GameObject soulPrefab;
         // Bool that determines whether the enemy will spawn money when they die and how many instances
@@ -54,7 +56,7 @@ namespace Enemies
             // ## Fire Delay
             FireDelay = new Attribute(enemyInfo.fireDelay, 1, 1, 1, 0, enemyInfo.fireDelay);
             // ## Range
-            Range = new Attribute(enemyInfo.range,  1, 1, 1, 0, enemyInfo.shotSpeed);
+            Range = new Attribute(enemyInfo.range,  1, 1, 1, 0, enemyInfo.range);
             // ## Shot Speed
             ShotSpeed = new Attribute(enemyInfo.shotSpeed, 1, 1, 1, 0, enemyInfo.shotSpeed);
             // ## Contact Damage

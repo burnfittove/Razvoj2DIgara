@@ -15,6 +15,7 @@ namespace Enemies.States
 
         protected virtual void Awake()
         {
+            // Get components
             enemy = GetComponent<Enemy>();
         }
 
