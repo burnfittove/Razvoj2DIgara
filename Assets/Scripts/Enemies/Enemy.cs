@@ -23,6 +23,7 @@ namespace Enemies
         public Attribute Range { get; private set; }
         public Attribute ShotSpeed { get; private set; }
         public Attribute ContactDamage { get; private set; }
+        public Attribute InvincibilityDuration { get; private set; }
         // Shooting-related field(s)
         [HideInInspector] public float fireDelayBuffer;
         // Components
@@ -44,7 +45,8 @@ namespace Enemies
             sr = GetComponentInChildren<SpriteRenderer>();
             cc = GetComponent<Collider2D>();
             navMeshAgent = GetComponent<NavMeshAgent>();
-            if (!player) player = GameObject.FindWithTag("Player").transform;
+            player = GameObject.FindWithTag("Player")?.transform;
+            if (!player) gameObject.SetActive(false);
             
             // # Attributes
             // ## Health
@@ -61,6 +63,8 @@ namespace Enemies
             ShotSpeed = new Attribute(enemyInfo.shotSpeed, 1, 1, 1, 0, enemyInfo.shotSpeed);
             // ## Contact Damage
             ContactDamage = new Attribute(enemyInfo.contactDamage, 1, 1, 1, 0, enemyInfo.contactDamage);
+            // ## Invincibility
+            InvincibilityDuration = new Attribute(enemyInfo.invincibilityDuration, 1, 1, 1, 0, enemyInfo.invincibilityDuration);
         }
 
         protected virtual void Start()
@@ -109,10 +113,22 @@ namespace Enemies
             Health.UpdateValue(-damage);
         }
 
+        public void TakeContactDamage(float damage)
+        {
+            // If the enemy has recently been damaged, return
+            if (InvincibilityDuration.Value > 0) return;
+            
+            // Take contact damage
+            Health.UpdateValue(-damage);
+            
+            // Set invincibility timer
+            InvincibilityDuration.UpdateValue(enemyInfo.invincibilityDuration);
+        }
+
         private void OnCollisionStay2D(Collision2D other)
         {
             // Damage the player
-            if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out var damageable)) damageable.TakeDamage(ContactDamage.Value);
+            if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out var damageable)) damageable.TakeContactDamage(ContactDamage.Value);
         }
 
         private void CalculateChance2SpawnSoul()

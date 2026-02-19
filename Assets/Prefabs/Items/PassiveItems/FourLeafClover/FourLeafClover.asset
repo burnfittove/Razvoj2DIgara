@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: FourLeafClover
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 14
+  itemId: 16
   itemName: Four Leaf Clover
   itemDescription: You're one of a kind ;)\n-Luck Multiuplier x1.5
   itemQuality: 5

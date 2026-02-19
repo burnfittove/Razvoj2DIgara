@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
-  m_Name: RabbitsFoot
+  m_Name: Breakfast
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 15
-  itemName: Rabbit's Foot
-  itemDescription: Killed by magic\n- Luck +2
+  itemId: 18
+  itemName: Breakfast
+  itemDescription: Every good roguelike needs a food item\n- Health +10
   itemQuality: 1
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 1800
+  price: 1000
   demonPrice: 10
   maxCharge: 0
-  maxHealthDelta: 0
+  maxHealthDelta: 10
   speedDelta: 0
   damageDelta: 0
   fireDelayDelta: 0
   rangeDelta: 0
   shotSpeedDelta: 0
-  luckDelta: 2
+  luckDelta: 0
   knockbackDelta: 0
   contactDamageDelta: 0
   speedMultiplierDelta: 0

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Enemies.States
 {
     public abstract class EnemyState
@@ -28,6 +30,7 @@ namespace Enemies.States
         // Call in EnemyStateController, do not override
         public void OnStateUpdate()
         {
+            enemy.InvincibilityDuration.UpdateValue(-Time.deltaTime);
             OnUpdate();
         }
         // Override in new states

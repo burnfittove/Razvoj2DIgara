@@ -17,6 +17,7 @@ namespace Enemies
         public float range;
         public float sightRange = 10;
         public float shotSpeed;
+        public float invincibilityDuration = 0.1f;
         public int baseMaxSoulSpawnChance = 10;
         public int baseMaxMoneySpawnChance = 5;
         

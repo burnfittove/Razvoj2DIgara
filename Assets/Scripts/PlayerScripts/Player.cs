@@ -83,5 +83,16 @@ namespace PlayerScripts
             // Set invincibility timer
             PlayerInfo.Instance.InvincibilityDuration.UpdateValue(playerInformation.invincibilityDuration);
         }
+
+        public void TakeContactDamage(float damage)
+        {
+            TakeDamage(damage);
+        }
+
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            // Damage enemies
+            if (other.gameObject.CompareTag("Enemy") && other.gameObject.TryGetComponent<IDamageable>(out var damageable) && PlayerInfo.Instance.ContactDamage.Value > 0) damageable.TakeContactDamage(PlayerInfo.Instance.ContactDamage.Value);
+        }
     }
 }

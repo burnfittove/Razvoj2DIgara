@@ -30,6 +30,7 @@ namespace PlayerScripts
         public Attribute KnockbackStrength { get; private set; }
         public Attribute ContactDamage { get; private set; }
         public Attribute InvincibilityDuration { get; private set; }
+        public bool canFly = false;
         [Header("Currencies")]
         public Attribute Money { get; private set; }
         public Attribute Souls { get; private set; }

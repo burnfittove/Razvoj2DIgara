@@ -20,7 +20,7 @@ MonoBehaviour:
   fireDelay: 4.2
   range: 10
   shotSpeed: 7
-  luck: 1
+  luck: 500
   speedMultiplier: 1
   damageMultiplier: 1
   fireDelayMultiplier: 1
