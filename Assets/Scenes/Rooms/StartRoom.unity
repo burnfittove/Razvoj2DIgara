@@ -560,7 +560,7 @@ MonoBehaviour:
   player: {fileID: 433105413}
   spawnPosition: {fileID: 1934863795}
   regularRoomName: RegularRoom
-  regularRoomAmount: 4
+  regularRoomAmount: 6
   itemRoomName: ItemRoom
   itemRoomAmount: 2
   itemRoomFrequency: 5
