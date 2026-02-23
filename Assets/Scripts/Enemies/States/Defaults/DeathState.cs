@@ -8,7 +8,8 @@ namespace Enemies.States.Defaults
         protected override void OnEnter()
         {
             // Disable the navmesh agent
-            enemy.navMeshAgent.isStopped = true;
+            // enemy.navMeshAgent.isStopped = true;
+            enemy.navMeshAgent.enabled = false;
             
             // Dim the enemy's color
             enemy.sr.color = new Color(0.5f, 0.5f, 0.5f, 0.6f);

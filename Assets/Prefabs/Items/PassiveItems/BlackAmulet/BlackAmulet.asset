@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemId: 1
   itemName: Black Amulet
-  itemDescription: Your magic tightens\n-Damage +2
-  itemQuality: 4
+  itemDescription: Your magic tightens\n-Damage +1.2
+  itemQuality: 3
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 4800
-  demonPrice: 40
+  price: 3800
+  demonPrice: 35
+  maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0
-  damageDelta: 2
+  damageDelta: 1.2
   fireDelayDelta: 0
   rangeDelta: 0
   shotSpeedDelta: 0

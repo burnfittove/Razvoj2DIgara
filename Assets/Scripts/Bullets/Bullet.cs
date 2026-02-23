@@ -11,11 +11,14 @@ namespace Bullets
         protected float damage;
         protected float lifetime;
         protected IDamageable damageable;
+        private Vector3 baseScale;
 
         private void Awake()
         {
             // Initialize components
             rb = GetComponent<Rigidbody2D>();
+            
+            baseScale = transform.localScale;
         }
 
         private void Update()
@@ -31,11 +34,27 @@ namespace Bullets
         // When the bullet is enables, pass it some values
         public virtual void Initialize(Vector2 dir, float speed, float damage, float lifetime)
         {
+            // Reset scale
+            transform.localScale = baseScale;
             dir.Normalize();
             moveDirection = dir;
             moveSpeed = speed;
             this.damage = damage;
             this.lifetime = lifetime;
+        }
+        
+        // Same thing but can also change the scale (used by enemies)
+        public virtual void Initialize(Vector2 dir, float speed, float damage, float lifetime, float scale)
+        {
+            // Reset scale
+            transform.localScale = baseScale;
+            dir.Normalize();
+            moveDirection = dir;
+            moveSpeed = speed;
+            this.damage = damage;
+            this.lifetime = lifetime;
+            // Increase the scale
+            transform.localScale *= scale;
         }
 
         private void Move()

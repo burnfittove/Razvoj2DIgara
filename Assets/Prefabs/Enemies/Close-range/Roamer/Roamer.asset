@@ -17,10 +17,12 @@ MonoBehaviour:
   speed: 4
   acceleration: 10
   damage: 3
+  bulletScale: 1
   contactDamage: 1
   fireDelay: 0
   range: 0
   sightRange: 10
   shotSpeed: 0
-  baseMaxSoulSpawnChance: 8
-  baseMaxMoneySpawnChance: 3
+  invincibilityDuration: 0.1
+  baseMaxSoulSpawnChance: 10
+  baseMaxMoneySpawnChance: 6

@@ -6,10 +6,9 @@ namespace Enemies.States
     public class ShooterEnemyStateController : EnemyStateController
     {
         // Implement states
-        public readonly EnemyState chaseState = new ChaseState();
         public readonly EnemyState shootState = new ShootState();
-        
-        RaycastHit2D[] hits;
+
+        private RaycastHit2D[] hits;
         
         protected override void Start()
         {
@@ -40,16 +39,6 @@ namespace Enemies.States
                 if (currentState == shootState) continue;
                 ChangeState(shootState);
             }
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player")) ChangeState(shootState);
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag("Player")) ChangeState(chaseState);
         }
     }
 }

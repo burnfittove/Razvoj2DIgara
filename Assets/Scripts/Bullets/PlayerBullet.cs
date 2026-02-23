@@ -18,11 +18,7 @@ namespace Bullets
     
         public override void Initialize(Vector2 dir, float speed, float damage, float lifetime)
         {
-            dir.Normalize();
-            moveDirection = dir;
-            moveSpeed = speed;
-            this.damage = damage;
-            this.lifetime = lifetime;
+            base.Initialize(dir, speed, damage, lifetime);
             SetScaleFromDamage(damage);
         }
 
