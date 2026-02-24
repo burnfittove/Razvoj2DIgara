@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4360746453966490148}
   - component: {fileID: 9027728834188692074}
   - component: {fileID: 4239524554178702232}
-  - component: {fileID: 4759177340713627115}
+  - component: {fileID: 8720880065179755439}
   m_Layer: 0
-  m_Name: MoneyPrinter
+  m_Name: Focus
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.990566, g: 0.9790634, b: 0.7896493, a: 1}
+  m_Color: {r: 0.630785, g: 0.6797949, b: 0.7075472, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &4759177340713627115
+--- !u!114 &8720880065179755439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,11 +137,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8811422137312529846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6d66ca82b644bfd86297a52249a60b, type: 3}
+  m_Script: {fileID: 11500000, guid: d248c97a495a149b497314d155cde3e4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoneyPrinter
-  itemInformation: {fileID: 11400000, guid: a2c30293be664400cb9a4dc79dfa6457, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Items.ActiveItem.Focus.Focus
+  itemInformation: {fileID: 11400000, guid: d17aa18b68e744d10b6c311d9ee190b0, type: 2}
   isBuyable: 0
   meetsPickUpRequirements: 0
   currentCharge: 0
-  changeToCreateQuarter: 15
+  time: 5

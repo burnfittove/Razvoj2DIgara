@@ -15,11 +15,11 @@ MonoBehaviour:
   itemId: 19
   itemName: Fangs
   itemDescription: Make them bleed\n- Damage +1\n- Contact damage +1
-  itemQuality: 3
+  itemQuality: 2
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 3500
-  demonPrice: 30
+  price: 2800
+  demonPrice: 25
   maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0

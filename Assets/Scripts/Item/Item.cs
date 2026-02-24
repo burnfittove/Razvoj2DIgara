@@ -16,7 +16,6 @@ namespace Item
         private Collider2D coll;
         protected Player player;
 
-
         protected virtual void Awake()
         {
             // Get references

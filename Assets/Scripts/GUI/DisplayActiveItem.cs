@@ -4,6 +4,7 @@ using Item.ActiveItem;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace GUI
@@ -19,16 +20,20 @@ namespace GUI
         private void Awake()
         {
             GameEventManager.Instance.itemEvents.OnActiveItemAcquired += UpdateUI;
-            GameEventManager.Instance.inputEvents.OnActiveItemUsed += c =>
-            {
-                if (!c.performed) return;
-                if (!activeItem) return;
-                UpdateSlider(activeItem.currentCharge);
-            };
+            // GameEventManager.Instance.inputEvents.OnActiveItemUsed += ActiveItemUsed;
             
             tmpText.text = "";
             image.enabled = false;
             slider.transform.parent.gameObject.SetActive(false);
+        }
+
+        private void LateUpdate()
+        {
+            // If the player doesn't have an active item, return
+            if (!activeItem) return;
+            
+            // Set the charge bar
+            slider.value = activeItem.currentCharge;
         }
 
         private void UpdateUI(GameObject obj)
@@ -52,11 +57,17 @@ namespace GUI
             slider.maxValue = activeItem.ItemInformation.maxCharge;
             slider.value = activeItem.currentCharge;
         }
-
-        private void UpdateSlider(int value)
-        {
-            if (activeItem.currentCharge < activeItem.ItemInformation.maxCharge)
-            slider.value = value;
-        }
+        //
+        // private void UpdateSlider(int value)
+        // {
+        //     if (activeItem.currentCharge < activeItem.ItemInformation.maxCharge) slider.value = value;
+        // }
+        //
+        // private void ActiveItemUsed(InputAction.CallbackContext context)
+        // {
+        //     if (!context.performed) return;
+        //     if (!activeItem) return;
+        //     UpdateSlider(activeItem.currentCharge);
+        // }
     }
 }

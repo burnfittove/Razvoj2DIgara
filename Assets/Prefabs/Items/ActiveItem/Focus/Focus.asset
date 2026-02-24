@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
-  m_Name: MoneyPrinter
+  m_Name: Focus
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 14
-  itemName: Money Printer
-  itemDescription: brrrrrr\n-Has a Luck/15 chance to summon a dime
+  itemId: 23
+  itemName: Focus
+  itemDescription: \n-Increases a random stat by 0.2
   itemQuality: 2
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 2150
-  demonPrice: 15
-  maxCharge: 1
-  maxHealthDelta: 0
+  price: 2500
+  demonPrice: 20
+  maxCharge: 4
+  maxHealthDelta: 0.2
   speedDelta: 0
   damageDelta: 0
   fireDelayDelta: 0
