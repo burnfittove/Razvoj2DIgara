@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4360746453966490148}
   - component: {fileID: 9027728834188692074}
   - component: {fileID: 4239524554178702232}
+  - component: {fileID: -977031883138809807}
   m_Layer: 0
   m_Name: Fangs
   m_TagString: Item
@@ -127,3 +128,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &-977031883138809807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811422137312529846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9681fa024401ff5dea46df6d8ed9bceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Items.PassiveItems.Fangs.Fangs
+  itemInformation: {fileID: 11400000, guid: d2846f85fb18bf87c849e29b7dd7a937, type: 2}
+  isBuyable: 0
+  meetsPickUpRequirements: 0

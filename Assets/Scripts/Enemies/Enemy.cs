@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace Enemies
 {
-    public abstract class Enemy: MonoBehaviour, IDamageable
+    public class Enemy: MonoBehaviour, IDamageable
     {
         // Attributes
         public EnemyInformationSo enemyInfo;

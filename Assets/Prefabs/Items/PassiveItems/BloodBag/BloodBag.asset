@@ -18,7 +18,7 @@ MonoBehaviour:
   itemQuality: 2
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 2500
+  price: 2000
   demonPrice: 20
   maxCharge: 0
   maxHealthDelta: 20

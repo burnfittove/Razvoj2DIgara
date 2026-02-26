@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemies.EnemyInformationSo
   enemyName: Green Wizard
   health: 22
-  speed: 0.5
+  speed: 0.75
   acceleration: 10
   damage: 3
+  bulletScale: 2
   contactDamage: 1
-  fireDelay: 50
+  fireDelay: 45
   range: 200
-  sightRange: 5
-  shotSpeed: 2
+  sightRange: 25
+  shotSpeed: 3.5
   invincibilityDuration: 0.1
   baseMaxSoulSpawnChance: 3
-  baseMaxMoneySpawnChance: 4
+  baseMaxMoneySpawnChance: 3

@@ -140,3 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703a3d8504d340b42ad6c25514e84ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BloodBag
+  itemInformation: {fileID: 11400000, guid: 8b1b16794e787b681916f26ec7b567aa, type: 2}
+  isBuyable: 0
+  meetsPickUpRequirements: 0

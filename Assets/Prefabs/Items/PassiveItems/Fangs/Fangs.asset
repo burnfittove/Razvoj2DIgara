@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 19
   itemName: Fangs
-  itemDescription: Make them bleed\n- Damage +2\n- Contact damage +1
-  itemQuality: 4
+  itemDescription: Make them bleed\n- Damage +1\n- Contact damage +1
+  itemQuality: 2
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 4500
-  demonPrice: 40
+  price: 2800
+  demonPrice: 25
   maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0
-  damageDelta: 2
+  damageDelta: 1
   fireDelayDelta: 0
   rangeDelta: 0
   shotSpeedDelta: 0

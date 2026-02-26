@@ -19,7 +19,7 @@ MonoBehaviour:
   isPersistantPassive: 0
   healAcquiredHealth: 0
   price: 1200
-  demonPrice: 10
+  demonPrice: 5
   maxCharge: 1
   maxHealthDelta: -2
   speedDelta: 0

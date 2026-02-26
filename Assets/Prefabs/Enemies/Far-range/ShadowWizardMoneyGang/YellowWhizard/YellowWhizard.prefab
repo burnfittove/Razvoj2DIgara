@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7962523510098927588}
   - component: {fileID: 7096530773715536312}
   - component: {fileID: -6710647834760527876}
-  - component: {fileID: 8388645260340511344}
-  - component: {fileID: 3800685694337283118}
-  m_Layer: 0
+  - component: {fileID: 5909373189126719518}
+  - component: {fileID: -7537338542321635718}
+  m_Layer: 9
   m_Name: YellowWhizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8388645260340511344
+--- !u!114 &5909373189126719518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,19 +132,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3910693078310252538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa46ed655dd0607bb3e15d77c888136, type: 3}
+  m_Script: {fileID: 11500000, guid: df2757e4204884f6da8760435e8b3bbd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Enemies.Far_range.ShadowWizardMoneyGang.YellowWhizard.YellowWhizard
+  m_EditorClassIdentifier: Assembly-CSharp::Enemies.Enemy
   enemyInfo: {fileID: 11400000, guid: 34f8b41d88fd5bf85ae2d4a9ba85c867, type: 2}
   fireDelayBuffer: 0
   cc: {fileID: 0}
   sr: {fileID: 0}
   navMeshAgent: {fileID: 0}
   player: {fileID: 0}
-  nickelChance: 50
+  nickelChance: 30
   dimeChance: 70
   quarterChance: 150
---- !u!114 &3800685694337283118
+--- !u!114 &-7537338542321635718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,9 +153,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3910693078310252538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d354369861bc798f8611cc755d629ab, type: 3}
+  m_Script: {fileID: 11500000, guid: bee900c1ce15440f85eeb0e7d8b83243, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Enemies.Far_range.ShadowWizardMoneyGang.YellowWhizard.States.YellowWhizardEnemyStateController
+  m_EditorClassIdentifier: Assembly-CSharp::Enemies.States.ShooterEnemyStateController
 --- !u!1 &4961607516202796565
 GameObject:
   m_ObjectHideFlags: 0

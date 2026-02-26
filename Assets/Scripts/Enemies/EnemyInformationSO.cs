@@ -12,6 +12,7 @@ namespace Enemies
         public float speed;
         public float acceleration = 10;
         public float damage;
+        public float bulletScale = 1;
         public float contactDamage;
         public float fireDelay;
         public float range;

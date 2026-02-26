@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 14
   itemName: Money Printer
-  itemDescription: brrrrrr\n-Has a Luck/10 chance to summon a penny
-  itemQuality: 1
+  itemDescription: brrrrrr\n-Has a Luck/15 chance to summon a dime
+  itemQuality: 2
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 1800
+  price: 2150
   demonPrice: 15
   maxCharge: 1
   maxHealthDelta: 0

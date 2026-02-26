@@ -129,7 +129,7 @@ namespace PlayerScripts
         {
             MaxHealth.UpdateValue(value);
             Health.ChangeConstantMaxValue(MaxHealth.Value);
-            Health.UpdateValue(value);
+            Health.UpdateValue();
         }
         private void UpdateOnHealth(float value)
         {

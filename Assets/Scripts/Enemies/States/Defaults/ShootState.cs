@@ -23,7 +23,7 @@ namespace Enemies.States.Defaults
             if (bullet is not null)
             {
                 bullet.transform.position = enemy.transform.position;
-                bullet.Initialize(GetDirection2Player(), enemy.enemyInfo.shotSpeed, enemy.enemyInfo.damage, enemy.enemyInfo.range);
+                bullet.Initialize(GetDirection2Player(), enemy.enemyInfo.shotSpeed, enemy.enemyInfo.damage, enemy.enemyInfo.range, enemy.enemyInfo.bulletScale);
                 bullet.gameObject.SetActive(true);
             }
 
