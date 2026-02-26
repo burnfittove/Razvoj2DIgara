@@ -8,18 +8,19 @@ namespace Enemies
     public class EnemyInformationSo : ScriptableObject
     {
         public string enemyName;
-        public byte enemyId;
         public float health;
         public float speed;
         public float acceleration = 10;
         public float damage;
+        public float bulletScale = 1;
         public float contactDamage;
         public float fireDelay;
         public float range;
+        public float sightRange = 10;
         public float shotSpeed;
-        public bool chasePlayer;
-        public int baseMaxSoulSpawnChance = 100;
-        public int baseMaxMoneySpawnChance = 25;
+        public float invincibilityDuration = 0.1f;
+        public int baseMaxSoulSpawnChance = 10;
+        public int baseMaxMoneySpawnChance = 5;
         
     }
 }

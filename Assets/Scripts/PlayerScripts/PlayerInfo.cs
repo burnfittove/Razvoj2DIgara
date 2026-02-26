@@ -30,6 +30,7 @@ namespace PlayerScripts
         public Attribute KnockbackStrength { get; private set; }
         public Attribute ContactDamage { get; private set; }
         public Attribute InvincibilityDuration { get; private set; }
+        public bool canFly = false;
         [Header("Currencies")]
         public Attribute Money { get; private set; }
         public Attribute Souls { get; private set; }
@@ -102,7 +103,7 @@ namespace PlayerScripts
             // ### Fire Delay
             FireDelay = new Attribute(info.fireDelay, info.fireDelayMultiplier,minMultiplier,  maxMultiplier, minValue, 100);
             // ### Range
-            Range = new Attribute(info.range, info.rangeMultiplier, minMultiplier,  maxMultiplier, minValue, 20);
+            Range = new Attribute(info.range, info.rangeMultiplier, minMultiplier,  maxMultiplier, minValue, 500);
             // ### Shot speed
             ShotSpeed = new Attribute(info.shotSpeed, 1, minMultiplier, maxMultiplier, minValue, 50);
             // ### Luck
@@ -128,7 +129,7 @@ namespace PlayerScripts
         {
             MaxHealth.UpdateValue(value);
             Health.ChangeConstantMaxValue(MaxHealth.Value);
-            Health.UpdateValue(value);
+            Health.UpdateValue();
         }
         private void UpdateOnHealth(float value)
         {

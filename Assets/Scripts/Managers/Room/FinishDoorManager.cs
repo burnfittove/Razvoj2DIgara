@@ -38,7 +38,11 @@ namespace Managers.Room
             if (!other.CompareTag("Player")) return;
             
             // ##### DEBUG #####
-            if (hardCodedNextScene != string.Empty) SceneManager.LoadScene(hardCodedNextScene);
+            if (hardCodedNextScene != "")
+            {
+                SceneManager.LoadScene(hardCodedNextScene);
+                return;
+            }
             // #################
             
             GameEventManager.Instance.roomEvents.ChangeRoom();

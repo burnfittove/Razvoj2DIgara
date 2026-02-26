@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: Monocle
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 15
+  itemId: 17
   itemName: Monocle
-  itemDescription: '- Range +2'
+  itemDescription: Put it on your good eye\n- Range +2
   itemQuality: 2
   isPersistantPassive: 0
   healAcquiredHealth: 0

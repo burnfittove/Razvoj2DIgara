@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ReverseMagicTechnique
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 12
-  itemName: ReverseMagicTechnique
-  itemDescription: Positive energy\n-Health +20\nHas a Luck/11 chance to heal 5 HP
-    when entering a hostile room
-  itemQuality: 3
+  itemName: Reverse Technique
+  itemDescription: Positive energy\n-Health +20\nHas a Luck/111 chance to heal 5
+    HP when entering a hostile room
+  itemQuality: 2
   isPersistantPassive: 1
   healAcquiredHealth: 1
   price: 3271

@@ -144,4 +144,4 @@ MonoBehaviour:
   isBuyable: 0
   meetsPickUpRequirements: 0
   currentCharge: 0
-  moneyPrefab: {fileID: 929468707551178397, guid: ff73e77bc03e440ce8151c2104a12cfd, type: 3}
+  changeToCreateQuarter: 15

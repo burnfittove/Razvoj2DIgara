@@ -5,18 +5,12 @@ using UnityEngine;
 
 namespace PlayerScripts.Shooting
 {
-    public class BulletPooling : MonoBehaviour
+    public abstract class BulletPooling : MonoBehaviour
     {
-        public static BulletPooling Instance;
+        // public static BulletPooling Instance;
         public List<Bullet> pooledObjects;
         public GameObject objectToPool;
         public int amountToPool;
-
-        private void Awake()
-        {
-            if (Instance != null && Instance != this) Debug.LogError("Multiple instances of BulletPooling detected!");
-            Instance = this;
-        }
 
         private void Start()
         {

@@ -5,23 +5,28 @@ using UnityEngine;
 namespace Enemies.States
 {
     [RequireComponent(typeof(Enemy))]
-    public abstract class EnemyStateController : MonoBehaviour
+    public class EnemyStateController : MonoBehaviour
     {
         // References to other important components
         protected EnemyState currentState;
         protected Enemy enemy;
         // States are public so that one state can reference another
-        [HideInInspector] public readonly EnemyState deathState = new DeathState();
-
+        public readonly EnemyState deathState = new DeathState();
+        public readonly EnemyState chaseState = new ChaseState();
+        
         protected virtual void Awake()
         {
+            // Get components
             enemy = GetComponent<Enemy>();
         }
 
-        /// <summary>
-        /// Start method of every unique enemy state controller needs to implement a default state (i.e. chase or idle)
-        /// </summary>
-        protected abstract void Start();
+        // Implement chase state
+
+        protected virtual void Start()
+        {
+            // Set the default state
+            ChangeState(chaseState);
+        }
 
         protected virtual void Update()
         {

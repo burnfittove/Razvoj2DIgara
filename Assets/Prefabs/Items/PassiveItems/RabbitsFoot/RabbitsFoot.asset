@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: RabbitsFoot
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 13
+  itemId: 15
   itemName: Rabbit's Foot
   itemDescription: Killed by magic\n- Luck +2
   itemQuality: 1

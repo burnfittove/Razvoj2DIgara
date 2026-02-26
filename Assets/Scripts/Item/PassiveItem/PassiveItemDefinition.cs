@@ -1,5 +1,6 @@
 using PlayerScripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Item.PassiveItem
 {
@@ -8,7 +9,7 @@ namespace Item.PassiveItem
         private void Start()
         {
             // Run a method on the start of a room
-            RoomStartEffect();
+            SceneManager.sceneLoaded += (_, _) => RoomStartEffect();
         }
 
         protected virtual void RoomStartEffect() {}

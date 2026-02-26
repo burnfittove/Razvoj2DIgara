@@ -33,8 +33,8 @@ namespace PlayerScripts.Shooting
             // Exit if there is still fire delay
             if (p.FireDelayBuffer > 0) return;
 
-            // Use the BulletPooling Script to Instantiate bullets
-            var bullet = BulletPooling.Instance.GetPooledObject();
+            // Use the PlayerBulletPooling Script to Instantiate bullets
+            var bullet = PlayerBulletPooling.Instance.GetPooledObject();
             if (bullet is not null)
             {
                 bullet.transform.position = p.transform.position;
