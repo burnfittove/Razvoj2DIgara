@@ -54,6 +54,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Rooms/RegularRooms/Room13/RegularRoom13.unity
     guid: a76aabb8cc3cf46f6934560bddb50880
   - enabled: 1
+    path: Assets/Scenes/Rooms/RegularRooms/Room14/RegularRoom14.unity
+    guid: 4e7b16e228f34496d80d72020a1aea9d
+  - enabled: 1
     path: Assets/Scenes/Rooms/ItemRooms/Room0/ItemRoom0.unity
     guid: 212cba8d5066aa6df91d3467a860bf65
   - enabled: 1
