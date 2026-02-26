@@ -1,7 +1,7 @@
 using PlayerScripts.Shooting;
 using UnityEngine;
 
-namespace Item.Familiars.Bat
+namespace Prefabs.Items.PassiveItems.Bat
 {
     public class BatFamiliar : MonoBehaviour
     {

@@ -3,14 +3,8 @@ using UnityEngine;
 
 namespace Prefabs.Items.PassiveItems.Bat
 {
-    public class Bat : PassiveItem
+    public class Bat : FamiliarPassive
     {
-        [SerializeField] private GameObject batPrefab;
-
-        protected override void OnItemPickedUp()
-        {
-            Instantiate(batPrefab, player.transform.position, player.transform.rotation, player.transform);
-            base.OnItemPickedUp();
-        }
+        
     }
 }

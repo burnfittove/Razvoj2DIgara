@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 232096812110702292}
   - component: {fileID: 2471973302749207525}
-  - component: {fileID: 8009423335785869252}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -91,20 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8009423335785869252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888103791052409927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e735a851cf48971a8240c0e2ada144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item.Familiars.FamiliarRotation
-  rotationSpeed: 120
-  rotationPoint: {fileID: 7927376917549529404}
 --- !u!1 &5237743986516950937
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7927376917549529404}
   - component: {fileID: 8859038080390771650}
+  - component: {fileID: 7472814019846788801}
   m_Layer: 0
   m_Name: BatFamiliar
   m_TagString: Untagged
@@ -159,3 +145,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   sightRange: 8
+--- !u!114 &7472814019846788801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237743986516950937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e735a851cf48971a8240c0e2ada144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item.Familiars.FamiliarRotation
+  rotationSpeed: 120
+  rotationPoint: {fileID: 7927376917549529404}

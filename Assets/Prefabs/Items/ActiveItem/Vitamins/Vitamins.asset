@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
-  m_Name: EvilBall
+  m_Name: Vitamins
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 22
-  itemName: Evil Orb
-  itemDescription: Belonged to a magician once\n-Deals 1 contact damage every 0.1
-    seconds
-  itemQuality: 1
+  itemId: 24
+  itemName: Vitamins
+  itemDescription: Stay healthy\n-Increases a random stat by 0.2
+  itemQuality: 2
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 1500
-  demonPrice: 8
-  maxCharge: 0
-  maxHealthDelta: 0
+  price: 2650
+  demonPrice: 20
+  maxCharge: 4
+  maxHealthDelta: 0.2
   speedDelta: 0
   damageDelta: 0
   fireDelayDelta: 0

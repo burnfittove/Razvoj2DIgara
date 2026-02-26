@@ -143,4 +143,5 @@ MonoBehaviour:
   itemInformation: {fileID: 11400000, guid: f18014c81e5b745508618c93d4ab7dc6, type: 2}
   isBuyable: 0
   meetsPickUpRequirements: 0
-  batPrefab: {fileID: 5237743986516950937, guid: 9d34d5e3c0653ce0e91131afa7b7a1ab, type: 3}
+  familiarPrefab: {fileID: 5237743986516950937, guid: 9d34d5e3c0653ce0e91131afa7b7a1ab, type: 3}
+  offset: 24.68

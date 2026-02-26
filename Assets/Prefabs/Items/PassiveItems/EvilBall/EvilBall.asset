@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
-  m_Name: Focus
+  m_Name: EvilBall
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 23
-  itemName: Focus
-  itemDescription: \n-Halfs fire rate for 1.75 seconds
-  itemQuality: 2
+  itemId: 22
+  itemName: Evil Orb
+  itemDescription: Belonged to a magician once\n-Deals 0.75 contact damage
+  itemQuality: 1
   isPersistantPassive: 0
   healAcquiredHealth: 0
-  price: 2500
-  demonPrice: 20
-  maxCharge: 3
+  price: 1200
+  demonPrice: 8
+  maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0
-  damageDelta: 0
+  damageDelta: 0.75
   fireDelayDelta: 0
   rangeDelta: 0
   shotSpeedDelta: 0
@@ -32,6 +32,6 @@ MonoBehaviour:
   contactDamageDelta: 0
   speedMultiplierDelta: 0
   damageMultiplierDelta: 0
-  fireDelayMultiplierDelta: 0.5
+  fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0

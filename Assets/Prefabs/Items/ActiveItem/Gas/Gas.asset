@@ -21,7 +21,7 @@ MonoBehaviour:
   price: 2700
   demonPrice: 15
   maxCharge: 3
-  maxHealthDelta: -5
+  maxHealthDelta: 5
   speedDelta: 0
   damageDelta: 0
   fireDelayDelta: 0
