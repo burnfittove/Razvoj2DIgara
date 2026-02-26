@@ -17188,6 +17188,7 @@ MonoBehaviour:
   - {fileID: 8811422137312529846, guid: 4de945d0f749d1a30b43f4d8773b4a78, type: 3}
   - {fileID: 8811422137312529846, guid: ad524202da3bbe490ab6e1722e4138ac, type: 3}
   - {fileID: 8811422137312529846, guid: 04b775c84461d49579da0d66a2c9ce70, type: 3}
+  - {fileID: 8811422137312529846, guid: 9ed51ba1df8d6a2ae99a8529fc7bb2cb, type: 3}
   vampireItemPool:
   - {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
   - {fileID: 2241675788358728339, guid: db415b691033ff8d39d0404c88a98aa2, type: 3}
@@ -17201,6 +17202,7 @@ MonoBehaviour:
   - {fileID: 8811422137312529846, guid: f7f1cc12df12c87e5b72f6427f4d922f, type: 3}
   - {fileID: 1868455218739193624, guid: 0e1cc15b383a6f9dcaebc0dbf9a672ad, type: 3}
   - {fileID: 8811422137312529846, guid: f223b84fd14f21a3e950afc5ddfeae40, type: 3}
+  - {fileID: 8811422137312529846, guid: 9ed51ba1df8d6a2ae99a8529fc7bb2cb, type: 3}
   fallbackItem: {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
   penny: {fileID: 929468707551178397, guid: ff73e77bc03e440ce8151c2104a12cfd, type: 3}
 --- !u!114 &2493238699620074920
