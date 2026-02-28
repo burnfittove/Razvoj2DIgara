@@ -14,7 +14,7 @@ namespace Prefabs.Items.PassiveItems.ReverseMagicTechnique
 
         protected override void RoomStartEffect()
         {
-            if (Random.Range(0, 111) <= PlayerInfo.Instance.Luck.Value) ChangeHealth(5);
+            if (Random.Range(0, 111) <= PlayerInfo.Instance.Luck.value) ChangeHealth(5);
         }
     }
 }

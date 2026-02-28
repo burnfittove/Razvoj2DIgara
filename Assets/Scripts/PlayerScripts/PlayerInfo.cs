@@ -8,7 +8,8 @@ namespace PlayerScripts
     /// <summary>
     /// PlayerInfo holds data regarding the player and modifies it when certain events are invoked.
     /// </summary>
-    public class PlayerInfo : MonoBehaviour
+    [Serializable]
+    public class PlayerInfo : MonoBehaviour//, ICloneable
     {
         // Singleton
         public static PlayerInfo Instance { get; private set; }
@@ -95,7 +96,7 @@ namespace PlayerScripts
             // ## Visible Attributes
             // ### Health
             MaxHealth = new Attribute(info.health, 1, minMultiplier, maxMultiplier, 0, info.maxHealth);
-            Health = new Attribute(info.health, 1, minMultiplier, maxMultiplier, 0, MaxHealth.Value);
+            Health = new Attribute(info.health, 1, minMultiplier, maxMultiplier, 0, MaxHealth.value);
             // ### Speed
             Speed = new Attribute(info.speed, info.speedMultiplier, minMultiplier, maxMultiplier, 3, info.maxSpeed);
             // ### Damage
@@ -128,7 +129,7 @@ namespace PlayerScripts
         private void UpdateOnMaxHealth(float value)
         {
             MaxHealth.UpdateValue(value);
-            Health.ChangeConstantMaxValue(MaxHealth.Value);
+            Health.ChangeConstantMaxValue(MaxHealth.value);
             Health.UpdateValue();
         }
         private void UpdateOnHealth(float value)
@@ -199,5 +200,11 @@ namespace PlayerScripts
         {
             Souls.UpdateValue(value);
         }
+        
+        // // Copy
+        // public object Clone()
+        // {
+        //     
+        // }
     }
 }

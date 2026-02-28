@@ -10,7 +10,7 @@ namespace Enemies.States.Defaults
         protected override void OnUpdate()
         {
             // Go from any state directly to the death state if the enemy's health is bellow zero
-            if (enemy.Health.Value > 0) return; 
+            if (enemy.Health.value > 0) return; 
             enemyStateController.ChangeState(enemyStateController.deathState);
         }
     }

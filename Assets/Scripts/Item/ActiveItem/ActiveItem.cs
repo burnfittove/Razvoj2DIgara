@@ -5,7 +5,7 @@ namespace Item.ActiveItem
 {
     public abstract class ActiveItem : Item
     {
-        [HideInInspector] public int currentCharge;
+        public int currentCharge;
         protected override void OnItemPickedUp()
         {
             GameEventManager.Instance.itemEvents.ActiveItemAcquired(gameObject);
@@ -34,6 +34,7 @@ namespace Item.ActiveItem
         protected virtual void IncreaseCharge()
         {
             currentCharge += 1;
+            if (currentCharge > itemInformation.maxCharge) currentCharge = itemInformation.maxCharge;
         }
     }
 }

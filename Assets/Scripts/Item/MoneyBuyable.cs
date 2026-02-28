@@ -14,7 +14,7 @@ namespace Item
 
         protected override void SetColliderState()
         {
-            item.meetsPickUpRequirements = item.ItemInformation.price <= playerAttribute.Value;
+            item.meetsPickUpRequirements = item.ItemInformation.price <= playerAttribute.value;
         }
 
         protected override void BuyItem()

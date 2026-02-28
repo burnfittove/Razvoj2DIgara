@@ -15,6 +15,7 @@ namespace Prefabs.Items.ActiveItem.Gas
             {
                 obj.TakeDamage(itemInformation.maxHealthDelta);
             }
+            Debug.Log("Sooo... that just happened... MERP!");
         }
     }
 }

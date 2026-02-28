@@ -116,7 +116,7 @@ namespace Enemies
         public void TakeContactDamage(float damage)
         {
             // If the enemy has recently been damaged, return
-            if (InvincibilityDuration.Value > 0) return;
+            if (InvincibilityDuration.value > 0) return;
             
             // Take contact damage
             Health.UpdateValue(-damage);
@@ -128,15 +128,15 @@ namespace Enemies
         private void OnCollisionStay2D(Collision2D other)
         {
             // Damage the player
-            if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out var damageable)) damageable.TakeContactDamage(ContactDamage.Value);
+            if (other.gameObject.CompareTag("Player") && other.gameObject.TryGetComponent<IDamageable>(out var damageable)) damageable.TakeContactDamage(ContactDamage.value);
         }
 
         private void CalculateChance2SpawnSoul()
         {
             // Get a chance from 0 to baseMaxSoulSpawnChance
-            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.Value / 1.5f);
+            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.value / 1.5f);
             // If the chance is greater than the player's luck, do nothing
-            if (chance > PlayerInfo.Instance.Luck.Value) return;
+            if (chance > PlayerInfo.Instance.Luck.value) return;
             // Otherwise, create a soul to spawn
             soulPrefab = RewardManager.Instance.GetRewardSoul();
         }
@@ -144,32 +144,32 @@ namespace Enemies
         private void CalculateChance2SpawnMoney()
         {
             // Get a chance from 0 to baseMaxMoneySpawnChance
-            var chance = Random.Range(0, enemyInfo.baseMaxMoneySpawnChance + PlayerInfo.Instance.Luck.Value / 1.8f);
+            var chance = Random.Range(0, enemyInfo.baseMaxMoneySpawnChance + PlayerInfo.Instance.Luck.value / 1.8f);
             // If the chance is greater than the player's luck, do nothing
-            if (chance > PlayerInfo.Instance.Luck.Value) return;
+            if (chance > PlayerInfo.Instance.Luck.value) return;
             // Otherwise, get a random number from 1-4 (the amount of money instances to spawn) and decide which type of money the player will be rewarded
             var amount = Random.Range(1, 5);
             for (var i = 0; i < amount; i++)
             {
                 // Chance for quarter
-                chance = Random.Range(0, quarterChance + PlayerInfo.Instance.Luck.Value / 1.1f);
-                if (chance <= PlayerInfo.Instance.Luck.Value)
+                chance = Random.Range(0, quarterChance + PlayerInfo.Instance.Luck.value / 1.1f);
+                if (chance <= PlayerInfo.Instance.Luck.value)
                 {
                     moneyObjects[i] = RewardManager.Instance.GetRewardMoney(MoneyValue.Quarter);
                     continue;
                 }
                 
                 // Chance for dime
-                chance = Random.Range(0, dimeChance + PlayerInfo.Instance.Luck.Value / 1.1f);
-                if (chance <= PlayerInfo.Instance.Luck.Value)
+                chance = Random.Range(0, dimeChance + PlayerInfo.Instance.Luck.value / 1.1f);
+                if (chance <= PlayerInfo.Instance.Luck.value)
                 {
                     moneyObjects[i] = RewardManager.Instance.GetRewardMoney(MoneyValue.Dime);
                     continue;
                 }
                 
                 // Chance for nickel
-                chance = Random.Range(0, nickelChance + PlayerInfo.Instance.Luck.Value / 1.1f);
-                if (chance <= PlayerInfo.Instance.Luck.Value)
+                chance = Random.Range(0, nickelChance + PlayerInfo.Instance.Luck.value / 1.1f);
+                if (chance <= PlayerInfo.Instance.Luck.value)
                 {
                     moneyObjects[i] = RewardManager.Instance.GetRewardMoney(MoneyValue.Nickel);
                     continue;

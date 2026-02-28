@@ -7,7 +7,7 @@ namespace Prefabs.Items.PassiveItems.Meiosis
     {
         protected override void OnItemPickedUp()
         {
-            ChangeMaxHealth(PlayerInfo.Instance.MaxHealth.Value);
+            ChangeMaxHealth(PlayerInfo.Instance.MaxHealth.value);
             ChangeSpeed(itemInformation.speedDelta);
             ChangeDamage(itemInformation.damageDelta);
             ChangeFireDelay(itemInformation.fireDelayDelta);

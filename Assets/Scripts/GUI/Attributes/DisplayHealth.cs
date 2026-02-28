@@ -16,8 +16,8 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = PlayerInfo.Instance.Health.Value;
-            displaySecondaryValue = PlayerInfo.Instance.MaxHealth.Value;
+            displayPrimaryValue = PlayerInfo.Instance.Health.value;
+            displaySecondaryValue = PlayerInfo.Instance.MaxHealth.value;
         }
 
         protected override void Awake()

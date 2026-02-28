@@ -13,7 +13,7 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = PlayerInfo.Instance.Souls.Value;
+            displayPrimaryValue = PlayerInfo.Instance.Souls.value;
         }
 
         protected override void DisplayValues()

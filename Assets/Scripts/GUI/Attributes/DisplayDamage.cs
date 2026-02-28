@@ -13,8 +13,8 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = PlayerInfo.Instance.Damage.Value;
-            displaySecondaryValue = PlayerInfo.Instance.Damage.Multiplier;
+            displayPrimaryValue = PlayerInfo.Instance.Damage.value;
+            displaySecondaryValue = PlayerInfo.Instance.Damage.multiplier;
         }
     }
 }

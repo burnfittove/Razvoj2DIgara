@@ -12,7 +12,7 @@ namespace Prefabs.Items.PassiveItems.FoolsGold
             GameEventManager.Instance.pickupEvents.OnCurrencyPickUp += val =>
             {
                 var rand = Random.Range(0, 100);
-                if (!(rand <= PlayerInfo.Instance.Luck.Value)) return;
+                if (!(rand <= PlayerInfo.Instance.Luck.value)) return;
                 GameEventManager.Instance.attributeUpdateEvents.MoneyChange(val);
             };
             base.OnItemPickedUp();

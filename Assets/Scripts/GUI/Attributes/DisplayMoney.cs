@@ -13,7 +13,7 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = PlayerInfo.Instance.Money.Value;
+            displayPrimaryValue = PlayerInfo.Instance.Money.value;
         }
 
         protected override void DisplayValues()

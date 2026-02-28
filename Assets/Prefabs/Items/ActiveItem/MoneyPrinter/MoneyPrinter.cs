@@ -14,7 +14,7 @@ namespace Prefabs.Items.ActiveItem.MoneyPrinter
             base.UseActiveItem();
             var chance = Random.Range(0, 10);
             // If the chance is lower than the player's luck, get a penny from the RewardManager
-            if (chance > PlayerInfo.Instance.Luck.Value) return;
+            if (chance > PlayerInfo.Instance.Luck.value) return;
             var obj = RewardManager.Instance.GetRewardMoney(MoneyValue.Dime);
             obj.transform.position = (Vector2)player.transform.position + new Vector2(Random.Range(1.2f, 1.8f), Random.Range(1.2f, 1.8f));
             obj.SetActive(true);

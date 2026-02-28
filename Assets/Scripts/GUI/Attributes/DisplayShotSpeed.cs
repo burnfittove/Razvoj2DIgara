@@ -13,8 +13,8 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = PlayerInfo.Instance.ShotSpeed.Value;
-            displaySecondaryValue = PlayerInfo.Instance.ShotSpeed.Multiplier;
+            displayPrimaryValue = PlayerInfo.Instance.ShotSpeed.value;
+            displaySecondaryValue = PlayerInfo.Instance.ShotSpeed.multiplier;
         }
     }
 }

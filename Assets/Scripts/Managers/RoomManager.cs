@@ -97,7 +97,7 @@ namespace Managers
         {
             // Check for item
             var chance = Random.Range(BaseItemChance, GetModifiedChance(BaseItemChance));
-            if (chance <= PlayerInfo.Instance.Luck.Value)
+            if (chance <= PlayerInfo.Instance.Luck.value)
             {
                 // Get a copy of the item
                 reward = RewardManager.Instance.GetRewardItem(ItemPool.RewardPool);
@@ -121,14 +121,14 @@ namespace Managers
             // If the reward has already been decided, return
             if (reward) return;
             var chance = Random.Range(baseChance, GetModifiedChance(baseChance));
-            if (chance > PlayerInfo.Instance.Luck.Value) return;
+            if (chance > PlayerInfo.Instance.Luck.value) return;
             // Get a copy of the item
             reward = RewardManager.Instance.GetRewardMoney(moneyType);
         }
 
         private float GetModifiedChance(float baseChance)
         {
-            return baseChance + PlayerInfo.Instance.Luck.Value / ChanceModifier;
+            return baseChance + PlayerInfo.Instance.Luck.value / ChanceModifier;
         }
 
         private void ChangeRoom()

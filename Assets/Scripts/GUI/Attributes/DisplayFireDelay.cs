@@ -13,8 +13,8 @@ namespace GUI.Attributes
 
         protected override void UpdateValues()
         {
-            displayPrimaryValue = PlayerInfo.Instance.FireDelay.Value;
-            displaySecondaryValue = PlayerInfo.Instance.FireDelay.Multiplier;
+            displayPrimaryValue = PlayerInfo.Instance.FireDelay.value;
+            displaySecondaryValue = PlayerInfo.Instance.FireDelay.multiplier;
         }
     }
 }

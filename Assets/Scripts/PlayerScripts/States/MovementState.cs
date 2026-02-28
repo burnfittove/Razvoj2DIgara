@@ -17,7 +17,7 @@ namespace PlayerScripts.States
 
         private void Move(Vector2 direction)
         {
-            p.rb.MovePosition((Vector2)p.transform.position + direction * (PlayerInfo.Instance.Speed.Value * Time.fixedDeltaTime));
+            p.rb.MovePosition((Vector2)p.transform.position + direction * (PlayerInfo.Instance.Speed.value * Time.fixedDeltaTime));
         }
     }
 }

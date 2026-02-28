@@ -38,12 +38,12 @@ namespace PlayerScripts.Shooting
             if (bullet is not null)
             {
                 bullet.transform.position = p.transform.position;
-                bullet.Initialize(direction, PlayerInfo.Instance.ShotSpeed.Value, PlayerInfo.Instance.Damage.Value, PlayerInfo.Instance.Range.Value);
+                bullet.Initialize(direction, PlayerInfo.Instance.ShotSpeed.value, PlayerInfo.Instance.Damage.value, PlayerInfo.Instance.Range.value);
                 bullet.gameObject.SetActive(true);
             }
 
             // Set fire delay
-            p.FireDelayBuffer = PlayerInfo.Instance.FireDelay.Value;
+            p.FireDelayBuffer = PlayerInfo.Instance.FireDelay.value;
         }
 
         public void GetDirection(InputAction.CallbackContext cursorWorldPosition)

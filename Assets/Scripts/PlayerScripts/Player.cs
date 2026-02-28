@@ -67,7 +67,7 @@ namespace PlayerScripts
 
         public void DecreaseInvincibilityDuration()
         {
-            if (PlayerInfo.Instance.InvincibilityDuration.Value < 0) return;
+            if (PlayerInfo.Instance.InvincibilityDuration.value < 0) return;
             PlayerInfo.Instance.InvincibilityDuration.UpdateValue(-Time.deltaTime);
         }
 
@@ -75,7 +75,7 @@ namespace PlayerScripts
         public void TakeDamage(float damage)
         {
             // If the player is supposed to be invincible, return
-            if (PlayerInfo.Instance.InvincibilityDuration.Value > 0) return;
+            if (PlayerInfo.Instance.InvincibilityDuration.value > 0) return;
             
             // Take damage
             GameEventManager.Instance.attributeUpdateEvents.HealthChange(-damage);
@@ -92,7 +92,7 @@ namespace PlayerScripts
         private void OnCollisionStay2D(Collision2D other)
         {
             // Damage enemies
-            if (other.gameObject.CompareTag("Enemy") && other.gameObject.TryGetComponent<IDamageable>(out var damageable) && PlayerInfo.Instance.ContactDamage.Value > 0) damageable.TakeContactDamage(PlayerInfo.Instance.ContactDamage.Value);
+            if (other.gameObject.CompareTag("Enemy") && other.gameObject.TryGetComponent<IDamageable>(out var damageable) && PlayerInfo.Instance.ContactDamage.value > 0) damageable.TakeContactDamage(PlayerInfo.Instance.ContactDamage.value);
         }
     }
 }
