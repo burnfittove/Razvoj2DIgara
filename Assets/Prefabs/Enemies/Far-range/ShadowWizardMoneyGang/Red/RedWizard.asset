@@ -21,7 +21,7 @@ MonoBehaviour:
   contactDamage: 1
   fireDelay: 16
   range: 100
-  sightRange: 10
+  sightRange: 5
   shotSpeed: 3
   invincibilityDuration: 0.1
   baseMaxSoulSpawnChance: 8

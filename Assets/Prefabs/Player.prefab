@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8929849425677909282}
   - component: {fileID: 5904675299020712257}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3725173026486367031}
   - component: {fileID: 8429838907919573765}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PassiveItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3264935545168602931}
   - component: {fileID: 6155002516425168219}
   - component: {fileID: 4701131199836260672}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ItemDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 1668467607026777844}
   - component: {fileID: 794704252521105232}
   - component: {fileID: 737676663174281897}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -167,7 +167,7 @@ MonoBehaviour:
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: a3f6c185a84762bf3a436e9f3bc5ebc0, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ce1dd83349cde9e7190e879d92ce5670, type: 2}
 --- !u!114 &43928164
 MonoBehaviour:
   m_ObjectHideFlags: 0

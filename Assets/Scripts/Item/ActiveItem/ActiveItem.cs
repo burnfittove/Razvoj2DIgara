@@ -5,7 +5,7 @@ namespace Item.ActiveItem
 {
     public abstract class ActiveItem : Item
     {
-        public int currentCharge;
+        [HideInInspector] public int currentCharge;
         protected override void OnItemPickedUp()
         {
             GameEventManager.Instance.itemEvents.ActiveItemAcquired(gameObject);
