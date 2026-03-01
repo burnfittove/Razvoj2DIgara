@@ -107,7 +107,7 @@ namespace Managers
         private GameObject GetItemCopy(GameObject item)
         {
             // Remove the item from all item pools
-            RemoveItemFromPools(item);
+            // RemoveItemFromPools(item);
             // Create the copy of the provided item
             var obj = Instantiate(item);
             obj.SetActive(false);

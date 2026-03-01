@@ -1,10 +1,5 @@
 using System;
 using System.Collections.Generic;
-using GUI.Attributes;
-using Item.PassiveItem;
-using Managers;
-using PlayerScripts;
-using UnityEngine;
 using Attribute = PlayerScripts.Attribute;
 
 namespace Saving
@@ -29,7 +24,5 @@ namespace Saving
         public bool canFly;
         // Possessed items
         public List<int> itemIds;
-        // Item pools
-        public List<GameObject> regularItemPool;
     }
 }
