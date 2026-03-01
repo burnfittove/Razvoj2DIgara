@@ -13,6 +13,7 @@ namespace GUI
     {
         private ActiveItem activeItem;
         private int maxCharge;
+        [SerializeField] private Sprite sprite;
         [SerializeField] private TMP_Text tmpText;
         [SerializeField] private Image image;
         [SerializeField] private Slider slider;
@@ -47,8 +48,9 @@ namespace GUI
             // Get the active item component
             obj.TryGetComponent(out activeItem);
             
-            // Set the color of the square
+            // Set the color and sprite of the square
             image.color = obj.GetComponent<SpriteRenderer>().color;
+            image.sprite = sprite;
             
             // Set the name of the item
             tmpText.text = activeItem.ItemInformation.itemName;

@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 8586001984628955073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 7322885499304307244, guid: 95f9dbfad4b154563959a17b226689e1, type: 3}
   m_Color: {r: 0.6415094, g: 0.39640442, b: 0.612512, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,7 +127,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.42
 --- !u!114 &5856918720465000223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +141,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItems.QuickCast.QuickCast
   itemInformation: {fileID: 11400000, guid: 8e2e4a7cf69fb4b029fe31e1cdf28a65, type: 2}
+  isBuyable: 0
+  meetsPickUpRequirements: 0
