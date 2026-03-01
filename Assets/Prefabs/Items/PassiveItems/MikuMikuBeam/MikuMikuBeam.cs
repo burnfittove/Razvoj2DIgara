@@ -6,10 +6,10 @@ namespace Prefabs.Items.PassiveItems.MikuMikuBeam
     {
         protected override void OnItemPickedUp()
         {
-            ChangeSpeed(ItemInformation.speedDelta);
-            ChangeShotSpeed(ItemInformation.shotSpeedDelta);
-            ChangeDamageMultiplier(ItemInformation.damageMultiplierDelta);
-            ChangeFireDelayMultiplier(ItemInformation.fireDelayMultiplierDelta);
+            ChangeSpeed(itemInformation.speedDelta);
+            ChangeShotSpeed(itemInformation.shotSpeedDelta);
+            ChangeDamageMultiplier(itemInformation.damageMultiplierDelta);
+            ChangeFireDelayMultiplier(itemInformation.fireDelayMultiplierDelta);
             base.OnItemPickedUp();
         }
     }

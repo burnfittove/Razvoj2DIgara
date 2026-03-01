@@ -7,7 +7,7 @@ namespace Prefabs.Items.PassiveItems.FourLeafClover
     {
         protected override void OnItemPickedUp()
         {
-            GameEventManager.Instance.attributeUpdateEvents.LuckMultiplierChange(ItemInformation.luckMultiplierDelta);
+            GameEventManager.Instance.attributeUpdateEvents.LuckMultiplierChange(itemInformation.luckMultiplierDelta);
             base.OnItemPickedUp();
         }
     }

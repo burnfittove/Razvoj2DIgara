@@ -1,7 +1,9 @@
+using System;
 using Events;
 
 namespace Item.PassiveItem
 {
+    [Serializable]
     public abstract partial class PassiveItem
     {
         // Base attributes

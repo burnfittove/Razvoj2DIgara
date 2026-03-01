@@ -21,8 +21,8 @@ namespace GUI
         private void UpdateItemDescriptionUI(Item.Item item)
         {
             gameObject.SetActive(true);
-            itemName.text = $"{item.ItemInformation.itemName} | {item.ItemInformation.itemQuality}";
-            itemDescription.text = $"{(item.isBuyable ? $"Price: ${item.ItemInformation.price}/{item.ItemInformation.demonPrice} max health\n" : "")}{item.ItemInformation.itemDescription}";
+            itemName.text = $"{item.itemInformation.itemName} | {item.itemInformation.itemQuality}";
+            itemDescription.text = $"{(item.isBuyable ? $"Price: ${item.itemInformation.price}/{item.itemInformation.demonPrice} max health\n" : "")}{item.itemInformation.itemDescription}";
         }
     }
 }

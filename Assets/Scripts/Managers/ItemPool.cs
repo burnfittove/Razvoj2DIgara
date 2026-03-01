@@ -1,5 +1,8 @@
+using System;
+
 namespace Managers
 {
+    //[Serializable] 
     public enum ItemPool
     {
         RegularPool = 0,

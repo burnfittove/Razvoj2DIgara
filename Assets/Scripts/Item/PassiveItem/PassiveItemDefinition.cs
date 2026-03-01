@@ -1,5 +1,3 @@
-using PlayerScripts;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Item.PassiveItem
@@ -19,7 +17,7 @@ namespace Item.PassiveItem
         /// </summary>
         protected override void OnItemPickedUp()
         {
-            if (!ItemInformation.isPersistantPassive) Destroy(gameObject);
+            if (!itemInformation.isPersistantPassive) Destroy(gameObject);
             HideItem();
             transform.SetParent(player.transform);
         }

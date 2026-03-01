@@ -35,3 +35,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 5237743986516950937, guid: f06e0a117ffcb3f0b86266fa1ab0d472, type: 3}

@@ -17,7 +17,7 @@ MonoBehaviour:
   itemDescription: Friend-shaped!\n-Creates a bat familiar that fires projectiles
     for 2 damage
   itemQuality: 2
-  isPersistantPassive: 0
+  isPersistantPassive: 1
   healAcquiredHealth: 0
   price: 2222
   demonPrice: 15
@@ -36,3 +36,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 5237743986516950937, guid: 9d34d5e3c0653ce0e91131afa7b7a1ab, type: 3}

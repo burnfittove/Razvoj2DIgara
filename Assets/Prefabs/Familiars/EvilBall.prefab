@@ -99,12 +99,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7927376917549529404}
-  - component: {fileID: 7472814019846788801}
   - component: {fileID: 240361716670027690}
   - component: {fileID: 7281968373031861537}
   m_Layer: 0
   m_Name: EvilBall
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,20 +124,6 @@ Transform:
   - {fileID: 232096812110702292}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7472814019846788801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237743986516950937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e735a851cf48971a8240c0e2ada144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item.Familiars.FamiliarRotation
-  rotationSpeed: 220
-  rotationPoint: {fileID: 7927376917549529404}
 --- !u!114 &240361716670027690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c3c60f0762e41a999eb03e2572596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EvilBallFamiliar
+  itemInformation: {fileID: 0}
+  isBuyable: 0
+  meetsPickUpRequirements: 0
+  rotationSpeed: 200
+  rotationPoint: {fileID: 7927376917549529404}
   contactDamage: 0.75
 --- !u!58 &7281968373031861537
 CircleCollider2D:

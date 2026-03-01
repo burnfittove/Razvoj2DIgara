@@ -1,14 +1,14 @@
 using Item.PassiveItem;
 
-namespace Items.PassiveItems.GrowthHormones
+namespace Prefabs.Items.PassiveItems.GrowthHormones
 {
     public class GrowthHormones : PassiveItem
     {
         protected override void OnItemPickedUp()
         {
-            ChangeMaxHealth(ItemInformation.maxHealthDelta);
-            ChangeSpeed(ItemInformation.speedDelta);
-            ChangeFireDelay(ItemInformation.fireDelayDelta);
+            ChangeMaxHealth(itemInformation.maxHealthDelta);
+            ChangeSpeed(itemInformation.speedDelta);
+            ChangeFireDelay(itemInformation.fireDelayDelta);
             base.OnItemPickedUp();
         }
     }

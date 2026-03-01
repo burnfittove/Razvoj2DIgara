@@ -1,8 +1,10 @@
+using System;
 using Events;
 using UnityEngine;
 
 namespace Item.ActiveItem
 {
+    [Serializable]
     public abstract class ActiveItem : Item
     {
         public int currentCharge;

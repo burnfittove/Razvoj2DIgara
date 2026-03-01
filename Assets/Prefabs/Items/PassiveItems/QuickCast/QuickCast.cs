@@ -6,7 +6,7 @@ namespace Items.PassiveItems.QuickCast
     {
         protected override void OnItemPickedUp()
         {
-            ChangeFireDelay(ItemInformation.fireDelayDelta);
+            ChangeFireDelay(itemInformation.fireDelayDelta);
             base.OnItemPickedUp();
         }
     }

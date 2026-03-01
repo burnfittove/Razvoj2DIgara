@@ -14,12 +14,12 @@ namespace Item
 
         protected override void SetColliderState()
         {
-            item.meetsPickUpRequirements = item.ItemInformation.price <= playerAttribute.value;
+            item.meetsPickUpRequirements = item.itemInformation.price <= playerAttribute.value;
         }
 
         protected override void BuyItem()
         {
-            GameEventManager.Instance.attributeUpdateEvents.MoneyChange(-item.ItemInformation.price);
+            GameEventManager.Instance.attributeUpdateEvents.MoneyChange(-item.itemInformation.price);
         }
     }
 }

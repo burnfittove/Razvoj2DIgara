@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace Item
 {
+    [Serializable]
     public abstract class Item : MonoBehaviour
     {
-        [SerializeField] protected ItemInformationSo itemInformation;
-        public ItemInformationSo ItemInformation => itemInformation;
+        public ItemInformationSo itemInformation;
         [HideInInspector] public bool isBuyable = false;
         [HideInInspector] public bool meetsPickUpRequirements;
-        private SpriteRenderer spriteRenderer;
-        private Collider2D coll;
+        protected SpriteRenderer spriteRenderer;
+        protected Collider2D coll;
         protected Player player;
 
         protected virtual void Awake()

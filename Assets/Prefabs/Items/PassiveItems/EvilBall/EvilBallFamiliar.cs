@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Prefabs.Items.PassiveItems.EvilBall
 {
-    public class EvilBallFamiliar : MonoBehaviour
+    public class EvilBallFamiliar : Familiar.Familiar
     {
         [SerializeField] private float contactDamage;
         private void OnTriggerStay2D(Collider2D other)

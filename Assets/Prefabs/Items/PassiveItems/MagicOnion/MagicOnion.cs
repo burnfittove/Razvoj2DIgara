@@ -1,13 +1,13 @@
 using Item.PassiveItem;
 
-namespace Items.PassiveItems.MagicOnion
+namespace Prefabs.Items.PassiveItems.MagicOnion
 {
     public class MagicOnion : PassiveItem
     {
         protected override void OnItemPickedUp()
         {
-            ChangeDamageMultiplier(ItemInformation.damageMultiplierDelta);
-            ChangeFireDelayMultiplier(ItemInformation.fireDelayMultiplierDelta);
+            ChangeDamageMultiplier(itemInformation.damageMultiplierDelta);
+            ChangeFireDelayMultiplier(itemInformation.fireDelayMultiplierDelta);
             base.OnItemPickedUp();
         }
     }

@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 1888103791052409927}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 1.4, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7927376917549529404}
@@ -100,10 +100,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7927376917549529404}
   - component: {fileID: 8859038080390771650}
-  - component: {fileID: 7472814019846788801}
   m_Layer: 0
   m_Name: BatFamiliar
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b316d6ad50321c0ba1cf144b52dbc01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prefabs.Items.PassiveItems.Bat.BatFamiliar
+  rotationSpeed: 80
+  rotationPoint: {fileID: 7927376917549529404}
   batPosition: {fileID: 232096812110702292}
   fireDelay: 6
   damage: 2
@@ -145,17 +146,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   sightRange: 8
---- !u!114 &7472814019846788801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237743986516950937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e735a851cf48971a8240c0e2ada144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item.Familiars.FamiliarRotation
-  rotationSpeed: 120
-  rotationPoint: {fileID: 7927376917549529404}

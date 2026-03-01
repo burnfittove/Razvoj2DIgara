@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 namespace Item
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/ItemInformation", fileName = "ItemInformationSO", order = 0)]
+    [Serializable]
     public class ItemInformationSo : ScriptableObject
     {
         [Header("Basic Information")]
@@ -34,5 +36,8 @@ namespace Item
         public float fireDelayMultiplierDelta;
         public float rangeMultiplierDelta;
         public float luckMultiplierDelta;
+        
+        [Header("Familiars")]
+        public GameObject familiarPrefab;
     }
 }

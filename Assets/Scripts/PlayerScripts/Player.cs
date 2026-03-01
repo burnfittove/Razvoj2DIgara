@@ -61,7 +61,7 @@ namespace PlayerScripts
             if (!ctx.started) return;
             if (!ActiveItem) return;
             var temp = ActiveItem.GetComponent<ActiveItem>();
-            if (temp.currentCharge < temp.ItemInformation.maxCharge) return;
+            if (temp.currentCharge < temp.itemInformation.maxCharge) return;
             ActiveItem.GetComponent<ActiveItem>().UseActiveItem();
         }
 

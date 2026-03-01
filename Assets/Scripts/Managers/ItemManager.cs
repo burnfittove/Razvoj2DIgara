@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Events;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -11,9 +12,11 @@ namespace Managers
     /// <summary>
     /// The GameObject arrays are used to add prefabs from the editor. Later, during Awake, the prefabs in these arrays are added to a dictionary in itemId, GameObject pairs.
     /// </summary>
+    [Serializable] 
     public class ItemManager : MonoBehaviour
     {
-        private readonly Dictionary<ItemPool, List<GameObject>> allItems = new();
+        [DoNotSerialize] public static ItemManager Instance { get; private set; }
+        private Dictionary<ItemPool, List<GameObject>> allItems = new();
         [SerializeField] private List<GameObject> regularItemPool = new();
         [SerializeField] private List<GameObject> shopItemPool = new();
         [SerializeField] private List<GameObject> vampireItemPool = new();
@@ -23,6 +26,14 @@ namespace Managers
 
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+         
+            // Initialize item pools
             allItems.Add(ItemPool.RegularPool, regularItemPool);
             allItems.Add(ItemPool.ShopPool, shopItemPool);
             allItems.Add(ItemPool.VampirePool, vampireItemPool);
@@ -43,7 +54,7 @@ namespace Managers
                     // If the object doesn't have an item component, continue
                     if (!item.TryGetComponent<Item.Item>(out var itemComponent)) continue; // This is very inefficient, but fuck it, this method won't get used much anyway
                     // If the random item's ID doesn't equal the given ID, continue
-                    if (itemComponent.ItemInformation.itemId != itemId) continue;
+                    if (itemComponent.itemInformation.itemId != itemId) continue;
                     // GetItemCopy
                     return GetItemCopy(item);
                 }
@@ -102,6 +113,11 @@ namespace Managers
             obj.SetActive(false);
             // Return the copy of the item
             return obj;
+        }
+
+        public List<List<GameObject>> GetUniversalItemPool()
+        {
+            return allItems.Values.ToList();
         }
     }
 }

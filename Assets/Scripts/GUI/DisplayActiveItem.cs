@@ -53,10 +53,10 @@ namespace GUI
             image.sprite = sprite;
             
             // Set the name of the item
-            tmpText.text = activeItem.ItemInformation.itemName;
+            tmpText.text = activeItem.itemInformation.itemName;
             
             // Set the charge bar
-            slider.maxValue = activeItem.ItemInformation.maxCharge;
+            slider.maxValue = activeItem.itemInformation.maxCharge;
             slider.value = activeItem.currentCharge;
         }
         //

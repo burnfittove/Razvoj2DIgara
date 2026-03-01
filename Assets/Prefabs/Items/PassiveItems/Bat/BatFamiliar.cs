@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Prefabs.Items.PassiveItems.Bat
 {
-    public class BatFamiliar : MonoBehaviour
+    public class BatFamiliar : Familiar.Familiar
     {
         // Stats
         [SerializeField] private Transform batPosition;
         [SerializeField] private float fireDelay;
-        private float fireDelayBuffer;
+        [SerializeField] private float fireDelayBuffer;
         [SerializeField] private float damage;
         [SerializeField] private float shotSpeed;
         [SerializeField] private float range;
@@ -27,14 +27,13 @@ namespace Prefabs.Items.PassiveItems.Bat
             fireDelayBuffer = 0;
         }
 
-        private void Update()
+        protected override void Update()
         {
             Shoot();
             
             fireDelayBuffer -= Time.deltaTime * 10;
             
-            // Update position
-            transform.position = player.position;
+            base.Update();
         }
 
         private void Shoot()
