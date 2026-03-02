@@ -33,6 +33,7 @@ namespace Saving
                 souls = PlayerInfo.Instance.Souls,
                 canFly = PlayerInfo.Instance.canFly,
                 itemIds = itemIds,
+                currentRoomCount = RoomManager.Instance.roomCounter
             };
         }
 

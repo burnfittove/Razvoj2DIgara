@@ -2,6 +2,7 @@ using System;
 using Currencies.Money;
 using Events;
 using PlayerScripts;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -10,6 +11,8 @@ namespace Managers
 {
     public class RoomManager : MonoBehaviour
     {
+        [DoNotSerialize] public static RoomManager Instance { get; private set; }
+        // Per room stats
         private int enemiesInTheRoom;
         private const float BasePennyChance = 10;
         private const float BaseNickelChance = 30;
@@ -19,6 +22,7 @@ namespace Managers
         private const float ChanceModifier = 1.2f; // The larger this value, the more the player's luck will change the chance of getting a reward (see GetModifiedChance())
         [SerializeField] private Player player;
         [SerializeField] private Transform spawnPosition;
+        // Global settings
         // Regular rooms
         [Header("Regular Rooms")]
         [SerializeField] private string regularRoomName = "RegularRoom";
@@ -27,19 +31,25 @@ namespace Managers
         [Header("Item Rooms")]
         [SerializeField] private string itemRoomName = "ItemRoom";
         [SerializeField] private int itemRoomAmount = 1;
-        [SerializeField] private int itemRoomFrequency = 5; // Every nth room will be an item room
-        private int roomsUntilItemRoom;
+        [SerializeField] private int itemRoomFrequency = 5; // Every nth room will be an item room, shops take precedent
         // Shop
         [Header("Shops")]
         [SerializeField] private string shopName = "Shop";
         [SerializeField] private int shopAmount = 1;
         [SerializeField] private int shopFrequency = 15; // Every nth room will be an item room
-        private int roomsUntilShop;
+        public int roomCounter;
         // Rewards
         private GameObject reward;
         
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+            
             // Get component references
             if (!player) GameObject.FindGameObjectWithTag("Player").TryGetComponent(out player);
             
@@ -56,10 +66,6 @@ namespace Managers
             GameEventManager.Instance.roomEvents.OnEnemyDeath += DecreaseOnEnemyCount;
             GameEventManager.Instance.roomEvents.OnRoomCleared += ShowReward;
             GameEventManager.Instance.roomEvents.OnChangeRoom += ChangeRoom;
-            
-            // Set variables
-            roomsUntilItemRoom = itemRoomFrequency;
-            roomsUntilShop = shopFrequency;
         }
 
         private void Start()
@@ -133,30 +139,35 @@ namespace Managers
 
         private void ChangeRoom()
         {
-            // Chance the scene to a shop
-            if (roomsUntilShop <= 0)
+            if (roomCounter == 0)
             {
-                roomsUntilShop = shopFrequency;
-                roomsUntilItemRoom = itemRoomFrequency; // Since shops override item rooms, it needs to reset this value
-                var itemRoomSuffix = Random.Range(0, shopAmount);
-                SceneManager.LoadSceneAsync($"{shopName}{itemRoomSuffix}");
+                LoadRoomType(regularRoomName, regularRoomAmount);
+                return;
+            }
+            
+            // Chance the scene to a shop
+            if (roomCounter % shopFrequency == 0)
+            {
+                LoadRoomType(shopName, shopAmount);
                 return;
             }
             
             // Change the scene to an ItemRoom
-            if (roomsUntilItemRoom <= 0)
+            if (roomCounter % itemRoomFrequency == 0)
             {
-                roomsUntilItemRoom = itemRoomFrequency;
-                var itemRoomSuffix = Random.Range(0, itemRoomAmount);
-                SceneManager.LoadSceneAsync($"{itemRoomName}{itemRoomSuffix}");
+                LoadRoomType(itemRoomName, itemRoomAmount);
                 return;
             }
             
             // Change the scene to a RegularRoom
-            var regRoomSuffix = Random.Range(0, regularRoomAmount);
-            SceneManager.LoadSceneAsync($"{regularRoomName}{regRoomSuffix}");
-            roomsUntilItemRoom--;
-            roomsUntilShop--;
+            LoadRoomType(regularRoomName, regularRoomAmount);
+        }
+
+        private void LoadRoomType(string roomType, int roomAmount)
+        {
+            roomCounter++;
+            var roomSuffix = Random.Range(0, roomAmount);
+            SceneManager.LoadSceneAsync($"{roomType}{roomSuffix}");
         }
 
         private void ShowReward()

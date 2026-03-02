@@ -24,5 +24,6 @@ namespace Saving
         public bool canFly;
         // Possessed items
         public List<int> itemIds;
+        public int currentRoomCount;
     }
 }
