@@ -1,4 +1,5 @@
 using Item.PassiveItem;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,16 +9,9 @@ namespace Prefabs.Items.PassiveItems.Wings
     {
         protected override void OnItemPickedUp()
         {
-            SceneManager.sceneLoaded += (_, _) => ExcludePlayerFromHoleColliders();
+            PlayerInfo.Instance.canFly = true;
             ChangeSpeed(itemInformation.speedDelta);
             base.OnItemPickedUp();
-        }
-
-        private void ExcludePlayerFromHoleColliders()
-        {
-            var obj = GameObject.FindGameObjectWithTag("Hole");
-            if (!obj) return;
-            obj.GetComponent<Collider2D>().enabled = false;
         }
     }
 }

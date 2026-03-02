@@ -10,5 +10,11 @@ namespace Events
         {
             OnStartGame?.Invoke();
         }
+        
+        public event Action OnLoadGame;
+        public void LoadGame()
+        {
+            OnLoadGame?.Invoke();
+        }
     }
 }

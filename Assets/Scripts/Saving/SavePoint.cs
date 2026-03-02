@@ -10,7 +10,6 @@ namespace Saving
         private void Awake()
         {
             saveDataManager = new SaveDataManager();
-            saveDataManager.LoadGame();
         }
 
         private void OnTriggerEnter2D(Collider2D other)

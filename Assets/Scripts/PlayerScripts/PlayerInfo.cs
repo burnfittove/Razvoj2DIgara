@@ -1,5 +1,6 @@
 using System;
 using Events;
+using Saving;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,7 @@ namespace PlayerScripts
     /// PlayerInfo holds data regarding the player and modifies it when certain events are invoked.
     /// </summary>
     [Serializable]
-    public class PlayerInfo : MonoBehaviour//, ICloneable
+    public class PlayerInfo : MonoBehaviour, ILoadable
     {
         // Singleton
         public static PlayerInfo Instance { get; private set; }
@@ -40,6 +41,8 @@ namespace PlayerScripts
         private float minValue;
         private float minMultiplier;
         private float maxMultiplier;
+        [Header("Active item")]
+        public GameObject ActiveItem { get; set; }
         
         
         private void Awake()
@@ -200,11 +203,75 @@ namespace PlayerScripts
         {
             Souls.UpdateValue(value);
         }
-        
-        // // Copy
-        // public object Clone()
-        // {
-        //     
-        // }
+
+        public void LoadData(GameData gameData)
+        {
+            // Max health
+            MaxHealth.SetValue(gameData.maxHealth.trueValue);
+            MaxHealth.SetMultiplier(gameData.maxHealth.multiplier);
+            
+            // Health
+            Health.SetValue(gameData.health.trueValue);
+            Health.SetMultiplier(gameData.health.multiplier);
+            
+            // Speed
+            Speed.SetValue(gameData.speed.trueValue);
+            Speed.SetMultiplier(gameData.speed.multiplier);
+            
+            // Damage
+            Damage.SetValue(gameData.damage.trueValue);
+            Damage.SetMultiplier(gameData.damage.multiplier);
+            
+            // Fire delay
+            FireDelay.SetValue(gameData.fireDelay.trueValue);
+            FireDelay.SetMultiplier(gameData.fireDelay.multiplier);
+            
+            // Range
+            Range.SetValue(gameData.range.trueValue);
+            Range.SetMultiplier(gameData.range.multiplier);
+            
+            // Shot speed
+            ShotSpeed.SetValue(gameData.shotSpeed.trueValue);
+            ShotSpeed.SetMultiplier(gameData.shotSpeed.multiplier);
+            
+            // Luck
+            Luck.SetValue(gameData.luck.trueValue);
+            Luck.SetMultiplier(gameData.luck.multiplier);
+            
+            // Knockback
+            KnockbackStrength.SetValue(gameData.knockbackStrength.trueValue);
+            KnockbackStrength.SetMultiplier(gameData.knockbackStrength.multiplier);
+            
+            // Contact dmg
+            ContactDamage.SetValue(gameData.contactDamage.trueValue);
+            ContactDamage.SetMultiplier(gameData.contactDamage.multiplier);
+            
+            // Invincibility
+            InvincibilityDuration.SetValue(gameData.invincibilityDuration.trueValue);
+            InvincibilityDuration.SetMultiplier(gameData.invincibilityDuration.trueValue);
+            
+            // Money
+            Money.SetValue(gameData.money.trueValue);
+            
+            // Souls
+            Souls.SetValue(gameData.souls.trueValue);
+            
+            // GameEventManager.Instance.attributeUpdateEvents.MaxHealthChange(gameData.maxHealth.value);
+            // GameEventManager.Instance.attributeUpdateEvents.HealthChange(gameData.health.value);
+            // GameEventManager.Instance.attributeUpdateEvents.SpeedChange(gameData.speed.value);
+            // GameEventManager.Instance.attributeUpdateEvents.DamageChange(gameData.damage.value);
+            // GameEventManager.Instance.attributeUpdateEvents.FireDelayChange(gameData.fireDelay.value);
+            // GameEventManager.Instance.attributeUpdateEvents.RangeChange(gameData.range.value);
+            // GameEventManager.Instance.attributeUpdateEvents.ShotSpeedChange(gameData.shotSpeed.value);
+            // GameEventManager.Instance.attributeUpdateEvents.LuckChange(gameData.luck.value);
+            // GameEventManager.Instance.attributeUpdateEvents.KnockbackChange(gameData.knockbackStrength.value);
+            // GameEventManager.Instance.attributeUpdateEvents.ContactDamageChange(gameData.contactDamage.value);
+            // InvincibilityDuration.UpdateValue(gameData.invincibilityDuration.value);
+            // GameEventManager.Instance.attributeUpdateEvents.MoneyChange((int)gameData.money.value);
+            // GameEventManager.Instance.attributeUpdateEvents.SoulChange((int)gameData.souls.value);
+            
+            // Can fly
+            canFly = gameData.canFly;
+        }
     }
 }

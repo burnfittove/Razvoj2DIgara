@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Managers;
 using PlayerScripts;
@@ -11,14 +12,14 @@ namespace Saving
     {
         private readonly SaveDataMapper mapper = new();
         private GameData gameData;
-        private readonly Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        private readonly Player player = GameObject.FindWithTag("Player")?.GetComponent<Player>();
 
         private GameData GetAllData()
         {
             var itemIds = (from Transform child in player.transform where child.CompareTag("Item") select child.GetComponent<Item.Item>().itemInformation.itemId).ToList();
             return new GameData
             {
-                maxHealth =  PlayerInfo.Instance.MaxHealth,
+                maxHealth = PlayerInfo.Instance.MaxHealth,
                 health = PlayerInfo.Instance.Health,
                 speed = PlayerInfo.Instance.Speed,
                 damage = PlayerInfo.Instance.Damage,
@@ -43,9 +44,16 @@ namespace Saving
             mapper.SaveGame(gameData);
         }
 
-        public void LoadGame()
+        public GameData LoadGame()
         {
-            
+            var data = mapper.LoadGame();
+            if (data == null) Debug.LogWarning("Error when loading data, mapper returned null");
+            return data;
+        }
+
+        public bool SaveFileExists()
+        {
+            return File.Exists(mapper.GetSaveFilePath());
         }
     }
 }

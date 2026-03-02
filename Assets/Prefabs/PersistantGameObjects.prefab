@@ -1032,7 +1032,7 @@ MonoBehaviour:
   shopName: Shop
   shopAmount: 1
   shopFrequency: 15
-  roomCounter: 0
+  roomCounter: 1
 --- !u!1 &2620769787527881036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,6 +2131,7 @@ MonoBehaviour:
   - {fileID: 8811422137312529846, guid: 4de945d0f749d1a30b43f4d8773b4a78, type: 3}
   - {fileID: 8811422137312529846, guid: ad524202da3bbe490ab6e1722e4138ac, type: 3}
   - {fileID: 8811422137312529846, guid: 04b775c84461d49579da0d66a2c9ce70, type: 3}
+  - {fileID: 8811422137312529846, guid: 76b32b405673a8f1fbd03252eb97b63b, type: 3}
   shopItemPool:
   - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
   - {fileID: 2241675788358728339, guid: f6b3856fa183f579e8b062b6996ab235, type: 3}
@@ -2155,12 +2156,14 @@ MonoBehaviour:
   - {fileID: 8811422137312529846, guid: 4de945d0f749d1a30b43f4d8773b4a78, type: 3}
   - {fileID: 8811422137312529846, guid: cbc636789d9f2c856b7d2d2e15a8ebd4, type: 3}
   - {fileID: 8811422137312529846, guid: 51364e1202fca4244a28f014bd56eab6, type: 3}
+  - {fileID: 8811422137312529846, guid: ede1b6dc6a25a707ab2aa6d75a93779a, type: 3}
   rewardItemPool:
   - {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
   - {fileID: 8811422137312529846, guid: f7f1cc12df12c87e5b72f6427f4d922f, type: 3}
   - {fileID: 1868455218739193624, guid: 0e1cc15b383a6f9dcaebc0dbf9a672ad, type: 3}
   - {fileID: 8811422137312529846, guid: f223b84fd14f21a3e950afc5ddfeae40, type: 3}
   - {fileID: 8811422137312529846, guid: 9ed51ba1df8d6a2ae99a8529fc7bb2cb, type: 3}
+  - {fileID: 8811422137312529846, guid: 76b32b405673a8f1fbd03252eb97b63b, type: 3}
   fallbackItem: {fileID: 112474819504677130, guid: 84b569bc28e60789cb72729b13554799, type: 3}
   penny: {fileID: 929468707551178397, guid: ff73e77bc03e440ce8151c2104a12cfd, type: 3}
 --- !u!1 &4748106086448763060

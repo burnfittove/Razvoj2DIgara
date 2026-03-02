@@ -3877,14 +3877,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistantGameObjects
       objectReference: {fileID: 0}
-    - target: {fileID: 8403679621039827370, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
-      propertyPath: roomCounter
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8403679621039827370, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
-      propertyPath: shopFrequency
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8788887783419825345, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

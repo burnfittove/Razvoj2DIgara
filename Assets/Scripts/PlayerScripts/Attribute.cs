@@ -8,7 +8,7 @@ namespace PlayerScripts
     {
         public float value;
         public float multiplier;
-        [SerializeField] private float trueValue;
+        public float trueValue;
         [SerializeField] private float minMultiplier;
         [SerializeField] private float maxMultiplier;
         [SerializeField] private float minValue;
@@ -65,6 +65,28 @@ namespace PlayerScripts
         public void ChangeConstantMaxValue(float newConstantMaxValue)
         {
             maxValue = newConstantMaxValue;
+        }
+        
+        public void SetMultiplier(float newMultiplier)
+        {
+            // Update the multiplier
+            multiplier = newMultiplier;
+            // Set the multiplier to the minMultiplier value
+            if (multiplier <= minMultiplier) multiplier = minMultiplier;
+            // Set the multiplier to the maxMultiplier value
+            if (multiplier >= maxMultiplier) multiplier = maxMultiplier;
+            // Apply the multiplier
+            value = trueValue * multiplier;
+        }
+        
+        public void SetValue(float newValue)
+        {
+            // Update the true attribute
+            trueValue = newValue;
+            if (trueValue < minValue) trueValue = minValue;
+            if (trueValue > maxValue) trueValue = maxValue;
+            // Recalculate the usable attribute
+            value = trueValue * multiplier;
         }
     }
 }

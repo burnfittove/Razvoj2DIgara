@@ -2,6 +2,7 @@ using System;
 using Currencies.Money;
 using Events;
 using PlayerScripts;
+using Saving;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +10,7 @@ using Random = UnityEngine.Random;
 
 namespace Managers
 {
-    public class RoomManager : MonoBehaviour
+    public class RoomManager : MonoBehaviour, ILoadable
     {
         [DoNotSerialize] public static RoomManager Instance { get; private set; }
         // Per room stats
@@ -62,6 +63,9 @@ namespace Managers
                 
                 // Get all the enemies in the room
                 GetAllEnemiesInRoom();
+                
+                // Disable Hole colliders if the player can fly
+                ExcludePlayerFromHoleColliders();
             };
             GameEventManager.Instance.roomEvents.OnEnemyDeath += DecreaseOnEnemyCount;
             GameEventManager.Instance.roomEvents.OnRoomCleared += ShowReward;
@@ -178,6 +182,20 @@ namespace Managers
             // Otherwise, reveal the reward
             reward.transform.position = spawnPosition.position;
             reward.SetActive(true);
+        }
+
+        public void LoadData(GameData gameData)
+        {
+            roomCounter = gameData.currentRoomCount;
+        }
+        
+        
+        private void ExcludePlayerFromHoleColliders()
+        {
+            if (!PlayerInfo.Instance.canFly) return;
+            var obj = GameObject.FindGameObjectWithTag("Hole");
+            if (!obj) return;
+            obj.GetComponent<Collider2D>().enabled = false;
         }
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Wings
   itemDescription: Membranous\n-Gain flight\n-Speed +0.2
   itemQuality: 2
-  isPersistantPassive: 1
+  isPersistantPassive: 0
   healAcquiredHealth: 0
   price: 2555
   demonPrice: 18
@@ -35,3 +35,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 0}

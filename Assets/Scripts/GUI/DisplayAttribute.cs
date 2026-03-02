@@ -1,3 +1,4 @@
+using System;
 using PlayerScripts;
 using TMPro;
 using UnityEngine;
@@ -34,7 +35,12 @@ namespace GUI
             
             tmpText.text = $"{attributeName}: {displayPrimaryValue:0.00}/x{displaySecondaryValue:0.00}";
         }
-        
+
+        private void Update()
+        {
+            DisplayValues();
+        }
+
         protected abstract void SubscribeToAttributeEvent();
         protected abstract void UpdateValues();
     }

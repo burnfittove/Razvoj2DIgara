@@ -26,5 +26,10 @@ namespace Saving
             // Return a newly created GameData object
             return JsonUtility.FromJson<GameData>(json);
         }
+
+        public string GetSaveFilePath()
+        {
+            return savePath;
+        }
     }
 }
