@@ -22,7 +22,7 @@ namespace GUI
         {
             gameObject.SetActive(true);
             itemName.text = $"{item.itemInformation.itemName} | {item.itemInformation.itemQuality}";
-            itemDescription.text = $"{(item.isBuyable ? $"Price: ${item.itemInformation.price}/{item.itemInformation.demonPrice} max health\n" : "")}{item.itemInformation.itemDescription}";
+            itemDescription.text = $"{(item.isBuyable ? $"Price: ${item.itemInformation.price}/{item.itemInformation.vampirePrice} max health\n" : "")}{item.itemInformation.itemDescription}";
         }
     }
 }

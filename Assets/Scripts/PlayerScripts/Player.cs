@@ -16,8 +16,6 @@ namespace PlayerScripts
         public float FireDelayBuffer { get; set; }
         public bool IsFiring { get; set; }
         public Vector2 FireDirection { get; set; }
-        [Header("Active Item")] 
-        public GameObject ActiveItem { get; set; }
 
         [Header("Components")]
         [HideInInspector] public Rigidbody2D rb;
@@ -36,7 +34,7 @@ namespace PlayerScripts
             GameEventManager.Instance.itemEvents.OnActiveItemAcquired += ChangeActiveItem;
             GameEventManager.Instance.inputEvents.OnActiveItemUsed += UseActiveItem;
         }
-        
+
         // #################
         // ##### Items #####
         // #################
@@ -53,16 +51,17 @@ namespace PlayerScripts
             // GameEventManager.Instance.itemEvents.CreateItemById(ActiveItem, (Vector2)transform.position + Vector2.one * Random.Range(1, 1.4f));
             // ActiveItem = newActiveItem;
             // Overrides the active item and removes the old one
-            ActiveItem = newActiveItem;
+            // ActiveItem = newActiveItem;
+            PlayerInfo.Instance.SetActiveItem(newActiveItem);
         }
         
         private void UseActiveItem(InputAction.CallbackContext ctx)
         {
             if (!ctx.started) return;
-            if (!ActiveItem) return;
-            var temp = ActiveItem.GetComponent<ActiveItem>();
+            if (!PlayerInfo.Instance.ActiveItem) return;
+            var temp = PlayerInfo.Instance.ActiveItem.GetComponent<ActiveItem>();
             if (temp.currentCharge < temp.itemInformation.maxCharge) return;
-            ActiveItem.GetComponent<ActiveItem>().UseActiveItem();
+            temp.UseActiveItem();
         }
 
         public void DecreaseInvincibilityDuration()

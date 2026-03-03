@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Item
 {
@@ -15,7 +16,7 @@ namespace Item
         public bool isPersistantPassive;
         public bool healAcquiredHealth;
         public int price;
-        public int demonPrice;
+        [FormerlySerializedAs("demonPrice")] public int vampirePrice;
         public int maxCharge;
         
         [Header("Attribute Changes")]

@@ -16,7 +16,7 @@ namespace GUI.Attributes
             displayPrimaryValue = PlayerInfo.Instance.Souls.value;
         }
 
-        protected override void DisplayValues()
+        public override void DisplayValues()
         {
             UpdateValues();
             

@@ -1,7 +1,9 @@
 using System;
 using Events;
+using Item.ActiveItem;
 using Saving;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 namespace PlayerScripts
@@ -126,8 +128,6 @@ namespace PlayerScripts
             Souls = new Attribute(0, 1, minMultiplier, maxMultiplier, 0, float.MaxValue);
         }
 
-        
-        
         // Attribute updates
         private void UpdateOnMaxHealth(float value)
         {
@@ -204,74 +204,57 @@ namespace PlayerScripts
             Souls.UpdateValue(value);
         }
 
+        public void SetActiveItem(GameObject newActiveItem)
+        {
+            ActiveItem = newActiveItem;
+        }
+
         public void LoadData(GameData gameData)
         {
             // Max health
-            MaxHealth.SetValue(gameData.maxHealth.trueValue);
-            MaxHealth.SetMultiplier(gameData.maxHealth.multiplier);
+            MaxHealth = gameData.maxHealth;
             
             // Health
-            Health.SetValue(gameData.health.trueValue);
-            Health.SetMultiplier(gameData.health.multiplier);
+            Health = gameData.health;
             
             // Speed
-            Speed.SetValue(gameData.speed.trueValue);
-            Speed.SetMultiplier(gameData.speed.multiplier);
+            Speed = gameData.speed;
             
             // Damage
-            Damage.SetValue(gameData.damage.trueValue);
-            Damage.SetMultiplier(gameData.damage.multiplier);
+            Damage = gameData.damage;
             
             // Fire delay
-            FireDelay.SetValue(gameData.fireDelay.trueValue);
-            FireDelay.SetMultiplier(gameData.fireDelay.multiplier);
+            FireDelay = gameData.fireDelay;
             
             // Range
-            Range.SetValue(gameData.range.trueValue);
-            Range.SetMultiplier(gameData.range.multiplier);
+            Range = gameData.range;
             
             // Shot speed
-            ShotSpeed.SetValue(gameData.shotSpeed.trueValue);
-            ShotSpeed.SetMultiplier(gameData.shotSpeed.multiplier);
+            ShotSpeed = gameData.shotSpeed;
             
             // Luck
-            Luck.SetValue(gameData.luck.trueValue);
-            Luck.SetMultiplier(gameData.luck.multiplier);
+            Luck = gameData.luck;
             
             // Knockback
-            KnockbackStrength.SetValue(gameData.knockbackStrength.trueValue);
-            KnockbackStrength.SetMultiplier(gameData.knockbackStrength.multiplier);
+            KnockbackStrength = gameData.knockbackStrength;
             
             // Contact dmg
-            ContactDamage.SetValue(gameData.contactDamage.trueValue);
-            ContactDamage.SetMultiplier(gameData.contactDamage.multiplier);
+            ContactDamage = gameData.contactDamage;
             
             // Invincibility
-            InvincibilityDuration.SetValue(gameData.invincibilityDuration.trueValue);
-            InvincibilityDuration.SetMultiplier(gameData.invincibilityDuration.trueValue);
+            InvincibilityDuration = gameData.invincibilityDuration;
             
             // Money
-            Money.SetValue(gameData.money.trueValue);
+            Money = gameData.money;
             
             // Souls
-            Souls.SetValue(gameData.souls.trueValue);
-            
-            // GameEventManager.Instance.attributeUpdateEvents.MaxHealthChange(gameData.maxHealth.value);
-            // GameEventManager.Instance.attributeUpdateEvents.HealthChange(gameData.health.value);
-            // GameEventManager.Instance.attributeUpdateEvents.SpeedChange(gameData.speed.value);
-            // GameEventManager.Instance.attributeUpdateEvents.DamageChange(gameData.damage.value);
-            // GameEventManager.Instance.attributeUpdateEvents.FireDelayChange(gameData.fireDelay.value);
-            // GameEventManager.Instance.attributeUpdateEvents.RangeChange(gameData.range.value);
-            // GameEventManager.Instance.attributeUpdateEvents.ShotSpeedChange(gameData.shotSpeed.value);
-            // GameEventManager.Instance.attributeUpdateEvents.LuckChange(gameData.luck.value);
-            // GameEventManager.Instance.attributeUpdateEvents.KnockbackChange(gameData.knockbackStrength.value);
-            // GameEventManager.Instance.attributeUpdateEvents.ContactDamageChange(gameData.contactDamage.value);
-            // InvincibilityDuration.UpdateValue(gameData.invincibilityDuration.value);
-            // GameEventManager.Instance.attributeUpdateEvents.MoneyChange((int)gameData.money.value);
-            // GameEventManager.Instance.attributeUpdateEvents.SoulChange((int)gameData.souls.value);
+            Souls = gameData.souls;
             
             // Can fly
             canFly = gameData.canFly;
+            
+            // Active item charge - this doesn't work because the player only collects the items after DataLoader's Start is finished; in OnTriggerEnter2D (i think)
+            if (ActiveItem) ActiveItem.GetComponent<ActiveItem>().currentCharge = gameData.activeItemCharge;
         }
     }
 }

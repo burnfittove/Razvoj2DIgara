@@ -24,7 +24,7 @@ namespace Item
             GameObject.FindWithTag("Player").TryGetComponent(out player);
             
             if (itemInformation.price == 0) itemInformation.price = itemInformation.itemQuality * 1000;
-            if (itemInformation.demonPrice == 0) itemInformation.demonPrice = itemInformation.itemQuality * 10;
+            if (itemInformation.vampirePrice == 0) itemInformation.vampirePrice = itemInformation.itemQuality * 10;
             meetsPickUpRequirements = true;
         }
 

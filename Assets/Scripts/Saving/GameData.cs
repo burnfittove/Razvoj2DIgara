@@ -27,4 +27,6 @@ namespace Saving
         public int currentRoomCount;
         public int activeItemCharge;
     }
-}
+} //mjau :3
+//not coolb jabuko
+// - katia

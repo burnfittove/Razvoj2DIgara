@@ -28,7 +28,7 @@ namespace GUI.Attributes
             slider = GetComponentInChildren<Slider>();
         }
 
-        protected override void DisplayValues()
+        public override void DisplayValues()
         {
             UpdateValues();
             

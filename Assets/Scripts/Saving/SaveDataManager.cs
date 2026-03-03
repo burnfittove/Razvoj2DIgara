@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Item.ActiveItem;
 using Managers;
 using PlayerScripts;
 using UnityEngine;
@@ -34,7 +35,8 @@ namespace Saving
                 souls = PlayerInfo.Instance.Souls,
                 canFly = PlayerInfo.Instance.canFly,
                 itemIds = itemIds,
-                currentRoomCount = RoomManager.Instance.roomCounter
+                currentRoomCount = RoomManager.Instance.roomCounter,
+                activeItemCharge = PlayerInfo.Instance.ActiveItem.GetComponent<ActiveItem>().currentCharge
             };
         }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Events;
+using GUI;
 using Managers;
 using PlayerScripts;
 using Saving;
@@ -28,6 +29,12 @@ public class DataLoader : MonoBehaviour
         RoomManager.Instance.LoadData(data);
         // Load player attributes
         PlayerInfo.Instance.LoadData(data);
+        // Update the UI
+        var guiElements = GameObject.FindGameObjectWithTag("UI").GetComponentsInChildren<DisplayAttribute>();
+        foreach (var guiElement in guiElements)
+        {
+            guiElement.DisplayValues();
+        }
     }
 
     private void LoadItems(List<int> itemIds)

@@ -10,6 +10,7 @@ namespace Item.PassiveItem
         protected void ChangeMaxHealth(float newMaxHealth)
         {
             GameEventManager.Instance.attributeUpdateEvents.MaxHealthChange(newMaxHealth);
+            if (itemInformation.healAcquiredHealth) ChangeHealth(newMaxHealth);
         }
         protected void ChangeHealth(float newHealth)
         {
