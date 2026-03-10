@@ -11,8 +11,9 @@ namespace Enemies.States.Defaults
             // enemy.navMeshAgent.isStopped = true;
             enemy.navMeshAgent.enabled = false;
             
-            // Dim the enemy's color
+            // Dim the enemy's color and rotate the sprite
             enemy.sr.color = new Color(0.5f, 0.5f, 0.5f, 0.6f);
+            enemy.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
             
             // Disable collider
             enemy.cc.enabled = false;
@@ -25,6 +26,7 @@ namespace Enemies.States.Defaults
             
             // Create money
             enemy.CreateMoney();
+            
         }
     }
 }
