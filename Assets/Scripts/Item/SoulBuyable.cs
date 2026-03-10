@@ -4,23 +4,22 @@ using UnityEngine;
 
 namespace Item
 {
-    public class HealthBuyable : BuyableItem
+    public class SoulBuyable : BuyableItem
     {
         protected override void Awake()
         {
-            Initialize(PlayerInfo.Instance.MaxHealth);
+            Initialize(PlayerInfo.Instance.Souls);
             base.Awake();
         }
 
         protected override void SetColliderState()
         { 
             item.meetsPickUpRequirements = item.itemInformation.vampirePrice <= playerAttribute.value;
-            Debug.Log(item.meetsPickUpRequirements);
         }
 
         protected override void BuyItem()
         {
-            GameEventManager.Instance.attributeUpdateEvents.MaxHealthChange(-item.itemInformation.vampirePrice);
+            GameEventManager.Instance.attributeUpdateEvents.SoulChange(-item.itemInformation.vampirePrice);
         }
     }
 }

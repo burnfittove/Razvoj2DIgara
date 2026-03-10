@@ -3877,6 +3877,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistantGameObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 8403679621039827370, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
+      propertyPath: shopFrequency
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8788887783419825345, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13045,11 +13049,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5087048114296482086, guid: c834a4364e87d0a5c9fc997971c82be5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.028090358
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5087048114296482086, guid: c834a4364e87d0a5c9fc997971c82be5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.394139
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 5087048114296482086, guid: c834a4364e87d0a5c9fc997971c82be5, type: 3}
       propertyPath: m_LocalPosition.z

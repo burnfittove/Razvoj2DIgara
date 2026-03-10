@@ -29,7 +29,7 @@ namespace Item
                         item.AddComponent<MoneyBuyable>();
                         break;
                     case ItemPool.VampirePool:
-                        item.AddComponent<HealthBuyable>();
+                        item.AddComponent<SoulBuyable>();
                         break;
                     case ItemPool.RegularPool:
                     default:
