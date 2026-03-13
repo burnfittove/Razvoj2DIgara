@@ -18,6 +18,7 @@ namespace Saving
         private GameData GetAllData()
         {
             var itemIds = (from Transform child in player.transform where child.CompareTag("Item") select child.GetComponent<Item.Item>().itemInformation.itemId).ToList();
+            
             return new GameData
             {
                 maxHealth = PlayerInfo.Instance.MaxHealth,
@@ -36,7 +37,7 @@ namespace Saving
                 canFly = PlayerInfo.Instance.canFly,
                 itemIds = itemIds,
                 currentRoomCount = RoomManager.Instance.roomCounter,
-                activeItemCharge = PlayerInfo.Instance.ActiveItem.GetComponent<ActiveItem>().currentCharge
+                activeItemCharge = PlayerInfo.Instance.ActiveItem is null ? 0 : PlayerInfo.Instance.ActiveItem.GetComponent<ActiveItem>().currentCharge
             };
         }
 
