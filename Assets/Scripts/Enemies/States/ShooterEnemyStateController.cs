@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Enemies.States
 {
+    [RequireComponent(typeof(Enemy))]
     public class ShooterEnemyStateController : EnemyStateController
     {
         // Implement states

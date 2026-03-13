@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -6710647834760527876}
   - component: {fileID: 6442074448652340447}
   - component: {fileID: 5037635490421742133}
+  - component: {fileID: 4292199223974191010}
   m_Layer: 9
   m_Name: Roamer
   m_TagString: Enemy
@@ -141,6 +142,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   navMeshAgent: {fileID: 0}
   player: {fileID: 0}
+  animator: {fileID: 0}
   nickelChance: 40
   dimeChance: 50
   quarterChance: 120
@@ -156,6 +158,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9f488e32744b819082ba0a43c19011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemies.States.EnemyStateController
+--- !u!95 &4292199223974191010
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910693078310252538}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26e89c470408509e080ecd2105862958, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4961607516202796565
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +258,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -536279801362614207, guid: 90530c28a64a89c10870ab00b747cf73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

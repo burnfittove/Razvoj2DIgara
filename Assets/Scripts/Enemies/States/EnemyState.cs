@@ -35,5 +35,10 @@ namespace Enemies.States
         }
         // Override in new states
         protected virtual void OnUpdate() { }
+
+        protected void RotateSprite()
+        {
+            enemy.sr.transform.rotation = Quaternion.Euler(0, enemy.sr.transform.position.x > enemy.player.transform.position.x ? 180 : 0, 0);
+        }
     }
 }

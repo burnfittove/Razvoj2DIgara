@@ -1,4 +1,6 @@
 using Events;
+using Unity.Properties;
+using UnityEditor.UI;
 using UnityEngine;
 
 namespace Enemies.States.Defaults
@@ -11,9 +13,12 @@ namespace Enemies.States.Defaults
             // enemy.navMeshAgent.isStopped = true;
             enemy.navMeshAgent.enabled = false;
             
+            // Disable the animator
+            enemy.animator.enabled = false;
+            
             // Dim the enemy's color and rotate the sprite
-            enemy.sr.color = new Color(0.5f, 0.5f, 0.5f, 0.6f);
-            enemy.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+            enemy.sr.color = new Color(0.4f, 0.4f, 0.4f, 0.7f);
+            enemy.sr.transform.rotation = Quaternion.Euler(0, enemy.sr.transform.rotation.y, 90);
             
             // Disable collider
             enemy.cc.enabled = false;
@@ -26,7 +31,6 @@ namespace Enemies.States.Defaults
             
             // Create money
             enemy.CreateMoney();
-            
         }
     }
 }

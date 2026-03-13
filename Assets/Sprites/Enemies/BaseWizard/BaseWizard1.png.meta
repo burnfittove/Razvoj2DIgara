@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 59fa4c518abf7463db2de5ba8199e487
+guid: 7188dc1358d019e4dbe26b10c3691ac7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2407559569962286430
-    second: TallWizard1_0
+      213: -2761878079675803145
+    second: BaseWizard1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TallWizard1_0
+      name: BaseWizard1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 63
-      alignment: 9
-      pivot: {x: 0.5, y: 0.508}
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a24ec0b351a69ed0800000000000000
-      internalID: -2407559569962286430
+      spriteID: 7f95cf30586dba9d0800000000000000
+      internalID: -2761878079675803145
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9251357123a46152787357070a42edc1
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TallWizard1_0: -2407559569962286430
+      BaseWizard1_0: -2761878079675803145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

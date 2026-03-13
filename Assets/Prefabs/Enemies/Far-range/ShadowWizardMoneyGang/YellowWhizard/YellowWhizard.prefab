@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6710647834760527876}
   - component: {fileID: 5909373189126719518}
   - component: {fileID: -7537338542321635718}
-  - component: {fileID: 3167053213204569507}
+  - component: {fileID: 8851095562166618988}
   m_Layer: 9
   m_Name: YellowWhizard
   m_TagString: Enemy
@@ -142,6 +142,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   navMeshAgent: {fileID: 0}
   player: {fileID: 0}
+  animator: {fileID: 0}
   nickelChance: 30
   dimeChance: 70
   quarterChance: 150
@@ -157,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee900c1ce15440f85eeb0e7d8b83243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemies.States.ShooterEnemyStateController
---- !u!95 &3167053213204569507
+--- !u!95 &8851095562166618988
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -257,7 +258,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7355336432102226013, guid: 0c0a1d628b5bf714794ec4b9d22dd7c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

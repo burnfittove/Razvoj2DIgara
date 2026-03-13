@@ -31,6 +31,7 @@ namespace Enemies
         [HideInInspector] public SpriteRenderer sr;
         [HideInInspector] public NavMeshAgent navMeshAgent;
         [HideInInspector] public Transform player;
+        [HideInInspector] public Animator animator;
         // Bool that determines whether the enemy will spawn a soul when they die
         private GameObject soulPrefab;
         // Bool that determines whether the enemy will spawn money when they die and how many instances
@@ -47,6 +48,7 @@ namespace Enemies
             navMeshAgent = GetComponent<NavMeshAgent>();
             player = GameObject.FindWithTag("Player")?.transform;
             if (!player) gameObject.SetActive(false);
+            animator = GetComponent<Animator>();
             
             // # Attributes
             // ## Health
