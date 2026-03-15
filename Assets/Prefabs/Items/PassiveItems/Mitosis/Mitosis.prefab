@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6149319303593290276}
   - component: {fileID: 7750772498947793976}
   - component: {fileID: 4657721584538753579}
+  - component: {fileID: -797629842239788551}
   m_Layer: 0
   m_Name: Mitosis
   m_TagString: Item
@@ -143,3 +144,25 @@ MonoBehaviour:
   itemInformation: {fileID: 11400000, guid: e02c321783792dbd1bbe860c64572366, type: 2}
   isBuyable: 0
   meetsPickUpRequirements: 0
+--- !u!95 &-797629842239788551
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593469962012809071}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f9bb43e8bd5032c7b77003c4a92db34, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

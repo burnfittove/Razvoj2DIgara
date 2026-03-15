@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9027728834188692074}
   - component: {fileID: 4239524554178702232}
   - component: {fileID: 6836078435308626967}
+  - component: {fileID: -4354634825198542864}
   m_Layer: 0
   m_Name: Gas
   m_TagString: Item
@@ -144,3 +145,25 @@ MonoBehaviour:
   isBuyable: 0
   meetsPickUpRequirements: 0
   currentCharge: 0
+--- !u!95 &-4354634825198542864
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811422137312529846}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f9bb43e8bd5032c7b77003c4a92db34, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

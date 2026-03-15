@@ -16,10 +16,10 @@ MonoBehaviour:
   itemName: Evil Orb
   itemDescription: Belonged to a magician once\n-Deals 0.75 contact damage
   itemQuality: 1
-  isPersistantPassive: 0
+  isPersistantPassive: 1
   healAcquiredHealth: 0
   price: 1200
-  demonPrice: 8
+  vampirePrice: 8
   maxCharge: 0
   maxHealthDelta: 0
   speedDelta: 0

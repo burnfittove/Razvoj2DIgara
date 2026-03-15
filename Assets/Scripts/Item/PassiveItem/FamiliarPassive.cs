@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Item.PassiveItem
 {
@@ -17,7 +16,7 @@ namespace Item.PassiveItem
         {
             transform.position = player.transform.position;
             if (!itemInformation.familiarPrefab) return;
-            Instantiate(itemInformation.familiarPrefab, player.transform.position, player.transform.rotation, transform);
+            Instantiate(itemInformation.familiarPrefab, player.transform.position, Quaternion.identity, transform);
         }
     }
 }

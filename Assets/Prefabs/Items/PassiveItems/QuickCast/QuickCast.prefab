@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4747243453621349030}
   - component: {fileID: 3293542920622008434}
   - component: {fileID: 5856918720465000223}
+  - component: {fileID: 6534276483369625048}
   m_Layer: 0
   m_Name: QuickCast
   m_TagString: Item
@@ -143,3 +144,25 @@ MonoBehaviour:
   itemInformation: {fileID: 11400000, guid: 8e2e4a7cf69fb4b029fe31e1cdf28a65, type: 2}
   isBuyable: 0
   meetsPickUpRequirements: 0
+--- !u!95 &6534276483369625048
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586001984628955073}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f9bb43e8bd5032c7b77003c4a92db34, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6026268393050646691}
   - component: {fileID: 5502137809545500814}
   - component: {fileID: 8364044599554545582}
+  - component: {fileID: -8855894197427597358}
   m_Layer: 0
   m_Name: FeatherBoots
   m_TagString: Item
@@ -143,3 +144,25 @@ MonoBehaviour:
   itemInformation: {fileID: 11400000, guid: 542ad42ce641cea24b3a22c4a1de46c2, type: 2}
   isBuyable: 0
   meetsPickUpRequirements: 0
+--- !u!95 &-8855894197427597358
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112474819504677130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f9bb43e8bd5032c7b77003c4a92db34, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

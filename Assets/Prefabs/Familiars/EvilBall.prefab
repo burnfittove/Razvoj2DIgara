@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7927376917549529404}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 2208703988740019828, guid: 4c311adde5b6a477ca941fc32187d531, type: 3}
   m_Color: {r: 0.48246706, g: 0.59920895, b: 0.735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,9 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c3c60f0762e41a999eb03e2572596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EvilBallFamiliar
-  itemInformation: {fileID: 0}
-  isBuyable: 0
-  meetsPickUpRequirements: 0
   rotationSpeed: 200
   rotationPoint: {fileID: 7927376917549529404}
   contactDamage: 0.75
@@ -176,5 +173,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2.5, y: 0}
+  m_Offset: {x: 1.8, y: 0}
   m_Radius: 0.18
