@@ -4498,10 +4498,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedWizard
       objectReference: {fileID: 0}
-    - target: {fileID: 5083384929681522232, guid: 36364fd9c0b4ab4ecbe7ea8989d7ab04, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.1111112
-      objectReference: {fileID: 0}
     - target: {fileID: 7376459245241949256, guid: 36364fd9c0b4ab4ecbe7ea8989d7ab04, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
