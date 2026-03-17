@@ -20,13 +20,15 @@ namespace PlayerScripts
         [Header("Components")]
         [HideInInspector] public Rigidbody2D rb;
         public SpriteRenderer sr;
+        [HideInInspector] public Animator animator;
 
         private void Awake()
         {
             // # Components
             // ## Rigidbody
-            rb = GetComponent<Rigidbody2D>();
+            TryGetComponent(out rb);
             if (!sr) sr = GetComponentInChildren<SpriteRenderer>();
+            TryGetComponent(out animator);
         }
 
         private void OnEnable()
