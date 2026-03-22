@@ -9,6 +9,7 @@ namespace PlayerScripts.States
 
         protected override void OnEnter()
         {
+            base.OnEnter();
             p.animator.speed = Mathf.Log10(Mathf.Pow(PlayerInfo.Instance.Speed.value + 0.5f, 2)) + 1;
             p.animator.SetBool(IsWalking, true);
         }
@@ -25,7 +26,7 @@ namespace PlayerScripts.States
 
         protected override void OnExit()
         {
-            Rotate(p.MovementDirection);
+            base.OnExit();
             p.animator.SetBool(IsWalking, false);
         }
 

@@ -14,7 +14,6 @@ namespace Item
         public string itemDescription;
         public byte itemQuality;
         public bool isPersistantPassive;
-        public bool healAcquiredHealth;
         public int price;
         [FormerlySerializedAs("demonPrice")] public int vampirePrice;
         public int maxCharge;

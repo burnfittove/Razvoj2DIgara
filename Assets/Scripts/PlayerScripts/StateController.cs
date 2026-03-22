@@ -14,6 +14,7 @@ namespace PlayerScripts
         // States are public so that one state can reference another
         [HideInInspector] public readonly State idleState = new IdleState();
         [HideInInspector] public readonly State movementState = new MovementState(); // Start is called once before the first execution of Update after the MonoBehaviour is created
+        public readonly State deathState = new DeathState();
 
         private void Awake()
         {

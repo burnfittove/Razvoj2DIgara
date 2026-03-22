@@ -26,6 +26,7 @@ namespace PlayerScripts.Shooting
         protected override void OnUpdate()
         {
             if (p.IsFiring) Shoot(p.FireDirection);
+            if (PlayerInfo.Instance.Health.value <= 0) sc.ChangeState(sc.deathState);
         }
 
         public void Shoot(Vector2 direction)

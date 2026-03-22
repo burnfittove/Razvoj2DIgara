@@ -1,6 +1,4 @@
 using Events;
-using Unity.Properties;
-using UnityEditor.UI;
 using UnityEngine;
 
 namespace Enemies.States.Defaults

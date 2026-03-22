@@ -209,11 +209,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.037182093
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4305706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -251,6 +251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MikuMikuBeam (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -266,11 +270,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4360746453966490148, guid: 2a08f7d96487e7f93ba8c7ffd73503c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0015651584
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4360746453966490148, guid: 2a08f7d96487e7f93ba8c7ffd73503c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.8388143
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4360746453966490148, guid: 2a08f7d96487e7f93ba8c7ffd73503c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -308,6 +312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 8811422137312529846, guid: 2a08f7d96487e7f93ba8c7ffd73503c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -323,11 +331,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.037182093
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4305706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -364,6 +372,10 @@ PrefabInstance:
     - target: {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_Name
       value: MikuMikuBeam (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3829,13 +3841,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3938,10 +3954,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -12.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8683071078676381823, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -12.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8788887783419825345, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4020,13 +4032,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4077,13 +4093,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4134,13 +4154,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4189,11 +4213,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.037182093
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4305706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4974681911739465340, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4231,6 +4255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MikuMikuBeam
       objectReference: {fileID: 0}
+    - target: {fileID: 7738822406471534189, guid: 7b92914e722f96becb943b47bf42cc7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4248,13 +4276,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4303,11 +4335,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4360746453966490148, guid: 6577b068bb91830719c306f61eddaff0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0015651584
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4360746453966490148, guid: 6577b068bb91830719c306f61eddaff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7786338
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4360746453966490148, guid: 6577b068bb91830719c306f61eddaff0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4345,6 +4377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvilBall
       objectReference: {fileID: 0}
+    - target: {fileID: 8811422137312529846, guid: 6577b068bb91830719c306f61eddaff0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4362,13 +4398,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4419,13 +4459,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4476,13 +4520,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13496,13 +13544,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13553,13 +13605,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13689,13 +13745,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackAmulet (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1643235817626384187, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0039076805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575740171640071405, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13734,6 +13794,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5828f4d494a7e0ed78938989b2c3aedd, type: 3}
+--- !u!1001 &2140997795
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360746453966490148, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811422137312529846, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
+      propertyPath: m_Name
+      value: BloodBag
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c7f5ec779fd9df4ca59bedbe4d4eae0, type: 3}
 --- !u!1001 &6056780585222236414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13818,3 +13935,4 @@ SceneRoots:
   - {fileID: 2085538696}
   - {fileID: 93900930}
   - {fileID: 1140173755}
+  - {fileID: 2140997795}

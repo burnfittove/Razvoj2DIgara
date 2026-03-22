@@ -41,6 +41,7 @@ namespace Managers
         public int roomCounter;
         // Rewards
         private GameObject reward;
+        public string deathScene;
         
         private void Awake()
         {
@@ -196,6 +197,11 @@ namespace Managers
             var obj = GameObject.FindGameObjectWithTag("Hole");
             if (!obj) return;
             obj.GetComponent<Collider2D>().enabled = false;
+        }
+
+        public void ChangeToDeathScene()
+        {
+            SceneManager.LoadSceneAsync(deathScene);
         }
     }
 }

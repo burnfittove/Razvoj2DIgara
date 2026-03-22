@@ -80,6 +80,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/LoadRoom/LoadRoom.unity
     guid: ae9f7db8080dfb0978b33107e842522a
+  - enabled: 1
+    path: Assets/Scenes/Rooms/DeathScene.unity
+    guid: 512a5a7ca9cbcaef99cab7641ce7b16d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

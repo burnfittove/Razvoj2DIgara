@@ -58,5 +58,11 @@ namespace Saving
         {
             return File.Exists(mapper.GetSaveFilePath());
         }
+
+        public void DeleteSaveFile()
+        {
+            if (!SaveFileExists()) return;
+            File.Delete(mapper.GetSaveFilePath());
+        }
     }
 }

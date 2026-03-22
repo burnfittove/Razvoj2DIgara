@@ -9,6 +9,7 @@ namespace Managers
     {
         public string startRoomScene;
         public string loadScene;
+        public string mainMenuScene;
         private void Start()
         {
             GameEventManager.Instance.mainMenuEvents.OnStartGame += StartGame;
@@ -34,6 +35,21 @@ namespace Managers
         public void OnPressedLoadGame()
         {
             GameEventManager.Instance.mainMenuEvents.LoadGame();
+        }
+
+        public void ExitGame(bool afterDeath)
+        {
+            Application.Quit();
+            if (!afterDeath) return;
+            var temp = new SaveDataManager();
+            temp.DeleteSaveFile();
+        }
+
+        public void Go2MainMenu()
+        {
+            SceneManager.LoadScene(mainMenuScene);
+            var temp = new SaveDataManager();
+            temp.DeleteSaveFile();
         }
     }
 }
