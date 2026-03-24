@@ -8,6 +8,7 @@ namespace Managers
     {
         public float timeUntilSceneChange = 2.5f;
         private bool playerIsDead = false;
+        private bool hasLoaded = false;
 
         private void Start()
         {
@@ -18,8 +19,11 @@ namespace Managers
         {
             if (!playerIsDead) return;
             timeUntilSceneChange -= Time.deltaTime;
-            
-            if (timeUntilSceneChange <= 0) RoomManager.Instance.ChangeToDeathScene();
+
+            if (timeUntilSceneChange > 0) return;
+            if (hasLoaded) return;
+            RoomManager.Instance.ChangeToDeathScene();
+            hasLoaded = true;
         }
 
         private void PlayerDied()

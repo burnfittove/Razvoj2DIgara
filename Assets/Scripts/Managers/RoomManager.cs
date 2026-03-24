@@ -59,7 +59,7 @@ namespace Managers
             SceneManager.sceneLoaded += (_, _) =>
             {
                 // Set the item spawning position
-                var spawnPos = GameObject.FindGameObjectWithTag("Spawner").transform;
+                var spawnPos = GameObject.FindGameObjectWithTag("Spawner")?.transform;
                 if (spawnPos) spawnPosition = spawnPos;
                 
                 // Get all the enemies in the room

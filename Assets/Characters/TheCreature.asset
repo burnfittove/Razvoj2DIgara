@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScripts.PlayerInformationSO
   characterName: The Creature
   characterId: 1
-  health: 10
+  health: 1
   speed: 5
   damage: 3
   fireDelay: 4.2
