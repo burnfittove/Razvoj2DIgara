@@ -10,6 +10,7 @@ TagManager:
   - Spawner
   - Hole
   - UI
+  - Persistant
   layers:
   - Default
   - TransparentFX

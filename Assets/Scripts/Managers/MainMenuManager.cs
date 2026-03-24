@@ -1,3 +1,4 @@
+using System;
 using Events;
 using Saving;
 using UnityEngine;
@@ -10,6 +11,13 @@ namespace Managers
         public string startRoomScene;
         public string loadScene;
         public string mainMenuScene;
+
+        private void Awake()
+        {
+            var persistentGameObjects = GameObject.FindGameObjectWithTag("Persistant");
+            if (persistentGameObjects) Destroy(persistentGameObjects);
+        }
+
         private void Start()
         {
             GameEventManager.Instance.mainMenuEvents.OnStartGame += StartGame;

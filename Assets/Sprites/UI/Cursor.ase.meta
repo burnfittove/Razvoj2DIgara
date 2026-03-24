@@ -130,15 +130,15 @@ ScriptedImporter:
   - name: Cursor
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 57
-      height: 57
+      width: 56
+      height: 56
     spriteID: 8350ec27c844a4ae08c607880fd47c3f
     spriteBone: []
     spriteOutline: []
@@ -169,8 +169,8 @@ ScriptedImporter:
       cellRect:
         x: 4
         y: 4
-        width: 57
-        height: 57
+        width: 56
+        height: 56
       spriteId: 8350ec27c844a4ae08c607880fd47c3f
     linkedCells: []
     tileCells: []
@@ -206,4 +206,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 128, y: 128}
+  previousTextureSize: {x: 64, y: 64}

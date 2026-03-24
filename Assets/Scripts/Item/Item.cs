@@ -1,8 +1,7 @@
 using System;
-using Events;
 using PlayerScripts;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Item
 {
@@ -15,17 +14,25 @@ namespace Item
         protected SpriteRenderer spriteRenderer;
         protected Collider2D coll;
         protected Player player;
+        private Light2D itemLight;
 
         protected virtual void Awake()
         {
             // Get references
             TryGetComponent(out spriteRenderer);
             TryGetComponent(out coll);
+            itemLight = GetComponentInChildren<Light2D>();
             GameObject.FindWithTag("Player").TryGetComponent(out player);
             
             if (itemInformation.price == 0) itemInformation.price = itemInformation.itemQuality * 1000;
             if (itemInformation.vampirePrice == 0) itemInformation.vampirePrice = itemInformation.itemQuality * 10;
             meetsPickUpRequirements = true;
+        }
+
+        private void Start()
+        {
+            if (itemLight) itemLight.color = spriteRenderer.color;
+            Debug.Log(itemLight);
         }
 
         protected abstract void OnItemPickedUp();
@@ -34,6 +41,7 @@ namespace Item
         {
             if (!other.CompareTag("Player")) return;
             if (!meetsPickUpRequirements) return;
+            if (itemLight) itemLight.enabled = false;
             OnItemPickedUp();
         }
 
