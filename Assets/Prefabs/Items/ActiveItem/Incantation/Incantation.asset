@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a50a508d2436393050b60a47b2dc4, type: 3}
   m_Name: Incantation
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
-  itemId: 27
+  itemId: 28
   itemName: Incantation
   itemDescription: Strength 2 summon\n-Increases damage by 2 for the current room
   itemQuality: 2
   isPersistantPassive: 0
-  healAcquiredHealth: 0
   price: 2500
-  demonPrice: 20
+  vampirePrice: 20
   maxCharge: 4
   maxHealthDelta: 0
   speedDelta: 0
@@ -35,3 +34,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 0}

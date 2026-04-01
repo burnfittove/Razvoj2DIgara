@@ -136,7 +136,7 @@ namespace Enemies
         private void CalculateChance2SpawnSoul()
         {
             // Get a chance from 0 to baseMaxSoulSpawnChance
-            var chance = Random.Range(0, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.value / 1.5f);
+            var chance = Random.Range(0 + PlayerInfo.Instance.soulChanceIncrease, enemyInfo.baseMaxSoulSpawnChance + PlayerInfo.Instance.Luck.value / 1.5f);
             // If the chance is greater than the player's luck, do nothing
             if (chance > PlayerInfo.Instance.Luck.value) return;
             // Otherwise, create a soul to spawn

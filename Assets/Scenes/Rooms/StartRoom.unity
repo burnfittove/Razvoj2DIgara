@@ -3698,6 +3698,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2792752146844192052, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4290167557193412681, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
       propertyPath: m_Name
       value: PersistantGameObjects
@@ -3827,7 +3831,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 820c0fb90f4042ace94fe5c66ccabb75, type: 2}
+  - {fileID: 2100000, guid: 65629f52b8aa359f089d6604db890313, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

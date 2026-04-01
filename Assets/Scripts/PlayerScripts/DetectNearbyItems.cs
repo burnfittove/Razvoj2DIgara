@@ -12,7 +12,8 @@ namespace PlayerScripts
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Item")) return;
-            nearbyItemSet.Add(other.GetComponent<Item.Item>());
+            other.TryGetComponent(out Item.Item item);
+            if (item) nearbyItemSet.Add(item);
         }
 
         private Item.Item GetNearestItem()

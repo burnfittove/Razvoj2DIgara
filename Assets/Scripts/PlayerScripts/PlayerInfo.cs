@@ -45,6 +45,7 @@ namespace PlayerScripts
         private float maxMultiplier;
         [Header("Active item")]
         public GameObject ActiveItem { get; set; }
+        [Header("Chances")] public float soulChanceIncrease;
         
         
         private void Awake()

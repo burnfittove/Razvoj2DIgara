@@ -19,6 +19,8 @@ namespace Events
         {
             if (Instance != null && Instance != this) Debug.LogWarning("Multiple instances of GameEventManager detected!");
             Instance = this;
+            
+            Cursor.visible = false;
 
             // Initialize events
             inputEvents = new InputEvents();
