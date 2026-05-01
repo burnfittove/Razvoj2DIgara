@@ -40,7 +40,7 @@ namespace Managers.Room
             // ##### DEBUG #####
             if (hardCodedNextScene != "")
             {
-                SceneManager.LoadScene(hardCodedNextScene);
+                SceneManager.LoadSceneAsync(hardCodedNextScene);
                 return;
             }
             // #################

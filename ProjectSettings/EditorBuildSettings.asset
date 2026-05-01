@@ -83,6 +83,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/DeathScene.unity
     guid: 512a5a7ca9cbcaef99cab7641ce7b16d
+  - enabled: 1
+    path: Assets/Scenes/Rooms/FinalRoom.unity
+    guid: 319f396e83f6d4c68a77cd68abee3a34
+  - enabled: 1
+    path: Assets/Scenes/Rooms/WinScene.unity
+    guid: 5283959d3bd574aacacbbd1c3ead2ae9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

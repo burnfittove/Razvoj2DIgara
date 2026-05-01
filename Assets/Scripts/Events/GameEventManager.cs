@@ -17,7 +17,11 @@ namespace Events
 
         private void Awake()
         {
-            if (Instance != null && Instance != this) Debug.LogWarning("Multiple instances of GameEventManager detected!");
+            if (Instance != null && Instance != this)
+            {
+                Debug.LogWarning("Multiple instances of GameEventManager detected!");
+                Destroy(gameObject);
+            }
             Instance = this;
             
             Cursor.visible = false;

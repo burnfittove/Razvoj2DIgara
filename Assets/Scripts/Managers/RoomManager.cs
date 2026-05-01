@@ -39,6 +39,8 @@ namespace Managers
         [SerializeField] private int shopAmount = 1;
         [SerializeField] private int shopFrequency = 15; // Every nth room will be an item room
         public int roomCounter;
+        public string finalRoom = "finalRoom";
+        public int totalRooms = 125;
         // Rewards
         private GameObject reward;
         public string deathScene;
@@ -144,6 +146,12 @@ namespace Managers
 
         private void ChangeRoom()
         {
+            if (roomCounter == totalRooms)
+            {
+                SceneManager.LoadSceneAsync(finalRoom);
+                return;
+            }
+            
             if (roomCounter == 0)
             {
                 LoadRoomType(regularRoomName, regularRoomAmount);
