@@ -10,6 +10,7 @@ namespace Item.ActiveItem
         public int currentCharge;
         protected override void OnItemPickedUp()
         {
+            base.OnItemPickedUp();
             GameEventManager.Instance.itemEvents.ActiveItemAcquired(gameObject);
             GameEventManager.Instance.roomEvents.OnRoomCleared += IncreaseCharge;
             HideItem();

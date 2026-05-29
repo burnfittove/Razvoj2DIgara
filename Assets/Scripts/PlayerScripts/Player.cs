@@ -22,6 +22,9 @@ namespace PlayerScripts
         public SpriteRenderer sr;
         [HideInInspector] public Animator animator;
 
+        public AudioClip hurtSound;
+        public AudioClip deathSound;
+
         private void Awake()
         {
             // # Components
@@ -82,6 +85,9 @@ namespace PlayerScripts
             
             // Take damage
             GameEventManager.Instance.attributeUpdateEvents.HealthChange(-damage);
+            
+            // Make sound
+            GameEventManager.Instance.audioEvents.PlaySound(hurtSound);
             
             // Set invincibility timer
             PlayerInfo.Instance.InvincibilityDuration.UpdateValue(playerInformation.invincibilityDuration);

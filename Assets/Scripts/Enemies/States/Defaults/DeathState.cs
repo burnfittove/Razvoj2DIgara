@@ -8,6 +8,9 @@ namespace Enemies.States.Defaults
     {
         protected override void OnEnter()
         {
+            // Play sound
+            GameEventManager.Instance.audioEvents.PlaySoundWithRandomPitch(enemy.deathSound);
+            
             // Disable the navmesh agent
             // enemy.navMeshAgent.isStopped = true;
             enemy.navMeshAgent.enabled = false;

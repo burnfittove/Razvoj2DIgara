@@ -8,6 +8,7 @@ namespace PlayerScripts.States
         protected override void OnEnter()
         {
             GameEventManager.Instance.miscEvents.PlayerDied();
+            GameEventManager.Instance.audioEvents.PlaySound(p.deathSound);
             
             // Dim the player's color and rotate the sprite
             p.sr.color = new Color(0.4f, 0.4f, 0.4f, 0.7f);

@@ -1,4 +1,5 @@
 using System;
+using Events;
 using PlayerScripts;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -35,7 +36,10 @@ namespace Item
             Debug.Log(itemLight);
         }
 
-        protected abstract void OnItemPickedUp();
+        protected virtual void OnItemPickedUp()
+        {
+            GameEventManager.Instance.audioEvents.PlaySound(GameEventManager.Instance.audioEvents.GetItemSound());
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {

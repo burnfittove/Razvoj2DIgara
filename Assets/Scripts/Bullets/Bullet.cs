@@ -1,3 +1,4 @@
+using Events;
 using UnityEngine;
 
 namespace Bullets
@@ -12,6 +13,7 @@ namespace Bullets
         protected float lifetime;
         protected IDamageable damageable;
         private Vector3 baseScale;
+        public AudioClip disappearSound;
 
         private void Awake()
         {
@@ -66,12 +68,16 @@ namespace Bullets
         {
             lifetime -= Time.deltaTime * 10;
 
-            if (lifetime <= 0) gameObject.SetActive(false);
+            if (lifetime > 0) return;
+            GameEventManager.Instance.audioEvents.PlaySoundWithRandomPitch(disappearSound);
+            gameObject.SetActive(false);
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Wall")) gameObject.SetActive(false);
+            if (!other.CompareTag("Wall")) return;
+            GameEventManager.Instance.audioEvents.PlaySoundWithRandomPitch(disappearSound);
+            gameObject.SetActive(false);
         }
     }
 }

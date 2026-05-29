@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Currencies.Souls.Soul
   value: 1
   triggerCol: {fileID: 8178483895198099490}
+  soulPickupSound: {fileID: 8300000, guid: e5e00180c8f473b60a0be46e05440c76, type: 3}
 --- !u!58 &8178483895198099490
 CircleCollider2D:
   m_ObjectHideFlags: 0

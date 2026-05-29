@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b36414cbd34e84bfc274706a4b041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
+  disappearSound: {fileID: 8300000, guid: b22809af7b1eb8018acae684eabcc17c, type: 3}
 --- !u!58 &6819025381669620286
 CircleCollider2D:
   m_ObjectHideFlags: 0

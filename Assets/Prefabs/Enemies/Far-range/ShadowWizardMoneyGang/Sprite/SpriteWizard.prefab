@@ -147,6 +147,8 @@ MonoBehaviour:
   nickelChance: 40
   dimeChance: 50
   quarterChance: 120
+  hurtSound: {fileID: 8300000, guid: 2098f7f43b992fbe3a69f05c944bfadc, type: 3}
+  deathSound: {fileID: 8300000, guid: cb883e9be604a26ffa9bc1bc99a5c7ae, type: 3}
 --- !u!95 &4292199223974191010
 Animator:
   serializedVersion: 7

@@ -418,6 +418,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   sr: {fileID: 5904675299020712257}
   animator: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: 7630b2e70123b6100940a68b8e2e7d80, type: 3}
+  deathSound: {fileID: 8300000, guid: 804da2fee4da0be3885dceda126eb68c, type: 3}
 --- !u!114 &737676663174281897
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Currencies.Money.Coin
   value: 100
   triggerCol: {fileID: 8178483895198099490}
+  coinPickupSound: {fileID: 8300000, guid: ea8e1ce24d4a2667c8662ce9e5715b92, type: 3}
 --- !u!58 &8178483895198099490
 CircleCollider2D:
   m_ObjectHideFlags: 0

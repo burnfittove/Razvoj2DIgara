@@ -39,6 +39,9 @@ namespace Enemies
         [SerializeField] private int nickelChance = 30;
         [SerializeField] private int dimeChance = 50;
         [SerializeField] private int quarterChance = 100;
+
+        public AudioClip hurtSound;
+        public AudioClip deathSound;
         
         protected virtual void Awake()
         {
@@ -112,6 +115,7 @@ namespace Enemies
         
         public void TakeDamage(float damage)
         {
+            GameEventManager.Instance.audioEvents.PlaySound(hurtSound);
             Health.UpdateValue(-damage);
         }
 
@@ -121,7 +125,7 @@ namespace Enemies
             if (InvincibilityDuration.value > 0) return;
             
             // Take contact damage
-            Health.UpdateValue(-damage);
+            TakeDamage(damage);
             
             // Set invincibility timer
             InvincibilityDuration.UpdateValue(enemyInfo.invincibilityDuration);

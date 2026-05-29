@@ -17,6 +17,7 @@ namespace Item.PassiveItem
         /// </summary>
         protected override void OnItemPickedUp()
         {
+            base.OnItemPickedUp();
             if (!itemInformation.isPersistantPassive) Destroy(gameObject);
             HideItem();
             transform.SetParent(player.transform);

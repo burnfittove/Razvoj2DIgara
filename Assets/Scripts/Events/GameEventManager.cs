@@ -14,6 +14,7 @@ namespace Events
         public RoomEvents roomEvents;
         public MainMenuEvents mainMenuEvents;
         public MiscEvents miscEvents;
+        public AudioEvents audioEvents;
 
         private void Awake()
         {
@@ -34,6 +35,7 @@ namespace Events
             roomEvents = new RoomEvents();
             mainMenuEvents = new MainMenuEvents();
             miscEvents = new MiscEvents();
+            audioEvents = new AudioEvents();
         }
     }
 }
