@@ -1,7 +1,4 @@
-using Enemies;
-using Events;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 
 namespace Bullets
 {
