@@ -8,6 +8,8 @@ namespace Events
         public event Action<AudioClip> OnPlaySound;
         public event Action<AudioClip> OnPlaySoundWithRandomPitch;
         public event Func<AudioClip> OnGetItemSound;
+        public event Action OnPlayShopMusic;
+        public event Action OnPlayBattleMusic;
 
         public virtual void PlaySound(AudioClip obj)
         {
@@ -22,6 +24,16 @@ namespace Events
         public virtual void PlaySoundWithRandomPitch(AudioClip obj)
         {
             OnPlaySoundWithRandomPitch?.Invoke(obj);
+        }
+
+        public virtual void PlayShopMusic()
+        {
+            OnPlayShopMusic?.Invoke();
+        }
+
+        public virtual void PlayBattleMusic()
+        {
+            OnPlayBattleMusic?.Invoke();
         }
     }
 }

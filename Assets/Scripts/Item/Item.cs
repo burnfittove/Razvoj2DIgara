@@ -39,6 +39,8 @@ namespace Item
         protected virtual void OnItemPickedUp()
         {
             GameEventManager.Instance.audioEvents.PlaySound(GameEventManager.Instance.audioEvents.GetItemSound());
+            TryGetComponent(out Animator animator);
+            if (animator) animator.enabled = false;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

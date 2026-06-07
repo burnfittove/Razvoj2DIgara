@@ -3698,12 +3698,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2646215384898262517, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646215384898262517, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: bae189ec999a9c35d9fa61f590fdb2da, type: 3}
     - target: {fileID: 4290167557193412681, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
       propertyPath: m_Name
       value: PersistantGameObjects
       objectReference: {fileID: 0}
     - target: {fileID: 8403679621039827370, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
-      propertyPath: itemRoomFrequency
+      propertyPath: shopFrequency
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8788887783419825345, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
@@ -3713,8 +3721,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8124487922712288216, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917781937}
   m_SourcePrefab: {fileID: 100100000, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
+--- !u!1 &917781936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8124487922712288216, guid: b3a796ae1190c4d98bf30fd77f490b8c, type: 3}
+  m_PrefabInstance: {fileID: 917781935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &917781937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917781936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14895c5ab190c9883b383114f9ed03d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicManager
+  introBattleMusic: {fileID: 8300000, guid: bae189ec999a9c35d9fa61f590fdb2da, type: 3}
+  loopBattleMusic: {fileID: 8300000, guid: 141e843a0d113ddb0bf275754416774a, type: 3}
+  introShopMusic: {fileID: 8300000, guid: 3587a1af5c7c82089921f3a779749f4a, type: 3}
+  loopShopMusic: {fileID: 8300000, guid: bbb680d803388db4889f3f9ce1ad857a, type: 3}
 --- !u!1001 &926889380
 PrefabInstance:
   m_ObjectHideFlags: 0

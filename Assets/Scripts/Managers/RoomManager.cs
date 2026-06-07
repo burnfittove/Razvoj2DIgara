@@ -162,6 +162,7 @@ namespace Managers
             if (roomCounter % shopFrequency == 0)
             {
                 LoadRoomType(shopName, shopAmount);
+                GameEventManager.Instance.audioEvents.PlayShopMusic();
                 return;
             }
             
@@ -174,6 +175,7 @@ namespace Managers
             
             // Change the scene to a RegularRoom
             LoadRoomType(regularRoomName, regularRoomAmount);
+            GameEventManager.Instance.audioEvents.PlayBattleMusic();
         }
 
         private void LoadRoomType(string roomType, int roomAmount)
