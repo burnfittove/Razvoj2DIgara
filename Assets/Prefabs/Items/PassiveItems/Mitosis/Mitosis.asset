@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 10
   itemName: Mitosis
-  itemDescription: Double up!\n-Health +25
+  itemDescription: Double up!\n-Health +15
   itemQuality: 2
   isPersistantPassive: 0
-  healAcquiredHealth: 1
   price: 2850
-  demonPrice: 20
+  vampirePrice: 20
   maxCharge: 0
-  maxHealthDelta: 25
+  maxHealthDelta: 15
   speedDelta: 0
   damageDelta: 0
   fireDelayDelta: 0
@@ -35,3 +34,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 0}

@@ -24,8 +24,6 @@ namespace Events
                 Destroy(gameObject);
             }
             Instance = this;
-            
-            Cursor.visible = false;
 
             // Initialize events
             inputEvents = new InputEvents();

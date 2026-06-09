@@ -10,6 +10,7 @@ namespace Events
         public event Func<AudioClip> OnGetItemSound;
         public event Action OnPlayShopMusic;
         public event Action OnPlayBattleMusic;
+        public event Action OnStopMusic;
 
         public virtual void PlaySound(AudioClip obj)
         {
@@ -34,6 +35,12 @@ namespace Events
         public virtual void PlayBattleMusic()
         {
             OnPlayBattleMusic?.Invoke();
+        }
+
+
+        public virtual void StopMusic()
+        {
+            OnStopMusic?.Invoke();
         }
     }
 }

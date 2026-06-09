@@ -1,4 +1,3 @@
-using System;
 using Events;
 using UnityEngine;
 
@@ -7,8 +6,8 @@ namespace Managers
     public class PlayerManager : MonoBehaviour
     {
         public float timeUntilSceneChange = 2.5f;
-        private bool playerIsDead = false;
-        private bool hasLoaded = false;
+        private bool playerIsDead;
+        private bool hasLoaded;
 
         private void Start()
         {
@@ -22,6 +21,7 @@ namespace Managers
 
             if (timeUntilSceneChange > 0) return;
             if (hasLoaded) return;
+            GameEventManager.Instance.audioEvents.StopMusic();
             RoomManager.Instance.ChangeToDeathScene();
             hasLoaded = true;
         }

@@ -23,5 +23,11 @@ namespace Events
         {
             OnChangeRoom?.Invoke();
         }
+        
+        public event Action<int> OnRoomCounterDisplay;
+        public void RoomCounterDisplay(int room)
+        {
+            OnRoomCounterDisplay?.Invoke(room);
+        }
     }
 }

@@ -743,8 +743,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Magical Creature Feature
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
-  m_sharedMaterial: {fileID: 2460613144202929870, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -768,8 +768,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64
-  m_fontSizeBase: 64
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1242,6 +1242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260090844}
   - component: {fileID: 1260090845}
+  - component: {fileID: 1260090846}
   m_Layer: 0
   m_Name: GlobalEventManager
   m_TagString: Untagged
@@ -1276,6 +1277,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d732e98fcc64ea8b9d7fc1c7a2bd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventManager
+--- !u!114 &1260090846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260090843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66fcde142801d4d0a845220df15bdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetCursorState
+  _cursorVisible: 1
 --- !u!1 &1387592924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,8 +1349,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Quit \u2639\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
-  m_sharedMaterial: {fileID: 2460613144202929870, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1360,8 +1374,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1610,8 +1624,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
-  m_sharedMaterial: {fileID: 2460613144202929870, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1635,8 +1649,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1746,8 +1760,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ft. The Creature
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dabca936f02d6b00d9cf4160f1e0f5a0, type: 2}
-  m_sharedMaterial: {fileID: 8745638605722026437, guid: dabca936f02d6b00d9cf4160f1e0f5a0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2037,8 +2051,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
-  m_sharedMaterial: {fileID: 2460613144202929870, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2062,8 +2076,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

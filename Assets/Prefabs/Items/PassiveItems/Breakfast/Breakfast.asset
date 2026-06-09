@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 18
   itemName: Breakfast
-  itemDescription: Every good roguelike needs a food item\n- Health +10
+  itemDescription: Every good roguelike needs a food item\n- Health +8
   itemQuality: 1
   isPersistantPassive: 0
-  healAcquiredHealth: 0
   price: 1000
-  demonPrice: 10
+  vampirePrice: 10
   maxCharge: 0
-  maxHealthDelta: 10
+  maxHealthDelta: 8
   speedDelta: 0
   damageDelta: 0
   fireDelayDelta: 0
@@ -35,3 +34,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 0}

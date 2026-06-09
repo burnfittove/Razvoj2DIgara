@@ -14,15 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 12
   itemName: Reverse Technique
-  itemDescription: Positive energy\n-Health +20\nHas a Luck/111 chance to heal 5
-    HP when entering a hostile room
-  itemQuality: 2
+  itemDescription: Positive energy\n-Health +2\nHas a Luck/111 chance to heal 5 HP
+    when entering a hostile room
+  itemQuality: 1
   isPersistantPassive: 1
-  healAcquiredHealth: 1
   price: 3271
-  demonPrice: 30
+  vampirePrice: 30
   maxCharge: 0
-  maxHealthDelta: 20
+  maxHealthDelta: 2
   speedDelta: 0
   damageDelta: 0
   fireDelayDelta: 0
@@ -36,3 +35,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 0}

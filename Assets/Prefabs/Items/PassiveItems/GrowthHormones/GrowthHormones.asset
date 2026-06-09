@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInformationSO
   itemId: 5
   itemName: Growth Hormones
-  itemDescription: Shortie\n-Health +10\n-Speed -0.2\n-Fire Delay -0.2
+  itemDescription: Shortie\n-Health +5\n-Speed -0.2\n-Fire Delay -0.2
   itemQuality: 2
   isPersistantPassive: 0
-  healAcquiredHealth: 1
   price: 2800
-  demonPrice: 20
-  maxHealthDelta: 10
+  vampirePrice: 20
+  maxCharge: 0
+  maxHealthDelta: 5
   speedDelta: -0.2
   damageDelta: 0
   fireDelayDelta: -0.2
@@ -34,3 +34,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 0}

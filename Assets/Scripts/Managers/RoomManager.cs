@@ -39,6 +39,7 @@ namespace Managers
         [SerializeField] private int shopAmount = 1;
         [SerializeField] private int shopFrequency = 15; // Every nth room will be an item room
         public int roomCounter;
+        public int displayableRoomCounter;
         public string finalRoom = "finalRoom";
         public int totalRooms = 125;
         // Rewards
@@ -155,6 +156,8 @@ namespace Managers
             if (roomCounter == 0)
             {
                 LoadRoomType(regularRoomName, regularRoomAmount);
+                displayableRoomCounter++;
+                GameEventManager.Instance.roomEvents.RoomCounterDisplay(displayableRoomCounter);
                 return;
             }
             
@@ -175,6 +178,8 @@ namespace Managers
             
             // Change the scene to a RegularRoom
             LoadRoomType(regularRoomName, regularRoomAmount);
+            displayableRoomCounter++;
+            GameEventManager.Instance.roomEvents.RoomCounterDisplay(displayableRoomCounter);
             GameEventManager.Instance.audioEvents.PlayBattleMusic();
         }
 
@@ -198,6 +203,8 @@ namespace Managers
         public void LoadData(GameData gameData)
         {
             roomCounter = gameData.currentRoomCount;
+            displayableRoomCounter = gameData.currentDisplayableRoomCount;
+            GameEventManager.Instance.roomEvents.RoomCounterDisplay(displayableRoomCounter);
         }
         
         

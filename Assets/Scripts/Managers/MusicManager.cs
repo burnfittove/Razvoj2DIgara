@@ -25,13 +25,12 @@ public class MusicManager : MonoBehaviour
     {
         GameEventManager.Instance.audioEvents.OnPlayBattleMusic += PlayBattleMusic;
         GameEventManager.Instance.audioEvents.OnPlayShopMusic += PlayShopMusic;
+        GameEventManager.Instance.audioEvents.OnStopMusic += StopMusic;
     }
 
     private void PlayBattleMusic()
     {
-        Debug.Log("Play Battle Music");
         if (_audioSource.resource == introBattleMusic || _audioSource.resource == loopBattleMusic) return;
-        Debug.Log("Played Battle Music");
         
         _audioSource.resource = introBattleMusic;
         _audioSource.Play();
@@ -49,6 +48,11 @@ public class MusicManager : MonoBehaviour
         isIntroFinished = false;
     }
 
+    private void StopMusic()
+    {
+        _audioSource.Stop();
+    }
+    
     private void Update()
     {
         if (_audioSource.isPlaying) return;

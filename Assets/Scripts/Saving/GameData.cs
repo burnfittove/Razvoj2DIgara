@@ -25,6 +25,7 @@ namespace Saving
         // Possessed items
         public List<int> itemIds;
         public int currentRoomCount;
+        public int currentDisplayableRoomCount;
         public int activeItemCharge;
     }
 } //mjau :3

@@ -10,7 +10,6 @@ namespace Saving
 
         public void SaveGame(GameData data)
         {
-            Debug.Log(JsonUtility.ToJson(data)); // REMOVE THIS!!!!!!!!!!!!!!!!!!!!!
             // Turn the GameData object into JSON
             var json = JsonUtility.ToJson(data);
             // Write the JSON into the savedata file

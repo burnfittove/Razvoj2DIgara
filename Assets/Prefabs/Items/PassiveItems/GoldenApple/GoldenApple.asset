@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 25
   itemName: Golden Apple
-  itemDescription: Doctor joke.\n-Health +20\n-Speed +0.25
+  itemDescription: Doctor joke.\n-Health +15\n-Speed +0.25
   itemQuality: 2
   isPersistantPassive: 0
-  healAcquiredHealth: 1
   price: 2500
-  demonPrice: 0
+  vampirePrice: 0
   maxCharge: 0
-  maxHealthDelta: 20
+  maxHealthDelta: 15
   speedDelta: 0.25
   damageDelta: 0
   fireDelayDelta: 0
@@ -35,3 +34,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 0}

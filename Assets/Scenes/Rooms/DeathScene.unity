@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 113009341}
   - component: {fileID: 113009340}
   - component: {fileID: 113009344}
+  - component: {fileID: 113009345}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -235,6 +236,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b806980774a54b77390a6dd61c12b32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GUI.ClearScreen
+--- !u!114 &113009345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113009339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66fcde142801d4d0a845220df15bdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetCursorState
+  _cursorVisible: 1
 --- !u!1 &273719767
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,8 +456,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
-  m_sharedMaterial: {fileID: 2460613144202929870, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -467,8 +481,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -778,8 +792,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -55}
-  m_SizeDelta: {x: 0, y: -110}
+  m_AnchoredPosition: {x: 0, y: -60}
+  m_SizeDelta: {x: 0, y: -120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975012490
 MonoBehaviour:
@@ -803,8 +817,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: lol
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c79f8d320492ec87f9678703b4410df9, type: 2}
-  m_sharedMaterial: {fileID: -4078815181998329379, guid: c79f8d320492ec87f9678703b4410df9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -828,8 +842,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -940,8 +954,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You Died
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c79f8d320492ec87f9678703b4410df9, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e9243f9c04620b84fa4d4d8d66ed2b63, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -965,8 +979,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 78
-  m_fontSizeBase: 78
+  m_fontSize: 126
+  m_fontSizeBase: 126
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1113,8 +1127,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Quit \u2639\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
-  m_sharedMaterial: {fileID: 2460613144202929870, guid: ea3f42603172bc6179092d75831df1ad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
+  m_sharedMaterial: {fileID: 2649196053681174898, guid: 16c9fa9427572e1df9bdde7d1ed5ff7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1138,8 +1152,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

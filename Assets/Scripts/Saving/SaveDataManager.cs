@@ -37,6 +37,7 @@ namespace Saving
                 canFly = PlayerInfo.Instance.canFly,
                 itemIds = itemIds,
                 currentRoomCount = RoomManager.Instance.roomCounter,
+                currentDisplayableRoomCount = RoomManager.Instance.displayableRoomCounter,
                 activeItemCharge = PlayerInfo.Instance.ActiveItem is null ? 0 : PlayerInfo.Instance.ActiveItem.GetComponent<ActiveItem>().currentCharge
             };
         }

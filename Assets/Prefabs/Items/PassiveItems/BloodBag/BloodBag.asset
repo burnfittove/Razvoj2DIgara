@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemInformationSo
   itemId: 20
   itemName: Blood Bag
-  itemDescription: Drink up!\n- Health +20
+  itemDescription: Drink up!\n- Health +10
   itemQuality: 2
   isPersistantPassive: 0
-  healAcquiredHealth: 0
   price: 2000
-  demonPrice: 20
+  vampirePrice: 20
   maxCharge: 0
-  maxHealthDelta: 20
+  maxHealthDelta: 10
   speedDelta: 0
   damageDelta: 0
   fireDelayDelta: 0
@@ -35,3 +34,4 @@ MonoBehaviour:
   fireDelayMultiplierDelta: 0
   rangeMultiplierDelta: 0
   luckMultiplierDelta: 0
+  familiarPrefab: {fileID: 0}
