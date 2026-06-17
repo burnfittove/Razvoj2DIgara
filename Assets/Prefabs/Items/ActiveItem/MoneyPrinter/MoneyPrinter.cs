@@ -1,8 +1,10 @@
+using System;
 using Currencies.Money;
 using Events;
 using Managers;
 using PlayerScripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Prefabs.Items.ActiveItem.MoneyPrinter
 {
@@ -16,7 +18,8 @@ namespace Prefabs.Items.ActiveItem.MoneyPrinter
             // If the chance is lower than the player's luck, get a penny from the RewardManager
             if (chance > PlayerInfo.Instance.Luck.value) return;
             var obj = RewardManager.Instance.GetRewardMoney(MoneyValue.Dime);
-            obj.transform.position = (Vector2)player.transform.position + new Vector2(Random.Range(1.2f, 1.8f), Random.Range(1.2f, 1.8f));
+            Random.InitState(DateTime.Now.Millisecond);
+            obj.transform.position = (Vector2)player.transform.position + new Vector2(Random.Range(1.25f, 1.4f), Random.Range(1.25f, 1.4f));
             obj.SetActive(true);
         }
 

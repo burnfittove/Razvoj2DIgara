@@ -24,5 +24,5 @@ MonoBehaviour:
   sightRange: 10
   shotSpeed: 0
   invincibilityDuration: 0.1
-  baseMaxSoulSpawnChance: 10
-  baseMaxMoneySpawnChance: 6
+  baseMaxSoulSpawnChance: 9
+  baseMaxMoneySpawnChance: 5

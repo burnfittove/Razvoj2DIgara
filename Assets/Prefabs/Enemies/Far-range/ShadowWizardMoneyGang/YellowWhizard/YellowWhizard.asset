@@ -22,7 +22,7 @@ MonoBehaviour:
   fireDelay: 1
   range: 7
   sightRange: 10
-  shotSpeed: 8
+  shotSpeed: 6
   invincibilityDuration: 0.1
-  baseMaxSoulSpawnChance: 8
+  baseMaxSoulSpawnChance: 6
   baseMaxMoneySpawnChance: 4

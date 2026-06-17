@@ -79,7 +79,7 @@ namespace Prefabs.Items.PassiveItems.Bat
             {
                 // If the distance between an enemy transform and the bat is smaller than the previously-defined smallest distance, then it becomes the smallest distance
                 var distance = hit.distance;
-                if (distance < minDistance.magnitude) minDistance = (Vector2)batPosition.position - hit.point;
+                if (distance < minDistance.magnitude) minDistance = hit.point;
             }
 
             return minDistance;

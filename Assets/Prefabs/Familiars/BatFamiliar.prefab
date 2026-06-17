@@ -142,7 +142,7 @@ MonoBehaviour:
   fireDelayBuffer: 0
   damage: 2
   shotSpeed: 4
-  range: 8
+  range: 15
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512

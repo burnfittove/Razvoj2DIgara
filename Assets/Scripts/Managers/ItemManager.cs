@@ -41,6 +41,8 @@ namespace Managers
 
             GameEventManager.Instance.itemEvents.OnGetItemById += GetItemById;
             GameEventManager.Instance.itemEvents.OnGetItemFromPool += GetItemFromPool;
+            
+            Random.InitState(DateTime.Now.Millisecond);
         }
 
         // Returns an item by its ID

@@ -220,5 +220,11 @@ namespace Managers
         {
             SceneManager.LoadSceneAsync(deathScene);
         }
+
+        public void DebugTesting()
+        {
+            roomCounter += 115;
+            displayableRoomCounter += 95;
+        }
     }
 }
